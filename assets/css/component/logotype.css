@@ -1,0 +1,105 @@
+/*  _____     _      _   _    ____  __   __
+    |  ___|  / \    | \ | |  / ___| \ \ / /
+    | |_    / _ \   |  \| | | |      \ V /
+    |  _|  / ___ \  | |\  | | |___    | |
+    |_|   /_/   \_\ |_| \_|  \____|   |_|
+
+    <svg id='logotype__svg'
+        xmlns...
+        width='<!--estimated width-->'
+        >
+        <text id='logotype__svg__text'y='74%'>
+         FANCY LOGOTYPE
+        </text>
+    </svg>
+
+    simplified from :
+    https://codepen.io/alvarotrigo/pen/rNbxNWg */
+
+#logo {
+    --h: calc(3.33rem - 10pt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5pt 0;
+    height: var(--h);
+}
+
+#logo > * {
+    height: var(--h);
+}
+
+#logo #logotype__text {
+    --anm: dash 30s infinite alternate;
+    text-transform: uppercase;
+    letter-spacing: 0.2ex;
+    font-family: var(--sf), sans-serif;
+    font-size: calc(27pt * var(--fontScale));
+    font-weight: 700;
+    stroke: var(--off);
+    stroke-width: 1px;
+}
+
+#logo:focus #logotype__text {
+    --anm: unset;
+    outline-color: var(--off);
+    stroke: none;
+}
+
+@-webkit-keyframes dash {
+    0% {
+        fill:var(--off);
+        stroke-dasharray: 0 50%;
+        stroke-dashoffset: 20%;
+    }
+
+    100% {
+        fill: #0000;
+        stroke-dasharray: 50% 0;
+        stroke-dashoffset: -20%;
+    }
+}
+
+@keyframes dash {
+    0% {
+        fill: var(--off);
+        stroke-dasharray: 0 50%;
+        stroke-dashoffset: 20%;
+    }
+
+    100% {
+        fill: #0000;
+        stroke-dasharray: 50% 0;
+        stroke-dashoffset: -20%;
+    }
+}
+
+/* logomark default */
+
+#logomark--dark + #logomark {
+    display: inline-block;
+}
+
+@media (prefers-color-scheme: light) {
+
+    #logomark--dark {
+        display: none;
+    }
+
+    #logomark--dark + #logomark {
+        display: inline-block;
+    }
+
+}
+
+@media (prefers-color-scheme: dark) {
+
+    #logomark--dark {
+        display: inline-block;
+    }
+
+    #logomark--dark + #logomark {
+        display: none;
+    }
+
+}

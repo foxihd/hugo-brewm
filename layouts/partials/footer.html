@@ -1,0 +1,59 @@
+{{ "<!-- footer.html -->" | safeHTML }}
+<footer id="body-footer" class="pagewidth" style="display: none;">
+    <div id="background-footer" class="background" role="presentation"></div>
+    {{ partialCached "a11y.html" . }}
+    {{ partialCached "a11y/bionread.html" . }}
+    {{ "<!-- [top] bypass block -->" | safeHTML }}
+    <nav aria-label="{{ i18n "bypassNavigation" }}">
+        <a id="to-top" href="#top" title="{{ i18n "toTop" }}" accesskey="c" aria-keyshortcuts="c" aria-label="{{ i18n "toTop" }}">
+            <kbd class="key">c</kbd>
+        </a>
+    </nav>
+</footer>
+
+{{- define "partials/main/footer.html" -}}
+    {{ "<!-- main/footer.html -->" | safeHTML }}
+    {{- $page := . }}
+    {{- $iterateEntry := where .Site.RegularPages "Type" "footer" }}
+    {{ with $iterateEntry -}}
+        <hr class="hide">
+        <footer id="main-footer">
+            <div class="column column--multicols pagewidth" style="--multicols: 2">
+                {{- $counter := 1 }}
+                {{- with index . 0 -}}
+                    <div id="main-footer-primary"
+                        {{- if .Params.Span }} class="span-all" {{ end }}
+                        aria-labelledby="footer-1">
+                        {{- with .Title -}}
+                            <strong id="footer-1" class="section-title">{{ . }}</strong>
+                        {{- end }}
+                        {{ .Content }}
+                    </div>
+                {{- end }}
+                <div id="main-footer-secondary" class="column" style="--col: 15rem">
+                    {{- range after 1 . -}}
+                        {{- $counter := add 1 $counter }}
+                        <div
+                            {{- if .Params.Span }} class="span-all" {{ end }}
+                            aria-labelledby="footer-{{ $counter }}">
+                            {{- with .Title -}}
+                                <strong id="footer-{{ $counter }}" class="section-title">{{ . }}</strong>
+                            {{- end }}
+                            {{ .Content }}
+                        </div>
+                    {{- end }}
+                    {{- if site.Params.coffeeStat }}
+                        {{- $coffeeStat := partialCached "partials/coffeeStat.html" . }}
+                        {{- with $coffeeStat }}
+                        <div id="coffee-counter">
+                            <strong class="section-title">{{ i18n "coffeeStat" }}</strong>
+                            <p>{{ i18n "coffeeCount" }}{{ printf "%d %s" . (i18n "cup" . | lower) }}{{ i18n "coffeeCountPost" }}</p>
+                        </div>
+                    {{- end }}
+                    {{- end }}                    
+                    {{ partial "menu.html" ( dict "page" $page "menuID" "footer") }}
+                </div>
+            </div>
+        </footer>
+    {{- end }}
+{{- end }}

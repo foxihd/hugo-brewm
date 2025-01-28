@@ -1,0 +1,295 @@
+{{- define "head" -}}
+    {{ "<!-- list.html [head] -->" | safeHTML }}
+    {{- $paginator := partial "partials/paginator.html" . }}
+    {{- $slides := where .Site.RegularPages "Type" "slide" }}
+    {{- if and .IsHome (not $paginator.HasPrev) $slides }}
+        <style>
+            body{margin: auto !important;max-width: 2560px !important}body > footer.pagewidth,body > header.pagewidth{padding: 0 calc(1.5rem + 1ex)}body > aside.carousel{position: sticky;position: -webkit-sticky;left: 0;float: left;/*border: var(--border);border-radius: 1ex;*/padding: 1rem;width: 38vw;height: var(--vbody)}body > main#home > aside#list-tags{top: 0;right:0;margin: 1rem auto;width: calc(100% - var(--golden-ratio));}#home #top{padding: 0 1rem}#home #list-posts{padding: 1rem;width: var(--golden-ratio)}div[role="feed"]{padding: 1ex;}.carousel .feed-item,#home .feed-item,#home hr.ldots{width: unset}#main-footer > .pagewidth {padding: 0 1ex}#duckduckgo,#i18n-menu > .on-plank,#more-menu > .on-plank,.pagefind-ui{margin-right: 1rem}#hasDuckDuckGo.pagewidth{padding-right: 1rem}#grain{display: none;}@media only screen and (max-width: 960px){body > footer,body > header{background: var(--bg)}body > aside.carousel{float: unset;margin: 0 1rem;padding: 1rem 0;width: unset}body > main#home{height: unset;overflow-y: unset}body > main#home > aside#list-tags{top: var(--vhead)}}@media only screen and (max-width: 640px){#main-footer > .pagewidth{padding: 0 calc(var(--void) / 2)}body > main#home > aside#list-tags{padding: unset;width: var(--canonic)}aside #list-posts .feed-item > section{flex-direction: row-reverse;aspect-ratio: 10/3}#home #list-posts{margin: var(--bigskip) auto;padding: unset;width: var(--canonic)}#list-posts .section-title{padding-left: unset}#duckduckgo,.pagefind-ui{margin-right: 1ex}}@media only screen and (max-width: 480px){aside #list-posts .feed-item > section{flex-direction: column;aspect-ratio: unset}}
+        </style>
+    {{- end }}
+{{- end -}}
+
+{{- define "aside" -}}
+    {{- $paginator := partial "partials/paginator.html" . }}
+    {{- if and .IsHome (not $paginator.HasPrev) }}
+        {{ partialCached "carousel.html" . }}
+    {{- end }}
+{{- end -}}
+
+{{- define "top" -}}
+    {{- $paginator := partial "partials/paginator.html" . }}
+    {{- if not $paginator.HasPrev }}
+        {{- if .IsHome }}
+            {{- if and site.Taxonomies.series site.Taxonomies.categories }}
+                <div id="list-taxonomy" class="carousel">
+                    <div class="carousel__viewport">
+                        {{ partial "listing.html" (dict "entry" "series") }}
+                        {{ partial "listing.html" (dict "entry" "categories") }}
+                    </div>
+                </div>
+            {{- else }}
+                {{ partial "listing.html" (dict "entry" "series") }}
+                {{ partial "listing.html" (dict "entry" "categories") }}
+            {{- end }}
+            {{- with .Content }}
+                {{ partial "hero.html" $ }}
+            {{- end }}
+        {{- else }}
+            {{- if .IsSection }}
+                <div id="list-subsection" class="carousel">
+                    {{ partial "list/sections.html" (dict "class" "carousel__viewport" "cover" true "page" .) }}
+                </div>
+            {{- end }}
+            {{- with .Content }}
+                {{ partial "hero.html" $ }}
+            {{- end }}
+        {{- end }}
+    {{- end }}
+{{- end -}}
+
+{{- define "main" -}}
+    {{- $paginator := partial "partials/paginator.html" . }}
+    {{- $firstPage := not $paginator.HasPrev }}
+    {{- /*
+
+        frequency for content view style  */}}
+    {{- $changeFreq := or .Params.Sitemap.ChangeFreq .Sitemap.ChangeFreq | lower }}
+    {{- $active := eq $changeFreq (or "always" "hourly" "daily" "weekly") }}
+    {{- $passive := ne $changeFreq (or "always" "hourly" "daily" "weekly") }}
+    {{- /*
+
+        main aside */}}
+    {{- if and site.Taxonomies.tags $firstPage (ne .Kind "term") }}
+        {{- if .IsHome }}
+            <aside id="list-tags">
+                <header class="section-title">
+                    <strong>{{ i18n "discover" }}</strong>
+                </header>
+                {{ partial "taxonomies.html" (dict "taxonomy" "tags" "class" "rounded has-hash" "limit" 16) }}
+                <nav>
+                    <a class="underline" href="{{ "/tags/" | relLangURL }}">{{- i18n "seeMore" }}</a>
+                </nav>
+            </aside>
+        {{- else if or (eq .Data.Singular "tag") .IsSection }}
+            <aside id="list-tags">
+                <header class="section-title">
+                    <strong>{{ i18n "tags" }}</strong>
+                </header>
+                {{ partial "taxonomies.html" (dict "taxonomy" "tags" "class" "rounded has-hash") }}
+            </aside>
+        {{- end }}
+    {{- end }}
+    {{/*
+
+        feed */}}
+    {{- if ne .Kind "taxonomy" }}
+        {{/*
+
+            if page don't have article */}}
+        {{- if eq (len $paginator.Pages) 0 }}
+            {{ template "no-content"}}
+        {{- else }}
+            <section id="list-posts" class="pagewidth">
+                <header {{ with .Data.Singular }}id="{{ . }}"{{ end }} class="section-title">
+                    <strong>
+                        {{- if .IsHome }}
+                            {{- if $firstPage }}
+                                {{ i18n "recent" $paginator.NumberOfElements }}
+                            {{- else }}
+                                {{ i18n "postsOn" $paginator.NumberOfElements }} {{ .Site.Title }}
+                                {{ printf "- %s %d" (i18n "pages" 1) $paginator.PageNumber }}
+                            {{- end }}
+                        {{- else }}
+                            {{- $title := .LinkTitle }}
+                            {{- if eq (lower $title) (lower (i18n "posts" 1)) }}
+                                {{- i18n "allPosts" }}
+                                {{- if not $firstPage }}
+                                    {{- printf "- %s %d" (i18n "pages" 1) $paginator.PageNumber }}
+                                {{- end }}
+                            {{- else if eq (lower $title) (lower (i18n "articles" 1)) }}
+                                {{- i18n "articles" }}
+                            {{- else if eq .Data.Singular "author" }}
+                                {{- i18n "postsBy" }}: {{- $title }}
+                            {{- else }}
+                                {{- i18n "postsOn" }}: <span class="{{ .Data.Singular }}">{{ $title }}</span>
+                            {{- end }}
+                        {{- end }}
+                    </strong>
+                </header>
+                {{- /*
+
+                    list post */}}
+                {{- $liViewCondition := or (and $active (not .IsHome)) (and (eq .Kind "term") (eq .Data.Plural "series") ) }}
+                {{- if $liViewCondition }}
+                    {{ template "li" . }}
+                {{- else }}
+                    <div role="feed" aria-busy="false">
+                    {{- range $index, $page := $paginator.Pages }}
+                        {{- $counter := add $index 1 }}
+                        {{- $author := default site.Params.Author.name .Params.author }}
+                        {{- $authors := .GetTerms "author" }}
+                        {{- $categories := .GetTerms "categories" }}
+                        {{- $desc := or .Params.Subtitle .Params.Description .Description .Summary }}
+                        {{- $images := or .Params.cover .Params.images }}
+                        {{- $hasCover := or $images (.Resources.GetMatch "cover.*") }}
+                        {{- if $index }}<hr class="ldots" role="presentation" aria-hidden="true">{{- end }}
+                        {{ template "card" (dict "page" $page "paginator" $paginator "counter" $counter "desc" $desc "hasCover" $hasCover "author" $author "authors" $authors) }}
+                    {{- end }}
+                    </div>
+                    {{/*
+
+                        paginator navigation */}}
+                    {{- if or .Paginator.HasPrev .Paginator.HasNext }}
+                        <hr class="hide">
+                        {{- partial "nav.html" (dict "navID" "pagination" "page" .) }}
+                    {{- end }}
+                {{- end }}
+            </section>
+        {{- end }}
+    {{- else }}
+        {{- if eq (index site.Taxonomies .Data.Plural | len) 0 }}
+            {{ template "no-content"}}
+        {{- else }}
+        {{- /*
+
+            taxonomy listing */}}
+            <section class="pagewidth">
+                {{- if eq .Data.Singular "tag" }}
+                    {{ partial "listing.html" (dict "entry" "series") }}
+                    {{ partial "listing.html" (dict "entry" "categories") }}
+                {{- else if eq .Data.Singular "category" }}
+                    {{ partial "listing.html" (dict "entry" "categories") }}
+                {{- else if eq .Data.Singular "series" }}
+                    {{ partial "listing.html" (dict "entry" "series") }}
+                {{- else if eq .Data.Singular "author" }}
+                    {{ partial "listing.html" (dict "entry" "author") }}
+                {{- end }}
+            </section>
+            {{- end }}
+        {{- end }}
+{{- end -}}
+
+{{- define "li" -}}
+    {{- $descending := and (eq $.Kind "term") (eq $.Data.Plural "series")}}
+    {{- $yearGroup := .Data.Pages.GroupByDate "2006" }}
+    {{- if $descending }}
+        {{- $yearGroup = $yearGroup.Reverse }}
+    {{- end }}
+    {{- range $yearGroup }}
+    {{- $year := .Key }}
+    <div class="list-year {{ if $descending }}textwidth{{ end }}" role="listitem" aria-labelledby="{{ .Key }}">
+        <strong id="{{ $year }}" class="section-title" role="heading" aria-level="1">{{ $year }}</strong>
+        <div role="list" aria-label="{{ $year }}">
+            {{- $monthGroup := .Pages.GroupByDate "January" }}
+            {{- if $descending }}
+                {{ $monthGroup = $monthGroup.Reverse }}
+            {{ end }}
+            {{- range $monthGroup }}
+            {{- $month := .Key }}
+            {{- $postCounter := printf "(%d %s)" (len .Pages) (i18n "posts" (len .Pages)) }}
+            <div role="listitem" aria-labelledby="{{ print "y" $year "-" $month }}">
+                <details aria-expanded="true" class="list-month" open>
+                    <summary class="has-post section-title" id="{{ print "y" $year "-" $month }}"
+                        role="heading" aria-level="2" aria-description="{{ $postCounter }}">
+                        {{- $month }}
+                    </summary>
+                    {{- $pageGroup := .Pages }}
+                    {{- if $descending }}
+                        {{- $pageGroup = $pageGroup.Reverse }}
+                    {{- end }}
+                    {{- with $pageGroup }}
+                    <ul class="list-day" role="presentation">
+                        {{- range . }}
+                        {{- $date := .Date.Format "2 Jan " }}
+                        <li>
+                            <a class="has-pre" href="{{ .RelPermalink }}" aria-description="{{ $date }}">
+                                <span>{{.Title}}</span>
+                            </a>
+                        </li>
+                        {{- end }}
+                    </ul>
+                    {{- end }}
+                </details>
+            </div>
+            {{- end }}
+        </div>
+    </div>
+    {{- end }}
+{{- end -}}
+
+{{- define "card" -}}
+    <article class="feed-item"
+        aria-posinset="{{ .counter }}"
+        aria-setsize="{{ .paginator.NumberOfElements }}"
+        aria-labelledby="{{ printf "title-%d" .counter }}"
+        aria-describedby="{{ printf "desc-%d" .counter }}">
+        <hgroup>
+            <div>
+                <span>
+                    {{- if .authors }}
+                        {{- if eq (len .authors) 1 }}
+                            {{- range .authors }}
+                                <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                            {{- end }}
+                        {{- else }}
+                            {{ partial "terms.html" (dict "taxonomy" "author" "class" "delimiter" "page" .page) }}
+                        {{- end }}
+                    {{- else }}
+                        {{- with .author }}<span>{{ . }}</span>{{ end }}
+                    {{- end }}
+                    {{- if .page.Params.categories }}
+                        <span>{{ i18n "in" | lower }}</span>
+                        {{- if eq (len .page.Params.categories) 1 }}
+                            {{ partial "terms.html" (dict "taxonomy" "categories" "class" "inline" "page" .page ) }}
+                        {{ else }}
+                            {{ partial "terms.html" (dict "taxonomy" "categories" "class" "delimiter" "page" .page ) }}
+                        {{- end }}
+                    {{- end }}
+                </span>
+                <!-- hfill -->
+                {{ partial "page/timestamp.html" .page }}
+            </div>
+            <h1 id="{{ printf "title-%d" .counter }}">{{ .page.Title }}</h1>
+        </hgroup>
+        <a class="underline" href="{{ .page.RelPermalink }}" aria-label="{{ .page.Title }}"></a>
+        <section>
+            {{- if .hasCover }}
+                {{ partial "page/cover.html" .page }}
+            {{- else }}
+                {{- $flowlinesCount := site.Params.Feed.FlowlinesLimit | default 42 }}
+                {{- $flowlinesSrc := "https://raw.githubusercontent.com/foxihd/hugo-et-hd/master/static/svg/flowlines/" }}
+                {{- $src := printf "%s%d.svg" $flowlinesSrc (index (seq $flowlinesCount | shuffle) 1) }}
+                {{- $pseudoRandomPos := printf "object-position: %d%% %d%%" (index (seq 81 | shuffle) 11) (index (seq 80 | shuffle) 12) }}
+                <img class="flowlines" src="{{ $src }}" alt="" style="{{ $pseudoRandomPos }}" loading="lazy">
+            {{- end }}
+            <div class="par" id="{{ printf "desc-%d" .counter }}">
+                {{- plainify .desc }}
+            </div>
+        </section>
+        <footer>
+            <span class="readingTime">
+                {{- printf "%d %s" .page.ReadingTime (i18n "readingTime" .page.ReadingTime | lower ) }}
+            </span>
+            <!-- hfill -->
+            {{- if .page.Params.tags }}
+                {{ partial "terms.html" (dict "taxonomy" "tags" "class" "rounded invert ldots" "page" .page) }}
+            {{- else }}
+                <div class="baselineskip" role="presentation"></div>
+            {{- end }}
+        </footer>
+    </article>
+{{- end -}}
+
+{{- define "no-content" -}}
+    <div style="display: flex; height: var(--vbody);">
+        <div class="hero" style="margin: auto; width: var(--canonic);">
+            <div class="hero__image">
+                <img src="https://i.pinimg.com/736x/bf/34/76/bf3476c1569c5af162779ecbb4134c3a.jpg" alt="Not today, maybe tomorow..." decoding="async">
+            </div>
+            <div class="hero__content">
+                <h1 style="font-style: normal;">{{ i18n "noArticle" }}</h1>
+                <p>{{ i18n "noArticlePost" }}</p>
+            </div>
+        </div>
+    </div>
+{{- end -}}

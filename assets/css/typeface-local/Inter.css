@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Inter'),
+         url(/css/fonts/Inter-Regular.woff2) format('woff2');
+    size-adjust: 84%;
+    ascent-override: 104%;
+    descent-override: 36%;
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Inter Italic'),
+         url(/css/fonts/Inter-Italic.woff2) format('woff2');
+    size-adjust: 84%;
+    ascent-override: 104%;
+    descent-override: 36%;
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Inter Bold'),
+         url(/css/fonts/Inter-Bold.woff2) format('woff2');
+    size-adjust: 84%;
+    ascent-override: 104%;
+    descent-override: 36%;
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Inter Bold Italic'),
+         url(/css/fonts/Inter-BoldItalic.woff2) format('woff2');
+    size-adjust: 84%;
+    ascent-override: 104%;
+    descent-override: 36%;
+}
+
+:root {
+    --sf: 'Inter';
+}

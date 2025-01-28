@@ -1,0 +1,150 @@
+.form#mastodon {
+    display: inline-flex;
+    width: 100%;
+}
+
+#mastodonInstance {
+    /* passive mode; display as button */
+    display: none;
+    height: 2.654rem;
+}
+
+#has-mastodon.active {
+    /* active mode display as form */
+    flex: 1;
+}
+
+#has-mastodon.active #mastodonInstance {
+    display: initial !important;
+}
+
+#has-mastodon.active #mastodon {
+    border: 3pt solid #563acc02;
+    border-radius: 2rem;
+    background: #563acc22;
+}
+
+#mastodonInstance ~ button:focus .mastodon,
+#mastodonInstance:focus ~ button .mastodon {
+    background: #4f36b5;
+    color: #fff;
+}
+
+#has-share {
+    margin:var(--vskip);
+    padding-bottom: 2pt;
+}
+
+#has-share[open] {
+    padding-bottom: 0;
+}
+
+#share {
+    float: left;
+    margin: 1pt 0;
+}
+
+#has-share[open] #share {
+    background: unset;
+    padding-left: 0;
+    color: unset;
+}
+
+#has-share[open] #share::after {
+    content: ':';
+}
+
+#has-share ul {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#has-share a {
+    display: inline-flex;
+    position: relative;
+}
+
+#has-share i {
+    border-radius: 2rem;
+    padding: 0.62rem;
+    font-size: var(--Large);
+}
+
+#has-share i:hover {
+    --tst: 200ms ease-in;
+    opacity: 1;
+}
+
+#has-share a:focus i,
+#has-share i:hover {
+    color: #fff !important;
+}
+
+/* Social sharing button */
+#has-share .email {color: var(--mid)}
+#has-share a:focus .email,
+#has-share .email:hover {background: var(--mid)}
+#has-share .bluesky {color: #1185fe}
+#has-share a:focus .bluesky,
+#has-share .bluesky:hover {background: #0072ce};
+#has-share .facebook {color: #3b5998}
+#has-share a:focus .facebook,
+#has-share .facebook:hover {background: #2d4373}
+#has-share .hackernews {color: #FF6600;}
+#has-share a:focus .hackernews,
+#has-share .hackernews:hover {background: #FB6200}
+#has-share .linkedin {color: #0077b5}
+#has-share a:focus .linkedin,
+#has-share .linkedin:hover {background: #046293}
+#has-share .mastodon {color: #563acc}
+#has-share a:focus .mastodon,
+#has-share .mastodon:hover {background: #4f36b5}
+#has-share .pinterest {color: #bd081c}
+#has-share a:focus .pinterest,
+#has-share .pinterest:hover {background: #8c0615}
+#has-share .reddit {color: #5f99cf}
+#has-share a:focus .reddit,
+#has-share .reddit:hover {background: #3a80c1}
+#has-share .telegram {color: #54A9EB}
+#has-share a:focus .telegram,
+#has-share .telegram:hover {background: #4B97D1}
+#has-share .tumblr {color: #35465C}
+#has-share a:focus .tumblr,
+#has-share .tumblr:hover {background: #222d3c}
+#has-share .twitter {color: #55acee}
+#has-share a:focus .twitter,
+#has-share .twitter:hover {background: #2795e9}
+#has-share .vk {color: #507299}
+#has-share a:focus .vk,
+#has-share .vk:hover {background: #43648c}
+#has-share .whatsapp {color: #25D366}
+#has-share a:focus .whatsapp,
+#has-share .whatsapp:hover {background: #1DA851}
+#has-share .xing {color: #1a7576}
+#has-share a:focus .xing,
+#has-share .xing:hover {background: #114C4C}
+
+@media only screen and (max-width: 844px) {
+
+    #share {
+        float: unset;
+    }
+
+    #has-share[open] #share {
+        padding-left: 16.18pt;
+    }
+
+    #has-mastodon.active {
+        flex: 0 0 100%;
+    }
+
+    #has-mastodon.active #mastodon {
+        margin-bottom: 1ex;
+        max-width: 27em;
+    }
+
+}

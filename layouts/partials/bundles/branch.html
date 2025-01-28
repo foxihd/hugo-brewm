@@ -1,0 +1,227 @@
+{{- define "partials/taxonomies.html" -}}
+    {{ "<!-- taxonomies.html -->" | safeHTML }}
+    {{- $taxonomy := .taxonomy }}
+    {{- $tags := eq $taxonomy "tags"}}
+    {{- $class := .class }}
+    {{- $cover := .cover }}
+    {{- $limit := .limit }}
+    {{- with index site.Taxonomies $taxonomy }}
+        <ul class="{{ $class }}" role="presentation">
+            {{- $index := 0 }}
+            {{ range . -}}
+                {{- $index = add $index 1 }}
+                {{- if or (le $index $limit) (not $limit) -}}
+                    {{- $images := or .Page.Params.cover .Page.Params.images }}
+                    {{- $flowlinesCount := or 42 site.Params.Feed.FlowlinesLimit }}
+                    {{- $flowlinesSrc := "https://raw.githubusercontent.com/foxihd/hugo-et-hd/master/static/svg/flowlines/" }}
+                    {{- $src := cond $images $images (printf "%s%d.svg" $flowlinesSrc ( index (seq $flowlinesCount | shuffle) 1 )) }}
+                    <li  {{ if $cover }}style="background-image:url({{ $src }});"{{ end }}>
+                        <a href="{{ .Page.Permalink }}"
+                            aria-label="{{ i18n $taxonomy 1 }}:{{ .Page.Title }}"
+                            data-post-counter="{{ printf "%d" .Count }}"
+                            >
+                            <span>{{ humanize .Page.Title | title }}</span>
+                        </a>
+                        {{- /* workaround needed */}}
+                        {{- /*  {{- if eq $taxonomy "categories" }}
+                            <ul role="presentation">
+                                {{ $postWithin := where site.RegularPages "Params.categories" "intersect" .Page.Title }}
+                                {{- range first 5 $postWithin }}
+                                    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+                                {{- end }}
+                            </ul>
+                        {{- end }}  */}}
+                    </li>
+                {{- end }}
+            {{- end }}
+        </ul>
+    {{- end }}
+{{- end }}
+
+{{- define "partials/terms.html" -}}
+    {{ "<!-- terms.html -->" | safeHTML }}
+    {{- $page := .page }}
+    {{- $taxonomy := .taxonomy }}
+    {{- $class := .class }}
+    {{- with $page.GetTerms $taxonomy }}
+    <ul class="{{ $class }}" role="presentation">
+        {{- range . }}
+            <li><a href="{{ .RelPermalink }}">{{ humanize .LinkTitle | title }}</a></li>
+        {{- end }}
+    </ul>
+    {{- end }}
+{{- end }}
+
+{{- define "partials/paginator.html" -}}
+    {{ "<!-- paginator.html -->" | safeHTML }}
+    {{- $pagerSize := .Params.Paginate }}
+    {{- $pages := .RegularPagesRecursive }}
+    {{- if .IsHome }}
+        {{- $pages =  where site.RegularPages "Type" (or "post" "articles") }}
+    {{- end }}
+    {{- $paginator := .Paginate $pages }}
+    {{- if $pagerSize }}
+        {{- $paginator = .Paginate $pages $pagerSize }}
+    {{- end }}
+    {{- return $paginator }}
+{{- end }}
+
+{{- define "partials/coffeeStat.html" }}
+    {{- $cups := 0 }}
+    {{- range site.RegularPages }}
+        {{- range .AllTranslations }}
+            {{- with .Params.Coffee }}
+                {{- $cups = add $cups . }}
+            {{- end }}
+        {{- end }}
+    {{- end }}
+    {{- return $cups }}
+{{- end }}
+
+{{- define "partials/hero.html" }}
+    {{ "<!-- hero.html -->" | safeHTML }}
+    <div class="hero">
+        <div class="hero__image">
+            {{- $cover := or .Page.Params.cover .Page.Params.images }}
+            {{- $getCover := .Resources.GetMatch "cover.*" }}
+            {{- if or $getCover $cover }}
+            <img
+                src="{{ if $cover }}{{ $cover }}{{- else }}{{ $getCover.Permalink }}{{- end }}"
+                alt="{{ i18n "featuredImg" }} : {{- .Title }}"
+                role="doc-cover"
+                />
+        {{- end }}
+        </div>
+        <div class="hero__content">
+            {{- .Content }}
+            {{- /*
+
+                author page hero extras  */}}
+            {{- if and (eq .Kind "term")  (eq .Data.Singular "author") }}
+                {{- $authorName := .Title }}
+                {{- $co := or site.Params.Author.coauthor site.Params.Author.collabolator }}
+                {{- range $co }}
+                    {{- if eq $authorName .name }}
+                        <p>{{  or .bio .about }}</p>
+                    {{- end }}
+                {{- end }}
+                {{- $author := urlize .Title }}
+                {{/*
+
+                    author's social links */}}
+                {{ partial "menu.html" (dict "menuID" $author "open" "open" "page" .)}}
+            {{- end }}
+        </div>
+    </div>
+{{ end }}
+
+{{- define "partials/list/sections.html" -}}
+    {{ "<!-- sections.html -->" | safeHTML }}
+    {{- $page := .page }}
+    {{- $class := .class }}
+    {{- $limit := .limit }}
+    {{- $cover := .cover }}
+    {{- $getCover := .Resources.GetMatch "cover.*" }}
+    {{- with $page.Sections }}
+        <ul class="{{ $class }}" role="presentation">
+            {{- $index := 0 }}
+            {{- range . }}
+                {{- $index = add $index 1 }}
+                {{- if or (le $index $limit) (not $limit) }}
+                {{- $src := false }}
+                {{- $images := or .Page.Params.cover .Page.Params.images }}
+                {{- if $images }}
+                    {{- $src = $images }}
+                {{- else if $getCover }}
+                    {{- $src = $getCover.Permalink }}
+                {{- else }}
+                    {{- $src = partial "flowlines.html" . }}
+                {{- end }}
+                <li {{ if $cover}}style="background-image:url({{ $src }});"{{ end }}>
+                    <a href="{{ .Page.Permalink }}" aria-label="{{ i18n "section" 1 }}:{{ .Page.Title }}">
+                        <span>{{ .Page.Title }}</span>
+                    </a>
+                </li>
+                {{- end }}
+            {{- end }}
+        </ul>
+    {{- end }}
+{{ end }}
+
+{{- define "partials/listing.html" -}}
+    {{ "<!-- listing.html -->" | safeHTML }}
+    {{- $entry := .entry }}
+    {{- if index site.Taxonomies $entry }}
+        <div id="list-{{ $entry }}" class="carousel">
+            <header class="section-title">{{ i18n $entry }}</header>
+            {{ partial "taxonomies.html" (dict "taxonomy" $entry "class" "carousel__viewport" "cover" true) }}
+        </div>
+    {{- end }}
+{{- end }}
+
+{{- define "partials/carousel.html" -}}
+    {{ "<!-- carousel.html -->" | safeHTML }}
+    {{- $slides := where .Site.RegularPages "Type" "slide" }}
+    {{- with $slides }}
+        <aside class="carousel">
+            {{- $numSlides := len . }}
+            {{- if gt $numSlides 2 }}
+                <nav class="carousel__nav">
+                    <ul class="rounded invert" role="presentation">
+                        {{- range $index, $slide := . }}
+                            <li>
+                                <a href="#slide-{{ add $index 1 }}" role="button" aria-controls="slide-{{ add $index 1 }}">
+                                    <span>{{ .Title }}</span>
+                                </a>
+                            </li>
+                        {{- end }}
+                    </ul>
+                </nav>
+            {{- end }}
+
+            <div class="carousel__viewport">
+                {{- range $index, $slide := . }}
+                    {{- $slideNum := add $index 1 }}
+                    <section id="slide-{{ $slideNum }}" class="carousel__viewport__slide{{ with .Params.Background }} has-background{{ end }}"
+                        aria-labelledby="slide-{{ $slideNum }}__heading">
+                        {{- $getCover := .Resources.GetMatch "cover.*" }}
+                        {{- $cover := or .Page.Params.cover .Page.Params.images }}
+                        {{- if or $cover $getCover }}
+                        <div class="carousel__viewport__slide__cover">
+                            <img src="{{ if $cover }}{{ $cover }}{{- else }}{{ $getCover.Permalink }}{{ end }}"
+                                alt="" {{ if ne $slideNum 1 }}loading="lazy"{{ end }}>
+                        </div>
+                        {{- end }}
+                        <div class="carousel__viewport__slide__content">
+                            {{- with .Title }}
+                                <h1 id="slide-{{ $slideNum }}__heading" class="section-title">{{ . }}</h1>
+                            {{- end }}
+                            <div>
+                                {{- if or .Params.task $.Site.Params.Post.enableCheckbox }}
+                                    {{ replace .Content "disabled=" "" | safeHTML }}
+                                {{- else }}
+                                    {{ .Content }}
+                                {{- end }}
+                            </div>
+                        </div>
+                        {{- /*
+
+                            simple prev/next pair for 2 slides */}}
+                        {{- if eq $numSlides 2 }}
+                            <nav class="carousel__nav">
+                                {{- range $navIndex, $navSlide := $slides }}
+                                    {{- if ne $slideNum (add $navIndex 1) }}
+                                    {{ $rel := cond (eq $navIndex 1) "next" "prev" }}
+                                        <a href="#slide-{{ add $navIndex 1 }}" rel="{{ $rel }}" class="underline" role="button" aria-controls="slide-{{ add $navIndex 1 }}">
+                                            <span>{{ .Title }}</span>
+                                        </a>
+                                    {{- end }}
+                                {{- end }}
+                            </nav>
+                        {{- end }}
+                    </section>
+                {{- end }}
+            </div>
+        </aside>
+    {{- end }}
+{{- end }}

@@ -1,0 +1,151 @@
+{{ "<!-- _meta.html -->" | safeHTML -}}
+{{- $ISO8601 := "2006-01-02T15:04:05-07:00" }}
+{{- $siteTitle := or site.Title site.Params.title }}
+{{- $title := cond .IsHome $siteTitle (printf "%s | %s" .Title $siteTitle) }}
+{{- $author := cond (and .IsPage .Params.author) .Params.author site.Params.Author.Name }}
+{{- $cover := partial "_funcs/get-page-images.html" . }}
+{{- /*
+
+    Set description */}}
+{{- $desc := or .Params.Subtitle .Params.Description .Description .Summary }}
+{{- if and .IsHome site.Params.Description }}
+    {{- $desc = site.Params.Description }}
+{{- else if and (not .IsPage) site.Params.Description }}
+    {{- $desc = site.Params.Description .Kind }}
+{{- end }}
+{{- /*
+
+    Set keywords */}}
+{{- $keywords := dict }}
+{{- if .IsHome }}
+    {{- $keywords = slice (i18n "home") }}
+{{- else if not .IsPage }}
+    {{- $keywords = slice (.Page.Title) }}
+{{- else }}
+    {{- $keywords = or .Params.keywords .Params.tags }}
+{{- end }}
+
+<meta property="og:url" content="{{ .Permalink }}">
+
+{{- with $siteTitle | plainify }}
+    <meta property="og:site_name" content="{{ . }}">
+{{- end }}
+
+{{- with $title | plainify }}
+    <meta property="og:title" content="{{ . }}">
+    <meta name="twitter:title" content="{{ . }}">
+{{- end }}
+
+{{- with $desc | plainify | htmlUnescape }}
+    <meta property="og:description" content="{{ trim . "\n\r\t " }}">
+    <meta name="twitter:description" content="{{ trim . "\n\r\t " }}">
+{{- end }}
+
+{{- with or .Params.locale site.Language.LanguageCode }}
+    <meta property="og:locale" content="{{ replace . `-` `_` }}">
+{{- end }}
+
+{{- if .IsPage }}
+    <meta property="og:type" content="article">
+    {{ with .Section -}}
+        <meta property="article:section" content="{{ . }}">
+    {{- end }}
+    {{ with .PublishDate -}}
+        <meta property="article:published_time" {{ .Format $ISO8601 | printf "content=%q" | safeHTMLAttr }}>
+    {{- end }}
+    {{ with .Lastmod -}}
+        <meta property="article:modified_time" {{ .Format $ISO8601 | printf "content=%q" | safeHTMLAttr }}>
+    {{- end }}
+    {{ with $keywords -}}
+        <meta property="article:tag" content="{{ delimit . "," }}">
+    {{- end }}
+{{- else }}
+    <meta property="og:type" content="website">
+{{- end }}
+
+{{- $cover := or .Params.cover .Params.image }}
+{{- $getCover := .Resources.GetMatch "cover.*" }}
+{{- if or $cover $getCover }}
+    {{- if $getCover }}
+        {{- $cover = $getCover.Permalink }}
+    {{- end }}
+    {{ with $cover -}}
+        <meta property="og:image" content="{{ . }}">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="{{ . }}">
+    {{- end }}
+{{- else }}
+  <meta name="twitter:card" content="summary">
+{{- end }}
+
+{{- /*  return error; workaround needed  */}}
+{{- /*  {{- $images := partial "_funcs/get-page-images.html" . }}
+{{- with $images }}
+    {{- range . | first 6 }}
+        <meta property="og:image" content="{{ .Permalink }}">
+    {{- end }}
+    {{- with index . 0 }}
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="{{ .Permalink }}">
+    {{- else }}
+        <meta name="twitter:card" content="summary">
+    {{- end }}
+{{- end }}  */}}
+
+{{- $audioFormats := dict
+    "aac"  "audio/aac"
+    "flac" "audio/flac"
+    "mp3"  "audio/mpeg"
+    "oga"  "audio/ogg"
+    "ogg"  "audio/ogg"
+    "opus" "audio/opus"
+    "wav"  "audio/wav"
+    "weba" "audio/webm"
+    "webm" "audio/webm"
+}}
+{{- $audioFiles := dict }}
+{{- range $format, $type := $audioFormats }}
+    {{- $file := $.Resources.GetMatch (printf "audio.%s" $format) }}
+    {{- if $file }}
+        {{- $audioFiles = merge $audioFiles (dict $format $file) }}
+    {{- end }}
+{{- end }}
+{{ with $audioFiles -}}
+    {{- range . }}
+    <meta property="og:audio:type" content="{{ .Permalink }}">
+    {{- end }}
+{{- end }}
+{{ with .Params.Audio -}}
+    <meta property="og:audio" content="{{ . }}">
+{{- end }}
+
+{{ with .Params.videos -}}
+    <meta property="og:video" content="{{ . }}">
+{{- end }}
+
+{{- range .GetTerms "series" }}
+    {{- range .Pages | first 6 }}
+        {{- if ne $ . }}
+            <meta property="og:see_also" content="{{ .Permalink }}">
+        {{- end }}
+    {{- end }}
+{{- end }}
+
+{{- with site.Params.social }}
+    {{- if reflect.IsMap . }}
+        {{- with .facebook_app_id }}
+            <meta property="fb:app_id" content="{{ . }}">
+        {{- else }}
+            {{- with .facebook_admin }}
+                <meta property="fb:admins" content="{{ . }}">
+            {{- end }}
+        {{- end }}
+        {{- with .twitter }}
+            {{- $content := . }}
+            {{- if not (strings.HasPrefix . "@") }}
+                {{- $content = printf "@%v" . }}
+            {{- end }}
+            <meta name="twitter:site" content="{{ $content }}">
+        {{- end }}
+    {{- end }}
+{{- end }}

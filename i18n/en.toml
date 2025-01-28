@@ -1,0 +1,203 @@
+[accessibility]
+    other = "Accessibility"
+[accessTime]
+    other = "This page is accessed on"
+[allPosts]
+    other = "All posts"
+[appearance]
+    other = "Appearance"
+[articles]
+    one = "Article"
+    other = "Articles"
+[author]
+    one = "Author"
+    other = "Authors"
+[back]
+    other = "Go Back"
+[baselineStretch]
+    other = "Baseline Stretch"
+[bionRead]
+    other = "BionRead Mode"
+[breadcrumb]
+    other = "Breadcrumb"
+[buildTime]
+    other = "This page is built on"
+[bypass]
+    other = "Bypass Navigation"
+[categories]
+    one = "Category"
+    other = "Categories"
+[close]
+    other = "Close"
+[coffeeStat]
+    other = "Coffee Stat"
+[coffeeCount]
+    other = "Making this website has taken at least "
+[coffeeCountPost]
+    other = ", if not more."
+[colophon]
+    other = "Colophon"
+[colorPalette]
+    other = "Color Palette"
+[colorSettings]
+    other = "Color Settings"
+[comments]
+    other = "Discussion"
+[contrast]
+    other = "Contrast"
+[contrib]
+    other = "Contribute"
+[contribAskReader]
+    other = "Enjoy this article?"
+[contribAskReaderResponse]
+    other = "Awesome!"
+[contribAskReaderToContribute]
+    other = "You can also support me by making the following contributions:"
+[contribCoffeeStat]
+    other = "Did you know that"
+[contribCoffeeStatPost]
+    other = "helped me write this article?"
+[copy]
+    other = "Copy Url"
+[ctaComments]
+    other = "Join Discussion"
+[cup]
+    one = "Cup of coffee"
+    other = "Cups of coffee"
+[dark]
+    other = "Dark"
+[darkMode]
+    other = "Dark Mode"
+[date_long]
+	other = "January 2, 2006"
+[defaultColor]
+    other = "Default"
+[defaultContrast]
+    other = "Default"
+[deuteranopia]
+    other = "Deuteranopia"
+[discover]
+    other = "Discover Topics"
+[editedBy]
+    other = "Edited By"
+[email]
+    other = "Email"
+[featuredImg]
+    other = "Featured image"
+[fediverseIsLoading]
+    other = "Loading comments on Fediverse"
+[followRSS]
+    other = "Follow with RSS"
+[fontSize]
+    other = "Font Size"
+[home]
+    other = "home"
+[in]
+    other = "in"
+[inNewTab]
+    other = "in new tab"
+[keepInTouch]
+    other = "Let's keep in touch!"
+[lessContrast]
+    other = "Low"
+[light]
+    other = "Light"
+[main]
+    other = "Main Menu"
+[menuControls]
+    other = "Accessibility Menu Controls"
+[modified]
+    other = "Modified"
+[monochrome]
+    other = "Monochrome"
+[more]
+    other = "More Menu"
+[moreContrast]
+    other = "High"
+[next]
+    other = "Next"
+[nav]
+    other = "Navigation"
+[noArticle]
+    other = "No articles to show."
+[noArticlePost]
+    other = "It appears that our author ran out of coffee... Keep calm, we'll brew one shortly!"
+[noComment]
+    other = "No comments to display."
+[noScript]
+    other = "Uh-oh... Javascript is disabled!"
+[noLocalStorage]
+    other = "LocalStorage is not available in your browser. Settings won't be saved."
+[note]
+    other = "Note"
+[on]
+    other = "On"
+[OpenDyslexic]
+    other = "Use OpenDyslexic Font"
+[pages]
+    one = "Page"
+    other = "Pages"
+[pagination]
+    other = "Pagination"
+[posts]
+    one = "Post"
+    other = "Posts"
+[postsBy]
+    other = "Post by"
+[postsOn]
+    other = "Posts on"
+[prev]
+    other = "Previous"
+[print]
+    other = "Print"
+[protanopia]
+    other = "Protanopia"
+[published]
+    other = "Published"
+[readingTime]
+    other = "Min read"
+[recent]
+    other = "Recent Posts"
+[redactionHistory]
+    other = "Redaction History"
+[redactionNotes]
+    other = "Some information might changes over time, we keep redaction up to date."
+[related]
+    other = "You might also like"
+[reset]
+    other = "Reset"
+[reviewedBy]
+    other = "Reviewed By"
+[save]
+    other = "Save"
+[search]
+    other = "Search"
+[seeAll]
+    other = "See all"
+[seeMore]
+    other = "Explore more topics"
+[section]
+    other = "Section"
+[selectLang]
+    other = "Language Selections"
+[series]
+    other = "Series"
+[share]
+    other = "Share"
+[shareOn]
+    other = "Share on"
+[switchLangTo]
+    other = "Switch Language to"
+[TableOfContents]
+    other = "Table of Contents"
+[tags]
+    one = "Tag"
+    other = "Tags"
+[toContent]
+    other = "Skip to Main Content"
+[toTop]
+    other = "To Content Top"
+[top-nav]
+    other = "Top Nav"
+[tritanopia]
+    other = "Tritanopia"

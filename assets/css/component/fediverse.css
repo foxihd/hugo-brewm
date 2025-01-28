@@ -1,0 +1,88 @@
+/* this style is used inline in fediverse.js */
+
+#comments > * {
+    width: var(--golden-ratio);
+}
+
+#comments noscript {
+    margin: var(--medskip) 0;
+}
+
+#discussion-starter {
+    margin-bottom: var(--medskip);
+}
+
+#discussion-starter > footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mastodon-comment {
+    margin: 1rem 0 1rem calc(var(--mul) * var(--indent));
+    border: 1pt solid #fff4;
+    border-left: 2pt solid var(--ac);
+    box-shadow: 0 0.5pt 1pt 0 var(--g18s);
+    background: #80808008;
+    padding: 1rem 1rem 1ex;
+    overflow: auto;
+}
+
+.mastodon-comment .content {
+    margin-left: 4rem;
+    line-height: calc(var(--baselineStretch) * 1.272);
+}
+
+.mastodon-comment .par a {
+    max-width: 100%;
+    vertical-align: bottom;
+    white-space: break-spaces;
+}
+
+.mastodon-comment .attachments * {
+    width: 100%;
+    height: auto;
+}
+
+.mastodon-comment > footer {
+    margin-top: 1rem;
+    margin-left: 3.5rem;
+}
+
+.mastodon-comment > footer .stat {
+    display: inline-flex;
+    flex-shrink: 0;
+    gap: 5pt;
+}
+
+.stat a {
+    display: inline-flex;
+    align-items: center;
+    padding: 2pt;
+    color: var(--mid);
+    gap: 2pt;
+}
+
+.stat a::before {
+    vertical-align: text-top;
+}
+
+a.favourites.active {
+    color: var(--i3i);
+}
+
+.mastodon-comment .date {
+    margin-left: auto;
+    padding-left: 1rem;
+    color: var(--mid);
+    font-size: calc(10pt * var(--fonttScale));;
+}
+
+@media only screen and (max-width: 960px) {
+
+    .mastodon-comment .content,
+    .mastodon-comment > footer {
+      margin-left: 0;
+    }
+
+}

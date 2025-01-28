@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{{- $lang := or site.Language.LanguageCode site.Language.Lang }}
+{{- $dir := or site.Language.LanguageDirection "ltr" }}
+<html lang="{{ $lang }}" dir="{{ $dir }}">
+<head>
+    {{ partial "head.html" . }}
+    {{ block "head" . }}{{ end }}
+</head>
+{{- if not .Params.Headless }}
+<body {{ with .Params.Type }} id="{{ . }}" {{ end -}}>
+    {{ partial "header.html" . }}
+    {{ block "aside" . }}{{ end }}
+    {{ "<!-- [main] baseof.html -->" | safeHTML }}
+    <main id="{{ .Kind }}">
+        {{ partial "main/header.html" . }}
+        <div id="top" role="presentation">
+            {{ block "top" . }}{{ end }}
+        </div>
+        {{ block "main" . }}{{ end }}
+        {{ partialCached "main/footer.html" . }}
+    </main>
+    {{ partialCached "footer.html" . }}
+
+    {{ block "post" . }}{{ end }}
+    {{ "<!-- [background] baseof.html -->" | safeHTML }}
+    {{ partialCached "background.html" . }}
+</body>
+{{- end }}
+</html>
+
+{{- define "partials/background.html" -}}
+    <div id="background-body"
+        role="presentation">
+        <div id="grain" hidden></div>
+        <div id="dwclock" hidden>
+            <div id="min">
+                <div class="hand"></div>
+            </div>
+            <div id="hour">
+                <div class="hand"></div>
+            </div>
+        </div>
+    </div>
+{{- end }}

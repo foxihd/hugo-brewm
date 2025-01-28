@@ -1,0 +1,276 @@
+[[main]]
+  name       = 'Fork!'
+  identifier = 'fork'
+  weight     = 3
+  url        = 'https://github.com/foxihd/hugo-brewm'
+  pre        = 'github'
+
+[[main]]
+  name       = 'Series'
+  identifier = 'series'
+  pageRef    = '/series'
+  weight     = 1
+
+  [[main]]
+    name       = 'The Second Glass of Brew'
+    identifier = 'series.brewm'
+    pageRef    = '/'
+    parent     = 'series'
+    Post       = "Stuff that's at the very heart of things"
+
+  [[main]]
+    name       = 'Press Outta Foxx'
+    identifier = 'series.foxx'
+    pageRef    = '/'
+    parent     = 'series'
+    Post       = "Digital Humanities and Accessibility"
+
+  [[main]]
+    name       = 'Sustainable Development'
+    identifier = 'series.sdg'
+    pageRef    = '/'
+    parent     = 'series'
+    Post       = 'The 17 Goals'
+
+    [[main]]
+      name       = 'No Poverty'
+      identifier = 'series.sdg.1'
+      pageRef    = '/'
+      parent     = 'series.sdg'
+
+    [[main]]
+      name       = 'Zero Hunger'
+      identifier = 'series.sdg.2'
+      pageRef    = '/'
+      parent     = 'series.sdg'
+
+    [[main]]
+      name       = 'Good Health and Well-being'
+      identifier = 'series.sdg.3'
+      pageRef    = '/'
+      parent     = 'series.sdg'
+
+    [[main]]
+      name       = 'Quality Education'
+      identifier = 'series.sdg.4'
+      pageRef    = '/'
+      parent     = 'series.sdg'
+
+    [[main]]
+      name       = 'Gender Equality'
+      identifier = 'series.sdg.5'
+      pageRef    = '/'
+      parent     = 'series.sdg'
+
+    [[main]]
+      name       = 'Clean Water and Sanitation'
+      identifier = 'series.sdg.6'
+      pageRef    = '/'
+      parent     = 'series.sdg'
+
+    [[main]]
+      name       = 'Affordable and Clean Energy'
+      identifier = 'series.sdg.7'
+      pageRef    = '/'
+      parent     = 'series.sdg'
+
+    [[main]]
+      name       = 'Decent Work and Economic Growth'
+      identifier = 'series.sdg.8'
+      pageRef    = '/'
+      parent     = 'series.sdg'
+
+    [[main]]
+      name       = 'Industry, Innovation and Infrastructure'
+      identifier = 'series.sdg.9'
+      pageRef    = '/'
+      parent     = 'series.sdg'
+
+    [[main]]
+      name       = 'Reduced Inequalities'
+      identifier = 'series.sdg.10'
+      pageRef    = '/'
+      parent     = 'series.sdg'
+
+    [[main]]
+      name       = 'Sustainable Cities and Communities'
+      identifier = 'series.sdg.11'
+      pageRef    = '/'
+      parent     = 'series.sdg'
+
+    [[main]]
+      name       = 'Responsible Consumption and Production'
+      identifier = 'series.sdg.12'
+      pageRef    = '/'
+      parent     = 'series.sdg'
+
+    [[main]]
+      name       = 'Climate Action'
+      identifier = 'series.sdg.13'
+      pageRef    = '/'
+      parent     = 'series.sdg'
+
+    [[main]]
+      name       = 'Life Below Water'
+      identifier = 'series.sdg.14'
+      pageRef    = '/'
+      parent     = 'series.sdg'
+
+    [[main]]
+      name       = 'Life on Land'
+      identifier = 'series.sdg.15'
+      pageRef    = '/'
+      parent     = 'series.sdg'
+
+    [[main]]
+      name       = 'Peace, Justice and Strong Institutions'
+      identifier = 'series.sdg.16'
+      pageRef    = '/'
+      parent     = 'series.sdg'
+
+    [[main]]
+      name       = 'Partnerships for the Goals'
+      identifier = 'series.sdg.17'
+      pageRef    = '/'
+      parent     = 'series.sdg'
+
+[[main]]
+  name       = 'Works'
+  identifier = 'works'
+  pageRef    = '/'
+  weight     = 2
+
+  [[main]]
+    name       = 'Commission'
+    identifier = 'commission'
+    pageRef    = '/'
+    parent     = 'works'
+    Post       = 'Example Menu'
+    weight     = 1
+
+  [[main]]
+    name       = 'Project'
+    identifier = 'project'
+    pageRef    = '/'
+    parent     = 'works'
+    Post       = 'My current projects'
+    weight     = 2
+
+  [[main]]
+    name       = 'Gallery'
+    identifier = 'gallery'
+    pageRef    = '/'
+    parent     = 'works'
+    Post       = 'Well, actually, silly stuff'
+    weight     = 3
+
+[[more]]
+  name       = 'Resources'
+  identifier = 'resources'
+  pageRef    = '/'
+  weight     = 3
+
+[[more]]
+  name       = 'About'
+  identifier = 'about'
+  pageRef    = '/'
+  weight     = 5
+
+  [[more]]
+  name       = 'Sustainability'
+  identifier = 'sustainability'
+  pageRef    = '/'
+  parent     = 'about'
+  weight     = 1
+
+  [[more]]
+  name       = 'Author'
+  identifier = 'author'
+  pageRef    = '/author'
+  parent     = 'about'
+  weight     = 2
+
+[[author-name]]
+  name       = '@user-name'
+  identifier = 'bluesky'
+  pageRef    = '/'
+  weight     = 1
+  pre        = 'bluesky'
+
+[[author-name]]
+  identifier = 'discord'
+  pageRef    = '/'
+  weight     = 2
+  pre        = 'discord'
+
+[[author-name]]
+  name       = ''
+  identifier = 'mastodon'
+  pageRef    = '/'
+  weight     = 3
+  pre        = 'mastodon'
+
+[[more]]
+  name       = 'More Menu'
+  identifier = 'more.menu'
+  pageRef    = '/'
+  weight     = 99
+
+  [[more]]
+    name       = 'That'
+    identifier = 'more.menu.that'
+    parent     = 'more.menu'
+    pageRef    = '/'
+
+    [[more]]
+      name       = 'Never'
+      identifier = 'more.menu.that.never'
+      parent     = 'more.menu.that'
+      pageRef    = '/'
+
+      [[more]]
+        name       = 'Too'
+        identifier = 'more.menu.that.never.too'
+        parent     = 'more.menu.that.never'
+        pageRef    = '/'
+
+        [[more]]
+          name       = 'Deep'
+          identifier = 'more.menu.that.never.too.deep'
+          parent     = 'more.menu.that.never.too'
+          pageRef    = '/'
+
+[[footer]]
+  identifier = 'figma'
+  pageRef    = '/'
+  weight     = 1
+  name       = 'figma'
+  pre        = 'figma'
+
+[[footer]]
+  identifier = 'hashnode'
+  pageRef    = '/'
+  weight     = 2
+  name        = 'hashnode'
+  pre        = 'hashnode'
+
+[[footer]]
+  identifier = 'email'
+  pageRef    = '/'
+  weight     = 3
+  name       = 'email'
+  pre        = 'email'
+
+[[footer]]
+  identifier = 'linkedin'
+  pageRef    = '/'
+  weight     = 4
+  name        = 'linkedin'
+  pre        = 'linkedin'
+
+[[footer]]
+  identifier = 'karyakarsa'
+  pageRef    = '/'
+  weight     = 5
+  name        = 'karya karsa'
+  pre        = 'karyakarsa'

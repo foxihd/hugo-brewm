@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/css/fonts/Montserrat-Regular.woff2) format('woff2');
+    size-adjust: 85%;
+    ascent-override: 104%;
+    descent-override: 36%;
+    line-gap-override: 50%;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/css/fonts/Montserrat-Italic.woff2) format('woff2');
+    size-adjust: 85%;
+    ascent-override: 104%;
+    descent-override: 36%;
+    line-gap-override: 50%;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(/css/fonts/Montserrat-Bold.woff2) format('woff2');
+    size-adjust: 85%;
+    ascent-override: 104%;
+    descent-override: 36%;
+    line-gap-override: 50%;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url(/css/fonts/Montserrat-BoldItalic.woff2) format('woff2');
+    size-adjust: 85%;
+    ascent-override: 104%;
+    descent-override: 36%;
+    line-gap-override: 50%;
+}
+
+:root {
+    --sf: 'Montserrat';
+}

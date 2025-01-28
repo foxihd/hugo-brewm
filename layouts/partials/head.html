@@ -1,0 +1,71 @@
+{{ "<!-- head.html -->" | safeHTML -}}
+{{ if .Params.Headless -}}
+    {{- $url := "/404.html" }}
+    {{- with or .Params.Target .Params.Alias }}
+        {{- $url = . }}
+    {{- end }}
+    <title>{{ $url }}</title>
+    <link rel="canonical" href="{{ $url }}">
+    <meta name="robots" content="noindex">
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="0; url={{ $url }}" />
+{{- else -}}
+    {{ partial "head/meta.html" . -}}
+    {{- if site.Params.extMeta }}
+        {{ partial "head/_meta.html" . -}}
+    {{- end }}
+    {{ with .OutputFormats.Get "rss" -}}
+        {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ end -}}
+    {{ partialCached "head/js.html" . -}}
+    {{ partialCached "head/css.html" . -}}
+{{ end }}
+{{- /*---------------------- end of head.html ----------------------*/}}
+
+{{- define "partials/head/meta.html" }}
+    {{ "<!-- meta.html -->" | safeHTML }}
+    {{- $siteTitle := or site.Title site.Params.title }}
+    {{- $title := cond .IsHome $siteTitle (printf "%s | %s" .Title $siteTitle) }}
+    {{- $author := cond (and .IsPage .Params.author) .Params.author site.Params.Author.Name }}
+    {{- $cover := partial "_funcs/get-page-images.html" . }}
+    {{- /*
+
+        Set description */}}
+    {{- $desc := or .Params.Subtitle .Params.Description .Description .Summary }}
+    {{- if and .IsHome site.Params.Description }}
+        {{- $desc = site.Params.Description }}
+    {{- else if and (not .IsPage) site.Params.Description }}
+        {{- $desc = site.Params.Description .Kind }}
+    {{- end }}
+    {{- /*
+
+        Set keywords */}}
+    {{- $keywords := dict }}
+    {{- if .IsHome }}
+        {{- $keywords = slice (i18n "home") }}
+    {{- else if not .IsPage }}
+        {{- $keywords = slice (.Page.Title) }}
+    {{- else }}
+        {{- $keywords = or .Params.keywords .Params.tags }}
+    {{- end }}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ $title }}</title>
+    <meta name="author" content="{{ $author }}">
+    {{ with $desc -}}
+        <meta name="description" content="{{ . | plainify | htmlUnescape | chomp }}" >
+    {{ end -}}
+    {{ with $keywords -}}
+        <meta name="keywords" content="{{ delimit . "," }}" >
+    {{ end -}}
+    <link rel="canonical" href="{{ .Permalink }}" >
+    {{ with .Translations -}}
+        {{- range . -}}
+            <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ .Language.LanguageName }}">
+        {{- end }}
+    {{- end }}
+    {{ with .Site.Params.favicon }}
+    <link rel="icon" href="{{ . }}">
+    {{ end }}
+{{- end }}

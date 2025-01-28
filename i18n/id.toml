@@ -1,0 +1,199 @@
+[accessibility]
+    other = "Aksesibilitas"
+[accessTime]
+    other = "Halaman ini diakses pada"
+[allPosts]
+    other = "Semua artikel"
+[appearance]
+    other = "Tampilan"
+[articles]
+    one = "Artikel"
+    other = "Artikel"
+[author]
+    one = "Penulis"
+    other = "Penulis"
+[back]
+    other = "Kembali"
+[baselineStretch]
+    other = "Jarak Baris"
+[bionRead]
+    other = "Mode BionRead"
+[breadcrumb]
+    other = "Jejak Navigasi"
+[buildTime]
+    other = "Halaman ini dibuat pada"
+[bypass]
+    other = "Lewati Navigasi"
+[categories]
+    one = "Kategori"
+    other = "Kategori"
+[close]
+    other = "Tutup"
+[coffeeStat]
+    other = "Statistik Kopi"
+[coffeeCount]
+    other = "Membuat situs web ini telah menghabiskan setidaknya "
+[coffeeCountPost]
+    other = ", jika tidak lebih."
+[colophon]
+    other = "Kolofon"
+[colorPalette]
+    other = "Palet Warna"
+[colorSettings]
+    other = "Pengaturan Warna"
+[comments]
+    other = "Diskusi"
+[contrib]
+    other = "Kontribusi"
+[contrast]
+    other = "Kontras"
+[contribAskReader]
+    other = "Suka dengan artikel ini?"
+[contribAskReaderResponse]
+    other = "Terima kasih!"
+[contribAskReaderToContribute]
+    other = "Anda juga dapat mendukung saya dengan memberikan kontribusi berikut:"
+[contribCoffeeStat]
+    other = "Tahukah Anda bahwa"
+[contribCoffeeStatPost]
+    other = "telah membantu saya menulis artikel ini?"
+[copy]
+    other = "Salin Tautan"
+[ctaComments]
+    other = "Bergabung dalam Diskusi"
+[cup]
+    other = "Cangkir kopi"
+[dark]
+    other = "Gelap"
+[darkMode]
+    other = "Mode Gelap"
+[date_long]
+	other = "2 January 2006"
+[defaultColor]
+    other = "Bawaan"
+[defaultContrast]
+    other = "Bawaan"
+[deuteranopia]
+    other = "Deuteranopia"
+[discover]
+    other = "Jelajahi Topik"
+[editedBy]
+    other = "Disunting Oleh"
+[email]
+    other = "Surel"
+[featuredImg]
+    other = "Gambar Unggulan"
+[fediverseIsLoading]
+    other = "Memuat komentar di Fediverse"
+[followRSS]
+    other = "Ikuti dengan RSS"
+[fontSize]
+    other = "Ukuran Font"
+[home]
+    other = "Beranda"
+[in]
+    other = "Dalam"
+[inNewTab]
+    other = "Di tab baru"
+[keepInTouch]
+    other = "Mari tetap terhubung!"
+[lessContrast]
+    other = "Rendah"
+[light]
+    other = "Terang"
+[main]
+    other = "Menu Utama"
+[menuControls]
+    other = "Kontrol Menu Aksesibilitas"
+[modified]
+    other = "Diubah"
+[monochrome]
+    other = "Monokrom"
+[more]
+    other = "Menu Lainnya"
+[moreContrast]
+    other = "Tinggi"
+[nav]
+    other = "Navigasi"
+[next]
+    other = "Selanjutnya"
+[noArticle]
+    other = "Tidak ada artikel untuk ditampilkan."
+[noArticlePost]
+    other = "Sepertinya penulis kami kehabisan kopi... Tetap santai, kami akan membuatnya segera!"
+[noComment]
+    other = "Tidak ada komentar untuk ditampilkan."
+[noScript]
+    other = "Ups... Javascript dinonaktifkan!"
+[noLocalStorage]
+    other = "LocalStorage tidak tersedia di browser Anda. Pengaturan tidak akan disimpan."
+[note]
+    other = "Catatan"
+[on]
+    other = "Pada"
+[OpenDyslexic]
+    other = "Gunakan Font OpenDyslexic"
+[pages]
+    one = "Halaman"
+    other = "Halaman"
+[pagination]
+    other = "Paginasi"
+[posts]
+    one = "Artikel"
+    other = "Artikel"
+[postsBy]
+    other = "Artikel oleh"
+[postsOn]
+    other = "Artikel pada"
+[prev]
+    other = "Sebelumnya"
+[print]
+    other = "Cetak"
+[protanopia]
+    other = "Protanopia"
+[published]
+    other = "Diterbitkan"
+[readingTime]
+    other = "Menit untuk baca"
+[recent]
+    other = "Artikel Terbaru"
+[redactionHistory]
+    other = "Riwayat Redaksi"
+[redactionNotes]
+    other = "Beberapa informasi mungkin berubah, kami menjaga redaksi tetap sejalan dengan perkembangan."
+[reset]
+    other = "Atur Ulang"
+[reviewedBy]
+    other = "Ditinjau Oleh"
+[save]
+    other = "Simpan"
+[search]
+    other = "Cari"
+[seeAll]
+    other = "Lihat semua"
+[seeMore]
+    other = "Jelajahi"
+[section]
+    other = "Bagian"
+[selectLang]
+    other = "Pilihan Bahasa"
+[series]
+    other = "Seri"
+[share]
+    other = "Bagikan"
+[shareOn]
+    other = "Bagikan di"
+[switchLangTo]
+    other = "Ganti Bahasa ke"
+[TableOfContents]
+    other = "Daftar Isi"
+[tags]
+    other = "Tag"
+[toContent]
+    other = "Langsung ke Konten Utama"
+[toTop]
+    other = "Ke Atas Konten"
+[top-nav]
+    other = "Navigasi Atas"
+[tritanopia]
+    other = "Tritanopia"

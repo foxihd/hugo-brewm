@@ -1,0 +1,6 @@
+{{- $minVersion := index ( split hugo.Version "." ) 1 }}
+{{- if lt $minVersion 125 -}}
+    {{- with site.GetPage (.Get 0) }}
+    {{ .RenderShortcodes }}
+    {{- end }}
+{{- end }}

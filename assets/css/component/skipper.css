@@ -1,0 +1,44 @@
+#to-content {
+    /* displayed to screen reader,
+        but visually removed to oustide canvas */
+    --tsf: translateY(-100vmax);
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    outline: none !important;
+    background: var(--bg) !important;
+    width: 100vw;
+    height: var(--vhead);
+    }
+
+#to-content:focus {
+    /* replace top nav on focus */
+    --tsf: translate(0);
+}
+
+body > footer > nav {
+    margin-left: auto;
+}
+
+#to-top {
+    padding: 1ex;
+    color: var(--fg);
+    overflow: hidden;
+}
+
+#to-top::before {
+    --tsf: rotate(-45deg);
+    display: inline-flex;
+    transition: 0.2s;
+    font-family: 'base-ui';
+    content: '\e902';
+}
+
+#to-top:hover::before,
+#to-top:focus::before {
+    --tsf: unset;
+}

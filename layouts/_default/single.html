@@ -1,0 +1,132 @@
+{{- define "head" }}
+    {{- /*
+
+        MathML render engine    */}}
+    {{- if or .Params.Math site.Params.Math }}
+        {{ partialCached "head/js/katex.html" . }}
+    {{- else if or .Params.MathJax site.Params.MathJax }}
+        {{ partialCached "head/js/mathjax.html" . }}
+    {{- end }}
+    {{- /*
+
+        Verbatim Style */}}
+    {{- with findRE `class="chroma"` .Content 1 }}
+        {{ partialCached "head/css/verbatim.html" $ }}
+    {{- end }}
+    {{- /*
+
+        use Highlight.js */}}
+    {{- if .Params.Hljs -}}
+        {{ partialCached "head/css/verbatim.html" . }}
+        {{ partialCached "head/js/hljs.html" . }}
+    {{- end }}
+    {{- /*
+
+        Commenting System over Fediverse */}}
+    {{ partial "head/js/fediverse.html" . }}
+    {{- /*
+
+        QRCode */}}
+    {{/*  {{ partialCached "head/js/qrcode.html" . }}  */}}
+{{- end }}
+
+{{- define "main" }}
+    <article id="main-article" class="pagewidth"
+        role="document" aria-labelledby="title"
+        {{- if ne (lower .Params.type) (or "post" "articles") }}
+            data-pagefind-ignore="all"
+        {{- else }}
+            data-pagefind-body
+        {{- end }}>
+        {{/*
+
+            frontmatter */}}
+        <header class="textwidth" aria-labelledby="title">
+            {{ partial "page/title.html" . }}
+            <div id="doc-author" class="textsw author">
+                {{- $author := cond .Params.author .Params.author site.Params.Author.name }}
+                {{- $authors := .GetTerms "author" }}
+                {{- $instance := or .Params.Fediverse.Host .Params.Fediverse.Instance }}
+                {{- $user := or .Params.Fediverse.User .Params.Fediverse.Username }}
+                {{- $post := or .Params.Fediverse.post .Params.Fediverse.link }}
+                {{- /*
+
+                    Fediverse avatar  */}}
+                {{- if and $instance $user $post (not (gt (len $authors) 1)) }}
+                    {{- $api := print "https://" $instance "/api/v1/statuses/" $post  }}
+                    {{- $data := "" }}
+                    {{- with resources.GetRemote $api }}
+                        {{- $data = transform.Unmarshal . }}
+                        <a id="avatar" href="{{ $data.account.url }}" aria-label="{{ $data.account.display_name }}">
+                            <img src="{{ $data.account.avatar }}" alt="{{ $data.account.display_name }}" class="avatar"/>
+                        </a>
+                    {{- end }}
+                {{- end }}
+                {{/*
+
+                    name of author(s) */}}
+                {{- if $authors }}
+                    {{- if eq (len $authors) 1 }}
+                        {{- range $authors }}
+                            <a href="{{ .RelPermalink }}"
+                                {{- if and $instance $user }}
+                                    class="has-aria-label"
+                                    aria-label="{{ print "@" $user "@" $instance}}"
+                                {{- end }}>
+                                {{- .LinkTitle -}}
+                            </a>
+                        {{- end }}
+                    {{- else }}
+                        {{ partial "terms.html" (dict "taxonomy" "author" "class" "delimiter" "page" .) }}
+                    {{- end }}
+                {{- else if $author -}}
+                    {{- if and $instance $user }}
+                    <a href="{{ printf "https://%s/@%s" $instance $user }}"
+                        class="has-aria-label"
+                        aria-label="{{ print "@" $user "@" $instance}}">
+                        {{- $author -}}
+                    </a>
+                    {{- else }}
+                    <span>{{ $author }}</span>
+                    {{- end }}
+                {{- end }}
+            </div>
+            {{ partial "page/timestamp.html" . }}
+        </header>
+        {{- with .Params.toc }}
+            {{ partial "nav.html" (dict "navID" "TableOfContents" "page" $) }}
+        {{- end }}
+        {{ partial "page/audio.html" . }}
+        <section aria-labelledby="Title" id="content" data-bionRead-safe {{- with .Params.secnum }} class="secnum"{{- end }}>
+            {{- if or .Params.task site.Params.Post.enableCheckbox }}
+                {{ replace .Content "disabled=" "" | safeHTML }}
+            {{- else }}
+                {{ .Content }}
+            {{- end }}
+        </section>
+        <footer>
+            {{ partial "post/tagged.html" . }}
+        </footer>
+    </article>
+    <hr class="hide" style="margin: 1in 0;">
+    <div id="contentinfo" class="pagewidth" role="contentinfo" data-pagefind-ignore="all">
+        {{ partial "post/related.html" . }}
+        {{ partial "post/history.html" . }}
+        {{ partial "post/colophon.html" . }}
+        {{ partial "post/contribute.html" . }}
+        {{ partial "nav.html" (dict "navID" "share" "page" .) }}
+        {{ partial "fediverse.html" . }}
+    </div>
+{{- end }}
+
+{{- define "post" }}
+    {{ "<!-- [post] single.html -->" | safeHTML }}
+    {{- /* display color palette for pages with code blocks */}}
+    {{- with findRE `class="chroma"` .Content 1 -}}
+        <script>document.getElementById('setColorPalette').setAttribute('style', 'display:flex;');</script>
+    {{- end }}
+    {{- /*
+
+        bionRead Snapshot */}}
+    <div id="bionReadSnapshot" hidden></div>
+{{- end }}

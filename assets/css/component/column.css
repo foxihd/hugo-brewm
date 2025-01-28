@@ -1,0 +1,38 @@
+.column {
+    /* auto column count */
+    --col: 16rem;
+    display: block;
+    -webkit-column-gap: 1.618rem;
+       -moz-column-gap: 1.618rem;
+            column-gap: 1.618rem;
+    column-fill: balance;
+    -webkit-column-width: var(--col);
+       -moz-column-width: var(--col);
+            column-width: var(--col);
+}
+
+.column--multicols {
+    /* modify column count on element inline:
+        <e class='column column--multicols' style='--multicols:2'></e> */
+    --col: unset;
+    --multicols: 3;
+    -webkit-column-count: var(--multicols);
+       -moz-column-count: var(--multicols);
+            column-count: var(--multicols);
+}
+
+.column__span {
+    column-span: all;
+}
+
+.column > *,
+.column__item {
+    margin-bottom: 1.618rem;
+    break-after: auto;
+    break-before: auto;
+}
+
+.column img {
+    width: 100%;
+    height: auto;
+}

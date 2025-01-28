@@ -1,0 +1,118 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: calc(var(--baselineStretch) * 1);
+    font-weight: 400;
+    clear: both;
+}
+
+h2,
+h3,
+h4 {
+    margin: var(--bigskip) 0 var(--smallskip);
+    font-style: italic;
+}
+
+h1 {
+    margin: var(--bigskip) 0 var(--smallskip);
+    text-transform: capitalize;
+    font-size: var(--huge);
+    counter-reset: section;
+}
+
+article > section {
+    counter-reset: section;
+}
+
+h2 {
+    font-size: var(--LARGE);
+    counter-reset: subsection;
+}
+
+h3 {
+    font-size: var(--Large);
+    counter-reset: subsubsection;
+}
+
+h4 {
+    font-size: var(--large);
+    counter-reset: paragraph;
+}
+
+h5 {
+    counter-reset: subparagraph;
+    margin: var(--smallskip) 0 0;
+}
+
+h5,
+h6 {
+    word-spacing: 16%;
+    letter-spacing: 0.16em;
+    font: var(--normalsize) var(--sf), sans-serif;
+    -webkit-font-feature-settings: 'c2sc' 1;
+       -moz-font-feature-settings: 'c2sc' 1;
+            font-feature-settings: 'c2sc' 1;
+    font-variant-caps: all-small-caps;
+}
+
+h6 {
+    float: left;
+    margin: 0.2em 0.2em 0 0;
+}
+
+/* section labeling */
+
+/* h1::before {
+    counter-increment: chapter;
+}
+
+h2::before {
+    counter-increment: section;
+}
+
+h3::before {
+    counter-increment: subsection;
+}
+
+h4::before {
+    counter-increment: subsubsection;
+}
+
+h5::before {
+    counter-increment: paragraph;
+}
+
+h6::before {
+    counter-increment: subparagraph;
+}
+
+#content.secnum {
+    counter-reset: chapter;
+}
+
+#content.secnum h1::before {
+    content: counter(chapter);
+}
+
+#content.secnum h2::before {
+    content: counter(section) '. ';
+}
+
+#content.secnum h3::before {
+    content: counter(subsection)'. ';
+}
+
+#content.secnum h4::before {
+    content: counter(subsubsection)'. ';
+}
+
+#content.secnum h5::before {
+    content: counter(paragraph);
+}
+
+#content.secnum h6::before {
+    content: counter(subparagraph);
+} */

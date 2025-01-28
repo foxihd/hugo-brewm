@@ -1,0 +1,95 @@
+{{ "<!-- i18n.html -->" | safeHTML }}
+{{- $IsMultilingual := hugo.IsMultilingual }}
+{{- $minVersion     := index ( split hugo.Version "." ) 1 }}
+{{- if lt $minVersion 124 }}
+    {{- $IsMultilingual = site.IsMultiLingual }}
+{{- end }}
+{{ $flagSrc := "https://raw.githubusercontent.com/lipis/flag-icons/c95b262e5ee2366cad4c5aecc4a5ad86220c9ab9/flags/4x3/" }}
+{{- if $IsMultilingual }}
+    {{- $bilingual := eq (where $.Site.Home.AllTranslations ".Language.disabled" "ne" true | len ) 2 }}
+    {{- if $bilingual }}
+        {{- range where $.Site.Home.AllTranslations "Lang" "ne" $.Lang }}
+            {{- $act639  := index (split $.Language.LanguageCode "-") 0 | upper }}
+            {{- $alt639  := index (split .Language.LanguageCode "-") 0 | upper }}
+            {{- $alt3166 := index (split .Language.LanguageCode "-") 1 | lower }}
+            {{- $name    := .Language.LanguageName }}
+            <a id="has-i18n" class="on-deck"
+                href="{{ .Permalink }}" title="{{ i18n "switchLangTo" }}{{ $name }}"
+                aria-label="{{ $name }}"
+                >
+                <img
+                    src="{{ printf "%s%s.svg" $flagSrc $alt3166 }}" alt=""
+                    width="64" height="48"
+                    aria-hidden="true"
+                    >
+                <span class="act iso639" aria-hidden="true">{{ $act639 }}</span>
+                <span class="alt iso639" aria-hidden="true">{{ $alt639 }}</span>
+                <span class="t t2">{{ $name }}</span>
+            </a>
+        {{- end }}
+    {{- else }}
+        <details id="has-i18n" class="presentation js-details" name="on-deck">
+            <summary class="anchor on-deck" aria-label="{{ i18n "selectLang" }}">
+            {{ with $.Language }}
+                {{- $iso639  := index (split .LanguageCode "-") 0 | upper }}
+                {{- $iso3166 := index (split .LanguageCode "-") 1 | lower }}
+                <img
+                    src="{{ printf "%s%s.svg" $flagSrc $iso3166 }}" alt=""
+                    width="64" height="48"
+                    loading="lazy"
+                    >
+                <span class="iso639" aria-hidden="true">{{ $iso639 }}</span>
+                <span class="languangeName">{{ .LanguageName }}</span>
+            {{ end }}
+            </summary>
+
+            {{ "<!-- on hull -->" | safeHTML }}
+            <nav id="i18n-menu" aria-label="{{ i18n "selectLang" }}">
+                <ul class="on-plank">
+                    {{- range where $.Site.Home.AllTranslations "Lang" "ne" $.Lang }}
+                    <li>
+                        {{- $iso3166 := index (split .Language.LanguageCode "-") 1 | lower }}
+                        <a href="{{ .Permalink }}" aria-label="{{ printf "Change language to %s" .Language.LanguageName }}">
+                            <img
+                                src="{{ printf "%s%s.svg" $flagSrc $iso3166 }}" alt=""
+                                width="64" height="48"
+                                aria-hidden="true"
+                                loading="lazy"
+                                >
+                            <span>{{ .Language.LanguageName }}</span>
+                        </a>
+                    </li>
+                    {{- end }}
+                </ul>
+                <div class="screening js-cgpn" role="presentation" aria-hidden="true"></div>
+            </nav>
+        </details>
+    {{- end }}
+{{- end }}
+{{/*----------------------- end of i18n.html -----------------------*/}}
+
+{{- define "partials/l10n.html" }}
+    {{ "<!-- l10n.html -->" | safeHTML }}
+    {{- $page := .page }}
+    <details id="has-l10n" class="presentation">
+        <summary aria-label="{{ i18n "selectLang" }}">
+            <span>{{ $page.Lang | upper }}</span>
+        </summary>
+        <ul class="on-plank" role="presentation">
+        {{- range $page.Translations }}
+        {{- $iso3166 := index (split .Language.LanguageCode "-") 1 | lower }}
+            <li>
+                <a href="{{ .RelPermalink }}" aria-label="{{ printf "Change language to %s" .LinkTitle }}">
+                    <img
+                        src="{{ printf "https://raw.githubusercontent.com/lipis/flag-icons/c95b262e5ee2366cad4c5aecc4a5ad86220c9ab9/flags/4x3/%s.svg" $iso3166 }}" alt=""
+                        width="64" height="48"
+                        aria-hidden="true"
+                        loading="lazy"
+                        >
+                    <span>{{ .LinkTitle }}</span>
+                </a>
+            </li>
+        {{- end }}
+        </ul>
+    </details>
+{{- end }}

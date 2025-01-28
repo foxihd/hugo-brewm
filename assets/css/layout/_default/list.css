@@ -1,0 +1,145 @@
+hr.ldots {
+    margin-left: 0;
+    border: none;
+    width: var(--golden-ratio);
+}
+
+hr.ldots::after {
+    --tsf: translateY(-2.3rem);
+    display: block;
+    width: 100%;
+    height: 1rem;
+    text-align: center;
+    color: var(--g18s);
+    font-size: 3rem;
+    content: '…';
+}
+
+#list-subsection {
+    padding: 0 calc(1rem - 1ex);
+}
+
+#list-subsection .carousel__viewport,
+#taxonomy .carousel__viewport,
+#taxonomy #list-tags ul {
+    padding: 0 1rem;
+}
+
+#list-series,
+#list-categories {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+}
+
+#list-series .section-title,
+#list-categories .section-title {
+    margin: var(--smallskip);
+    writing-mode: tb;
+}
+
+#list-tags {
+    position: sticky;
+    position: -webkit-sticky;
+    top: var(--vhead);
+    right: var(--void);
+}
+
+.section-title,
+#list-tags > ul {
+    margin: var(--medskip) 0 1ex;
+}
+
+#term section.pagewidth,
+#taxonomy section.pagewidth,
+#list-posts  {
+    min-height: calc(var(--vbody) - 7.258rem);
+}
+
+#taxonomy #list-tags {
+    position: unset;
+    float: unset;
+    margin: unset;
+    padding: 0 var(--void);
+    width: unset;
+}
+
+#taxonomy #list-series,
+#taxonomy #list-categories {
+    display: unset;
+}
+
+#taxonomy #list-tags .section-title,
+#taxonomy #list-series .section-title,
+#taxonomy #list-categories .section-title {
+    margin: var(--bigskip) 0 var(--smallskip);
+    writing-mode: unset;
+}
+
+#has-pagination {
+    margin-top: 1in;
+}
+
+.section-title#series {
+    margin-left: auto;
+    width: var(--golden-ratio);
+}
+
+.list-year.textwidth {
+    display: flex;
+    position: relative;
+    align-items: baseline;
+    margin-left: auto;
+}
+
+.list-year > .section-title {
+    padding: 8pt;
+    width: 5rem;
+    text-align: right;
+}
+
+.list-year > div {
+    flex: 1;
+}
+
+.list-month > summary {
+    padding-left: 1rem;
+    list-style: none;
+}
+
+.list-day a {
+    display: block;
+    margin: 1ex 1rem;
+    padding: 1ex 0;
+    width: 100%;
+    font-size: var(--normalsize);
+}
+
+.list-day a.has-pre::before {
+    position: absolute;
+    left: -9pt;
+    padding: 0.25rem 0;
+    width: 5rem;
+    text-align: right;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-size: var(--footnotesize);
+}
+
+#feed ul.rounded.invert a {
+    font-size: var(--footnotesize);
+}
+
+@media only screen and (max-width: 640px) {
+
+    body > main > aside#list-tags {
+        position: unset;
+        position: unset;
+        float: unset;
+        margin: var(--bigskip) auto;
+        padding: 1rem;
+        width: var(--canonic);
+    }
+
+}

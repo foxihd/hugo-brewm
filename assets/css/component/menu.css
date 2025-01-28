@@ -1,0 +1,558 @@
+ul.delimiter,
+ul.breadcrumb,
+nav > ul,
+ul[role=presentation] {
+    margin: 0;
+    list-style: none;
+    font-size: inherit;
+}
+
+ul.delimiter,
+ul.delimiter li,
+ul.inline,
+ul.inline li,
+nav > ul,
+nav > ul > li {
+    display: inline-block;
+    padding: 0;
+}
+
+/* container */
+
+body > header,
+body > header > nav {
+    display: flex;
+    z-index: 2;
+}
+
+#top-nav {
+    margin-left: auto;
+    font-weight: bold;
+}
+
+#top-nav[open],
+#has-main-menu {
+    flex: 1;
+}
+
+#top-nav > nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1ex;
+}
+
+#logo + #top-nav #main-menu,
+#logo + #top-nav #main-menu .l1 {
+    /* flush item to right-end when logotype on the left */
+    justify-content: flex-end;
+}
+
+#main-menu .l1 {
+    display: flex;
+    gap: 1ex;
+}
+
+/* menu icon */
+
+.menu-icon::before {
+    content: '\e90b';
+    font-family: 'base-ui';
+}
+
+.keydown .menu-icon::before {
+    border: var(--border);
+}
+
+#has-more-menu > summary {
+    width: 43pt;
+}
+
+#has-a11y[open] > summary .icon::before,
+#has-search[open] .icon::before,
+details[open] > summary > .menu-icon::before {
+    --anm: blinking 2s step-end infinite;
+    color: var(--ac);
+}
+
+/* on 'hull' viewport */
+
+#i18n-menu,
+#more-menu,
+.on-hull,
+.screening {
+    /* 'hull' --vbody container */
+    position: fixed;
+    top: var(--vhead);
+    left: 0;
+    width: 100vw;
+    height: var(--vbody);
+}
+
+.screening {
+    /* obscure main body  */
+    --blur: blur(0.2vmin);
+    --dim: brightness(0.96);
+    z-index: -1;
+    background-color: #80808008;
+    -webkit-backdrop-filter: var(--blur) var(--dim);
+            backdrop-filter: var(--blur) var(--dim);
+}
+
+/* item on 'deck' */
+
+.on-deck,
+a#has-i18n {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto 0;
+    padding: unset;
+    min-width: var(--vhead);
+    height: calc(var(--vhead) - 12pt);
+    max-height: 4.2rem;
+}
+
+#has-i18n > .on-deck {
+    padding: 0 1ex;
+    width: unset;
+}
+
+/* item on 'plank' */
+
+.pagefind-ui,
+.on-plank {
+    /* add on-plank */
+    display: flex;
+    flex-direction: column;
+    border: var(--border);
+    border-radius: 1ex;
+    background: var(--bg);
+    padding: 1.414ex;
+    width: fit-content;
+    max-height: calc(var(--vbody) - 2rem);
+    overflow-y: auto;
+    gap: 1ex;
+}
+
+.on-plank ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1ex;
+    border-right: var(--bound);
+    padding: 1ex;
+    gap: 1ex;
+}
+
+details[open] .on-plank,
+.l1 details[open] > ul,
+.marginpar-ctrl:checked + label + .marginpar {
+    --anm: expand 99ms forwards;
+    --tso: top;
+}
+
+#main-menu .on-plank {
+    position: fixed;
+    top: calc(var(--vhead) + 1rem);
+    max-width: 20rem;
+    translate: -1.414ex;
+}
+
+#i18n-menu > .on-plank,
+#more-menu > .on-plank {
+    /* .on-hull > .on-plank */
+    margin: 1rem var(--void) 1rem auto;
+    max-width: var(--max-width);
+}
+
+/* visible menu item */
+
+#has-l10n a,
+#top-nav a,
+.anchor {
+    display: flex;
+    align-items: baseline;
+    border: 2pt solid transparent;
+    border-width: 0 0 2pt 0;
+    padding: 1ex;
+    width: 100%;
+    color: var(--fg);
+}
+
+#top-nav a > .icon::after {
+	content: '\a0';
+}
+
+#top-nav a.has-desc {
+    flex-direction: column;
+}
+
+.anchor {
+    align-items: center;
+}
+
+#has-l10n a:hover,
+#has-l10n a:focus,
+#top-nav a:hover,
+#top-nav a:focus,
+.anchor:hover,
+.anchor:focus {
+    --anm: underline 127ms ease-in;
+    color: var(--ac);
+    border-color: var(--ac);
+}
+
+@-webkit-keyframes underline {
+    from {
+        border-image: linear-gradient(to right, var(--ac), transparent 100%) 1;
+    }
+
+    50% {
+        border-image: linear-gradient(to right, var(--ac), transparent 50%) 1;
+    }
+
+    to {
+        border-image: linear-gradient(to right, var(--ac), transparent 0%) 1;
+    }
+}
+
+@keyframes underline {
+    from {
+        border-image: linear-gradient(to right, transparent, transparent) 1;
+    }
+
+    50% {
+        border-image: linear-gradient(to right, var(--ac), transparent) 1;
+    }
+
+    to {
+        border-image: linear-gradient(to right, var(--ac), var(--ac)) 1;
+    }
+}
+
+.marginpar-ctrl + label::before,
+.anchor:after {
+    /* add indicator [v] */
+    --tst: 200ms ease-out;
+    position: relative;
+    top: 0.23em;
+    left: 0.43em;
+    margin-left: auto;
+    background: linear-gradient(to top, transparent 49%, var(--g18) 51%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+    font: 8pt 'base-ui';
+    content: '\e913';
+}
+
+.anchor:hover::after {
+    background: linear-gradient(to top, transparent 49%, var(--ac) 51%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+}
+
+#has-i18n .anchor::after {
+    left: unset;
+}
+
+.marginpar-ctrl:checked + label::before,
+details[open] > .anchor:after {
+    /* change indicator state [x] */
+    --anm: blinking 3s step-end infinite;
+    background: unset;
+    top: 0;
+    color: var(--g18);
+}
+
+details[open] > .anchor.on-deck:after {
+    /* make opened <details> element more prominent */
+    color: red;
+}
+
+/* bilingual */
+
+a#has-i18n {
+    width: auto;
+    font-weight: 700;
+    font-size: 0.9em;
+    gap: 3pt;
+}
+
+a#has-i18n > .alt,
+a#has-i18n:hover > .act,
+a#has-i18n:focus > .act,
+a#has-i18n:active > .act {
+    /* active/current language */
+    color: var(--g18);
+}
+
+a#has-i18n:hover > .alt,
+a#has-i18n:focus > .alt,
+a#has-i18n:active > .alt {
+    /* alternate language */
+    color: var(--fg);
+}
+
+/* multilingual */
+
+#has-i18n .on-deck {
+    gap: 3pt;
+}
+
+#has-l10n {
+    display: inline-block;
+}
+
+#has-l10n summary {
+    display: block !important;
+    padding: 3.5pt 1.4ex 3.5pt 3.5pt;
+}
+
+#has-l10n > summary::before {
+    font-family: 'base-ui';
+    content: '\e90a\a0';
+}
+
+#has-l10n a,
+#i18n-menu a {
+    align-items: center;
+    gap: 1ex;
+}
+
+#has-l10n img,
+#has-i18n img {
+    border-radius: 2pt;
+    width: auto;
+    height: 8pt;
+    object-fit: cover;
+}
+
+#has-l10n .on-plank {
+    position: absolute;
+    border: var(--border);
+    background: var(--bg);
+    width: auto;
+    z-index: 1;
+}
+
+.parent-anchor a::after,
+#i18n-menu a::after,
+#content a::after {
+    --tsf: rotate(45deg);
+    display: inline-block;
+    margin-top: 0.3em;
+    margin-left: auto;
+    font: 0.7em 'base-ui';
+    content: '\e902';
+}
+
+.parent-anchor a::after,
+#i18n-menu a::after {
+    color: var(--g18);
+}
+
+.hero nav a {
+    color: var(--fg);
+    position: relative;
+}
+
+.hero nav .t {
+    top: 150%;
+}
+
+.hero nav a .icon {
+    display: inline-flex;
+    margin: 2pt;
+    padding: 6pt;
+    font-size: var(--large);
+}
+
+@media only screen and (max-width: 640px) {
+
+    /* container behaviour */
+
+    #top-nav * {
+        outline: none !important;
+    }
+
+    #top-nav[open] > nav {
+        --anm: expand 99ms forwards;
+        --tso: top;
+    }
+
+    #main-menu {
+        display: unset;
+    }
+
+    #main-menu .l1 {
+        flex-direction: column;
+    }
+
+    /* swap menu-icon */
+
+    #top-nav > summary,
+    #top-nav[open] > summary  {
+        display: flex !important;
+        margin-left: auto;
+        width: 43pt;
+    }
+
+    #has-more-menu > summary {
+        width: 100%;
+    }
+
+    #has-more-menu .t,
+    #has-search .t {
+        display: initial;
+        position: unset;
+        visibility: unset;
+        background: unset;
+        width: 100%;
+        color: inherit;
+        font: inherit;
+    }
+
+    /* swap screen element */
+
+    #top-nav-screen.screening {
+        display: block;
+        background-color: var(--bg);
+        backdrop-filter: blur(5vmin);
+    }
+
+    /* swap hull element */
+
+    #top-nav > nav {
+        position: fixed;
+        top: var(--vhead);
+        left: 0;
+        flex-direction: column;
+        justify-content: unset;
+        z-index: 3;
+        padding: 1.414ex;
+        width: 100vw;
+        height: var(--vbody);
+        overflow-y: auto;
+    }
+
+    #i18n-menu,
+    #more-menu,
+    #hasDuckDuckGo,
+    #main-menu .on-plank {
+        /* also unset main menu plank */
+        position: unset;
+        width: unset;
+        max-width: unset;
+        height: unset;
+    }
+
+    /* reorder hull item */
+
+    #has-search {
+        order: 1;
+    }
+
+    #has-main-menu {
+        flex: unset;
+        order: 2;
+    }
+
+    #has-more-menu {
+        order: 3;
+    }
+
+    #has-i18n {
+        order: 4;
+        margin: auto 1ex 2rem;
+    }
+
+    /* redefine deck element */
+
+    #top-nav > nav  .on-deck {
+        justify-content: unset;
+        height: unset;
+    }
+
+    #top-nav > nav #has-i18n .on-deck {
+        padding: 1ex;
+    }
+
+    /* swap plank element */
+
+    .on-plank {
+        border: unset;
+        background: unset;
+        min-width: unset;
+        max-height: unset;
+    }
+
+    #main-menu .on-plank {
+        margin: 0 1ex;
+        border-right: var(--bound);
+        border-radius: 0;
+        padding: 1ex;
+        translate: unset;
+    }
+
+    #i18n-menu > .on-plank ,
+    #more-menu > .on-plank {
+        /* .on-hull > .on-plank */
+        margin: unset;
+        padding: 0;
+        width: 100%;
+    }
+
+    #has-main-menu,
+    #has-more-menu,
+    #has-search {
+        /* make as plank */
+        margin: 1ex;
+        border: var(--border);
+        border-radius: 1ex;
+        background: var(--bg);
+        padding: 1ex;
+    }
+
+    details[open] > .anchor.on-deck:after {
+        color: var(--g18);
+    }
+
+    /* bilingual */
+
+    a#has-i18n::after {
+        margin: 0 auto 0 1.5ex;
+        content: attr(aria-label);
+    }
+
+    a#has-i18n > img {
+        display: initial;
+    }
+
+    /* multilingual */
+
+    #has-i18n img {
+        height: 12pt;
+    }
+
+    #i18n-menu {
+        margin-top: 1ex;
+    }
+
+    .languangeName {
+        display: block !important;
+        margin-left: 0.5ex;
+    }
+
+    /* hide desktop element */
+
+    #top-nav > nav .screening,
+    #has-search[open] > summary,
+    #has-more-menu[open] > summary,
+    #has-more-menu .menu-icon,
+    #has-search .icon,
+    .iso639 {
+        display: none;
+    }
+
+}

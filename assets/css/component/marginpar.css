@@ -1,0 +1,44 @@
+.marginpar {
+    left: var(--golden-ratio);
+    margin-right: 0;
+    margin-left: calc(var(--marginparwidth) * -1);
+    font-size: var(--small);
+    font-style: italic;
+}
+
+.marginpar.abs {
+    /* will ignore clear attribute */
+    position: absolute;
+    right: var(--void);
+    left: unset;
+}
+
+@media screen and (max-width: 640px) {
+
+    .marginpar-ctrl + label {
+        display: inline-flex;
+        padding: 2pt;
+    }
+
+    .marginpar-ctrl + label::before {
+        display: block !important;
+        left: 0;
+    }
+
+    .marginpar-ctrl:checked + label::before {
+        --anm: unset;
+        color: var(--ac);
+    }
+
+    .marginpar {
+        display: none;
+        float: unset;
+    }
+
+    .marginpar-ctrl:checked + label + .marginpar {
+        display: block;
+        position: unset;
+        margin: 1ex 0;
+    }
+
+}

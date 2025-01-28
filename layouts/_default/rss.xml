@@ -1,0 +1,92 @@
+<!-- internal template -->
+{{- /* Deprecate site.Author.email in favor of site.Params.author.email */}}
+{{- $authorEmail := "" }}
+{{- with site.Params.author }}
+  {{- if reflect.IsMap . }}
+    {{- with .email }}
+      {{- $authorEmail = . }}
+    {{- end }}
+  {{- end }}
+{{- else }}
+  {{- with site.Author.email }}
+    {{- $authorEmail = . }}
+    {{- warnf "The author key in site configuration is deprecated. Use params.author.email instead." }}
+  {{- end }}
+{{- end }}
+
+{{- /* Deprecate site.Author.name in favor of site.Params.author.name */}}
+{{- $authorName := "" }}
+{{- with site.Params.author }}
+  {{- if reflect.IsMap . }}
+    {{- with .name }}
+      {{- $authorName = . }}
+    {{- end }}
+  {{- else }}
+    {{- $authorName  = . }}
+  {{- end }}
+{{- else }}
+  {{- with site.Author.name }}
+    {{- $authorName = . }}
+    {{- warnf "The author key in site configuration is deprecated. Use params.author.name instead." }}
+  {{- end }}
+{{- end }}
+
+{{- $desc := or .Params.Subtitle .Params.Description .Description .Summary }}
+
+{{- $pctx := . }}
+{{- if .IsHome }}{{ $pctx = site }}{{ end }}
+{{- $pages := slice }}
+{{- if or $.IsHome $.IsSection }}
+{{- $pages = where $pctx.RegularPages "Type"  (or "post" "articles") }}
+{{- else }}
+{{- $pages = $pctx.Pages }}
+{{- end }}
+{{- $limit := site.Config.Services.RSS.Limit }}
+{{- if ge $limit 1 }}
+{{- $pages = $pages | first $limit }}
+{{- end }}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ if eq .Title site.Title }}{{ site.Title }}{{ else }}{{ with .Title }}{{ . }} on {{ end }}{{ site.Title }}{{ end }}</title>
+    <link>{{ .Permalink }}</link>
+    <description>{{ i18n "recent"}} {{ if ne .Title site.Title }}{{ with .Title }}{{ i18n "in" | lower}} {{ . }} {{ end }}{{ end }}{{ i18n "on" | lower }} {{ site.Title }}</description>
+    <generator>Hugo {{ hugo.Version }}</generator>
+    <language>{{ site.Language.LanguageCode }}</language>
+    {{ with $authorEmail -}}
+      <managingEditor>{{.}}{{ with $authorName }} ({{ . }}){{ end }}</managingEditor>
+    {{ end -}}
+    {{ with $authorEmail -}}
+      <webMaster>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</webMaster>
+    {{ end -}}
+    {{ with site.Copyright -}}
+      <copyright>{{ . }}</copyright>
+    {{ end -}}
+    <lastBuildDate>{{ now.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
+    {{ with .OutputFormats.Get "RSS" -}}
+      {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML -}}
+    {{ end -}}
+    {{- range $pages }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+      {{ with $authorEmail -}}
+        <author>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</author>
+      {{ end -}}
+      <guid>{{ .Permalink }}</guid>
+      <description>{{ $desc | transform.XMLEscape | safeHTML }}</description>
+      {{- $cover := or .Params.cover .Params.image }}
+      {{- $getCover := .Resources.GetMatch "cover.*" }}
+      {{ if or $cover $getCover -}}
+          {{- if $getCover }}
+              {{- $cover = $getCover.Permalink }}
+          {{- end }}
+          {{ with $cover -}}
+            <enclosure url="{{ . }}" length="0" type="image/jpeg" />
+          {{ end -}}
+      {{- end }}
+    </item>
+    {{- end }}
+  </channel>
+</rss>

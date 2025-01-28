@@ -1,0 +1,307 @@
+body.deuteranopia {
+    --y6a: #d17991; --w8u: #3e8620; --s8i: #ff727b; --n8e: #6f7eb5;
+    --m4i: #265245; --y4i: #d61906; --f8a: #8671b2; --s4n: #008ae7;
+    --d3u: #6d4835; --r6a: #4d4a17; --y4a: #0b3460; --k8i: #fe8500;
+    --y6i: #0070a0; --o5a: #bf2d37; --c3u: #635169; --s5o: #2d5a7b;
+    --s5e: #61317b; --y7i: #00b0fb; --i3i: #ff1202; --t9u: #014c2d;
+}
+
+body.protanopia {
+    --y6a: #b095c0; --w8u: #616f00; --s8i: #eeb0df; --n8e: #6d78ae;
+    --m4i: #35432c; --y4i: #9a596f; --f8a: #7777bd; --s4n: #024b82;
+    --d3u: #645649; --r6a: #524c18; --y4a: #122448; --k8i: #efb440;
+    --y6i: #013c4c; --o5a: #8d5d85; --c3u: #5a5774; --s5o: #364a63;
+    --s5e: #494093; --y7i: #086078; --i3i: #e87aab; --t9u: #012500;
+}
+
+body.tritanopia {
+    --y6a: #b98a9c; --w8u: #235e1a; --s8i: #e58795; --n8e: #958fb3;
+    --m4i: #304a3f; --y4i: #7e2521; --f8a: #a288b5; --s4n: #5196cd;
+    --d3u: #54463b; --r6a: #303b19; --y4a: #343d5a; --k8i: #83630c;
+    --y6i: #30728c; --o5a: #873d4a; --c3u: #695b6c; --s5o: #506175;
+    --s5e: #764e82; --y7i: #4bb0dc; --i3i: #c02a2b; --t9u: #00361e;
+}
+
+body.monochrome {
+    --y6a: var(--fg); --w8u: var(--fg); --s8i: var(--fg); --n8e: var(--fg);
+    --m4i: var(--fg); --y4i: var(--fg); --f8a: var(--fg); --s4n: var(--fg);
+    --d3u: var(--fg); --r6a: var(--fg); --y4a: var(--fg); --k8i: var(--fg);
+    --y6i: var(--fg); --o5a: var(--fg); --c3u: var(--fg); --s5o: var(--fg);
+    --s5e: var(--fg); --y7i: var(--fg); --i3i: var(--fg); --t9u: var(--fg);
+}
+
+@media (prefers-contrast: less) {
+    body.monochrome {
+        --y6a: #8f8f8f; --w8u: #6f6f6f; --s8i: #9c9c9c; --n8e: #808080;
+        --m4i: #474747; --y4i: #3e3e3e; --f8a: #7c7c7c; --s4n: #686868;
+        --d3u: #515151; --r6a: #484848; --y4a: #2f2f2f; --k8i: #989898;
+        --y6i: #535353; --o5a: #4e4e4e; --c3u: #575757; --s5o: #535353;
+        --s5e: #414141; --y7i: #818181; --i3i: #565656; --t9u: #313131;
+    }
+}
+
+.lntable {
+    display: block;
+}
+
+.highlight > pre:not(.chroma) {
+    background: unset !important;
+    color: inherit !important;
+}
+
+.highlight > pre.chroma {
+    margin-left: 2rem;
+}
+
+pre > code {
+    padding: 1ex 0;
+    /* background: var(--g18s); */
+}
+
+.lntd > .chroma{
+    margin: 0;
+}
+
+.lntd:first-child * {
+    background: unset !important;
+}
+
+.lntd:first-child .hl {
+    font-weight: bold;
+}
+
+.hljs-ln-numbers,
+.lntd:first-child pre > code,
+.chroma .lnt {/* LineNumbersTable */
+    min-width: 2rem;
+    max-width: 2rem;
+    overflow: hidden;
+    vertical-align: top;
+    color: var(--n8e);
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.chroma .lntd { /* LineTableTD */
+    vertical-align: top;
+}
+
+.chroma .lntable {/* LineTable */
+    border: unset;
+    border-spacing: 0;
+}
+
+.chroma .hl { /* LineHighlight */
+    display: block;
+    background: var(--g18s);
+    width: auto;
+}
+
+.chroma .c, /* Comment */
+.chroma .ch, /* CommentHashbang */
+.chroma .cm, /* CommentMultiline */
+.chroma .c1, /* CommentSingle */
+.chroma .cs, /* CommentSpecial */
+.chroma .cp, /* CommentPreproc */
+.chroma .cpf, /* CommentPreprocFile */
+.hljs-emphasis {
+    font-style: italic;
+}
+
+.chroma .m, /* LiteralNumber */
+.chroma .mb, /* LiteralNumberBin */
+.chroma .mf, /* LiteralNumberFloat */
+.chroma .mh, /* LiteralNumberHex */
+.chroma .mi, /* LiteralNumberInteger */
+.chroma .il, /* LiteralNumberIntegerLong */
+.chroma .mo, /* LiteralNumberOct */
+.chroma .kc, /* KeywordConstant */
+.chroma .kt, /* KeywordType */
+.chroma .nt, /* NameTag */
+.hljs-strong {
+    /* font-weight: bold; */
+}
+
+.chroma .x, /* Other */
+.chroma .err, /* Error */
+.chroma .ln,/* LineNumbers */
+.chroma .o, /* Operator */
+.chroma .p, /* Punctuation */
+.chroma .w { /* TextWhitespace */
+}
+
+.chroma .kn {/* KeywordNamespace */
+    color: var(--y4i);
+    font-weight: bold;
+}
+
+.chroma .ow { /* OperatorWord */
+    color: var(--y4a);
+}
+
+.chroma .c, /* Comment */
+.chroma .ch, /* CommentHashbang */
+.chroma .cm, /* CommentMultiline */
+.chroma .c1, /* CommentSingle */
+.chroma .cs, /* CommentSpecial */
+.chroma .cp, /* CommentPreproc */
+.chroma .cpf, /* CommentPreprocFile */
+.hljs-comment,
+.hljs-quote {
+    color: var(--i3i);
+}
+
+.chroma .n, /* Name */
+.chroma .nc, /* NameClass */
+.chroma .nd, /* NameDecorator*/
+.chroma .ne, /* NameException */
+.chroma .fm, /* NameFunctionMagic */
+.chroma .nl, /* NameLabel */
+.chroma .nn, /* NameNamespace */
+.chroma .nx, /* NameOther */
+.chroma .py, /* NameProperty ---*/
+.chroma .nt, /* NameTag */
+.chroma .nv, /* NameVariable */
+.chroma .vc, /* NameVariableClass */
+.chroma .vg, /* NameVariableGlobal */
+.chroma .vi, /* NameVariableInstance */
+.chroma .vm, /* NameVariableMagic */
+.hljs-deletion,
+.hljs-name,
+.hljs-regexp,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-tag,
+.hljs-template-variable,
+.hljs-variable {
+    color: var(--k8i);
+}
+
+.chroma .nb, /* NameBuiltin */
+.chroma .bp, /* NameBuiltinPseudo */
+.chroma .l, /* Literal */
+.chroma .ld, /* LiteralDate */
+.chroma .m, /* LiteralNumber */
+.chroma .mb, /* LiteralNumberBin */
+.chroma .mf, /* LiteralNumberFloat */
+.chroma .mh, /* LiteralNumberHex */
+.chroma .mi, /* LiteralNumberInteger */
+.chroma .il, /* LiteralNumberIntegerLong */
+.chroma .mo, /* LiteralNumberOct */
+.hljs-built_in,
+.hljs-lfg,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-params,
+.hljs-type {
+    color: var(--s8i);
+}
+
+.chroma .na, /* NameAttribute */
+.hljs-attribute {
+    color: var(--y6a);
+}
+
+.chroma .s, /* LiteralString */
+.chroma .sa, /* LiteralStringAffix */
+.chroma .sb, /* LiteralStringBacktick */
+.chroma .sc, /* LiteralStringChar */
+.chroma .dl, /* LiteralStringDelimiter */
+.chroma .sd, /* LiteralStringDoc */
+.chroma .s2, /* LiteralStringDouble */
+.chroma .se, /* LiteralStringEscape */
+.chroma .sh, /* LiteralStringHeredoc */
+.chroma .si, /* LiteralStringInterpol */
+.chroma .sx, /* LiteralStringOther */
+.chroma .sr, /* LiteralStringRegex */
+.chroma .s1, /* LiteralStringSingle */
+.chroma .ss, /* LiteralStringSymbol */
+.hljs-addition,
+.hljs-bullet,
+.hljs-string,
+.hljs-symbol {
+    color: var(--y7i);
+}
+
+.chroma .no, /* NameConstant */
+.chroma .nf, /* NameFunction */
+.chroma .ni, /* NameEntity */
+.chroma .g, /* Generic */
+.chroma .gd, /* GenericDeleted */
+.chroma .ge, /* GenericEmph */
+.chroma .gr, /* GenericError */
+.chroma .gh, /* GenericHeading */
+.chroma .gi, /* GenericInserted */
+.chroma .go, /* GenericOutput */
+.chroma .gp, /* GenericPrompt */
+.chroma .gs, /* GenericStrong */
+.chroma .gu, /* GenericSubheading */
+.chroma .gt, /* GenericTraceback */
+.chroma .gl, /* GenericUnderline */
+.hljs-section,
+.hljs-title {
+    color: var(--w8u);
+}
+
+.chroma .k, /* Keyword */
+.chroma .kc, /* KeywordConstant */
+.chroma .kt, /* KeywordType */
+.chroma .kd, /* KeywordDeclaration */
+.chroma .kp, /* KeywordPseudo */
+.chroma .kr, /* KeywordReserved */
+.hljs-keyword,
+.hljs-selector-tag {
+    color: var(--s4n);
+}
+
+@media screen and (-ms-high-contrast: active),
+screen and (prefers-contrast: more) {
+    :root {
+        --y6a: var(--fg);
+        --w8u: var(--fg);
+        --s8i: var(--fg);
+        --n8e: var(--fg);
+        --m4i: var(--fg);
+        --y4i: var(--fg);
+        --f8a: var(--fg);
+        --s4n: var(--fg);
+        --d3u: var(--fg);
+        --r6a: var(--fg);
+        --y4a: var(--fg);
+        --k8i: var(--fg);
+        --y6i: var(--fg);
+        --o5a: var(--fg);
+        --c3u: var(--fg);
+        --s5o: var(--fg);
+        --s5e: var(--fg);
+        --y7i: var(--fg);
+        --i3i: var(--fg);
+        --t9u: var(--fg);
+    }
+
+    .hljs *,
+    .chroma * {
+        background: var(--bg) !important;
+        color: var(--fg) !important;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+        font-weight: 700;
+    }
+
+}
+
+@media print {
+
+    .lntd:first-child * {
+        /* hide line numbering; not coupled when code break into new line */
+        /* display: none; */
+    }
+
+}

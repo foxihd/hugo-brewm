@@ -1,0 +1,13 @@
+:root {
+    --rm: 'Times New Roman';
+    --rmosf: 'Palatino';
+    --sf: Arial;
+    --tt: 'Courier New';
+}
+
+/* :root {
+    --rm: Garamond, Palatino, 'Times New Roman';
+    --rmosf: 'Palatino';
+    --sf: Helvetica, Verdana, Arial;
+    --tt: Courier, Consolas, 'Courier New';
+} */

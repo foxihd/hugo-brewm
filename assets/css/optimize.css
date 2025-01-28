@@ -1,0 +1,196 @@
+#setContrast > input:checked:focus + label,
+#OpenDyslexic:checked + label #OpenDyslexicState,
+#saveButton:hover,
+#saveButton:focus,
+#bionReadSwitch:hover + label,
+#bionReadSwitch:focus + label,
+#bionReadSwitch:active + label,
+#bionReadSwitch:checked + label,
+#join-discussion:hover,
+#join-discussion:focus,
+a.cta:hover,
+a.cta:focus {
+    background: var(--ac);
+}
+
+#has-a11y[open] > #has-a11y-summary,
+#lightSwitch:hover + label span::after,
+#lightSwitch:focus + label span::after,
+#a11y-menu > .has-aria-label:focus,
+#a11y-menu > .has-aria-label:hover,
+#menu-footer a:hover,
+#menu-footer a:focus,
+a.replies.active,
+a.reblogs.active,
+#has-author-name-menu a:hover,
+#has-author-name-menu a:focus,
+#related a:hover,
+#related a:focus {
+    color: var(--ac);
+}
+
+.feed-item > hgroup > div a,
+#related a {
+    color: var(--fg);
+}
+
+.readingTime,
+.feed-item > section > div,
+.feed-item > hgroup > div,
+.feed-item:hover img,
+#contrib-menu a:hover,
+#contrib-menu a:focus {
+    opacity: 0.86;
+}
+
+main > header > menu > li > a:hover,
+main > header > menu > li > a:focus,
+.feed-item:hover .par,
+.feed-item:focus .par,
+ul.invert a:hover,
+::-webkit-scrollbar-thumb:hover {
+    opacity: 1;
+}
+
+main#page + footer #setBaselineStretch,
+main#page + footer #useBionRead,
+input[type=checkbox] + label .off,
+input[type=checkbox]:checked + label .on,
+#TableOfContents + nav > ul,
+#TableOfContents + nav > ul > li,
+.has-desc:after {
+    display: block;
+}
+
+input[type=checkbox]:checked + label .off,
+input[type=checkbox] + label .on,
+#setBaselineStretch,
+#has-breadcrumb summary,
+#has-pagination summary,
+#page #back,
+.feed-item > footer > ul::-webkit-scrollbar,
+.feed-item > hgroup > div > span::-webkit-scrollbar,
+.feed-item .doc-publish-date,
+.carousel__viewport::-webkit-scrollbar,
+#logomark--dark,
+.marginpar-ctrl,
+.marginpar-ctrl + label::before,
+#top-nav[open] > summary,
+#top-nav-screen,
+#has-more-menu[open] > summary > .t,
+#has-search[open] > summary > .t,
+.languangeName,
+a#has-i18n > img,
+.pagefind-ui__search-clear,
+.list-month > summary::marker,
+.list-month > summary::-webkit-details-marker,
+#series ~ .list-year .has-post::after,
+#content a.footnote-ref::after,
+#content a.footnote-backref::after,
+details.presentation > summary::-webkit-details-marker,
+details.presentation > summary::marker,
+td.lntd:first-child code.hljs {
+    display: none;
+}
+
+#has-a11y[open] #a11y,
+#OpenDyslexic:hover + label #OpenDyslexicIndicator,
+#OpenDyslexic:focus + label #OpenDyslexicIndicator,
+#logo #logotype__text,
+.marginpar-ctrl:checked + label::before,
+details[open] > .anchor:after,
+details[open] .on-plank,
+.l1 details[open] > ul,
+.marginpar-ctrl:checked + label + .marginpar,
+#has-l10n a:hover,
+#has-l10n a:focus,
+#top-nav a:hover,
+#top-nav a:focus,
+.anchor:hover,
+.anchor:focus,
+#has-a11y[open] > summary .icon::before,
+#has-search[open] .icon::before,
+details[open] > summary > .menu-icon::before,
+.loading:after,
+#top-nav[open] > nav {
+    -webkit-animation: var(--anm);
+       -moz-animation: var(--anm);
+         -o-animation: var(--anm);
+            animation: var(--anm);
+}
+
+hr.ldots::after,
+#to-top::before,
+input:checked + label > #lightSwitchIndicator,
+.hand,
+.pagination .rfill a::before,
+.carousel__viewport__slide:last-child > nav a::before,
+#back::before,
+.feed-item:hover,
+.feed-item:focus-within,
+ul.carousel__viewport > li:hover,
+ul.carousel__viewport > li:focus-within,
+.pagination .lfill a::after,
+#list-tags > nav a::after,
+.carousel__viewport__slide:first-child > nav a::after,
+.parent-anchor a::after,
+#i18n-menu a::after,
+#content a::after,
+#duckduckgo .form__button,
+#to-content,
+.t {
+    -webkit-transform: var(--tsf);
+       -moz-transform: var(--tsf);
+        -ms-transform: var(--tsf);
+         -o-transform: var(--tsf);
+            transform: var(--tsf);
+}
+
+#OpenDyslexicIndicator,
+.marginpar-ctrl + label::before,
+.anchor:after,
+#has-share i:hover {
+    -webkit-transition: var(--tst);
+       -moz-transition: var(--tst);
+         -o-transition: var(--tst);
+            transition: var(--tst);
+}
+
+#has-a11y[open] #a11y,
+details[open] .on-plank,
+.l1 details[open] > ul,
+.marginpar-ctrl:checked + label + .marginpar,
+#top-nav[open] > nav {
+    -webkit-transform-origin: var(--tso);
+       -moz-transform-origin: var(--tso);
+        -ms-transform-origin: var(--tso);
+         -o-transform-origin: var(--tso);
+            transform-origin: var(--tso);
+}
+
+#has-share a:focus,
+.form > *:focus {
+    outline: none !important;
+}
+
+hgroup,
+hgroup > h1,
+figure,
+.pagefind-ui__drawer p,
+#setOpenDyslexic > label::before,
+#main-footer-secondary,
+#menu-footer {
+    margin: 0;
+}
+
+ul.rounded,
+.list-day {
+    padding: 0;
+}
+
+ul.delimiter:first-child li:first-child:before,
+.feed-item > hgroup ul.delimiter:first-child li:last-child::after,
+#content a.has-img::after,
+#doc-author .delimiter li:last-child::after {
+    content: '';
+}

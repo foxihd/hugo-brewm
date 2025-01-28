@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/css/fonts/EBGaramond12-Regular.woff2) format('woff2');
+    size-adjust: 102%;
+    ascent-override: 87%;
+    descent-override: 30%;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/css/fonts/EBGaramond12-Italic.woff2) format('woff2');
+    size-adjust: 102%;
+    ascent-override: 87%;
+    descent-override: 30%;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(/css/fonts/EBGaramond12-Bold.woff) format('woff');
+    size-adjust: 102%;
+    ascent-override: 87%;
+    descent-override: 30%;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url(/css/fonts/EBGaramond12-BoldItalic.woff) format('woff');
+    size-adjust: 102%;
+    ascent-override: 87%;
+    descent-override: 30%;
+}
+
+:root {
+    --rm: 'EB Garamond';
+}

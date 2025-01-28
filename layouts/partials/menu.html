@@ -1,0 +1,134 @@
+{{ "<!-- menu.html -->" | safeHTML }}
+{{- $menuID := .menuID }}
+{{- $page := .page }}
+{{- $open := .open }}
+{{- $more := eq $menuID "more" }}
+{{- if eq $menuID "footer" }}
+    {{- with index site.Menus "footer" }}
+    <nav id="menu-footer" class="has-aria-label-top" aria-label="{{ i18n "keepInTouch" }}">
+        <ul role="presentation">
+        {{- range . }}
+            {{- $label := or .Name .Pre }}
+            <li><a href="{{ .URL }}" aria-label="{{ $label }}">
+                {{- with .Pre }}        
+                    <i class="icon {{ . }}" role="presentation" aria-hidden="true"></i>
+                    <span class="t" role="tooltip">{{ $label }}</span>
+                {{- end }}
+                </a>
+            </li>
+        {{- end }}
+        </ul>
+    </nav>
+    {{- end }}
+{{- else if index site.Menus $menuID }}
+<details id="{{ printf "has-%s-menu" $menuID }}" {{ if $more }}class="presentation js-details" name="on-deck"{{ else }}class="presentation"{{ end }} {{ $open | safeHTMLAttr -}}>
+    <summary {{ if $more }} accesskey="=" class="on-deck" {{ else }} class="hide" {{ end }} aria-label="{{ i18n $menuID }}">
+        {{ if $more -}}
+            <span class="t t2">{{ i18n $menuID }}</span>
+            <span class="menu-icon" role="presentation"></span>
+        {{- else -}}
+            <span>{{ i18n $menuID }}</span>
+        {{- end }}
+    </summary>
+    {{- with index site.Menus $menuID }}
+        {{ if $more }}{{ "<!-- on hull -->" | safeHTML }}{{ end }}
+        <nav id="{{ printf "%s-menu" $menuID }}" aria-label="{{ i18n $menuID }}">
+            {{- $n := 1 }}
+            {{- $no := printf "l%d" $n }}
+            <ul class="{{ $no }} {{ if $more }} on-plank {{ end }}" role="presentation" tabindex="-1" >
+                {{ partial "inline/menu/walk.html" (dict "page" $page "menuID" $menuID "n" $n "menuEntries" .) }}
+            </ul>
+            {{- if $more }}
+            <div class="screening js-cgpn" role="presentation" aria-hidden="true"></div>
+            {{- end }}
+        </nav>
+    {{- end }}
+</details>
+{{- end }}
+
+{{- /*---------------------- end of menu.html ----------------------*/}}
+
+{{- define "partials/inline/menu/walk.html" -}}
+    {{- $page := .page }}
+    {{- $menuID := .menuID }}
+    {{- $open := .open }}
+    {{- $main := eq $menuID "main" }}
+    {{- $n := .n }}
+    {{- $n = add $n 1 }}
+    {{- $l := printf "l%d" $n }}
+    {{- $deck := and $main (eq $n 2) }}
+    {{ range .menuEntries -}}
+        {{- $name := .Name }}
+        {{- $attrs := dict "href" .URL }}
+        {{- if $page.IsMenuCurrent .Menu . }}
+            {{- $attrs = merge $attrs (dict "aria-current" "page") }}
+        {{- else if $page.HasMenuCurrent .Menu . }}
+            {{- $attrs = merge $attrs (dict "aria-current" "true") }}
+        {{- end }}
+        {{- $desc := .Post }}
+        {{- if $deck }}
+            {{- $attrs = merge $attrs (dict "class" "on-deck") }}
+        {{- else if $desc }}
+            {{- $attrs = merge $attrs (dict "class" "has-desc") }}
+        {{- end }}
+        {{- $icon := .Pre }}
+        {{- with $icon }}
+            {{- $attrs = merge $attrs (dict "title" . "aria-label" .) }}
+        {{- end }}
+        <li role="presentation">
+            {{- if .Children }}
+                {{- template "menuItemWithChildren" dict "item" . "attrs" $attrs "icon" $icon "name" $name "desc" $desc "deck" $deck "menuID" $menuID "open" $open "l" $l "n" $n "page" $page }}
+            {{- else }}
+                {{- template "menuItem" dict "attrs" $attrs "name" $name "desc" $desc "icon" $icon }}
+            {{- end }}
+        </li>
+    {{- end }}
+{{- end }}
+
+{{- define "menuItem" }}
+    <a  {{ range $key, $val := .attrs }}
+            {{- with $val }}
+                {{- printf " %s=%s" $key $val | safeHTMLAttr }}
+            {{- end }}
+        {{- end }}
+        {{ with .desc }} aria-description="{{ . }}" {{ end }}>
+        {{ if not .name }}
+        <span class="t" role="tooltip">{{ title .icon }}</span>
+        {{ end  }}
+        {{- with .icon -}}
+            <i class="icon {{ . }}" aria-hidden="true"></i>
+        {{- end }}
+        {{- with .name }}
+            <span>{{ . }}</span>
+        {{- end }}
+    </a>
+{{- end }}
+
+{{- define "menuItemWithChildren" }}
+    <details class="presentation js-details" aria-expanded="true"
+        {{ if .deck }}name="on-deck"{{ end }}
+        {{- if eq .menuID "more" }} open {{ else }} {{ .open | safeHTMLAttr }} {{ end }}>
+        <summary class="anchor {{ if .deck }} on-deck {{ end }}">
+            {{ with .icon }}<i class="icon {{ . }}" aria-hidden="true"></i>{{ end }}
+            <span {{ with .desc }} class="has-desc" aria-description="{{ . }}" {{ end }}>
+                {{- .name -}}
+            </span>
+        </summary>
+        <ul class="{{ .l }} {{ if .deck }} on-plank {{ end }}" role="presentation">
+            {{ partial "inline/menu/walk.html" (dict "page" .page "n" .n "menuEntries" .item.Children) }}
+            {{- range $key, $val := .attrs }}
+                {{- if eq $key "href" }}
+                <li class="parent-anchor">
+                    <a {{- printf " %s=%s" $key $val | safeHTMLAttr }} aria-label="{{ i18n "seeAll" }}:{{ $.name }}">
+                        {{ with $.icon }}<i class="icon {{- . }}" aria-hidden="true"></i>{{ end }}
+                        <span aria-hidden="true"> {{ $.name }}</span>
+                    </a>
+                </li>
+                {{- end }}
+            {{- end }}
+        </ul>
+        {{- if .deck -}}
+            <div class="screening js-cpn" role="presentation" aria-hidden="true"></div>
+        {{- end }}
+    </details>
+{{- end }}

@@ -1,0 +1,115 @@
+main > header.pagewidth {
+    margin-top: var(--medskip);
+    padding-left: calc(var(--void) - 0.5ex - 4pt);
+    height: 2.5rem;
+}
+
+#back {
+    display: inline-flex;
+    position: relative;
+    top: 2.8pt;
+    float: left;
+    border: none;
+    background: none;
+    padding: 0;
+    color: inherit;
+}
+
+#back::before,
+header > menu a::before {
+    padding: 6pt 9pt;
+    font-size: var(--large);
+}
+
+#rss-button::before {
+    font-family: 'base-ui';
+    content: '\e910';
+}
+
+#print-button::before {
+    font-family: 'base-ui';
+    content: '\e90c';
+}
+
+#navigatorShare::before {
+    font-family: 'base-ui';
+    content: '\e912';
+}
+
+#copyPermalink::before {
+    font-family: base-ui;
+    content: '\e905';
+}
+
+main > header > menu {
+    float: right;
+    visibility: hidden;
+    margin: 0 0 0 auto;
+    padding: 0;
+    list-style: none;
+    font-size: 1.1rem;
+}
+
+main#term > header > menu,
+main#page > header > menu {
+    visibility: visible;
+}
+
+main#term #print-button {
+    visibility: hidden;
+}
+
+main > header > menu > li,
+ul.breadcrumb > li {
+    display: inline;
+}
+
+main > header > menu > li > a {
+    opacity: 0.86;
+    color: var(--fg) !important;
+}
+
+.pagination .rfill a::before,
+.carousel__viewport__slide:last-child > nav a::before,
+#back::before {
+    --tsf: rotate(-90deg) translateX(1pt);
+    font-family: base-ui;
+    content: '\e902';
+}
+
+#has-breadcrumb a {
+    margin: 2pt;
+    padding: 0.5ex;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: var(--fg);
+    font-size: var(--small);
+}
+
+ul.breadcrumb {
+    display: flex;
+    padding: 3pt 0;
+    overflow-y: auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+ul.breadcrumb > li > a,
+header > menu a {
+    display: inline-flex;
+    position: relative;
+}
+
+ul.breadcrumb > li:last-child a {
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    -webkit-touch-callout: none;
+}
+
+ul.breadcrumb > li + li:before {
+    color: var(--mid);
+    content: '/';
+}

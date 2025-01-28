@@ -1,0 +1,202 @@
+{{ "<!-- nav.html -->" | safeHTML }}
+{{- $navID := .navID }}
+{{- $page := .page }}
+{{- $toc := eq $navID "TableOfContents" }}
+<details class="presentation" aria-expanded="true" id="{{ printf "has-%s" $navID }}" open>
+    <summary id="{{ $navID }}" tabindex="-1">
+        <span>{{ i18n $navID }}</span>
+    </summary>
+    {{- if $toc }}
+        {{- replace
+            (replace $page.TableOfContents
+                "TableOfContents" "doc-toc")
+                "id" "data-pagefind-body role"
+        | safeHTML }}
+    {{- else }}
+        <nav aria-labelledby="{{ $navID }}">
+            <ul role="presentation" class="{{ $navID }}">
+                {{- if eq $navID "breadcrumb" }}
+                    {{ partial "nav/breadcrumb.html" ( dict "page" $page ) }}
+                {{- else if eq $navID "pagination"}}
+                    {{ partial "nav/paginator.html" ( dict "page" $page ) }}
+                {{- else if eq $navID "share" }}
+                    {{ partial "nav/share.html" ( dict "page" $page ) }}
+                {{- end }}
+            </ul>
+        </nav>
+    {{- end }}
+</details>
+{{- /*---------------------- end of nav.html -----------------------*/}}
+
+{{- define "partials/nav/breadcrumb.html" -}}
+    {{ "<!-- breadcrumb.html -->" | safeHTML }}
+    {{- $page := .page }}
+    {{- if $page.IsTranslated }}
+        <li id="is-translated">
+            {{ partial "l10n.html" ( dict "page" $page ) }}
+        </li>
+    {{- end }}
+    {{- range $page.Ancestors.Reverse }}
+        {{- if not .IsHome }}
+        <li>
+            <a href="{{ .Permalink }}" aria-current="true">
+                {{- .Title }}
+            </a>
+        </li>
+        {{- end }}
+    {{- end }}
+    <li>
+        <a href="{{ .Permalink }}" aria-current="page" tabindex="-1">
+            {{- $page.Title }}
+        </a>
+    </li>
+{{- end }}
+
+{{- define "partials/legacy/breadcrumb.html" -}}
+    {{ "<!-- legacy/breadcrumb.html -->" | safeHTML }}
+    <details id="has-breadcrumb" class="presentation" aria-expanded="true" open>
+        <summary id="breadcrumb" tabindex="-1">
+            <span>{{- i18n "breadcrumb"}}</span>
+        </summary>
+        {{ partial "breadcrumb/menu.html" . }}
+        <nav aria-labelledby="breadcrumb">
+            <ul class="breadcrumb ldots" role="presentation">
+                {{- if .IsTranslated -}}
+                    <li id="is-translated">
+                        {{ partial "l10n.html" ( dict "page" . ) }}
+                    </li>
+                {{- end }}
+                {{ partial "legacy/breadcrumb/loop.html" . }}
+                <li>
+                    <a href="{{ .Permalink }}" aria-current="page" tabindex="-1">
+                        <span>{- .Title }}</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </details>
+{{- end }}
+
+{{- define "partials/legacy/breadcrumb/loop.html" -}}
+    {{ "<!-- legacy/breadcrumb/loop.html -->" | safeHTML }}
+    {{- with .Parent }}
+        {{ partial "legacy/breadcrumb/loop.html" . }}
+        {{- if not .IsHome }}
+            <li>
+                <a href="{{ .Permalink }}" aria-current="true">
+                    <span>{{ .Title }}</span>
+                </a>
+            </li>
+        {{- end }}
+    {{- end }}
+{{- end }}
+
+{{- define "partials/nav/menu.html" -}}
+    {{ "<!-- menu.html -->" | safeHTML }}
+    <menu role="presentation">
+        <li>
+            <a id="print-button" class="hide" href="javascript:window.print()" title="{{ i18n "print" }}" role="button" aria-label="{{ i18n "print" }}">
+                <span class="t" role="tooltip">{{ i18n "print" }}</span>
+            </a>
+        </li>
+        <li>
+            <a id="navigatorShare" href="{{ if .IsPage }}#share{{ else }}javascript:navigator.share({title: document.title, url: window.location.href}){{ end }}" title="{{ i18n "share" }}" role="button" aria-label="{{ i18n "share" }}">
+                <span class="t" role="tooltip">{{ i18n "share" }}</span>
+            </a>
+        </li>
+        <li>
+            <a id="copyPermalink" class="hide" href="javascript:navigator.clipboard.writeText(window.location.href)" title="{{ i18n "copy" }}" role="button" aria-label="{{ i18n "copy" }}">
+                <span class="t" role="tooltip">{{ i18n "copy" }}</span>
+            </a>
+        </li>
+        {{- if and (eq .Kind "term" ) (eq .Data.Plural "series") -}}
+            {{- with .OutputFormats.Get "rss" }}
+                <li>
+                    <a id="rss-button" href="{{ .Permalink }}" title="{{ i18n "followRSS" }}" role="button" aria-label="{{ i18n "followRSS" }}">
+                        <span class="t" role="tooltip">{{ i18n "followRSS" }}</span>
+                    </a>
+                </li>
+            {{- end }}
+        {{- end }}
+    </menu>
+    <button id="back" class="hide" type="button" onclick="history.back();" aria-label="{{ i18n "back" }}">
+        <span class="t" role="tooltip">{{ i18n "back" }}</span>
+    </button>
+{{- end }}
+
+{{- define "partials/nav/paginator.html" -}}
+    {{ "<!-- paginator.html -->" | safeHTML }}
+    {{- $page := .page }}
+    {{- if $page.Paginator.HasPrev }}
+    <li class="rfill">
+        <a class="underline" href="{{ $page.Paginator.Prev.URL }}" rel="prev">
+            <span>{{- i18n "prev" }}</span>
+        </a>
+    </li>
+    {{- end }}
+    {{- if $page.Paginator.HasNext }}
+    <li class="lfill">
+        <a class="underline" href="{{ $page.Paginator.Next.URL }}" rel="next">
+            <span>{{- i18n "next" }}</span>
+        </a>
+    </li>
+    {{- end }}
+{{- end }}
+
+{{- define "partials/nav/share/mastodon.html" -}}
+    {{ "<!-- mastodon.html -->" | safeHTML }}
+    {{- $page := .page }}
+    <form class="form" id="mastodon" action="//sharetomastodon.github.io/" target="_blank" rel="noopener noreferrer">
+        <input id="mastodonTitle" type="hidden" name="title" value="{{ $page.Title }}">
+        <input id="mastodonPermalink" type="hidden" name="url" value="{{ $page.Permalink }}">
+        <input id="mastodonText" type="hidden" name="text" value="{{ $page.Title }} {{- $page.Permalink }}" disabled>
+        <input id="mastodonInstance" type="url" class="ldots form__input" placeholder="Enter Mastodon instance (https://www.example.com)" aria-label="Mastodon instance URL">
+        <button class="form__button" type="submit" aria-label="{{ i18n "shareOn" }} Mastodon">
+            <i class="icon mastodon" aria-hidden="true"></i>
+            <span class="t" role="tooltip">{{ i18n "shareOn" }} Mastodon</span>
+        </button>
+    </form>
+{{- end }}
+
+{{- define "partials/nav/share.html" -}}
+    {{ "<!-- share.html -->" | safeHTML }}
+    {{- $page := .page }}
+    {{- $shareAttr := `rel="noopener noreferrer" target="_blank"` | safeHTMLAttr }}
+    <li id="has-mastodon">
+        {{ partial "nav/share/mastodon.html" (dict "page" $page ) }}
+    </li>
+    <li>
+        <a href="mailto:?subject={{ $page.Title | htmlEscape }}&body={{ $page.Permalink }}" title="{{ i18n "email" }}" role="button" aria-label="{{ i18n "email" }}">
+            <i class="email" aria-hidden="true"></i>
+            <span class="t" role="tooltip">{{ i18n "shareOn" }} {{ i18n "email" }}</span>
+        </a>
+    </li>
+    <li>
+        <a href="whatsapp://send?text={{ $page.Title | htmlEscape }}%20{{ $page.Permalink }}" title="{{ i18n "whatsapp" }}" role="button" aria-label="{{ i18n "whatsapp" }}">
+            <i class="whatsapp" aria-hidden="true"></i>
+            <span class="t" role="tooltip">{{ i18n "shareOn" }} Whatsapp</span>
+        </a>
+    </li>
+    {{- $socialLinks := slice
+        (dict "platform" "telegram" "url" (printf "https://telegram.me/share/url?text=%s&url=%s" ($page.Title | htmlEscape) $page.Permalink))
+        (dict "platform" "facebook" "url" (printf "https://facebook.com/sharer/sharer.php?u=%s" $page.Permalink))
+        (dict "platform" "bluesky" "url" (printf "https://bsky.app/intent/compose?text=%s&url=%s" ($page.Title | htmlEscape) $page.Permalink))
+        (dict "platform" "twitter" "url" (printf "https://twitter.com/intent/tweet/?text=%s&url=%s" ($page.Title | htmlEscape) $page.Permalink))
+        (dict "platform" "linkedin" "url" (printf "https://www.linkedin.com/shareArticle?mini=true&url=%s&title=%s&summary=%s&source=%s" $page.Permalink ($page.Title | htmlEscape) ($page.Title | htmlEscape) $page.Permalink))
+        (dict "platform" "reddit" "url" (printf "https://reddit.com/submit/?url=%s&resubmit=true&title=%s" $page.Permalink ($page.Title | htmlEscape)))
+        (dict "platform" "tumblr" "url" (printf "https://www.tumblr.com/widgets/share/tool?posttype=link&title=%s&caption=%s&content=%s&canonicalUrl=%s" ($page.Title | htmlEscape) ($page.Title | htmlEscape) $page.Permalink $page.Permalink))
+        (dict "platform" "pinterest" "url" (printf "https://pinterest.com/pin/create/button/?url=%s&media=%s&description=%s" $page.Permalink $page.Permalink ($page.Title | htmlEscape)))
+        (dict "platform" "xing" "url" (printf "https://www.xing.com/app/user?op=share;url=%s;title=%s" $page.Permalink ($page.Title | htmlEscape)))
+        (dict "platform" "hackernews" "url" (printf "https://news.ycombinator.com/submitlink?u=%s&t=%s" $page.Permalink ($page.Title | htmlEscape)))
+        (dict "platform" "vk" "url" (printf "http://vk.com/share.php?title=%s&url=%s" ($page.Title | htmlEscape) $page.Permalink))
+    }}
+    {{- range $socialLinks }}
+    <li>
+        <a {{ $shareAttr }} href="{{ .url }}" role="button"
+            aria-label="{{ i18n "shareOn" }} {{ title .platform }} {{ i18n "inNewTab" }}">
+            <i class="{{ .platform }}" aria-hidden="true"></i>
+            <span class="t" role="tooltip">{{ i18n "shareOn" }} {{ title .platform }}</span>
+        </a>
+    </li>
+    {{- end }}
+{{- end }}

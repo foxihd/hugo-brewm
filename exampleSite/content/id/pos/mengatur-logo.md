@@ -1,0 +1,39 @@
+---
+title: "Mengatur Logo"
+description: "Cara mengatur Logo di tema Hugo Brewm"
+date: 2025-01-26
+type: 'post'
+draft: false
+translationKey: logo
+coffee: 1
+---
+
+Tema Hugo Brewm memungkinkan Anda untuk dengan mudah mengatur logo situs Anda. Ikuti langkah-langkah berikut untuk mengatur logo Anda:
+
+## Menambahkan Gambar Logo / Ikon LogoMark
+
+> Siapkan gambar logo Anda
+>
+> - Buat atau siapkan file gambar logo Anda (format yang disarankan: PNG atau SVG)
+> - Untuk hasil terbaik, gunakan gambar dengan latar belakang transparan
+> - Dimensi yang disarankan: tinggi 50px hingga 70px
+> - Anda juga dapat menambahkan versi mode gelap dari logo Anda
+
+Atur logo(mark) di konfigurasi situs Anda:
+
+```toml
+[params]
+    logoMark = 'https://example.com/logoMark.svg' 
+    logoMarkDark = 'https://example.com/logoMarkDark.svg' #opsional
+```
+
+## Menggunakan Preset Logo Type
+
+Jika Anda lebih suka tidak menggunakan logo gambar, Anda dapat mengaktifkan logo berbasis teks bawaan dengan menambahkan pengaturan ini:
+
+```toml
+[params]
+    logoType = true
+```
+
+Setelah membuat perubahan ini, bangun ulang situs Anda untuk melihat logo yang diperbarui. Logo akan secara otomatis muncul di header situs dan akan responsif di berbagai ukuran perangkat.

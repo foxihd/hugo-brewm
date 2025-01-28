@@ -1,0 +1,26 @@
+{{- $var := .Get 0 }}
+{{- $pinID := print "pin-" .Page.File.UniqueID "-" .Ordinal }}
+{{- $url := .Get "url" }}
+{{- $label := .Get "label" }}
+{{- $img := .Get "img" }}
+{{- $alt := .Get "alt" }}
+{{- if .IsNamedParams }}
+    {{- if .Get "quote" }}
+        <a href="{{ $url }}" class="has-img has-aria-label"
+            {{ with $label }} aria-label="{{ . }}"{{ end }}>
+            {{ with $img }} <img src="{{ . }}" alt="{{ or $alt $label }}" loading="lazy">{{ end }}
+            {{ with .Get "quote" }}<div>{{ safeHTML . }}</div>{{ end }}
+        </a>
+    {{- else }}
+        <figure>
+            {{ with $img }}<img src="{{ . }}" alt="{{ or $alt $label }}" loading="lazy">{{ end }}
+            {{- with $label }}
+                <figcaption>
+                    {{ if $url }}<a href="{{ $url }}"> {{ . }}</a>{{ else }}{{ . }}{{ end }}
+                </figcaption>
+            {{- end }}
+        </figure>
+    {{- end }}
+{{ else if or (eq $var "") (eq $var "begin") }}<div class="column">
+{{ else if eq $var "end" }}</div>
+{{- end }}

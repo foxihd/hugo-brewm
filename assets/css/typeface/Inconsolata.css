@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Inconsolata'),
+         url(https://raw.githubusercontent.com/googlefonts/Inconsolata/main/fonts/webfonts/Inconsolata-Regular.woff2) format('woff2');
+    ascent-override: 88%;
+    descent-override: 30%;
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Inconsolata Bold'),
+         url(https://raw.githubusercontent.com/googlefonts/Inconsolata/main/fonts/webfonts/Inconsolata-Bold.woff2) format('woff2');
+    ascent-override: 88%;
+    descent-override: 30%;
+}
+
+:root {
+    --tt: 'Inconsolata';
+}

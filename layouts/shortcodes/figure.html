@@ -1,0 +1,57 @@
+{{- $type := .Get "type" }}
+{{- $figID := print "fig-" .Page.File.UniqueID "-" .Ordinal }}
+{{- if not (eq $type "margin") }}
+    {{- if eq $type "full" }}<figure class="fullwidth">
+    {{- else }}<figure {{ with .Get "class" }} class="{{ . }}"{{ end }}>
+    {{- end }}
+{{- end }}
+{{- if eq $type "full" }}
+    {{- with .Get "link" }}<a href="{{ . }}" class="has-img">{{ end }}
+        <img src="{{ .Get "src" }}"
+            {{ with .Get "alt" }}
+                alt=" {{ . }}"
+                title="{{ . }}"
+            {{ end }}
+            aria-describedby="{{ $figID }}"
+            loading="lazy"
+            >
+    {{- if .Get "link" }}</a>{{ end }}
+    <figcaption id="{{ $figID }}">
+{{- else }}
+    <input id="{{ $figID }}" class="marginpar-ctrl" type="checkbox" aria-controls="the-{{ $figID }}" hidden>
+    <label for="{{ $figID }}"></label>
+    {{- if eq $type "margin" }}
+        <span id="the-{{ $figID }}" class="marginpar">
+        {{- with .Get "link" }}<a href="{{ . }}" class="has-img">
+        {{- end }}
+            <img src="{{ .Get "src" }}" {{ with .Get "alt" }} alt=" {{ . }}" title="{{ . }}" {{ end }} aria-describedby="{{ $figID }}" loading="lazy">
+        {{- if .Get "link" }}</a>{{ end }}
+    {{ else }}
+    <span id="the-{{ $figID }}" class="marginpar">
+    {{- end }}
+{{- end }}
+    {{ with .Get "title" }}<strong>{{ . }} </strong>{{ end }}
+    {{ with .Get "caption" }}{{ . }}{{ end }}
+    {{ with .Get "attrlink" }}<a href="{{ .}}">{{ end }}
+    {{- with .Get "attr" }}{{ . }}{{ end }}
+    {{- if .Get "attrlink" }}</a>{{ end }}
+{{- if eq $type "full" }}
+    </figcaption>
+{{- else }}
+    </span>
+{{- end }}
+{{- if and (not (eq $type "full")) (not (eq $type "margin")) }}
+    {{ with .Get "link" }}<a href="{{ . }}" class="has-img">{{ end }}
+        <img src="{{ .Get "src" }}"
+            {{- with .Get "alt" }}
+                alt="{{ . }}"
+                title="{{ . }}"
+            {{- end -}}
+            aria-describedby="{{ $figID }}"
+            loading="lazy"
+            >
+    {{- if .Get "link" }}</a>{{ end }}
+{{- end }}
+{{- if not (eq $type "margin") }}
+    </figure>
+{{- end }}

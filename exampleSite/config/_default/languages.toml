@@ -1,0 +1,33 @@
+[en]
+    contentDir = 'content/en'
+    disabled = false
+    languageCode = 'en-GB'
+    languageDirection = 'ltr'
+    languageName = 'English'
+    [en.pagination]
+        disableAliases = false
+        pagerSize = 12
+        path = 'page'
+    [en.taxonomies]
+        author = 'author'
+        category = 'categories'
+        series = 'series'
+        tag = 'tags'
+
+[id]
+    contentDir = 'content/id'
+    disabled = false
+    languageCode = 'id-ID'
+    languageDirection = 'ltr'
+    languageName = 'Bahasa Indonesia'
+    [id.pagination]
+        disableAliases = false
+        pagerSize = 12
+        path = 'laman'
+
+[it]
+    contentDir = 'content/it'
+    disabled = false
+    languageCode = 'it-IT'
+    languageDirection = 'ltr'
+    languageName = 'Italian'

@@ -1,0 +1,42 @@
+{{ "<!-- fediverse.html -->" | safeHTML }}
+{{- $instance := or .Params.Fediverse.Host .Params.Fediverse.Instance }}
+{{- $user := or .Params.Fediverse.User .Params.Fediverse.Username }}
+{{- $post := or .Params.Fediverse.post .Params.Fediverse.link }}
+{{- $commentsSrc := print "https://" $instance "/@" $user "/" $post }}
+{{- $api := print "https://" $instance "/api/v1/statuses/" $post  }}
+{{- if and $instance $user $post }}
+    <details id="comments" class="presentation" aria-label="{{ i18n "comments" }}" open>
+        <summary class="section-title" role="button" aria-expanded="true" aria-controls="mastodon-comments-list">
+            <span>{{ i18n "comments" }}</span>
+        </summary>
+        <code class="verbose" aria-hidden="true" hidden>
+            <div class="has-aria-label-top" aria-label="Source:">
+                <span>https://</span><span id="metadata-instance">{{ $instance }}</span>
+                <span>/@</span><span id="metadata-user">{{ $user }}</span>
+                <span>/</span><span id="metadata-post">{{ $post }}</span>
+            </div>
+            <div id="i18n--no-comment" class="has-aria-label-top" aria-label="[l10n] if no comment to display:">
+                {{- i18n "noComment" -}}
+            </div>
+            <div id="i18n--is-loading" class="has-aria-label-top loading" aria-label="[l10n] if comments is loading:">
+               {{- i18n "fediverseIsLoading" -}}
+            </div>
+        </code>
+        {{- with resources.GetRemote $api }}
+            {{- $data := . | transform.Unmarshal }}
+            <article id="discussion-starter">
+                <div data-pagefind-body>{{ $data.content | safeHTML }}</div>
+                <footer>
+                    <a id="join-discussion" href="{{ $data.url }}" rel="nofollow" data-post-counter="">
+                        <span>{{ i18n "ctaComments" }}</span>
+                    </a>
+                    <div id="mastodon-stats" class="stat" aria-live="polite"></div>
+                </footer>
+            </article>
+        {{- end }}
+        <div id="mastodon-comments-list" role="feed" aria-busy="true" aria-label="{{ i18n "comments" }}"></div>
+        <noscript>
+            <div id="comments-error" role="alert">{{ i18n "noScript" }} {{ i18n "noComment" }}</div>
+        </noscript>
+    </details>
+{{ end }}

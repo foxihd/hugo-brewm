@@ -1,0 +1,96 @@
+{{ "<!-- js.html -->" | safeHTML }}
+{{- $js_files := slice
+    (resources.Get "js/default.js")
+    (resources.Get "js/accessibility.js")
+    (resources.Get "js/bionread.js")
+    (resources.Get "js/qrcode.js")
+}}
+{{- $hugo_brewm := $js_files | resources.Concat "js/hugo-brewm.js" | minify }}
+{{- if eq hugo.Environment "development" }}
+    <script src="{{ $hugo_brewm.Permalink }}" defer></script>
+{{- else }}
+    {{- with $hugo_brewm | fingerprint "sha384" -}}
+        <script src="{{ $hugo_brewm.Permalink }}"
+            integrity="{{ .Data.Integrity }}" crossorigin="anonymous"
+            defer></script>
+    {{- end }}
+{{- end }}
+
+{{- /*----------------------- end of js.html -----------------------*/}}
+
+{{- define "partials/head/js/hljs.html" -}}
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js"
+        integrity="sha384-4l+9bhb7rakZ18megzl0/DWczL8ojbDl1jIEzBVffeMho9A6xB/lkqt1K0PC8Jin" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"
+        integrity="sha384-+ch8x/dgaV//v6Sa8m4v5+7KScnpCuxHqilN8njQ013CEKg3Fbd8Q3oN9tfpouLh" crossorigin="anonymous"
+        onload="hljs.highlightAll(); hljs.initLineNumbersOnLoad();"></script>
+    {{- if .Params.Hljslang }}
+        <script src="https://cdn.jsdelivr.net/npm/highlightjs-lang.js@1.1.0/dist/highlightjs-lang.min.js"
+            integrity="sha384-75WGRpKMq3Y83/0jMJ4YeuDd3z48ZvyiFJCYsGoGuE3s8D1P3AiXa6CLxc1wO//W" crossorigin="anonymous"
+            onload="hljs.initLangOnLoad();"></script>
+    {{- end }}
+{{- end }}
+
+{{- define "partials/head/js/katex.html" -}}
+    <link href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" rel="stylesheet"
+        integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+        integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"
+        defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"
+        defer></script>
+    <script src="/js/katex.js" defer></script>
+{{- end }}
+
+{{- define "partials/head/js/mathjax.html" -}}
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"
+        integrity="sha384-WSLBwI+Q8tqRHaC+f1sjS/FVv5cWp7VAfrGB17HLfZlXhbp5F/RPVP7bYVHtiAWE"
+        crossorigin="anonymous"></script>
+    <script src="/js/mathjax.js" defer></script>
+    <script
+        id="MathJax-script"
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+        integrity="sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei" crossorigin="anonymous"
+        async></script>
+{{- end }}
+
+{{- define "partials/head/js/qrcode.html" -}}
+    {{ $qrcode := resources.Get "js/qrcode.js" | minify }}
+    {{ if eq hugo.Environment "development" }}
+        <script src="{{ $qrcode.Permalink }}" defer></script>
+    {{- else }}
+        {{- with $qrcode | fingerprint "sha384" -}}
+            <script src="{{ $qrcode.Permalink }}"
+                integrity="{{ .Data.Integrity }}" crossorigin="anonymous"
+                defer></script>
+        {{- end }}
+    {{- end }}
+{{- end }}
+
+{{- define "partials/head/js/fediverse.html" -}}
+    {{- $instance := .Site.Params.comment.Fediverse.Instance }}
+    {{- if or .Params.Fediverse.Instance .Params.Fediverse.Host }}
+        {{- $instance = or .Params.Fediverse.Instance .Params.Fediverse.Host }}
+    {{- end }}
+    {{- $user := .Site.Params.Comment.Fediverse.User }}
+    {{- if or .Params.Fediverse.User .Params.Fediverse.Username }}
+        {{- $user = or .Params.Fediverse.User .Params.Fediverse.Username }}
+    {{- end }}
+    {{- $post := .Params.Fediverse.post }}
+    {{- if and $instance $user }}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.1/purify.min.js" referrerpolicy="no-referrer"
+            integrity="sha512-uHOKtSfJWScGmyyFr2O2+efpDx2nhwHU2v7MVeptzZoiC7bdF6Ny/CmZhN2AwIK1oCFiVQQ5DA/L9FSzyPNu6Q==" crossorigin="anonymous" ></script>
+        {{- $fediverse := resources.Get "js/fediverse.js" | minify }}
+        {{- if eq hugo.Environment "development" }}
+            <script src="{{ $fediverse.Permalink }}" defer></script>
+        {{- else }}
+            {{- with $fediverse | fingerprint "sha384" }}
+                <script src="{{ $fediverse.Permalink }}"
+                    integrity="{{ .Data.Integrity }}" crossorigin="anonymous"
+                    defer></script>
+            {{- end }}
+        {{- end }}
+    {{- end }}
+{{- end }}

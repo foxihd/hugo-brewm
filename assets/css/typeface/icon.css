@@ -1,0 +1,188 @@
+/* Icon Fonts */
+@font-face {
+    font-family: 'base-ui';
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+    src: url(https://raw.githubusercontent.com/foxihd/hugo-brewm/main/static/css/fonts/base-ui.woff2) format('woff2');
+}
+
+/* fallback setting for websafefonts */
+
+@font-face {
+    font-family: 'Times New Roman';
+    src: local('Times New Roman');
+    size-adjust: 102%;
+    ascent-override: 87%;
+    descent-override: 30%;
+}
+
+@font-face {
+    font-family: 'Arial';
+    src: local('Arial');
+    size-adjust: 87%;
+    ascent-override: 101%;
+    descent-override: 34%;
+}
+
+@font-face {
+    font-family: 'Courier New';
+    src: local('Courier New');
+    size-adjust: 107%;
+    ascent-override: 83%;
+    descent-override: 28%;
+}
+
+#mastodonInstance::before,
+#has-share i,
+.stat a::before,
+.icon {
+    font-family: 'base-ui' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-feature-settings: 'liga';
+       -moz-font-feature-settings: 'liga=1';
+       -moz-font-feature-settings: 'liga';
+        -ms-font-feature-settings: 'liga' 1;
+            font-feature-settings: 'liga';
+    -webkit-font-variant-ligatures: discretionary-ligatures;
+            font-variant-ligatures: discretionary-ligatures;
+}
+
+.icon.accessibility:before {content: '\e900';}
+.icon.arrow:before {content: '\e902';}
+.icon.circle-checked:before {content: '\e903';}
+.icon.circle-unchecked:before {content: '\e904';}
+.icon.copyleft:before {content: '\e906';}
+#has-share .email:before,
+.icon.email:before {content: '\e907';}
+a.favourites::before,
+.icon.heart:before {content: '\e908';}
+.icon.internationalization:before {content: '\e909';}
+.icon.localization:before {content: '\e90a';}
+.icon.menu:before {content: '\e90b';}
+#has-share .print:before,
+.icon.print:before {content: '\e90c';}
+.reblogs::before,
+.icon.reblog:before {content: '\e90d';}
+a.replies::before,
+.icon.reply:before {content: '\e90e';}
+.icon.reset:before {content: '\e90f';}
+.icon.rss:before {content: '\e910';}
+.icon.search:before {content: '\e911';}
+.icon.share:before {content: '\e912';}
+.icon.xmark:before {content: '\e913';}
+.icon.behance:before {content: '\e914';}
+.icon.bigcartel:before {content: '\e915';}
+.icon.bitbucket:before {content: '\e916';}
+.icon.blogger:before {content: '\e917';}
+#has-share .bluesky:before,
+.icon.bluesky:before {content: '\e918';}
+.icon.bukalapak:before {content: '\e919';}
+.icon.buymeacoffee:before {content: '\e91a';}
+.icon.clubhouse:before {content: '\e91b';}
+.icon.codepen:before {content: '\e91c';}
+.icon.creativefabrica:before {content: '\e91d';}
+.icon.dailymotion:before {content: '\e91e';}
+.icon.dev:before {content: '\e91f';}
+.icon.deviantart:before {content: '\e920';}
+.icon.digg:before {content: '\e921';}
+.icon.dribbble:before {content: '\e923';}
+.icon.ebay:before {content: '\e924';}
+.icon.ello:before {content: '\e925';}
+.icon.etsy:before {content: '\e926';}
+#has-share .facebook:before,
+.icon.facebook:before {content: '\e927';}
+.icon.figma:before {content: '\e928';}
+.icon.flattr:before {content: '\e929';}
+.icon.flickr:before {content: '\e92a';}
+.icon.flipkart:before {content: '\e92b';}
+.icon.github:before {content: '\e92c';}
+.icon.githubsponsors:before {content: '\e92d';}
+.icon.gitlab:before {content: '\e92e';}
+.icon.gnusocial:before {content: '\e92f';}
+.icon.goodreads:before {content: '\e930';}
+.icon.googlescholar:before {content: '\e931';}
+.icon.gumroad:before {content: '\e932';}
+#has-share .hackernews:before,
+.icon.hackernews:before {content: '\e933';}
+.icon.hashnode:before {content: '\e934';}
+.icon.icon--500px:before {content: '\e935';}
+.icon.instagram:before {content: '\e936';}
+.icon.jsfiddle:before {content: '\e937';}
+.icon.karyakarsa:before {content: '\e938';}
+.icon.keybase:before {content: '\e939';}
+.icon.keycdn:before {content: '\e93a';}
+.icon.kickstarter:before {content: '\e93b';}
+.icon.kofi:before {content: '\e93c';}
+.icon.lazada:before {content: '\e93d';}
+.icon.liberapay:before {content: '\e93e';}
+#has-share .linkedin:before,
+.icon.linkedin:before {content: '\e93f';}
+.icon.mastodon:before {content: '\e940';}
+.icon.medium:before {content: '\e941';}
+.icon.olx:before {content: '\e942';}
+.icon.opencollective:before {content: '\e943';}
+.icon.openid:before {content: '\e944';}
+.icon.orcid:before {content: '\e945';}
+.icon.otechie:before {content: '\e946';}
+.icon.patreon:before {content: '\e947';}
+.icon.paypal:before {content: '\e948';}
+.icon.peertube:before {content: '\e949';}
+#has-share .pinterest:before,
+.icon.pinterest:before {content: '\e94a';}
+.icon.pleroma:before {content: '\e94b';}
+.icon.publons:before {content: '\e94c';}
+.icon.quora:before {content: '\e94d';}
+#has-share .reddit:before,
+.icon.reddit:before {content: '\e94e';}
+.icon.researchgate:before {content: '\e94f';}
+.icon.saweria:before {content: '\e950';}
+.icon.sellfy:before {content: '\e951';}
+.icon.shopee:before {content: '\e952';}
+.icon.shopify:before {content: '\e953';}
+.icon.signal:before {content: '\e954';}
+.icon.slack:before {content: '\e955';}
+.icon.snapchat:before {content: '\e956';}
+.icon.soundcloud:before {content: '\e957';}
+.icon.stackexchange:before {content: '\e958';}
+.icon.stackoverflow:before {content: '\e959';}
+.icon.stripe:before {content: '\e95a';}
+.icon.substack:before {content: '\e95b';}
+#has-share .telegram:before,
+.icon.telegram:before {content: '\e95c';}
+.icon.threads:before {content: '\e95d';}
+.icon.tidelift:before {content: '\e95e';}
+.icon.tiktok:before {content: '\e95f';}
+.icon.tokopedia:before {content: '\e960';}
+#has-share .tumblr:before,
+.icon.tumblr:before {content: '\e961';}
+.icon.twitch:before {content: '\e962';}
+#has-share .twitter:before,
+.icon.twitter:before {content: '\e963';}
+.icon.vimeo:before {content: '\e964';}
+.icon.vine:before {content: '\e965';}
+#has-share .vk:before,
+.icon.vk:before {content: '\e966';}
+.icon.wattpad:before {content: '\e967';}
+.icon.weibo:before {content: '\e968';}
+#has-share .whatsapp:before,
+.icon.whatsapp:before {content: '\e969';}
+.icon.wikipedia:before {content: '\e96a';}
+.icon.wordpress:before {content: '\e96b';}
+.icon.write-dot-as:before {content: '\e96c';}
+.icon.x:before {content: '\e96d';}
+#has-share .xing:before,
+.icon.xing:before {content: '\e96e';}
+.icon.xmpp:before {content: '\e96f';}
+.icon.youtube:before {content: '\e970';}
+
+.emoji {
+    font-family: 'Apple Color Emoji', 'Segoe UI Emoji', NotoColorEmoji, 'Segoe UI Symbol', 'Android Emoji', EmojiSymbols;
+}

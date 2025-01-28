@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'Cormorant';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/css/fonts/Cormorant-Regular.woff2) format('woff2');
+    size-adjust: 110%;
+    ascent-override: 80%;
+    descent-override: 28%;
+}
+
+@font-face {
+    font-family: 'Cormorant';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/css/fonts/Cormorant-Italic.woff2) format('woff2');
+    size-adjust: 110%;
+    ascent-override: 80%;
+    descent-override: 28%;
+}
+
+@font-face {
+    font-family: 'Cormorant';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(/css/fonts/Cormorant-Bold.woff2) format('woff2');
+    size-adjust: 110%;
+    ascent-override: 80%;
+    descent-override: 28%;
+}
+
+@font-face {
+    font-family: 'Cormorant';
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url(/css/fonts/Cormorant-BoldItalic.woff2) format('woff2');
+    size-adjust: 110%;
+    ascent-override: 80%;
+    descent-override: 28%;
+}
+
+:root {
+    --rm: 'Cormorant';
+}

@@ -1,0 +1,28 @@
+name = "hugo-brewm"
+license = "MIT"
+licenselink = "https://github.com/foxihd/hugo-brewm/LICENSE"
+description = "A fine-brewed Hugo theme made open"
+homepage = "https://github.com/foxihd/hugo-brewm"
+demosite = "https://foxihd.github.io/hugo-brewm"
+tags = [
+    "archive",
+    "blog",
+    "dark",
+    "landing",
+    "light",
+    "minimal",
+    "multilingual",
+    "personal",
+    "responsive"
+    ]
+features = [
+    "accessibility",
+    "breadcrumbs",
+    "mastodon comments",
+    "search"
+    ]
+min_version = "0.116.0"
+
+[author]
+    name = "Foxx"
+    homepage = "https://foxx.ink"

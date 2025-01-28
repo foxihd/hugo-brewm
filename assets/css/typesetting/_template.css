@@ -1,0 +1,306 @@
+/* font-style */
+    .normalfont {
+        font-style: normal;
+        font-weight: normal;
+    }
+
+    .md
+    .textmd,
+    .mdseries {
+        font-weight: normal;
+    }
+
+    .bf,
+    .textbf,
+    .bfseries {
+        font-weight: bold;
+    }
+
+    .up,
+    .textup,
+    .upshape {
+        font-style: normal;
+    }
+
+    .it,
+    .textit,
+    .itshape {
+        font-style: italic;
+    }
+
+    .sl,
+    .textsl,
+    .slshape {
+        --tsf: skew(-7deg, 0deg);
+        -webkit-transform: var(--tsf);
+           -moz-transform: var(--tsf);
+            -ms-transform: var(--tsf);
+             -o-transform: var(--tsf);
+                transform: var(--tsf);
+                font-style: oblique;
+    }
+
+    .sw,
+    .textsw,
+    .swshape {
+        font-variant-alternates: swash(swsh);
+        font-feature-settings: 'swsh' 1;
+        -moz-font-feature-settings: 'swsh' 1;
+        -webkit-font-feature-settings: 'swsh' 1;
+    }
+
+    .sc,
+    .ssc,
+    .textsc,
+    .scshape {
+        font-variant: small-caps;
+        font-feature-settings: 'smcp' 1;
+        -moz-font-feature-settings: 'smcp' 1;
+        -webkit-font-feature-settings: 'smcp' 1;
+    }
+
+    .allsmallcaps,
+    .ssc {
+        font-variant-caps: all-small-caps;
+        font-feature-settings: 'c2sc' 1;
+        -moz-font-feature-settings: 'c2sc' 1;
+        -webkit-font-feature-settings: 'c2sc' 1;
+        letter-spacing: 0.16em;
+        word-spacing: 16%;
+    }
+
+/* font-family */
+    .rm,
+    .textrm {
+        font-family: var(--rm), serif;
+    }
+
+    .tt,
+    .texttt {
+        font-family: var(--tt), monospace;
+    }
+
+    .sf,
+    .textsf {
+        font-family: var(--sf), sans-serif;
+    }
+
+    .od,
+    .textod {
+        font-family: var(--od), sans-serif;
+    }
+
+/* numeral */
+    .pnum,
+    .pl,
+    .po,
+    .textpl,
+    .textpo {
+        font-variant-numeric: proportional-nums;
+        font-feature-settings: 'pnum' 1;
+        -moz-font-feature-settings: 'pnum' 1;
+        -webkit-font-feature-settings: 'pnum' 1;
+    }
+
+    .onum,
+    .po,
+    .to,
+    .textpo,
+    .textto {
+        font-variant-numeric: oldstyle-nums;
+        font-feature-settings:'onum' 1;
+        -moz-font-feature-settings:'onum' 1;
+        -webkit-font-feature-settings:'onum' 1;
+    }
+
+    .lnum,
+    .tl,
+    .pl
+    .texttl,
+    .textpl {
+        font-variant-numeric: lining-nums;
+        font-feature-settings: 'lnum' 1;
+        -moz-font-feature-settings: 'lnum' 1;
+        -webkit-font-feature-settings: 'lnum' 1;
+    }
+
+    .tnum,
+    .to,
+    .po,
+    .textto,
+    .textpo {
+        font-variant-numeric: tabular-nums;
+        font-feature-settings: 'tnum' 1, 'kern' 0;
+        -moz-font-feature-settings: 'tnum' 1, 'kern' 0;
+        -webkit-font-feature-settings: 'tnum' 1, 'kern' 0;
+    }
+
+    .sz0 {
+        font-variant-numeric: slashed-zero;
+        font-feature-settings: 'zero' 1;
+        -moz-font-feature-settings: 'zero' 1;
+        -webkit-font-feature-settings: 'zero' 1;
+    }
+
+    .sub,
+    .textsub {
+        font-variant-position: sub;
+        font-feature-settings: 'subs' 1;
+    }
+
+    .sup,
+    .textsup {
+        font-variant-position: super;
+        font-feature-settings: 'sups' 1;
+    }
+
+    .ldots {
+        text-overflow: ellipsis;
+        overflow-x: clip;
+        white-space: nowrap;
+    }
+
+/* presentation */
+    .smallskip {
+        margin: var(--smallskip) 0;
+    }
+
+    .medskip {
+        margin: var(--medskip) 0;
+    }
+
+    .bigskip {
+        margin:var(--vskip);
+    }
+
+    .hfill,
+    .lfill {
+        margin-left: auto;
+    }
+
+    .hfill,
+    .rfill {
+        margin-right: auto;
+    }
+
+    .vfill,
+    .tfill {
+        margin-top: auto;
+    }
+
+    .vfill,
+    .bfill {
+        margin-bottom: auto;
+    }
+
+    .center {
+        margin: auto;
+        align-self: center;
+    }
+
+    .center,
+    .centering {
+        text-align: center;
+    }
+
+    .justifying {
+        text-align: justify;
+    }
+
+    .flushleft,
+    .raggedright {
+        text-align: left;
+    }
+
+    .flushright,
+    .raggedleft {
+        text-align: right;
+    }
+
+    .nomargin {
+        margin: 0;
+    }
+
+    .nopadding {
+        padding: 0;
+    }
+
+    .noindent {
+        text-indent: 0 !important;
+    }
+
+    .parindent {
+        text-indent: var(--indent);
+    }
+
+/* break */
+    .nobreak {
+        break-inside: avoid;
+    }
+
+    .nopagebreak {
+        break-after: avoid-page;
+        page-break-after: avoid;
+    }
+
+    .break {
+        break-after: always;
+    }
+
+    .columnbreak {
+        break-after: column;
+    }
+
+    .pagebreak {
+        break-after: page;
+        page-break-after: always;
+    }
+
+    .newpage {
+        break-before: always;
+        page-break-before: always;
+    }
+
+    .clearpage {
+        break-after: verso;
+    }
+
+    .creardoublepage {
+        break-after: recto;
+    }
+
+/* quotation */
+    q {
+        font-style: italic;
+    }
+
+    /* enquote */
+    q {
+        quotes: '“' '”' '‘' '’';
+        }
+
+    q.alt {
+        quotes: '”' '”' '’' '’';
+    }
+
+    /* guillemet */
+    q.gm,
+    q.guillemet {
+        quotes: '«' '»' '‹' '›';
+    }
+
+    q.gm.alt,
+    q.guillemet.alt {
+        quotes: '»' '«' '›' '‹';
+    }
+
+    /* goosefeet */
+    q.gf,
+    q.goosefeet {
+        quotes: '„' '“' '‚' '‘';
+    }
+
+    q.gf.alt,
+    q.goosefeet.alt {
+        quotes: '„' '”' '‚' '’';
+    }

@@ -1,0 +1,53 @@
+{{- $url := .Get "url" }}
+{{- $limit := or (.Get "limit") (.Get "pagerSize")}}
+{{- $data := dict }}
+{{- with resources.GetRemote $url }}
+    {{- $data = . | transform.Unmarshal }}
+{{- end }}
+{{- with $data }}
+    {{- $version := index $data "-version" }}
+    {{- if not $version }}
+        <p class="verbose">{{- printf "Unable to get remote resource %q" $url }}</p>
+    {{- else if eq $version "2.0" }}
+        {{- $siteTitle := .channel.title }}
+        {{- $siteDescription := .channel.description }}
+        {{- $siteLink := .channel.link }}
+        {{- $siteImage := .channel.image.url }}
+        {{- $siteLanguage := .channel.language }}
+        {{- $buildDate := .channel.lastBuildDate }}
+        {{- with .channel.item }}
+        <div role="feed" aria-busy="false">
+            {{- $pagerSize := or $limit 10 }}
+            {{- range . | first $pagerSize }}
+                {{- $author := or .author .creator }}
+                {{- $title := .title }}
+                {{- $description := or .description .summary }}
+                {{- $link := .link }}
+                {{- $date := .pubDate }}
+                {{- $category := .category }}
+                {{- $type := index .enclosure "-type" }}
+                {{- $url := index .enclosure "-url" }}
+                <article class="feed-item">
+                    <hgroup>
+                        <div>
+                            {{- with $author }}<span>{{ . }} </span>{{ end }}
+                            {{- with $date }}<div><time datetime="{{ . }}">{{ . | truncate 19 "" }}</time></div>{{ end }}
+                        </div>
+                        <h1>{{ $title }}</h1>
+                    </hgroup>
+                    <a class="underline" href="{{ .link }}" aria-label="{{ .title }}"></a>
+                    <section>
+                        {{- if or (eq $type "image/jpeg") .coverImage }}
+                            {{- if .coverImage }}
+                                {{- $url = .coverImage }}
+                            {{- end }}
+                            <img src="{{ $url }}" alt="{{ .title }}" loading="lazy" />
+                        {{- end }}
+                        <div class="par">{{ $description | safeHTML }}</div>
+                    </section>
+                </article>
+            {{- end }}
+        </div>
+        {{- end }}
+    {{- end }}
+{{- end }}

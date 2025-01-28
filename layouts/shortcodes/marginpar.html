@@ -1,0 +1,4 @@
+{{- $marginparID := print "marginpar-" .Ordinal }}
+<input id="{{ $marginparID }}" class="marginpar-ctrl" type="checkbox" aria-controls="the-{{ $marginparID }}" hidden>
+<label for="{{ $marginparID }}"></label>
+<span id="the-{{ $marginparID }}" class="marginpar" role="note">{{ .Inner | markdownify }}</span>

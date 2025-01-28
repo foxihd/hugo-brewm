@@ -1,0 +1,61 @@
+{{ "<!-- search.html -->" | safeHTML }}
+<details id="has-search" class="presentation js-details" name="on-deck">
+    <summary class="on-deck" accesskey="q" aria-keyshortcuts="q">
+        <span class="t t2">{{ i18n "search" }}</span>
+        <kbd class="key" style="display: none;">q</kbd>
+    </summary>
+    {{ if site.Params.pagefind }}
+        {{ partialCached "search/pagefind.html" . }}
+        <noscript id="hasDuckDuckGo" class="on-hull">
+            {{ partialCached "search/duckduckgo.html" . }}
+        </noscript>
+    {{ else }}
+        <div id="hasDuckDuckGo" class="on-hull">
+            {{ partialCached "search/duckduckgo.html" . }}
+        </div>
+    {{ end }}
+</details>
+{{- /*-------------------- end of search.html ----------------------*/}}
+
+{{- define "partials/search/duckduckgo.html" }}
+    {{ "<!-- duckduckgo.html -->" | safeHTML }}
+    {{- $site := index (split site.BaseURL "/") 2 }}
+    <form id="duckduckgo" class="form on-plank"
+        name="x" action="//duckduckgo.com/"
+        role="search" aria-label="{{ i18n "searchDuckDuckGo" }}">
+        <input type="hidden" value="{{ $site }}" name="sites"></input>
+        <input type="hidden" value="1" name="kh"></input>
+        <input type="hidden" value="1" name="kn"></input>
+        <input type="hidden" value="1" name="kac"></input>
+        <input class="ldots form__input" type="search" placeholder="{{ i18n "search" }}" name="q"></input>
+        <button class="form__button" type="submit" aria-label="{{ i18n "search" }}">
+            <img src="https://duckduckgo.com/assets/logo_header.v109.svg" alt="" role="presentation" aria-hidden="true">
+        </button>
+    </form>
+    <div role="presentation" class="screening js-cgpn"></div>
+{{- end }}
+
+{{- define "partials/search/pagefind.html" -}}
+    {{ "<!-- pagefind.html -->" | safeHTML }}
+    <div id="search" class="on-hull">
+        <div role="presentation" class="screening js-cgpn"></div>
+    </div>
+    <script src="/_pagefind/pagefind-ui.js" type="text/javascript"></script>
+    <script>
+        let pageFindInitialized = false;
+        const initPageFind = function(event) {
+            if (!pageFindInitialized) {
+                new PagefindUI({
+                    element: "#search",
+                    showImages: false,
+                    translations: {
+                        placeholder: "{{ i18n "search" }}"
+                    }
+                });
+                pageFindInitialized = true;
+                document.removeEventListener('DOMContentLoaded', initPageFind);
+            }
+        };
+        document.addEventListener('DOMContentLoaded', initPageFind);
+    </script>
+{{- end }}

@@ -1,0 +1,31 @@
+baseURL = 'https://foxihd.github.io/hugo-brewm/'
+title = 'Example'
+theme = 'hugo-brewm'
+# enableGitInfo = true
+canonifyURLs = true
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = true
+enableMissingTranslationPlaceholders = true
+# sectionPagesMenu = 'main'
+ignoreFiles = ['\.bak$', '\.redacted$']
+ignoreLogs = ['err-youtube-remote']
+copyright = 'Copyright (c) Foxxi'
+
+[markup]
+    [markup.highlight]
+    codeFences = true
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = false
+    tabWidth = 4
+
+    [markup.goldmark]
+    [markup.goldmark.renderer]
+        unsafe = true # NOT-RECOMMENDED! FOR DEMO PURPOSE ONLY!
+
+[frontmatter]
+    date = ['tanggal', ':default']
+    expiryDate = ['redacted', 'kadaluwarsa', 'ditarik', ':default']
+    lastmod = ['errata', 'addendum', "lastmod", 'disunting', 'diubah', ':default'] # ":fileModTime"

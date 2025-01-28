@@ -1,0 +1,189 @@
+{{ "<!-- a11y.html -->" | safeHTML -}}
+<details id="has-a11y" class="presentation js-details" name="on-deck" aria-haspopup="true" aria-labelledby="has-a11y-summary">
+    <summary id="has-a11y-summary" accesskey="a" aria-keyshortcuts="a">
+        <span>&nbsp;{{ i18n "accessibility" }}</span>
+        <kbd class="key">a</kbd>
+    </summary>
+    {{ "<!-- a11y console -->" | safeHTML }}
+    <fieldset id="a11y" role="region" disabled>
+        {{ "<!-- brightness & contrast -->" | safeHTML }}
+        <div id="setColorScheme" role="group" aria-label="{{ i18n "colorSettings" }}">
+            {{ partialCached "a11y/darkMode.html" . }}
+            {{ partialCached "a11y/contrast.html" . }}
+        </div>
+        {{ partialCached "a11y/colorPalette.html" . }}
+        {{ partialCached "a11y/fontsize.html" . }}
+        {{ partialCached "a11y/baselineStretch.html" . }}
+        {{ partialCached "a11y/OpenDyslexic.html" . }}
+        {{ partialCached "a11y/menu.html" . }}
+        <noscript>
+            <center id="noScript" role="alert">{{ i18n "noScript" }}</center>
+        </noscript>
+        <center id="noLocalStorage" class="hide" role="alert">{{ i18n "noLocalStorage" }}</center>
+    </fieldset>
+    <div class="screening js-cpn" role="presentation" aria-hidden="true"></div>
+</details>
+
+{{/*----------------------- end of a11y.html ------------------------*/}}
+
+{{- define "partials/a11y/darkMode.html" -}}
+    {{ "<!-- darkMode.html -->" | safeHTML }}
+    <input
+        id="lightSwitch"
+        type="checkbox"
+        onclick="setColor()"
+        aria-label="{{ i18n "darkMode" }}"
+        checked>
+        <label for="lightSwitch">
+            <div class="has-aria-label on" role="status" aria-label="{{ i18n "light" }}"></div>
+            <div class="has-aria-label off" role="status" aria-label="{{ i18n "dark" }}"></div>
+            <div id="lightSwitchIndicator" aria-hidden="true"></div>
+        </label>
+{{- end }}
+
+{{- define "partials/a11y/contrast.html" -}}
+    {{ "<!-- contrast.html -->" | safeHTML }}
+    <fieldset id="setContrast">
+        <legend>{{ i18n "contrast" }}</legend>
+        <input
+            id="lessContrast"
+            type="radio" name="setContrast" value="less"
+            onclick="setColor()"
+            >
+            <label for="lessContrast">
+                <span>{{ i18n "lessContrast" }}</span>
+            </label>
+        <input
+            id="defaultContrast"
+            type="radio" name="setContrast" value="default"
+            onclick="setColor()"
+            >
+            <label for="defaultContrast">
+                <span>{{ i18n "defaultContrast" }}</span>
+            </label>
+        <input
+            id="moreContrast"
+            type="radio" name="setContrast" value="more"
+            onclick="setColor()"
+            >
+            <label for="moreContrast">
+                <span>{{ i18n "moreContrast" }}</span>
+            </label>
+    </fieldset>
+{{- end }}
+
+{{- define "partials/a11y/colorPalette.html" -}}
+    {{ "<!-- colorPalette.html -->" | safeHTML }}
+    <div id="setColorPalette" style="display:none;">
+        <label for="colorPalette">{{ i18n "colorPalette" }}</label>
+        <select id="colorPalette" name="colorPalette" oninput="setColorPalette()">
+            <option value="defaultColor">{{ i18n "defaultColor" }}</option>
+            <option value="deuteranopia">{{ i18n "deuteranopia" }}</option>
+            <option value="protanopia">{{ i18n "protanopia" }}</option>
+            <option value="tritanopia">{{ i18n "tritanopia" }}</option>
+            <option value="monochrome">{{ i18n "monochrome" }}</option>
+        </select>
+    </div>
+{{- end }}
+
+{{- define "partials/a11y/fontsize.html" -}}
+    {{ "<!-- fontsize.html -->" | safeHTML }}
+    <div class="has-aria-label-top" aria-label="{{ i18n "fontSize" }}">
+        <label class="range" for="fontSize" aria-label="{{ i18n "fontSize" }}">
+            <input
+                id="fontSize"
+                type="range" min="8" max="12" step="0.5"
+                oninput="setFontSize()">
+            <output
+                id="fontSizeState"
+                onclick="resetFontSize()"
+                aria-live="polite"
+                >10</output>
+        </label>
+    </div>
+{{- end }}
+
+{{- define "partials/a11y/baselineStretch.html" -}}
+    {{ "<!-- baselineStretch.html -->" | safeHTML }}
+    <div id="setBaselineStretch" class="has-aria-label-top" aria-label="{{ i18n "baselineStretch" }}">
+        <label class="range" for="baselineStretch">
+            <input
+                id="baselineStretch"
+                type="range" min="0.8" max="1.2" step="0.05"
+                oninput="setStretch()"
+                >
+            <output
+                id="baselineStretchState"
+                onclick="resetStretch()"
+                aria-live="polite"
+                >1</output>
+        </label>
+    </div>
+{{- end }}
+
+{{- define "partials/a11y/OpenDyslexic.html" -}}
+    {{ "<!-- OpenDyslexic.html -->" | safeHTML }}
+    <div id="setOpenDyslexic">
+        <input
+            id="OpenDyslexic"
+            type="checkbox"
+            onclick="useOpenDyslexic()"
+            aria-label="{{ i18n "OpenDyslexic" }}"
+            >
+            <label
+                class="has-aria-label-top"
+                for="OpenDyslexic"
+                aria-label="{{ i18n "OpenDyslexic" }}"
+                >
+                <span id="OpenDyslexicState" aria-hidden="true">
+                    <span id="OpenDyslexicIndicator"></span>
+                </span>
+            </label>
+    </div>
+{{- end }}
+
+{{- define "partials/a11y/menu.html" -}}
+    {{ "<!-- menu.html -->" | safeHTML }}
+    <menu
+        id="a11y-menu"
+        class="hide"
+        role="toolbar"
+        aria-label="{{ i18n "menuControls" }}"
+        >
+        <button
+            id="saveButton" class="reverse"
+            onclick="saveA11y()"
+            disabled>
+            {{- i18n "save" }}
+        </button>
+        <button
+            id="resetButton" class="has-aria-label"
+            onclick="resetA11y()"
+            aria-label="{{ i18n "reset" }}"
+            disabled>
+        </button>
+        <button
+            id="closeButton" class="has-aria-label"
+            onclick="closeA11yConsole()"
+            aria-label="{{ i18n "close" }}"
+            >
+        </button>
+    </menu>
+{{- end }}
+
+{{- define "partials/a11y/bionread.html" -}}
+    {{ "<!-- bionread.html -->" | safeHTML }}
+    <div id="useBionRead" class="hide">
+        <input
+            id="bionReadSwitch"
+            accesskey="b" type="checkbox"
+            onclick="bionRead()"
+            aria-keyshortcuts="b"
+            aria-label="{{ i18n "bionRead" }}"
+            >
+            <label id="bionReadButton" for="bionReadSwitch">
+                <span><strong>Bion</strong>Read</span>
+                <kbd class="key">b</kbd>
+            </label>
+    </div>
+{{- end }}

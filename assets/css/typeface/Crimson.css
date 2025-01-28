@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'crimson';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Crimson Roman'),
+     url(https://raw.githubusercontent.com/skosch/Crimson/master/Web%20Fonts/crimson-roman-webfont.woff2) format('woff2');
+    size-adjust: 95%;
+}
+
+@font-face {
+    font-family: 'crimson';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Crimson Italic'),
+         url(https://raw.githubusercontent.com/skosch/Crimson/master/Web%20Fonts/crimson-italic-webfont.woff2) format('woff2');
+    size-adjust: 95%;
+}
+
+@font-face {
+    font-family: 'crimson';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Crimson Bold'),
+         url(https://raw.githubusercontent.com/skosch/Crimson/master/Web%20Fonts/crimson-bold-webfont.woff2) format('woff2');
+    size-adjust: 95%;
+}
+
+@font-face {
+    font-family: 'crimson';
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Crimson BoldItalic'),
+         url(https://raw.githubusercontent.com/skosch/Crimson/master/Web%20Fonts/crimson-bolditalic-webfont.woff2) format('woff2');
+    size-adjust: 95%;
+}
+
+:root {
+    --rm: 'crimson';
+}
