@@ -1,10 +1,6 @@
 # Hugo Brewm
 
-> This is a fine-brewed Hugo theme I made for my personal blog.  
-> I'm happy to share this theme with the community.
->
-> With joy xx,  
-> — [foxx](https://github.com/foxihd)
+>  Fine-brewed Hugo theme made open.
 
 Demosite: [https://hugo.brewm.co](https://hugo.brewm.co)
 
@@ -12,9 +8,8 @@ Demosite: [https://hugo.brewm.co](https://hugo.brewm.co)
 
 - **Reader-first**: Prioritizes readability and accessibility with personalized settings for colors, fonts, and BionRead mode.
 - **Inclusive**: Graceful degradation design oriented with improved semantic HTML structure & WAI-ARIA attribute.
-- **Scalable**: Support for multiple authors and languages.
-- **Extensible**: Integrated Pagefind search functionality, external feed over RSS and embed decentralized comments through Fediverse.
-- **No-framework**: Lower maintenace & carbon footprint by lesser resource usage.
+- **Scalable**: Support for multiple authors and languages, optional Pagefind search, external feed over RSS and Fediverse-powered commenting system.
+- **Frameworkless**: Lower maintenace & carbon footprint by lesser resource usage.
 
 ## Installation
 
@@ -38,7 +33,7 @@ git submodule add https://github.com/foxihd/hugo-brewm themes/hugo-brewm
 theme = "hugo-brewm"
 ```
 
-# Special Thanks
+## Special Thanks
 
 This project could not be made, without a lot efforts of — thank to:
 
@@ -52,6 +47,7 @@ This project could not be made, without a lot efforts of — thank to:
 - [IcoMoon](https://icomoon.io) - for icon font.
 - [JulietaUla/Montserrat](https://github.com/JulietaUla/Montserrat) - for sans-serif typeface.
 - [Markmead/JS Bionic Reading](https://github.com/markmead/js-bionic-reading) - for BionRead support.
+- [Mrozilla on codepen](https://codepen.io/mrozilla/pen/OJJNjRb) - for dark/light mode toggle style.
 - [Msurguy/Flow Lines](https://github.com/msurguy/flow-lines) - for generated feature images.
 - [Omnibus-Type/Rosario](https://github.com/Omnibus-Type/Rosario) - for sans-serif typeface.
 - [Risilab/Cormorant](https://github.com/risilab/cormorant) - for serif typeface.
