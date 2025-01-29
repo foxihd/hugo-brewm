@@ -252,10 +252,11 @@
             <h1 id="{{ printf "title-%d" .counter }}">{{ .page.Title }}</h1>
         </hgroup>
         <a class="underline" href="{{ .page.RelPermalink }}" aria-label="{{ .page.Title }}"></a>
-        <section>
+        {{ $useFlowlines := site.Params.Feed.Flowlines }}
+        <section {{ if or .hasCover $useFlowlines }}class="has-cover"{{ end }}>
             {{- if .hasCover }}
                 {{ partial "page/cover.html" .page }}
-            {{- else }}
+            {{- else if $useFlowlines }}
                 {{- $flowlinesCount := site.Params.Feed.FlowlinesLimit | default 42 }}
                 {{- $flowlinesSrc := "https://raw.githubusercontent.com/foxihd/hugo-et-hd/master/static/svg/flowlines/" }}
                 {{- $src := printf "%s%d.svg" $flowlinesSrc (index (seq $flowlinesCount | shuffle) 1) }}

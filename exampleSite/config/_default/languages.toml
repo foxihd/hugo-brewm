@@ -24,6 +24,8 @@
         disableAliases = false
         pagerSize = 12
         path = 'laman'
+    [id.params.feed]
+        flowlines = false
 
 [it]
     contentDir = 'content/it'
