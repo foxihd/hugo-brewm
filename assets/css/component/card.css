@@ -94,6 +94,7 @@
     overflow-x: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    text-overflow: ellipsis;
 }
 
 .feed-item > hgroup > div > div {

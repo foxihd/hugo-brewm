@@ -13,7 +13,7 @@ ul.inline,
 ul.inline li,
 nav > ul,
 nav > ul > li {
-    display: inline-block;
+    display: inline;
     padding: 0;
 }
 

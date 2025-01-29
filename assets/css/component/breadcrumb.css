@@ -87,14 +87,15 @@ main > header > menu > li > a {
 }
 
 ul.breadcrumb {
-    display: flex;
-    padding: 3pt 0;
-    overflow-y: auto;
+    display: block;
+    padding: 4pt 0;
+    overflow: auto;
     text-overflow: ellipsis;
     white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-ul.breadcrumb > li > a,
 header > menu a {
     display: inline-flex;
     position: relative;
