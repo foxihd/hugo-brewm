@@ -89,6 +89,7 @@ label.range > output {
     border-radius: 0.5ex;
     padding: 1ex;
     width: 4rem;
+    font-weight: 700;
     gap: 1ex;
 }
 
