@@ -44,7 +44,7 @@ div[role='feed'] {
 
 .carousel .feed-item,
 #home .feed-item,
-#home hr.ldots {
+hr.ldots {
     width: unset;
 }
 

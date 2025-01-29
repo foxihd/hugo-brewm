@@ -18,7 +18,7 @@
         {{- with .channel.item }}
         <div role="feed" aria-busy="false">
             {{- $pagerSize := or $limit 10 }}
-            {{- range . | first $pagerSize }}
+            {{- range $index, $channelItem := . | first $pagerSize }}
                 {{- $author := or .author .creator }}
                 {{- $title := .title }}
                 {{- $description := or .description .summary }}
@@ -27,6 +27,7 @@
                 {{- $category := .category }}
                 {{- $type := index .enclosure "-type" }}
                 {{- $url := index .enclosure "-url" }}
+                {{- if $index }}<hr class="ldots" role="presentation" aria-hidden="true">{{- end }}
                 <article class="feed-item">
                     <hgroup>
                         <div>
@@ -36,8 +37,9 @@
                         <h1>{{ $title }}</h1>
                     </hgroup>
                     <a class="underline" href="{{ .link }}" aria-label="{{ .title }}"></a>
-                    <section>
-                        {{- if or (eq $type "image/jpeg") .coverImage }}
+                    {{ $hasCover :=  or (eq $type "image/jpeg") .coverImage }}
+                    <section {{ if $hasCover }}class="has-cover"{{ end }}>
+                        {{- if $hasCover }}
                             {{- if .coverImage }}
                                 {{- $url = .coverImage }}
                             {{- end }}
