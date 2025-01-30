@@ -161,7 +161,7 @@ ul.pagination {
 
     .feed-item > section {
         flex-direction: column;
-        aspect-ratio: unset;
+        aspect-ratio: unset !important;
     }
 
 }
