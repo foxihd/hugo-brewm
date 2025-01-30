@@ -90,11 +90,11 @@
 #has-share .email:hover {background: var(--mid)}
 #has-share .bluesky {color: #1185fe}
 #has-share a:focus .bluesky,
-#has-share .bluesky:hover {background: #0072ce};
+#has-share .bluesky:hover {background: #0072ce}
 #has-share .facebook {color: #3b5998}
 #has-share a:focus .facebook,
 #has-share .facebook:hover {background: #2d4373}
-#has-share .hackernews {color: #FF6600;}
+#has-share .hackernews {color: #FF6600}
 #has-share a:focus .hackernews,
 #has-share .hackernews:hover {background: #FB6200}
 #has-share .linkedin {color: #0077b5}

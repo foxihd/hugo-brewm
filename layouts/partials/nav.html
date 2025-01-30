@@ -149,7 +149,7 @@
     <form class="form" id="mastodon" action="//sharetomastodon.github.io/" target="_blank" rel="noopener noreferrer">
         <input id="mastodonTitle" type="hidden" name="title" value="{{ $page.Title }}">
         <input id="mastodonPermalink" type="hidden" name="url" value="{{ $page.Permalink }}">
-        <input id="mastodonText" type="hidden" name="text" value="{{ $page.Title }} {{- $page.Permalink }}" disabled>
+        <input id="mastodonText" type="hidden" name="text" value="{{ $page.Title }} {{ $page.Permalink }}" disabled>
         <input id="mastodonInstance" type="url" class="ldots form__input" placeholder="Enter Mastodon instance (https://www.example.com)" aria-label="Mastodon instance URL">
         <button class="form__button" type="submit" aria-label="{{ i18n "shareOn" }} Mastodon">
             <i class="icon mastodon" aria-hidden="true"></i>
@@ -179,16 +179,16 @@
     </li>
     {{- $socialLinks := slice
         (dict "platform" "telegram" "url" (printf "https://telegram.me/share/url?text=%s&url=%s" ($page.Title | htmlEscape) $page.Permalink))
-        (dict "platform" "facebook" "url" (printf "https://facebook.com/sharer/sharer.php?u=%s" $page.Permalink))
         (dict "platform" "bluesky" "url" (printf "https://bsky.app/intent/compose?text=%s&url=%s" ($page.Title | htmlEscape) $page.Permalink))
-        (dict "platform" "twitter" "url" (printf "https://twitter.com/intent/tweet/?text=%s&url=%s" ($page.Title | htmlEscape) $page.Permalink))
+        (dict "platform" "facebook" "url" (printf "https://facebook.com/sharer/sharer.php?u=%s" $page.Permalink))
+        (dict "platform" "hackernews" "url" (printf "https://news.ycombinator.com/submitlink?u=%s&t=%s" $page.Permalink ($page.Title | htmlEscape)))
         (dict "platform" "linkedin" "url" (printf "https://www.linkedin.com/shareArticle?mini=true&url=%s&title=%s&summary=%s&source=%s" $page.Permalink ($page.Title | htmlEscape) ($page.Title | htmlEscape) $page.Permalink))
+        (dict "platform" "pinterest" "url" (printf "https://pinterest.com/pin/create/button/?url=%s&media=%s&description=%s" $page.Permalink $page.Permalink ($page.Title | htmlEscape)))
         (dict "platform" "reddit" "url" (printf "https://reddit.com/submit/?url=%s&resubmit=true&title=%s" $page.Permalink ($page.Title | htmlEscape)))
         (dict "platform" "tumblr" "url" (printf "https://www.tumblr.com/widgets/share/tool?posttype=link&title=%s&caption=%s&content=%s&canonicalUrl=%s" ($page.Title | htmlEscape) ($page.Title | htmlEscape) $page.Permalink $page.Permalink))
-        (dict "platform" "pinterest" "url" (printf "https://pinterest.com/pin/create/button/?url=%s&media=%s&description=%s" $page.Permalink $page.Permalink ($page.Title | htmlEscape)))
-        (dict "platform" "xing" "url" (printf "https://www.xing.com/app/user?op=share;url=%s;title=%s" $page.Permalink ($page.Title | htmlEscape)))
-        (dict "platform" "hackernews" "url" (printf "https://news.ycombinator.com/submitlink?u=%s&t=%s" $page.Permalink ($page.Title | htmlEscape)))
         (dict "platform" "vk" "url" (printf "http://vk.com/share.php?title=%s&url=%s" ($page.Title | htmlEscape) $page.Permalink))
+        (dict "platform" "twitter" "url" (printf "https://twitter.com/intent/tweet/?text=%s&url=%s" ($page.Title | htmlEscape) $page.Permalink))
+        (dict "platform" "xing" "url" (printf "https://www.xing.com/app/user?op=share;url=%s;title=%s" $page.Permalink ($page.Title | htmlEscape)))
     }}
     {{- range $socialLinks }}
     <li>
