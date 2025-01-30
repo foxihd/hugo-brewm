@@ -149,6 +149,15 @@ a.pagefind-ui__result-link {
 
 @media only screen and (max-width: 640px) {
 
+    #has-search .on-deck {
+        flex-direction: row-reverse;
+    }
+
+    #has-search .t {
+        padding: 1ex;
+        text-align: unset;
+    }
+
     #search,
     #hasDuckDuckGo {
         position: unset;
