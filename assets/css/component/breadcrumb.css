@@ -88,7 +88,7 @@ main > header > menu > li > a {
 
 ul.breadcrumb {
     display: block;
-    padding: 4pt 0;
+    padding: 5pt 0;
     overflow: auto;
     text-overflow: ellipsis;
     white-space: nowrap;
