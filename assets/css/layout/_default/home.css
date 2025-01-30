@@ -22,6 +22,11 @@ body > aside.carousel {
     height: var(--vbody);
 }
 
+body > main#home {
+    height: var(--vbody);
+    overflow-y: auto;
+}
+
 body > main#home > aside#list-tags {
     top: 0;
     right: 0;

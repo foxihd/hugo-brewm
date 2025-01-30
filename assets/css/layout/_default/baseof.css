@@ -100,11 +100,6 @@ body > header {
     height: var(--vhead);
 }
 
-body > main#home {
-    height: var(--vbody);
-    overflow-y: auto;
-}
-
 .marginpar,
 body > main > aside {
     position: relative;
