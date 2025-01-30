@@ -21,8 +21,9 @@ function recalcLogotypeWidth() {
 function adaptViewport() {
     recalcLogotypeWidth();
     if (window.innerWidth < 640) {
-        getElement('has-more-menu')?.setAttribute('open', 'open');
         getElement('has-search')?.setAttribute('open', 'open');
+        getElement('has-search')?.removeAttribute('name');
+        getElement('has-more-menu')?.setAttribute('open', 'open');
     } else {
         getElement('top-nav')?.setAttribute('open', 'open')
         addEvent(visualViewport, 'resize', adaptViewport);
