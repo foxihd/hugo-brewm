@@ -1,5 +1,5 @@
-# Workflow for building and deploying a Hugo site to GitHub Pages
-name: Deploy Hugo Site to Pages
+# Sample workflow for building and deploying a Hugo site to GitHub Pages
+name: Deploy Hugo exampleSite to Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -32,7 +32,7 @@ jobs:
   build:
     runs-on: ubuntu-24.04-arm
     env:
-      HUGO_VERSION: 0.143.0
+      HUGO_VERSION: 0.142.0
     steps:
       - name: Install Hugo CLI
         run: |
@@ -57,13 +57,15 @@ jobs:
           hugo \
             --gc \
             --minify \
+            --themesDir ../.. \
+            --source exampleSite \
             --baseURL "${{ steps.pages.outputs.base_url }}/" 
       - name: Index pagefind
-        run: npx pagefind --source "./public"
+        run: npx pagefind --source "./exampleSite/public"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3.0.1
         with:
-          path: ./public
+          path: ./exampleSite/public
 
   # Deployment job
   deploy:

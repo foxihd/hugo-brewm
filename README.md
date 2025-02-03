@@ -1,13 +1,13 @@
 # Hugo Brewm
 
->  Fine-brewed Hugo theme made open.
+> Fine-brewed Hugo theme made open.
 
 Demosite: [https://hugo.brewm.co](https://hugo.brewm.co)
 
 ## Feature Highlights
 
 - **Reader-first**: Prioritizes readability and accessibility with personalized settings for colors, fonts, and BionRead mode.
-- **Inclusive**: Graceful degradation design oriented with improved semantic HTML structure & WAI-ARIA attribute.
+- **Inclusive**: Graceful degradation design oriented with improved semantic HTML structure & WAI-ARIA attribute, the site remains fully functional even when JavaScript is disabled!
 - **Scalable**: Support for multiple authors and languages, optional Pagefind search, external feed over RSS and Fediverse-powered commenting system.
 - **Frameworkless**: Lower maintenace & carbon footprint by lesser resource usage.
 
@@ -32,6 +32,16 @@ git submodule add https://github.com/foxihd/hugo-brewm themes/hugo-brewm
 ```
 theme = "hugo-brewm"
 ```
+
+> Check the example site's configuration directory ([./themes/hugo-brewm/exampleSite/config/_default](https://github.com/foxihd/hugo-brewm/tree/main/exampleSite/config/_default)) to explore available configuration options.
+
+4. Create a new post under content directory:
+
+```
+hugo new posts/my-first-post.md
+```
+
+5. For building and deploying your Hugo site to GitHub Pages, copy the workflow file from [./themes/hugo-brewm/github/workflows/hugo.yml](https://github.com/foxihd/hugo-brewm/blob/main/.github/workflows/hugo.yml) to your repository's root directory and initiate the GitHub Action.
 
 ## Special Thanks
 
