@@ -23,14 +23,14 @@ const matchMediaColor = () => {
 function setColor() {
     const styles = {
         light: {
-            less: '--off: #000; --fg: #13253d; --mid: #7d8490; --ac: #36c; --bg: #e7e2e2;',
-            more: '--off: #000; --fg: #000; --mid: gray;; --ac: #36c; --bg: #fff; --border: 1pt solid var(--fg); --bound: var(--border);',
-            default: '--off: #000; --fg: #111; --mid: gray; --ac: #36c; --bg: #f9f9fb;'
+            less: '--off: #000; --fg: #13253d; --mid: #7d8490; --ac: var(--ac-light); --bg: #e7e2e2;',
+            more: '--off: #000; --fg: #000; --mid: gray;; --ac: var(--ac-light); --bg: #fff; --border: 1pt solid var(--fg); --bound: var(--border);',
+            default: '--off: #000; --fg: #111; --mid: gray; --ac: var(--ac-light); --bg: #f9f9fb;'
         },
         dark: {
-            less: '--off: #fff; --fg: #e7e2e2; --mid: #7d8490; --ac: #fa0; --bg: #13253d;',
-            more: '--off: #fff; --fg: #fff; --mid: gray; --ac: #fa0; --bg: #000; --border: 1pt solid var(--fg); --bound: var(--border);',
-            default: '--off: #fff; --fg: #f9f9fb; --mid: gray; --ac: #fa0; --bg: #111;'
+            less: '--off: #fff; --fg: #e7e2e2; --mid: #7d8490; --ac: var(--ac-dark); --bg: #13253d;',
+            more: '--off: #fff; --fg: #fff; --mid: gray; --ac: var(--ac-dark); --bg: #000; --border: 1pt solid var(--fg); --bound: var(--border);',
+            default: '--off: #fff; --fg: #f9f9fb; --mid: gray; --ac: var(--ac-dark); --bg: #111;'
         }
     };
     const scheme = lightSwitch.checked ? 'light' : 'dark';

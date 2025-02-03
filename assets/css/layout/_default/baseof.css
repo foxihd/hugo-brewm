@@ -250,7 +250,7 @@ hr {
         --mid: gray;
         --fg: #111;
         --off: #000;
-        --ac: #36c;
+        --ac: var(--ac-light);
     }
 
     @media (prefers-contrast: more),
@@ -283,7 +283,7 @@ hr {
         --mid: gray;
         --fg: #f9f9fb;
         --off: #fff;
-        --ac: #fa0;
+        --ac: var(--ac-dark);
     }
 
     @media (prefers-contrast: more),
