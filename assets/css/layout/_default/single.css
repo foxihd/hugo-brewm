@@ -191,6 +191,7 @@ header time {
 #keywords,
 #contentinfo {
     margin: var(--vskip);
+    overflow-wrap: break-word;
 }
 
 .verbose {
