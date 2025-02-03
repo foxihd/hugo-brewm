@@ -1,6 +1,6 @@
 {{ "<!-- fediverse.html -->" | safeHTML }}
-{{- $instance := or .Params.Fediverse.Host .Params.Fediverse.Instance }}
-{{- $user := or .Params.Fediverse.User .Params.Fediverse.Username }}
+{{- $instance := or .Params.Fediverse.Host .Params.Fediverse.Instance site.Params.fediverse.instance site.Params.fediverse.host }}
+{{- $user := or .Params.Fediverse.User .Params.Fediverse.Username site.Params.fediverse.username site.Params.fediverse.user }}
 {{- $post := or .Params.Fediverse.post .Params.Fediverse.link }}
 {{- $commentsSrc := print "https://" $instance "/@" $user "/" $post }}
 {{- $api := print "https://" $instance "/api/v1/statuses/" $post  }}
