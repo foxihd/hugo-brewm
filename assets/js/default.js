@@ -19,7 +19,10 @@ function recalcLogotypeWidth() {
 
 // Viewport adaptation
 function adaptViewport() {
-    recalcLogotypeWidth();
+    // fix logotype when font loading delayed
+    document.fonts.ready.then(() => {
+        recalcLogotypeWidth();
+    });
     if (window.innerWidth < 640) {
         getElement('has-search')?.setAttribute('open', 'open');
         getElement('has-search')?.removeAttribute('name');
@@ -30,6 +33,7 @@ function adaptViewport() {
     }
 }
 addEvent(window, 'DOMContentLoaded', adaptViewport);
+
 
 // Node collapse handlers
 const collapseParentNode = getElements('.js-cpn');
