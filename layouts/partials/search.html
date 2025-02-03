@@ -4,7 +4,7 @@
         <span class="t t2">{{ i18n "search" }}</span>
         <kbd class="key" style="display: none;">q</kbd>
     </summary>
-    {{ if site.Params.pagefind }}
+    {{ if site.Params.search.pagefind }}
         {{ partialCached "search/pagefind.html" . }}
         <noscript id="hasDuckDuckGo" class="on-hull">
             {{ partialCached "search/duckduckgo.html" . }}

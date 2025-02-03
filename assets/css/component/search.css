@@ -14,6 +14,26 @@
     font-weight: normal;
 }
 
+.pagefind-ui {
+    display: flex;
+    flex-direction: column;
+    border: var(--border);
+    border-radius: 1ex;
+    background: var(--bg);
+    padding: 1.414ex;
+    overflow-y: auto;
+    gap: 1ex;
+}
+
+#has-search[open] > summary > .t,
+.pagefind-ui__search-clear {
+    display: none;
+}
+
+.pagefind-ui__drawer p {
+    margin: 0;
+}
+
 #duckduckgo {
     flex-direction: row;
 }

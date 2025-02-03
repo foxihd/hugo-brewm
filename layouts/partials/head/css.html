@@ -57,7 +57,6 @@
     (resources.Get "css/component/logotype.css")
     (resources.Get "css/component/link.css")
     (resources.Get "css/component/menu.css")
-    (resources.Get "css/component/search.css")
     (resources.Get "css/component/skipper.css")
     (resources.Get "css/media/print.css")
     (resources.Get "css/layout/_default/list.css")
@@ -77,7 +76,15 @@
     {{- $baseFonts = $baseFonts | append $roman $sans $teletype }}
 {{- end }}
 
-{{- $hugo_brewm := ($baseFonts | append $baseSty) | resources.Concat "css/hugo-brewm.css" | minify }}
+{{- $custom := resources.Get "css/custom.css" }}
+{{- $extrasSty := slice $custom }}
+
+{{- $search := resources.Get "css/component/search.css" }}
+{{- if site.Params.search.enable }}
+    {{- $extrasSty = $extrasSty | append $search }}
+{{- end }}
+
+{{- $hugo_brewm := ($baseFonts | append ($baseSty | append $extrasSty)) | resources.Concat "css/hugo-brewm.css" | minify }}
 
 {{- if eq hugo.Environment "development" }}
     <link rel="stylesheet" href="{{ $hugo_brewm.Permalink }}">

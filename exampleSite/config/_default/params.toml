@@ -1,6 +1,4 @@
 # WebSafeFonts = true
-searchBar = true
-pageFind = true
 # logoMark = 'https://example.com/logoMark.svg'
 # logoMarkDark = 'https://example.com/logoMarkDark.svg'
 logoType = true
@@ -21,3 +19,7 @@ coffeeStat = true
 [feed]
     flowlines = true
     flowlinesLimit = 21
+
+[search]
+    enable = true
+    pagefind  = true

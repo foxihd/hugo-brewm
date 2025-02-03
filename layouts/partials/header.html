@@ -41,7 +41,7 @@
         </summary>
         <nav tabindex="-1" aria-label="{{ i18n "top-nav" }}">
             {{ partial "menu.html" (dict "menuID" "main" "open" "open" "page" .) }}
-            {{ if site.Params.searchBar }}{{ partialCached "search.html" . }}{{ end }}
+            {{ if site.Params.search.enable }}{{ partialCached "search.html" . }}{{ end }}
             {{ partial "menu.html" (dict "menuID" "more" "page" .) }}
             {{ partialCached "i18n.html" . }}
         </nav>
