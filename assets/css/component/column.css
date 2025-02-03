@@ -45,6 +45,7 @@
 .has-quote {
     display: flex;
     flex-direction: column-reverse;
+    color: var(--fg);
 }
 
 .has-quote::after {
