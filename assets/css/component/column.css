@@ -30,9 +30,39 @@
     margin-bottom: 1.618rem;
     break-after: auto;
     break-before: auto;
+    break-inside: avoid;
 }
 
 .column img {
     width: 100%;
     height: auto;
+}
+
+.column.pin {
+    --col: 12rem;
+}
+
+.has-quote {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.has-quote::after {
+    margin: unset;
+}
+
+.has-quote > div {
+    margin-left: auto;
+}
+
+.has-quote > img {
+    margin: 1ex 0;
+}
+
+@media screen and (max-width: 640px) {
+
+    .column.pin {
+        --col: 10rem;
+    }
+
 }
