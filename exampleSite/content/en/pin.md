@@ -5,7 +5,7 @@ title: 'Pin'
 
 This is a slide with `{{</* pin */>}}` shortcode.
 
-## Pit it as Showcase (Example)
+## Pin it as Showcase (Example)
 
 Section with `Pin` shortcode.
 The item order is column-based.
