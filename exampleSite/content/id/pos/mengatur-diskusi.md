@@ -2,6 +2,7 @@
 title: "Menambahkan Diskusi"
 description: "Cara menambahkan diskusi postingan di tema Hugo Brewm"
 date: 2025-01-26
+lastmod: 2025-02-03
 type: 'post'
 draft: false
 translationKey: discussion
@@ -19,6 +20,15 @@ fediverse:
     user: user-name
     post: 123456789012345678
 ---
+```
+
+Jika Anda adalah penulis tunggal, Anda dapat mengatur parameter `host` dan `user` secara global di file `config.toml`:
+
+```toml
+[params]
+    [params.fediverse]
+    host = "example.com"
+    user = "username"
 ```
 
 Anda mungkin perlu melihat pratinjau permalink artikel sebelum membagikannya di jaringan Fediverse, atau melakukan CI/CD dua kali.

@@ -1,16 +1,29 @@
 ---
-title: "Configure Logo"
-description: "How to configure the Logo in Hugo Brewm theme"
+title: "Configure Logo and Accent Color"
+description: "How to configure the Logo and Accent Color in Hugo Brewm theme"
 date: 2025-01-26
+lastmod: 2025-02-03
 type: post
 draft: false
 translationKey: logo
 coffee: 1
-tags: ['configuration', 'logo']
+tags: ['configuration', 'logo', 'color', 'accent']
 categories: ['configuration']
 ---
 
-The Hugo Brewm theme allows you to easily configure your site's logo. Follow these steps to set up your logo:
+The Hugo Brewm theme allows you to easily configure your site's logo and accent color taylored to your brand. Follow these steps to set up your logo:
+
+## Change Color Accent
+
+To make the color accent align with your brand identity, you can customize the accent color in `custom.css` under `assets/css`.
+For example, in `exampleSite/assets/css/custom.css`:
+
+```css
+:root {
+    --ac-light: #36b;
+    --ac-dark: #fa1;
+}
+```
 
 ## Adding Logo Image / Logomark Icon
 

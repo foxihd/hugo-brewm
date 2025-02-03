@@ -2,6 +2,7 @@
 title: "Configure Discussion"
 description: "How to configure post discussion in Hugo Brewm theme"
 date: 2025-01-26
+lastmod: 2025-02-03
 type: post
 draft: false
 translationKey: discussion
@@ -23,4 +24,13 @@ fediverse:
 ---
 ```
 
-You might need to preview the article's permalink before sharing it on the Fediverse network, or perform CI/CD twice.
+If you are single author, you can set the `host` and `user` parameter globally in the `config.toml` file:
+
+```toml
+[params]
+    [params.fediverse]
+    host = "example.com"
+    user = "username"
+```
+
+You might need to preview the article's permalink before sharing it on the Fediverse network to get post ID, or perform CI/CD twice.

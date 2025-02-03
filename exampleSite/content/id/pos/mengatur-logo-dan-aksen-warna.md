@@ -1,14 +1,27 @@
 ---
-title: "Mengatur Logo"
+title: "Mengatur Logo dan Aksen Warna"
 description: "Cara mengatur Logo di tema Hugo Brewm"
 date: 2025-01-26
+lastmod: 2025-02-03
 type: 'post'
 draft: false
 translationKey: logo
 coffee: 1
 ---
 
-Tema Hugo Brewm memungkinkan Anda untuk dengan mudah mengatur logo situs Anda. Ikuti langkah-langkah berikut untuk mengatur logo Anda:
+Tema Hugo Brewm memungkinkan Anda untuk dengan mudah mengatur logo dan aksen warna situs Anda. Ikuti langkah-langkah berikut untuk mengatur logo Anda:
+
+## Mengubah Aksen Warna
+
+Untuk membuat aksen warna sesuai dengan identitas merek Anda, Anda dapat menyesuaikan warna aksen di `custom.css` yang berada di dalam `assets/css`.
+Sebagai contoh, di `exampleSite/assets/css/custom.css`:
+
+```css
+:root {
+    --ac-light: #36b;
+    --ac-dark: #fa1;
+}
+```
 
 ## Menambahkan Gambar Logo / Ikon LogoMark
 
