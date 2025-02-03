@@ -548,6 +548,7 @@ a#has-i18n:active > .alt {
     /* hide desktop element */
 
     #top-nav > nav .screening,
+    #top-nav .t,
     #has-search[open] > summary,
     #has-more-menu[open] > summary,
     #has-more-menu .menu-icon,
