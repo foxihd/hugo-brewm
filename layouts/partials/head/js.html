@@ -19,6 +19,7 @@
 {{- /*----------------------- end of js.html -----------------------*/}}
 
 {{- define "partials/head/js/hljs.html" -}}
+    {{ "<!-- hljs.html -->" | safeHTML }}
     <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js"
         integrity="sha384-4l+9bhb7rakZ18megzl0/DWczL8ojbDl1jIEzBVffeMho9A6xB/lkqt1K0PC8Jin" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"
@@ -32,6 +33,7 @@
 {{- end }}
 
 {{- define "partials/head/js/katex.html" -}}
+    {{ "<!-- katex.html -->" | safeHTML }}
     <link href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" rel="stylesheet"
         integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
@@ -45,6 +47,7 @@
 {{- end }}
 
 {{- define "partials/head/js/mathjax.html" -}}
+    {{ "<!-- mathjax.html -->" | safeHTML }}
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"
         integrity="sha384-WSLBwI+Q8tqRHaC+f1sjS/FVv5cWp7VAfrGB17HLfZlXhbp5F/RPVP7bYVHtiAWE"
         crossorigin="anonymous"></script>
@@ -57,6 +60,7 @@
 {{- end }}
 
 {{- define "partials/head/js/qrcode.html" -}}
+    {{ "<!-- qrcode.html -->" | safeHTML }}
     {{ $qrcode := resources.Get "js/qrcode.js" | minify }}
     {{ if eq hugo.Environment "development" }}
         <script src="{{ $qrcode.Permalink }}" defer></script>
@@ -70,16 +74,11 @@
 {{- end }}
 
 {{- define "partials/head/js/fediverse.html" -}}
-    {{- $instance := .Site.Params.comment.Fediverse.Instance }}
-    {{- if or .Params.Fediverse.Instance .Params.Fediverse.Host }}
-        {{- $instance = or .Params.Fediverse.Instance .Params.Fediverse.Host }}
-    {{- end }}
-    {{- $user := .Site.Params.Comment.Fediverse.User }}
-    {{- if or .Params.Fediverse.User .Params.Fediverse.Username }}
-        {{- $user = or .Params.Fediverse.User .Params.Fediverse.Username }}
-    {{- end }}
-    {{- $post := .Params.Fediverse.post }}
-    {{- if and $instance $user }}
+    {{ "<!-- js/fediverse.html -->" | safeHTML }}
+    {{- $instance := or .Params.Fediverse.Host .Params.Fediverse.Instance site.Params.fediverse.instance site.Params.fediverse.host }}
+    {{- $user := or .Params.Fediverse.User .Params.Fediverse.Username site.Params.fediverse.username site.Params.fediverse.user }}
+    {{- $post := or .Params.Fediverse.post .Params.Fediverse.link }}
+    {{- if and $instance $user $post }}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.1/purify.min.js" referrerpolicy="no-referrer"
             integrity="sha512-uHOKtSfJWScGmyyFr2O2+efpDx2nhwHU2v7MVeptzZoiC7bdF6Ny/CmZhN2AwIK1oCFiVQQ5DA/L9FSzyPNu6Q==" crossorigin="anonymous" ></script>
         {{- $fediverse := resources.Get "js/fediverse.js" | minify }}
