@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{{- $lang := or site.Language.LanguageCode site.Language.Lang }}
+{{- $dir := or site.Language.LanguageDirection "ltr" }}
+<html lang="{{ $lang }}" dir="{{ $dir }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - {{ i18n "404PageNotFound" }}</title>
+    <meta http-equiv="refresh" content="15;url={{ absLangURL "" }}">
+    {{ partialCached "head/css.html" . -}}
+    <style>
+        h1 {--anm: fade 15s;-webkit-animation: var(--anm);-moz-animation: var(--anm);-o-animation: var(--anm);animation: var(--anm);font-size: 5rem;}
+        h1::after {font-size: 2rem}
+        @keyframes fade {0% {opacity: 1} 100% {opacity: 0}}
+        @-webkit-keyframes fade {0% {opacity: 1} 100% {opacity: 0}}
+    </style>
+</head>
+<body id="page404">
+    {{ partial "header.html" . }}
+    <main class="pagewidth" style="display: flex; flex-direction: column;">
+        <div class="textwidth" style="margin:auto;">
+            <h1 class="has-aria-label" aria-label="{{ i18n "404PageNotFound" }}">404</h1>
+            <p role="alert">{{ i18n "404Alert" }} <a href="/" class="loading">{{ i18n "404ReturnHome" }}</a></p>
+        </div>
+    </main>
+    {{ partialCached "footer.html" . }}
+    <div id="background-body" role="presentation"></div>
+</body>
+</html>

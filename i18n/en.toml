@@ -1,3 +1,9 @@
+[404PageNotFound]
+    other = "Page Not Found"
+[404Alert]
+    other = "This page intentionally redirect"
+[404ReturnHome]
+    other = "back to homepage"
 [accessibility]
     other = "Accessibility"
 [accessTime]

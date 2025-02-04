@@ -1,3 +1,9 @@
+[404PageNotFound]
+    other = "Halaman Tidak Ditemukan"
+[404Alert]
+    other = "Halaman ini sengaja dialihkan"
+[404ReturnHome]
+    other = "kembali ke beranda"
 [accessibility]
     other = "Aksesibilitas"
 [accessTime]
