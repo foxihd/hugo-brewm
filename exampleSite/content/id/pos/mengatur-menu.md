@@ -37,7 +37,6 @@ Tambahkan ikon ke item menu Anda dengan parameter `pre`.
 Berikut adalah daftar ikon yang didukung beserta nama-namanya yang dapat digunakan saat mengkonfigurasi item menu Anda:
 
 <ul class="column pin" role="presentation">
-  <li><i class="icon copyleft"></i> copyleft  </li>
   <li><i class="icon email"></i> email  </li>
   <li><i class="icon rss"></i> rss  </li>
   <li><i class="icon behance"></i> behance  </li>
@@ -56,11 +55,9 @@ Berikut adalah daftar ikon yang didukung beserta nama-namanya yang dapat digunak
   <li><i class="icon digg"></i> digg  </li>
   <li><i class="icon dribbble"></i> dribbble  </li>
   <li><i class="icon ebay"></i> ebay  </li>
-  <li><i class="icon ello"></i> ello  </li>
   <li><i class="icon etsy"></i> etsy  </li>
   <li><i class="icon facebook"></i> facebook  </li>
   <li><i class="icon figma"></i> figma  </li>
-  <li><i class="icon flattr"></i> flattr  </li>
   <li><i class="icon flickr"></i> flickr  </li>
   <li><i class="icon flipkart"></i> flipkart  </li>
   <li><i class="icon github"></i> github  </li>
@@ -89,7 +86,6 @@ Berikut adalah daftar ikon yang didukung beserta nama-namanya yang dapat digunak
   <li><i class="icon opencollective"></i> opencollective  </li>
   <li><i class="icon openid"></i> openid  </li>
   <li><i class="icon orcid"></i> orcid  </li>
-  <li><i class="icon otechie"></i> otechie  </li>
   <li><i class="icon patreon"></i> patreon  </li>
   <li><i class="icon paypal"></i> paypal  </li>
   <li><i class="icon peertube"></i> peertube  </li>
@@ -104,7 +100,6 @@ Berikut adalah daftar ikon yang didukung beserta nama-namanya yang dapat digunak
   <li><i class="icon shopee"></i> shopee  </li>
   <li><i class="icon shopify"></i> shopify  </li>
   <li><i class="icon signal"></i> signal  </li>
-  <li><i class="icon slack"></i> slack  </li>
   <li><i class="icon snapchat"></i> snapchat  </li>
   <li><i class="icon soundcloud"></i> soundcloud  </li>
   <li><i class="icon stackexchange"></i> stackexchange  </li>
@@ -113,7 +108,6 @@ Berikut adalah daftar ikon yang didukung beserta nama-namanya yang dapat digunak
   <li><i class="icon substack"></i> substack  </li>
   <li><i class="icon telegram"></i> telegram  </li>
   <li><i class="icon threads"></i> threads  </li>
-  <li><i class="icon tidelift"></i> tidelift  </li>
   <li><i class="icon tiktok"></i> tiktok  </li>
   <li><i class="icon tokopedia"></i> tokopedia  </li>
   <li><i class="icon tumblr"></i> tumblr  </li>
