@@ -178,7 +178,7 @@ details[open] .on-plank,
 }
 
 #top-nav a > .icon::after {
-	content: '\a0';
+    content: '\a0';
 }
 
 #top-nav a.has-desc {
@@ -548,7 +548,7 @@ a#has-i18n:active > .alt {
     /* hide desktop element */
 
     #top-nav > nav .screening,
-    #top-nav .t,
+    #top-nav > summary > .t,
     #has-search[open] > summary,
     #has-more-menu[open] > summary,
     #has-more-menu .menu-icon,
