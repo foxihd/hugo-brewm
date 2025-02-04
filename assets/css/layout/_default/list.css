@@ -138,7 +138,7 @@ hr.ldots::after {
         position: unset;
         float: unset;
         margin: var(--bigskip) auto;
-        padding: 1rem;
+        padding: 0;
         width: var(--canonic);
     }
 

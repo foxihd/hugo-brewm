@@ -135,7 +135,7 @@ ul.pagination {
     gap: 1ex;
 }
 
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 640px) {
 
     .feed-item {
         width: unset;
