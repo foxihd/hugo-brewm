@@ -37,7 +37,7 @@ a.underline:focus {
 }
 
 ul.rounded li {
-    margin: 3pt 1pt;
+    margin: 0.5ex;
     display: inline-block;
 }
 

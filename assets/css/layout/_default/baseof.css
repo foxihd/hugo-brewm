@@ -100,6 +100,10 @@ body > header {
     height: var(--vhead);
 }
 
+body > main {
+    min-height: var(--vbody);
+}
+
 .marginpar,
 body > main > aside {
     position: relative;
