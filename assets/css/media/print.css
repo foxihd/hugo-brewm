@@ -24,10 +24,11 @@
     #has-share,
     #background-body,
     #contribute,
+    #related,
     #coffee-counter,
     #menu-footer
      {
-        display: none !important;
+        display: none;
     }
 
     body > main {
@@ -54,17 +55,18 @@
         margin-top: 0;
     }
 
+    /* dont work properly on firefox
     h1,
     section > h1,
     .section-title {
-        /* page-break-before: always; */
+        page-break-before: always;
         break-before: always;
-    }
 
     header > h1 {
         page-break-before: avoid !important;
         break-before: avoid !important;
     }
+    } */
 
     h1,
     h2,
@@ -114,14 +116,17 @@
     }
 
     .marginpar {
-        right: 0 !important;
+        width: var(--golden-ratio);
+        margin-left: calc(var(--golden-ratio) * -1);
+    }
+
+    .marginpar.abs {
+        right: 0;
         width: 38%;
     }
 
-    .marginpar.rel {
-        left: 62% !important;
-        margin-left: -62% !important;
-        width: 62%;
+    #contentinfo {
+        display: block;
     }
 }
 

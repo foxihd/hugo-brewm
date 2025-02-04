@@ -169,8 +169,9 @@ addEvent(document, 'keydown', function(e) {
     }
 });
 
-// addEvent(getElement('qrButton'), 'click', function() {
-//     const script = document.createElement('script');
-//     script.src = '/assets/js/qrcode.js';
-//     document.head.appendChild(script);
-// });
+// clashes with details handler, need workaround
+addEvent(window, 'beforeprint', function() {
+    getElements('[name="redaction-history"]')?.forEach(e => {
+        e.setAttribute('open', 'open');
+    });
+});
