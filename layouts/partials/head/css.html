@@ -94,22 +94,30 @@
     {{- end }}
 {{- end }}
 
-{{- /*----------- graceful degradation, no css fallback ------------*/}}
-    <style>body {max-width: 786px; margin: auto; padding: 2rem;}img {max-width: 86vw;}</style>
-
-{{- /*--------------------- custom formatting ----------------------*/}}
-{{- if or site.Params.Post.NoIndent .Params.NoIndent }}
-    <style>* p {text-indent: unset !important;}</style>
-{{- end }}
-
-{{- if or site.Params.Post.Justifying .Params.Justifying }}
-    <style>article p {text-align: justify;}</style>
-
-{{- end }}
-
 {{- /*---------------------- end of css.html -----------------------*/}}
 
+{{- define "partials/head/css/inline.html"}}
+    {{ "<!-- css/inline.html -->" | safeHTML }}
+    {{- $noIndent := or site.Params.Posts.NoIndent .Params.NoIndent }}
+    {{- $justifying := or site.Params.Posts.Justifying .Params.Justifying }}
+    <style>
+        /* graceful degradation fallback */
+        body {max-width: 786px; margin: auto; padding: 2rem;}
+        img {max-width: 86vw;}
+        {{- if $noIndent }}
+            * p {text-indent: unset !important;}
+        {{- end }}
+        {{- if $justifying }}
+            article p {text-align: justify;}
+        {{- end }}
+        {{- with .Resources.GetMatch "*.css" }}
+            {{ .Content | safeCSS }}
+        {{- end }}
+    </style>
+{{- end }}
+
 {{- define "partials/head/css/verbatim.html" }}
+    {{ "<!-- css/verbatim.html -->" | safeHTML }}
     {{- $verbatimSty := resources.Get "css/typesetting/verbatim.css" | minify }}
     {{- if eq hugo.Environment "development" }}
         <link href="{{ $verbatimSty.Permalink }}" rel="stylesheet" type="text/css">
