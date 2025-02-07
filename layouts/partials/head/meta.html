@@ -1,0 +1,198 @@
+{{ "<!-- meta.html -->" | safeHTML -}}
+{{- $author := cond (and .IsPage .Params.author) .Params.author site.Params.Author.Name }}
+{{- $siteTitle := or site.Title site.Params.title | plainify }}
+{{- $permalink := .Permalink }}
+{{- $title := cond .IsHome $siteTitle (printf "%s | %s" .Title $siteTitle) | plainify  }}
+    {{- $desc := or .Params.Subtitle .Params.Description .Description .Summary }}
+    {{- $siteDesc := or site.Params.description site.Params.subtitle }}
+    {{- if and .IsHome $siteDesc }}
+        {{- $desc = $siteDesc  }}
+    {{- else if and (not .IsPage) $siteDesc }}
+        {{- $desc =  printf "%s | %s" .Kind $siteTitle }}
+    {{- end }}
+{{- $desc = $desc | plainify | htmlUnescape | truncate 150 }}
+{{- $cover := partial "page/cover.html" . }}
+    {{- if and (not $cover) (not .IsPage) }}
+        {{- $cover = or site.Params.images site.Params.socialCard }}
+    {{- end }}
+{{- $keywords := dict }}
+    {{- $tag := or .Params.keywords .Params.tags }}
+    {{- if .IsHome }}
+        {{- $keywords = slice (i18n "home") }}
+    {{- else if $tag }}
+        {{- $keywords = $tag }}
+    {{- end }}
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ $title }}</title>
+<meta name="author" content="{{ $author }}">
+{{ with $desc -}}
+    <meta name="description" content="{{ . }}" >
+{{ end -}}
+{{ with $keywords -}}
+    <meta name="keywords" content="{{ delimit . "," }}">
+{{ end -}}
+<link rel="canonical" href="{{ .Permalink }}">
+{{ with .Translations -}}
+    {{- range . -}}
+        <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ .Language.LanguageName }}">
+    {{- end }}
+{{- end }}
+{{ with .Site.Params.favicon }}
+    <link rel="icon" href="{{ . }}">
+{{ end }}
+
+{{- $ISO8601 := "2006-01-02T15:04:05-07:00" }}
+{{- $publishDate := .PublishDate.Format $ISO8601 }}
+{{- $lastMod := .Lastmod.Format $ISO8601 }}
+
+{{- $extMeta := or site.Params.extMeta site.Params.socialCard.enable }}
+{{- if or $extMeta site.Params.socialCard.twitter }}
+    {{ template "twitterCard" (dict "page" . "title" $title "desc" $desc "cover" $cover) }}
+{{- end }}
+
+{{- if or $extMeta site.Params.socialCard.opengraph }}
+    {{ template "openGraph" (dict "page" . "siteTitle" $siteTitle "author" $author "title" $title "desc" $desc "cover" $cover "keywords" $keywords "publishDate" $publishDate "lastMod" $lastMod) }}
+{{- end }}
+
+{{- if site.Params.socialCard.schema }}
+    {{/*  no HTMl props at the moment  */}}
+    {{- template "schema" (dict "page" . "title" $title "desc" $desc "cover" $cover "keywords" $keywords) }}
+{{- end }}
+
+{{- if site.Params.socialCard.jsonLD }}
+    {{/*  permalink needs workaround  */}}
+    {{- template "jsonLD" (dict "page" . "siteTitle" $siteTitle "permalink" $permalink "author" $author "title" $title "desc" $desc "cover" $cover "keywords" $keywords  "publishDate" $publishDate "lastMod" $lastMod) }}
+{{- end }}
+
+{{- /*---------------------- end of meta.html ----------------------*/}}
+
+{{- define "openGraph" }}
+    {{ "<!-- openGraph -->" | safeHTML -}}
+    {{- $ISO8601 := "2006-01-02T15:04:05-07:00" }}
+    {{- $facebookAdmin := site.Params.socialCard.facebookAdmin }}
+    {{- $facebookAppID := site.Params.socialCard.facebookAppID }}
+    <meta property="og:title" content="{{ .title }}" />
+    <meta property="og:description" content="{{ .desc }}" />
+    <meta property="og:type" content="{{ if .page.IsPage }}article{{ else }}website{{ end }}" />
+    <meta property="og:url" content="{{ .page.Permalink }}" />
+    {{- with .cover }}
+        <meta property="og:image" content="{{ . }}" />
+    {{- end }}
+    <meta property="og:site_name" content="{{ .siteTitle }}" />
+    {{- if .IsPage -}}
+        <meta property="article:author" content="{{ .author }}" />
+        {{- with .publishDate }}
+            <meta property="article:published_time" content="{{ . }}" />
+        {{- end }}
+        {{ with .lastMod }}
+            <meta property="article:modified_time" content="{{ . }}" />
+        {{- end }}
+        {{- with .keywords }}
+            <meta property="article:tags" content="{{ delimit . ", " }}" />
+        {{- end }}
+        {{- with site.RegularPages.Related . | first 5  }}
+            {{- range . }}
+                {{- if ne $ . }}
+                <meta property="og:see_also" content="{{ .Permalink }}">
+                {{- end }}
+            {{- end }}
+        {{- end }}
+    {{- end }}
+{{- end }}
+
+{{- define "twitterCard" }}
+    {{ "<!-- twitterCard -->" | safeHTML -}}
+    {{ $twitterCreator := site.Params.socialCard.twitterCreator }}
+    {{ $twitterSite := site.Params.socialCard.twitterSite }}
+    <meta name="twitter:card" content="{{ if .cover }}summary_large_image{{ else }}summary{{ end }}" />
+    <meta name="twitter:title" content="{{ .title }}" />
+    <meta name="twitter:description" content="{{ .desc }}" />
+    {{- with .cover }}
+        <meta name="twitter:image" content="{{ . }}" />
+    {{- end }}
+    {{- with $twitterSite }}
+        <meta name="twitter:site" content="@{{ . }}" />
+    {{- end }}
+    {{- with $twitterCreator }}
+        <meta name="twitter:creator" content="@{{ . }}" />
+    {{- end }}
+{{- end }}
+
+{{- define "schema" }}
+    {{ "<!-- schema -->" | safeHTML -}}
+    {{- with .title }}
+        <meta itemprop="name" content="{{ . }}">
+    {{- end }}
+    {{- with .desc }}
+        <meta itemprop="description" content="{{ trim . "\n\r\t " }}">
+    {{- end }}
+    {{- with .PublishDate }}
+        <meta itemprop="datePublished" content="{{ . }}">
+    {{- end }}
+    {{- with .Lastmod }}
+        <meta itemprop="dateModified" content="{{ . }}">
+    {{- end }}
+    {{- with .page.WordCount }}
+        <meta itemprop="wordCount" content="{{ . }}">
+    {{- end }}
+    {{- with .cover }}
+        <meta itemprop="image" content="{{ . }}">
+    {{- end }}
+    {{- with .keywords }}
+        <meta itemprop="keywords" content="{{ delimit . `,` }}">
+    {{- end -}}
+{{- end }}
+
+{{- define "jsonLD" }}
+    {{ "<!-- jsonLD -->" | safeHTML -}}
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "{{ .Permalink | safeURL }}"
+            },
+            "headline": "{{ .title }}",
+            {{- with .desc }}
+            "description": "{{ . }}",
+            {{- end }}
+            {{- with .cover }}
+            "image": "{{ . }}",
+            {{- end }}
+            {{- with .PublishDate }}
+            "datePublished": "{{ . }}",
+            {{- end }}
+            {{- with .Lastmod }}
+            "dateModified": "{{ . }}",
+            {{- end }}
+            {{- with .author }}
+            "author": {
+                "@type": "Person",
+                "name": "{{ . }}"
+            },
+            {{- end }}
+            {{- with .page.GetTerms "author"  }}
+                {{ range . }}
+                    "author": {
+                            "@type": "Person",
+                            "name": "{{ humanize .LinkTitle | title }}"
+                        },
+                {{- end }}
+            {{- end }}
+            "publisher": {
+                "@type": "Organization",
+                "name": "{{ .siteTitle }}",
+                {{- with site.Params.logo.logomark }}
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "{{ . | absURL }}"
+                }
+                {{- end }}
+            }
+        }
+    </script>
+{{- end }}
