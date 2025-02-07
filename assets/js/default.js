@@ -160,14 +160,15 @@ if (isDaytime) {
     clockInterval = setInterval(updateClock, 10000);
 }
 
-addEvent(document, 'keydown', function(e) {
-    if (e.ctrlKey && e.key === 'k') {
-        e.preventDefault();
-        getElement('has-search')?.setAttribute('open', 'open');
-        const searchInput = document.querySelector('.pagefind-ui__search-input');
-        searchInput?.focus();
-    }
-});
+// Overwrite browser search bar (canceled)
+// addEvent(document, 'keydown', function(e) {
+//     if (e.ctrlKey && e.key === 'k') {
+//         e.preventDefault();
+//         getElement('has-search')?.setAttribute('open', 'open');
+//         const searchInput = document.querySelector('.pagefind-ui__search-input');
+//         searchInput?.focus();
+//     }
+// });
 
 // clashes with details handler, need workaround
 addEvent(window, 'beforeprint', function() {
