@@ -292,7 +292,8 @@ ul.carousel__viewport > li > a > span::after {
 
     .carousel__nav > ul.rounded {
         padding: 1ex 0;
-        max-width: calc(100vw - 2rem);
+        width: calc(100vw - 2rem);
+        text-align: right;
     }
 
 }
