@@ -167,6 +167,8 @@
     other = "Riwayat Redaksi"
 [redactionNotes]
     other = "Beberapa informasi mungkin berubah, kami menjaga redaksi tetap sejalan dengan perkembangan."
+[related]
+    other = "Artikel Terkait"
 [reset]
     other = "Atur Ulang"
 [reviewedBy]
