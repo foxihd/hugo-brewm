@@ -32,7 +32,7 @@ jobs:
   build:
     runs-on: ubuntu-24.04-arm
     env:
-      HUGO_VERSION: 0.142.0
+      HUGO_VERSION: 0.143.1
     steps:
       - name: Install Hugo CLI
         run: |
