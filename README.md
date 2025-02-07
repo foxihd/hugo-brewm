@@ -88,7 +88,7 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         name = 'Author Name'
         ## Author's email (will be used for RSS feed)
         email = 'email@example.com'
-        ## Other method to customize co-authors information
+        ## Other method to customize author and co-authors information
         coauthor = [
             {name = "A.N. Other", bio = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
         ]
@@ -123,6 +123,13 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         ## Limit number of flowlines
         flowlinesLimit = 21
 
+    ## Home page display settings
+    [params.home]
+        ## Enable slide carousel
+        disableSlide = false
+        ## Enable taxonomy listing carousel
+        disableListing = false
+
     ## Post display settings
     [params.posts]
         ## Enable text justification
@@ -150,11 +157,10 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
 
     ## Extended Metadata and  Social card configuration
     [params.socialCard]
-        ## Enable twitter and opengraph social cards  (same .params.extMeta setting)
+        ## Enable twitter and opengraph social cards  (same as .params.extMeta)
         enable = true
-        ## Default social card image
-        # image = "img/social-share.jpg" ## recommended resolution: 1200 x 630px
-
+        ## Default social card image, recommended resolution: 1200 x 630px
+        # image = "img/social-share.jpg" 
         ## Enable Twitter cards
         # twitter = true
         ## Twitter creator handle
@@ -169,9 +175,9 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         ## Facebook Admin ID
         # facebookAdmin = "USER_ID"
 
-        ## Schema.org (only meta, not fully supported)
+        ## Schema.org (EXPERIMENTAL, not fully supported body tags)
         # schema = true
-        ## JsonLD (cannot validate permalink)
+        ## JsonLD (EXPERIMENTAL, cannot validate permalink)
         # jsonLD = true
 ```
 

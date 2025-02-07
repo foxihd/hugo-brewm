@@ -145,6 +145,13 @@ copyright = 'Copyright 2025 (c) Foxxi'
         flowlines = true
         ## Limit number of flowlines
         flowlinesLimit = 21
+    
+    ## Home page display settings
+    [params.home]
+        ## Enable slide carousel
+        disableSlide = false
+        ## Enable taxonomy listing carousel
+        disableListing = false
 
     ## Post display settings
     [params.posts]
