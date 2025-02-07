@@ -125,9 +125,9 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
 
     ## Home page display settings
     [params.home]
-        ## Enable slide carousel
+        ## Disable slide carousel
         disableSlide = false
-        ## Enable taxonomy listing carousel
+        ## Disable taxonomy listing carousel
         disableListing = false
 
     ## Post display settings
@@ -144,7 +144,7 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         ## Enable search functionality, use duckduckgo (no javascript)
         enable = true
         ## Use pagefind search when javascript enabled, currently only 'pagefind' is supported, further options to be determined
-        pagefind  = true
+        pagefind = true
 
     ## Typography settings
     [params.typeface]
@@ -155,9 +155,9 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         ## Sans-serif font selection
         sans = 'inter'
 
-    ## Extended Metadata and  Social card configuration
+    ## Extended Metadata and Social card configuration
     [params.socialCard]
-        ## Enable twitter and opengraph social cards  (same as .params.extMeta)
+        ## Enable twitter and opengraph social cards (same as .params.extMeta)
         enable = true
         ## Default social card image, recommended resolution: 1200 x 630px
         # image = "img/social-share.jpg" 
@@ -183,9 +183,9 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
 
 ### Configuration for GitHub Pages Deployment
 
-To deploy your Hugo site with PageFind on GitHub Pages, simply copy the workflow file located at [./themes/hugo-brewm/github/workflows/hugo.yml](https://github.com/foxihd/hugo-brewm/blob/main/.github/workflows/hugo.yml) into your repository's workflow directory and activate the GitHub Action.
+To deploy your Hugo site with PageFind on GitHub Pages, simply copy the workflow file located at [./themes/hugo-brewm/github/workflows/hugo.yml](https://github.com/foxihd/hugo-brewm/blob/main/.github/workflows/hugo.yml) into your repository's workflow directory and start the GitHub Action.
 
-### Configuration for GitHub Pages Deployment
+### Configuration for Gitlab Pages Deployment
 
 To deploy your Hugo site with PageFind on Gitlab Pages, copy the workflow file from [./themes/hugo-brewm/.gitlab-ci.yml](https://github.com/foxihd/hugo-brewm/blob/main/.gitlab-ci.yml) to your repository's workflow directory and start the Gitlab CI/CD pipeline.
 
