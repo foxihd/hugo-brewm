@@ -44,25 +44,11 @@
 
 {{- define "partials/page/cover.html" -}}
     {{- "<!-- cover.html -->" | safeHTML }}
-    {{- $cover := or .Params.cover .Params.image }}
-    {{- $getCover := .Resources.GetMatch "cover.*" }}
-    {{- if or $cover $getCover }}
-        {{- if $getCover }}
-            {{- $cover = $getCover.Permalink }}
-        {{- end }}
-        {{- with $cover }}
-            <img
-                alt="{{ $.Title }} {{ i18n "featuredImg" }}"
-                src="{{ . }}"
-                loading="lazy"
-                role="doc-cover"
-                {{- if $getCover }}
-                    width="{{ .Width }}"
-                    height="{{ .Height }}"
-                {{- end }}
-                >
-        {{- end }}
+    {{- $src := or .Params.cover .Params.image }}
+    {{- with .Resources.GetMatch "cover.*" }}
+        {{- $src = .Permalink }}
     {{- end }}
+    {{- return $src }}
 {{- end }}
 
 {{- define "partials/flowlines.html" -}}
@@ -244,7 +230,7 @@
 
 {{- define "partials/post/related.html" -}}
     {{- "<!-- related.html -->" | safeHTML }}
-    {{- $related := .Site.RegularPages.Related . | first 5 }}
+    {{- $related := site.RegularPages.Related . | first 5 }}
     {{- $series := .GetTerms "series" }}
     {{- if or $related $series }}
     <nav id="related">
