@@ -18,15 +18,18 @@
     {{/*
 
         site banner  */}}
-    {{- if or site.Params.logoType site.Params.logoMark }}
-        <a id="logo" href="{{ absLangURL "" }}" aria-label="{{ site.Title }}">
-            {{- with site.Params.logoMarkDark }}
-                <img id="logomark--dark" src="{{ . }}" alt="{{ site.Title }}" />
+    {{- $logoMark := site.Params.logo.logoMark }}
+    {{- $logoType := site.Params.logo.logoType }}
+    {{- $siteTitle := or site.Title site.Params.Title }}
+    {{- if or $logoType $logoMark }}
+        <a id="logo" href="{{ absLangURL "" }}" aria-label="{{ $siteTitle }}">
+            {{- with site.Params.logo.logoMarkDark }}
+                <img id="logomark--dark" src="{{ . }}" alt="{{ $siteTitle }}" />
             {{- end }}
-            {{- with site.Params.logoMark }}
-                <img id="logomark" src="{{ . }}" alt="{{ site.Title }}" />
+            {{- with $logoMark }}
+                <img id="logomark" src="{{ . }}" alt="{{ $siteTitle }}" />
             {{- end }}
-            {{- if or site.Params.logoType (not site.Params.logoMark) }}
+            {{- if or $logoType (not $logoMark) }}
                 {{ partialCached "header/logotype.html" . }}
             {{- end }}
         </a>
@@ -73,7 +76,8 @@
 
 {{- define "partials/header/logotype.html" -}}
     {{ "<!-- logotype.html -->" | safeHTML }}
-    {{- with site.Title -}}
+    {{- $siteTitle := or site.Title site.Params.Title }}
+    {{- with $siteTitle -}}
         {{- $estimatedWidth := printf "%dpt" (mul (len . ) 28) -}}
         <svg id="logotype" xmlns="http://www.w3.org/2000/svg" version="1.1" width="{{ $estimatedWidth }}">
             <text id="logotype__text" y="19.5pt" x="0">{{ . }}</text>

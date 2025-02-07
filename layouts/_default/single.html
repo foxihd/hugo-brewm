@@ -112,10 +112,14 @@
     <div id="contentinfo" class="pagewidth" role="contentinfo" data-pagefind-ignore="all">
         {{ partial "post/related.html" . }}
         {{ partial "post/history.html" . }}
-        {{ partial "post/colophon.html" . }}
+        {{- if site.Params.posts.colophon }}
+            {{ partial "post/colophon.html" . }}
+        {{- end }}
         {{ partial "post/contribute.html" . }}
         {{ partial "nav.html" (dict "navID" "share" "page" .) }}
-        {{ partial "fediverse.html" . }}
+        {{- if not site.Params.comments.disabled }}
+            {{ partial "fediverse.html" . }}
+        {{- end }}
     </div>
 {{- end }}
 

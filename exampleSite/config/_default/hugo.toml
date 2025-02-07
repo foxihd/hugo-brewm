@@ -1,31 +1,198 @@
+## Base URL for the site
 baseURL = 'https://foxihd.github.io/hugo-brewm/'
+## Site title
 title = 'Example'
+## Use hugo-brewm theme
 theme = 'hugo-brewm'
-# enableGitInfo = true
+## Enable Git information for pages, (e.g. lastMod date information)
+enableGitInfo = true
+## Convert all URLs to absolute URLs
 canonifyURLs = true
+## Default language for content
 defaultContentLanguage = 'en'
+## Put default language in subdirectory
 defaultContentLanguageInSubdir = true
+## Show placeholder for missing translations
 enableMissingTranslationPlaceholders = true
+## Use sections for main menu
 # sectionPagesMenu = 'main'
-ignoreFiles = ['\.bak$', '\.redacted$']
-ignoreLogs = ['err-youtube-remote']
-copyright = 'Copyright (c) Foxxi'
+## Files to ignore when building site
+ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
+## Errors to ignore in logs
+# ignoreLogs = ['err-youtube-remote']
+## Copyright notice
+copyright = 'Copyright 2025 (c) Foxxi'
 
-[markup]
-    [markup.highlight]
-    codeFences = true
-    hl_Lines = ""
-    lineNoStart = 1
-    lineNos = false
-    lineNumbersInTable = true
-    noClasses = false
-    tabWidth = 4
-
-    [markup.goldmark]
-    [markup.goldmark.renderer]
-        unsafe = true # NOT-RECOMMENDED! FOR DEMO PURPOSE ONLY!
-
+## Front matter field configurations
 [frontmatter]
-    date = ['tanggal', ':default']
-    expiryDate = ['redacted', 'kadaluwarsa', 'ditarik', ':default']
-    lastmod = ['errata', 'addendum', "lastmod", 'disunting', 'diubah', ':default'] # ":fileModTime"
+    ## Publication date fields
+    date = [':default']
+    ## Expiry date fields
+    expiryDate = ['expiryDate', 'unpublishdate', ':default']
+    ## Last modified date fields
+    lastmod = ['lastmod', ':default'] ## ":fileModTime"
+
+## Markup configuration
+[markup]
+
+    ## Table of contents settings
+    [markup.tableOfContents]
+        ## Minimum heading level to include
+        startLevel = 2
+        ## Maximum heading level to include
+        endLevel = 3
+        ## Use ordered list for TOC
+        ordered = false
+
+    ## Code highlighting settings
+    [markup.highlight]
+        ## Enable code fence highlighting
+        codeFences = true
+        ## Lines to highlight
+        hl_Lines = ""
+        ## Starting line number
+        lineNoStart = 1
+        ## Show line numbers
+        lineNos = false
+        ## Put line numbers in table
+        lineNumbersInTable = true
+        ## Use classes for styling
+        noClasses = false
+        ## Width of tab character
+        tabWidth = 4
+
+    ## Goldmark markdown processor settings
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            ## Allow HTML in markdown
+            unsafe = true
+
+## Sitemap configuration
+[sitemap]
+    ## Change frequency setting (will affect posts listings layout): 'always', 'hourly', 'daily', 'weekly', 'monthly', 'yearly', 'never'
+    # changeFreq = 'monthly'
+    ## Disable sitemap generation
+    # disable = false
+    ## Output filename
+    # filename = 'sitemap.xml'
+    ## Priority setting
+    # priority = -1
+
+## RSS configuration
+[services.rss]
+    ## Limit RSS item
+    limit = -1
+
+## Taxonomy configuration
+[taxonomies]
+    ## Category taxonomy
+    category = "categories"
+    ## Tag taxonomy
+    tag = "tags"
+    ## Series taxonomy
+    series = "series"
+
+## Site parameters
+[params]
+    ## Site title
+    title = "Example"
+    ## Site description
+    description = "An ExampleSite built with Hugo and Hugo-Brewm theme"
+    ## Copyright notice
+    copyright = "Copyright 2025 (c) Foxxi"
+    ## Enable extended metadata (social cards)
+    extMeta = true
+    ## Enable coffee metric
+    coffeeStat = true
+
+    ## Author information
+    [params.author]
+        ## site author's name
+        name = 'Author Name'
+        ## Author's email (will be used for RSS feed)
+        email = 'email@example.com'
+        ## Co-authors information (optional)
+        coauthor = [
+            {name = "A.N. Other", bio = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
+        ]
+
+    ## Comments configuration
+    [params.comments]
+        ## Disable comments (disable fediverse comments)
+        disabled = false
+        ## Comment platform selection, currently only 'fediverse' is supported, further options to be determined
+        # platform = 'fediverse'
+
+    ## Fediverse integration settings
+    [params.fediverse]
+        ## Fediverse instance URL
+        instance = 'example.com'
+        ## Fediverse username
+        username = 'username'
+
+    ## Logo configuration
+    [params.logo]
+        ## Light mode logo mark
+        # logoMark = 'https://example.com/logoMark.svg'
+        ## Dark mode logo mark
+        # logoMarkDark = 'https://example.com/logoMarkDark.svg'
+        ## Enable logo type
+        logoType = true
+
+    ## Feed display settings
+    [params.feed]
+        ## Enable flowlines
+        flowlines = true
+        ## Limit number of flowlines
+        flowlinesLimit = 21
+
+    ## Post display settings
+    [params.posts]
+        ## Enable text justification
+        justifying = false
+        ## Disable paragraph indentation
+        noIndent = false
+        ## Show colophon section (including QR code)
+        colophon = true
+
+    ## Search configuration
+    [params.search]
+        ## Enable search functionality, use duckduckgo (no javascript)
+        enable = true
+        ## Use pagefind search when javascript enabled, currently only 'pagefind' is supported, further options to be determined
+        pagefind  = true
+
+    ## Typography settings
+    [params.typeface]
+        ## Use web safe fonts (will overide font selection below)
+        webSafe = false
+        ## Serif font selection
+        roman = 'crimson'
+        ## Sans-serif font selection
+        sans = 'inter'
+
+    ## Extended Metadata and  Social card configuration
+    [params.socialCard]
+        ## Enable twitter and opengraph social cards (same .params.extMeta setting)
+        enable = true
+        ## Default social card image
+        # image = "img/social-share.jpg" ## recommended resolution: 1200 x 630px
+
+        ## Enable Twitter cards
+        # twitter = true
+        ## Twitter creator handle
+        # twitterCreator = "@username"
+        ## Twitter site handle
+        # twitterSite = "@username"
+
+        ## Enable OpenGraph
+        # opengraph = true
+        ## Facebook App ID
+        # facebookAppID = "123456789"
+        ## Facebook Admin ID
+        # facebookAdmin = "USER_ID"
+
+        ## Schema.org (only meta, not fully supported)
+        # schema = true
+        ## JsonLD (cannot validate permalink)
+        # jsonLD = true

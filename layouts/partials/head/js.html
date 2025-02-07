@@ -3,8 +3,12 @@
     (resources.Get "js/default.js")
     (resources.Get "js/accessibility.js")
     (resources.Get "js/bionread.js")
-    (resources.Get "js/qrcode.js")
 }}
+
+{{- if site.Params.posts.colophon }}
+    {{- $js_files = $js_files | append (resources.Get "js/qrcode.js") }}
+{{- end }}
+
 {{- $hugo_brewm := $js_files | resources.Concat "js/hugo-brewm.js" | minify }}
 {{- if eq hugo.Environment "development" }}
     <script src="{{ $hugo_brewm.Permalink }}" defer></script>

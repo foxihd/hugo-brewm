@@ -70,7 +70,7 @@
 }}
 
 {{- $baseFonts := slice $icon $openDyslexic }}
-{{- if site.Params.WebSafeFonts }}
+{{- if site.Params.typeface.webSafe }}
     {{- $baseFonts = $baseFonts | append $websafe }}
 {{- else }}
     {{- $baseFonts = $baseFonts | append $roman $sans $teletype }}

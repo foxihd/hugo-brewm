@@ -33,15 +33,155 @@ git submodule add https://github.com/foxihd/hugo-brewm themes/hugo-brewm
 theme = "hugo-brewm"
 ```
 
-> Check the example site's configuration directory ([./themes/hugo-brewm/exampleSite/config/_default](https://github.com/foxihd/hugo-brewm/tree/main/exampleSite/config/_default)) to explore available configuration options.
+## Configuration
 
-4. Create a new post under content directory:
+### Configuration options
 
+The following configuration options are available for hugo-brewm:
+
+```toml
+## Base URL for the site
+baseURL = 'https://foxihd.github.io/hugo-brewm/'
+## Site title
+title = 'Example'
+## Use hugo-brewm theme
+theme = 'hugo-brewm'
+## Enable Git information for pages, (e.g. lastMod date information)
+enableGitInfo = true
+## Convert all URLs to absolute URLs
+canonifyURLs = true
+## Default language for content
+defaultContentLanguage = 'en'
+## Put default language in subdirectory
+defaultContentLanguageInSubdir = true
+## Use sections for main menu
+# sectionPagesMenu = 'main'
+## Files to ignore when building site
+ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
+
+## Enable code fence highlighting
+[markup]
+    [markup.highlight]
+        codeFences = true
+
+## Sitemap configuration
+[sitemap]
+    ## Change frequency setting (will affect posts listings layout): 'always', 'hourly', 'daily', 'weekly', 'monthly', 'yearly', 'never'
+    changeFreq = 'monthly'
+
+## Site parameters
+[params]
+    ## Site title
+    title = "Example"
+    ## Site description
+    description = "An ExampleSite built with Hugo and Hugo-Brewm theme"
+    ## Copyright notice
+    copyright = "Copyright 2025 (c) Foxxi"
+    ## Enable extended metadata (social cards)
+    extMeta = true
+    ## Enable coffee metric
+    coffeeStat = true
+
+    ## Author information
+    [params.author]
+        ## site author's name
+        name = 'Author Name'
+        ## Author's email (will be used for RSS feed)
+        email = 'email@example.com'
+        ## Other method to customize co-authors information
+        coauthor = [
+            {name = "A.N. Other", bio = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
+        ]
+
+    ## Comments configuration
+    [params.comments]
+        ## Disable comments (disable fediverse comments)
+        disabled = false
+        ## Comment platform selection, currently only 'fediverse' is supported, further options to be determined
+        # platform = 'fediverse'
+
+    ## Fediverse integration settings
+    [params.fediverse]
+        ## Fediverse instance URL
+        instance = 'example.com'
+        ## Fediverse username
+        username = 'username'
+
+    ## Logo configuration
+    [params.logo]
+        ## Light mode logo mark
+        logoMark = 'https://example.com/logoMark.svg'
+        ## Dark mode logo mark
+        logoMarkDark = 'https://example.com/logoMarkDark.svg'
+        ## Enable logo type
+        logoType = true
+
+    ## Feed display settings
+    [params.feed]
+        ## Enable flowlines
+        flowlines = true
+        ## Limit number of flowlines
+        flowlinesLimit = 21
+
+    ## Post display settings
+    [params.posts]
+        ## Enable text justification
+        justifying = false
+        ## Disable paragraph indentation
+        noIndent = false
+        ## Show colophon section (including QR code)
+        colophon = true
+
+    ## Search configuration
+    [params.search]
+        ## Enable search functionality, use duckduckgo (no javascript)
+        enable = true
+        ## Use pagefind search when javascript enabled, currently only 'pagefind' is supported, further options to be determined
+        pagefind  = true
+
+    ## Typography settings
+    [params.typeface]
+        ## Use web safe fonts (will overide font selection below)
+        webSafe = false
+        ## Serif font selection
+        roman = 'crimson'
+        ## Sans-serif font selection
+        sans = 'inter'
+
+    ## Extended Metadata and  Social card configuration
+    [params.socialCard]
+        ## Enable twitter and opengraph social cards  (same .params.extMeta setting)
+        enable = true
+        ## Default social card image
+        # image = "img/social-share.jpg" ## recommended resolution: 1200 x 630px
+
+        ## Enable Twitter cards
+        # twitter = true
+        ## Twitter creator handle
+        # twitterCreator = "@username"
+        ## Twitter site handle
+        # twitterSite = "@username"
+
+        ## Enable OpenGraph
+        # opengraph = true
+        ## Facebook App ID
+        # facebookAppID = "123456789"
+        ## Facebook Admin ID
+        # facebookAdmin = "USER_ID"
+
+        ## Schema.org (only meta, not fully supported)
+        # schema = true
+        ## JsonLD (cannot validate permalink)
+        # jsonLD = true
 ```
-hugo new posts/my-first-post.md
-```
 
-5. For building and deploying your Hugo site to GitHub Pages, copy the workflow file from [./themes/hugo-brewm/github/workflows/hugo.yml](https://github.com/foxihd/hugo-brewm/blob/main/.github/workflows/hugo.yml) to your repository's root directory and initiate the GitHub Action.
+### Configuration for GitHub Pages Deployment
+
+To deploy your Hugo site with PageFind on GitHub Pages, simply copy the workflow file located at [./themes/hugo-brewm/github/workflows/hugo.yml](https://github.com/foxihd/hugo-brewm/blob/main/.github/workflows/hugo.yml) into your repository's workflow directory and activate the GitHub Action.
+
+### Configuration for GitHub Pages Deployment
+
+To deploy your Hugo site with PageFind on Gitlab Pages, copy the workflow file from [./themes/hugo-brewm/.gitlab-ci.yml](https://github.com/foxihd/hugo-brewm/blob/main/.gitlab-ci.yml) to your repository's workflow directory and start the Gitlab CI/CD pipeline.
 
 ## Special Thanks
 
