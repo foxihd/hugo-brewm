@@ -15,6 +15,7 @@
 {{- $websafe      := resources.Get "css/typeface/websafe.css" }}
 
 {{- if site.Params.Typeface.localHost }}
+    {{- $icon         = resources.Get "css/typeface-local/icon.css" }}
     {{- $cormorant    = resources.Get "css/typeface-local/Cormorant.css" }}
     {{- $crimson      = resources.Get "css/typeface-local/Crimson.css" }}
     {{- $EBGaramond   = resources.Get "css/typeface-local/EBGaramond.css" }}
