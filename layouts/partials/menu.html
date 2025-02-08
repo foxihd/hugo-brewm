@@ -75,11 +75,12 @@
         {{- with $icon }}
             {{- $attrs = merge $attrs (dict "title" . "aria-label" .) }}
         {{- end }}
+        {{- $identifier := .Identifier }}
         <li role="presentation">
             {{- if .Children }}
                 {{- template "menuItemWithChildren" dict "item" . "attrs" $attrs "icon" $icon "name" $name "desc" $desc "deck" $deck "menuID" $menuID "open" $open "l" $l "n" $n "page" $page }}
             {{- else }}
-                {{- template "menuItem" dict "attrs" $attrs "name" $name "desc" $desc "icon" $icon }}
+                {{- template "menuItem" dict "attrs" $attrs "name" $name "desc" $desc "icon" $icon "identifier" $identifier }}
             {{- end }}
         </li>
     {{- end }}
@@ -93,8 +94,9 @@
         {{- end }}
         {{ with .desc }} aria-description="{{ . }}" {{ end }}>
         {{ if not .name }}
-        <span class="t" role="tooltip">{{ title .icon }}</span>
-        {{ end  }}
+            {{- $tooltip := .identifier }}
+            <span class="t" role="tooltip">{{ title $tooltip }}</span>
+        {{- end }}
         {{- with .icon -}}
             <i class="icon {{ . }}" aria-hidden="true"></i>
         {{- end }}
