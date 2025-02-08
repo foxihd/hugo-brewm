@@ -136,7 +136,7 @@
                         {{- $categories := .GetTerms "categories" }}
                         {{- $desc := or .Params.Subtitle .Params.Description .Description .Summary }}
                         {{- $images := or .Params.cover .Params.images }}
-                        {{- $hasCover := or $images (.Resources.GetMatch "cover.*") }}
+                        {{- $hasCover := partial "partials/page/cover.html" . }}
                         {{- if $index }}<hr class="ldots" role="presentation" aria-hidden="true">{{- end }}
                         {{ template "card" (dict "page" $page "paginator" $paginator "counter" $counter "desc" $desc "hasCover" $hasCover "author" $author "authors" $authors) }}
                     {{- end }}
@@ -260,11 +260,9 @@
         {{ $useFlowlines := site.Params.Feed.Flowlines }}
         <section {{ if or .hasCover $useFlowlines }}class="has-cover"{{ end }}>
             {{- if .hasCover }}
-                {{ partial "page/cover.html" .page }}
+                <img src={{ .hasCover }} alt="{{ i18n "featuredImg"}}: .page.Title" loading="lazy">
             {{- else if $useFlowlines }}
-                {{- $flowlinesCount := site.Params.Feed.FlowlinesLimit | default 42 }}
-                {{- $flowlinesSrc := "https://raw.githubusercontent.com/foxihd/hugo-et-hd/master/static/svg/flowlines/" }}
-                {{- $src := printf "%s%d.svg" $flowlinesSrc (index (seq $flowlinesCount | shuffle) 1) }}
+                {{- $src := partial "partials/flowlines.html" . }}
                 {{- $pseudoRandomPos := printf "object-position: %d%% %d%%" (index (seq 81 | shuffle) 11) (index (seq 80 | shuffle) 12) }}
                 <img class="flowlines" src="{{ $src }}" alt="" style="{{ $pseudoRandomPos }}" loading="lazy">
             {{- end }}

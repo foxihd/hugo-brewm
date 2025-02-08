@@ -11,10 +11,14 @@
             {{ range . -}}
                 {{- $index = add $index 1 }}
                 {{- if or (le $index $limit) (not $limit) -}}
-                    {{- $images := or .Page.Params.cover .Page.Params.images }}
-                    {{- $flowlinesCount := or 42 site.Params.Feed.FlowlinesLimit }}
-                    {{- $flowlinesSrc := "https://raw.githubusercontent.com/foxihd/hugo-et-hd/master/static/svg/flowlines/" }}
-                    {{- $src := cond $images $images (printf "%s%d.svg" $flowlinesSrc ( index (seq $flowlinesCount | shuffle) 1 )) }}
+                    {{- $image := or .Page.Params.cover .Page.Params.image }}
+                    {{- with .Page.Resources.GetMatch "cover.*" }}
+                        {{- $image = .Permalink }}
+                    {{- end }}
+                    {{- $src := $image }}
+                    {{- if not $image}}
+                        {{- $src = partial "partials/flowlines.html" . }}
+                    {{- end }}
                     <li  {{ if $cover }}style="background-image:url({{ $src }});"{{ end }}>
                         <a href="{{ .Page.Permalink }}"
                             aria-label="{{ i18n $taxonomy 1 }}:{{ .Page.Title }}"
@@ -82,15 +86,10 @@
     {{ "<!-- hero.html -->" | safeHTML }}
     <div class="hero">
         <div class="hero__image">
-            {{- $cover := or .Page.Params.cover .Page.Params.images }}
-            {{- $getCover := .Resources.GetMatch "cover.*" }}
-            {{- if or $getCover $cover }}
-            <img
-                src="{{ if $cover }}{{ $cover }}{{- else }}{{ $getCover.Permalink }}{{- end }}"
-                alt="{{ i18n "featuredImg" }} : {{- .Title }}"
-                role="doc-cover"
-                />
-        {{- end }}
+            {{- $src := partial "page/cover.html" . }}
+            {{- if $src }}
+                <img src="{{ $src }}" alt="{{ .Title }}" role="doc-cover"/>
+            {{- end }}
         </div>
         <div class="hero__content">
             {{- .Content }}
