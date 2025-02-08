@@ -66,6 +66,7 @@ figure svg {
 }
 
 .author > a::after {
+    font-size: 0.9em;
     color: var(--mid);
 }
 

@@ -49,10 +49,7 @@
                 {{- $instance := or .Params.Fediverse.Host .Params.Fediverse.Instance site.Params.fediverse.instance site.Params.fediverse.host }}
                 {{- $user := or .Params.Fediverse.User .Params.Fediverse.Username site.Params.fediverse.username site.Params.fediverse.user }}
                 {{- $post := or .Params.Fediverse.post .Params.Fediverse.link }}
-                {{- /*
-
-                    Fediverse avatar  */}}
-                {{- if and $instance $user $post (not (gt (len $authors) 1)) }}
+                {{- if and $instance $user $post (len $authors | eq 1) }}
                     {{- $api := print "https://" $instance "/api/v1/statuses/" $post  }}
                     {{- $data := "" }}
                     {{- with resources.GetRemote $api }}
@@ -62,14 +59,11 @@
                         </a>
                     {{- end }}
                 {{- end }}
-                {{/*
-
-                    name of author(s) */}}
                 {{- if $authors }}
                     {{- if eq (len $authors) 1 }}
                         {{- range $authors }}
                             <a href="{{ .RelPermalink }}"
-                                {{- if and $instance $user }}
+                                {{- if and $instance $user $post }}
                                     class="has-aria-label"
                                     aria-label="{{ print "@" $user "@" $instance}}"
                                 {{- end }}>
@@ -80,15 +74,7 @@
                         {{ partial "terms.html" (dict "taxonomy" "author" "class" "delimiter" "page" .) }}
                     {{- end }}
                 {{- else if $author -}}
-                    {{- if and $instance $user }}
-                    <a href="{{ printf "https://%s/@%s" $instance $user }}"
-                        class="has-aria-label"
-                        aria-label="{{ print "@" $user "@" $instance}}">
-                        {{- $author -}}
-                    </a>
-                    {{- else }}
                     <span>{{ $author }}</span>
-                    {{- end }}
                 {{- end }}
             </div>
             {{ partial "page/timestamp.html" . }}
