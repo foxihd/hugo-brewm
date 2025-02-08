@@ -12,25 +12,24 @@
   weight     = 1
 
   [[main]]
-    name       = 'The Second Glass of Brew'
-    identifier = 'series.brewm'
+    name       = 'A Series'
+    identifier = 'series1'
     pageRef    = '/'
     parent     = 'series'
-    Post       = "Stuff that's at the very heart of things"
+    Post       = 'Example with post/description'
 
   [[main]]
-    name       = 'Press Outta Foxx'
-    identifier = 'series.foxx'
+    name       = 'Another series'
+    identifier = 'series2'
     pageRef    = '/'
     parent     = 'series'
-    Post       = "Digital Humanities and Accessibility"
 
   [[main]]
     name       = 'Sustainable Development'
     identifier = 'series.sdg'
     pageRef    = '/'
     parent     = 'series'
-    Post       = 'The 17 Goals'
+    Post       = 'Nested Menu example'
 
     [[main]]
       name       = 'No Poverty'
