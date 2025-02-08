@@ -1,4 +1,5 @@
 ---
+author : ['Author Name']
 title: "Configure Logo and Accent Color"
 description: "How to configure the Logo and Accent Color in Hugo Brewm theme"
 date: 2025-01-26

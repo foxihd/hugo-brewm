@@ -191,8 +191,8 @@
   weight     = 2
 
 [[author-name]]
-  name       = '@user-name'
-  identifier = 'bluesky'
+  name       = ''
+  identifier = '@user-name'
   pageRef    = '/'
   weight     = 1
   pre        = 'bluesky'

@@ -1,4 +1,5 @@
 ---
+author : ['Author Name']
 title: "Markdown Test"
 description: "Various sample Markdown test"
 date: 2025-01-26
