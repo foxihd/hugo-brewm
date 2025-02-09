@@ -44,8 +44,9 @@
 
 {{- define "partials/page/cover.html" -}}
     {{- "<!-- cover.html -->" | safeHTML }}
-    {{- $src := or .Params.cover .Params.image }}
-    {{- with .Resources.GetMatch "cover.*" }}
+    {{- $page := .page }}
+    {{- $src := or .page.Params.cover .page.Params.image }}
+    {{- with .page.Resources.GetMatch "cover.*" }}
         {{- $src = .Permalink }}
     {{- end }}
     {{- return $src }}

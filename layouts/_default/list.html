@@ -136,7 +136,7 @@
                         {{- $categories := .GetTerms "categories" }}
                         {{- $desc := or .Params.Subtitle .Params.Description .Description .Summary }}
                         {{- $images := or .Params.cover .Params.images }}
-                        {{- $hasCover := partial "partials/page/cover.html" . }}
+                        {{- $hasCover := partial "partials/page/cover.html" (dict "page" .) }}
                         {{- if $index }}<hr class="ldots" role="presentation" aria-hidden="true">{{- end }}
                         {{ template "card" (dict "page" $page "paginator" $paginator "counter" $counter "desc" $desc "hasCover" $hasCover "author" $author "authors" $authors) }}
                     {{- end }}

@@ -71,10 +71,7 @@
                                     <img src="{{ $avatar }}" alt="{{ $displayName }}"/>
                                 </a>
                             {{- else }}
-                                {{- $displayPicture := or .Params.cover .Params.image }}
-                                {{- with .Page.Resources.GetMatch "cover.*" }}
-                                    {{- $displayPicture = .Permalink }}
-                                {{- end }}
+                                {{- $displayPicture := partial "partials/page/cover.html" (dict "page" .) }}
                                 <a id="avatar" href="{{ .Permalink }}" aria-label="{{ .LinkTitle }}">
                                     <img src="{{ $displayPicture }}" alt="{{ .LinkTitle }}"/>
                                 </a>

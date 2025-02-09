@@ -11,7 +11,7 @@
         {{- $desc =  printf "%s | %s" .Kind $siteTitle }}
     {{- end }}
 {{- $desc = $desc | plainify | htmlUnescape | truncate 150 }}
-{{- $cover := partial "page/cover.html" . }}
+{{- $cover := partial "page/cover.html" (dict "page" .) }}
     {{- if and (not $cover) (not .IsPage) }}
         {{- $cover = or site.Params.images site.Params.socialCard }}
     {{- end }}

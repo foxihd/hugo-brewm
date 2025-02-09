@@ -11,12 +11,8 @@
             {{ range . -}}
                 {{- $index = add $index 1 }}
                 {{- if or (le $index $limit) (not $limit) -}}
-                    {{- $image := or .Page.Params.cover .Page.Params.image }}
-                    {{- with .Page.Resources.GetMatch "cover.*" }}
-                        {{- $image = .Permalink }}
-                    {{- end }}
-                    {{- $src := $image }}
-                    {{- if not $image}}
+                    {{- $src := partial "partials/page/cover.html" (dict "page" .Page) }}
+                    {{- if not $src}}
                         {{- $src = partial "partials/flowlines.html" . }}
                     {{- end }}
                     <li  {{ if $cover }}style="background-image:url({{ $src }});"{{ end }}>
@@ -86,7 +82,7 @@
     {{ "<!-- hero.html -->" | safeHTML }}
     <div class="hero">
         <div class="hero__image">
-            {{- $src := partial "page/cover.html" . }}
+            {{- $src := partial "page/cover.html" (dict "page" .) }}
             {{- if $src }}
                 <img src="{{ $src }}" alt="{{ .Title }}" role="doc-cover"/>
             {{- end }}
