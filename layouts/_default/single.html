@@ -64,10 +64,23 @@
                 {{- $authors := .GetTerms "author" }}
                 {{- $notMultiAuthor := eq (len $authors) 1 }}
                 {{- if $authors }}
-                    {{- if eq (len $authors) 1 }}
+                    {{- if $notMultiAuthor }}
                         {{- range $authors }}
-                            <a href="{{ .RelPermalink }}"
-                                {{- if and $instance $user $post }}
+                            {{- if $isComment }}
+                                <a id="avatar" href="{{ print "https://" $instance "/@" $user }}" aria-label="{{ $displayName }}">
+                                    <img src="{{ $avatar }}" alt="{{ $displayName }}"/>
+                                </a>
+                            {{- else }}
+                                {{- $displayPicture := or .Params.cover .Params.image }}
+                                {{- with .Page.Resources.GetMatch "cover.*" }}
+                                    {{- $displayPicture = .Permalink }}
+                                {{- end }}
+                                <a id="avatar" href="{{ .Permalink }}" aria-label="{{ .LinkTitle }}">
+                                    <img src="{{ $displayPicture }}" alt="{{ .LinkTitle }}"/>
+                                </a>
+                            {{- end }}
+                            <a href="{{ .Permalink }}"
+                                {{- if $isComment }}
                                     class="has-aria-label"
                                     aria-label="{{ print "@" $user "@" $instance}}"
                                 {{- end }}>

@@ -55,8 +55,9 @@ figure svg {
     font: 1rem var(--sf);
 }
 
-.author .has-aria-label {
-    margin-left: 12pt;
+.mastodon-comment > .author > img,
+#avatar {
+    margin-right: 12pt;
 }
 
 .author img {
