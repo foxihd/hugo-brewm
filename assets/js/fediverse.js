@@ -2,7 +2,6 @@ const id = getElement('metadata-post').innerText;
 
 if (id) {
     const host = getElement('metadata-instance').innerText;
-    const user = getElement('metadata-user').innerText;
     const style = document.createElement('style');
     style.textContent = `
         #comments > * {width: var(--golden-ratio)}

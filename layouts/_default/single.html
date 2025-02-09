@@ -22,15 +22,34 @@
     {{- end }}
     {{- /*
 
-        Commenting System over Fediverse */}}
-    {{ partial "head/js/fediverse.html" . }}
-    {{- /*
-
         QRCode */}}
     {{/*  {{ partialCached "head/js/qrcode.html" . }}  */}}
 {{- end }}
 
 {{- define "main" }}
+    {{- $instance := or .Params.Fediverse.Host .Params.Fediverse.Instance site.Params.fediverse.instance site.Params.fediverse.host }}
+    {{- $user := or .Params.Fediverse.User .Params.Fediverse.Username site.Params.fediverse.username site.Params.fediverse.user }}
+    {{- $post := or .Params.Fediverse.post .Params.Fediverse.link }}
+    {{- $comments := or .Params.toot .Params.comment }}
+    {{- if $comments }}
+        {{- $toot := split (replaceRE "^https?://" "" .Params.toot) "/" }}
+        {{- $instance = index $toot 0 -}}
+        {{- $user = trim (index $toot 1) "@" -}}
+        {{- $post = index $toot 2 }}
+    {{- end }}
+    {{- $api := print "https://" $instance "/api/v1/statuses/" $post }}
+    {{- $isComment := false }}
+    {{- $commentUrl :=  print "https://" $instance "/@" $user "/" $post }}
+    {{- $avatar := false }}
+    {{- $displayName := false }}
+    {{- with resources.GetRemote $api }}
+        {{- $data := . | transform.Unmarshal }}
+        {{- $isComment = $data.content }}
+        {{- $commentUrl = $data.url }}
+        {{- $avatar = $data.account.avatar }}
+        {{- $displayName = $data.account.display_name }}
+    {{- end }}
+
     <article id="main-article" class="pagewidth"
         role="document" aria-labelledby="title"
         {{- if ne (lower .Params.type) (or "post" "articles") }}
@@ -38,27 +57,12 @@
         {{- else }}
             data-pagefind-body
         {{- end }}>
-        {{/*
-
-            frontmatter */}}
         <header class="textwidth" aria-labelledby="title">
             {{ partial "page/title.html" . }}
             <div id="doc-author" class="textsw author">
                 {{- $author := cond .Params.author .Params.author site.Params.Author.name }}
                 {{- $authors := .GetTerms "author" }}
-                {{- $instance := or .Params.Fediverse.Host .Params.Fediverse.Instance site.Params.fediverse.instance site.Params.fediverse.host }}
-                {{- $user := or .Params.Fediverse.User .Params.Fediverse.Username site.Params.fediverse.username site.Params.fediverse.user }}
-                {{- $post := or .Params.Fediverse.post .Params.Fediverse.link }}
-                {{- if and $instance $user $post (len $authors | eq 1) }}
-                    {{- $api := print "https://" $instance "/api/v1/statuses/" $post  }}
-                    {{- $data := "" }}
-                    {{- with resources.GetRemote $api }}
-                        {{- $data = transform.Unmarshal . }}
-                        <a id="avatar" href="{{ $data.account.url }}" aria-label="{{ $data.account.display_name }}">
-                            <img src="{{ $data.account.avatar }}" alt="{{ $data.account.display_name }}" class="avatar"/>
-                        </a>
-                    {{- end }}
-                {{- end }}
+                {{- $notMultiAuthor := eq (len $authors) 1 }}
                 {{- if $authors }}
                     {{- if eq (len $authors) 1 }}
                         {{- range $authors }}
@@ -104,7 +108,9 @@
         {{ partial "post/contribute.html" . }}
         {{ partial "nav.html" (dict "navID" "share" "page" .) }}
         {{- if not site.Params.comments.disabled }}
-            {{ partial "fediverse.html" . }}
+            {{- if $isComment }}
+                {{ partial "fediverse.html" (dict "instance" $instance "user" $user "post" $post "isComment" $isComment "commentUrl" $commentUrl) }}
+            {{- end }}
         {{- end }}
     </div>
 {{- end }}

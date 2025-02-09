@@ -76,24 +76,3 @@
         {{- end }}
     {{- end }}
 {{- end }}
-
-{{- define "partials/head/js/fediverse.html" -}}
-    {{ "<!-- js/fediverse.html -->" | safeHTML }}
-    {{- $instance := or .Params.Fediverse.Host .Params.Fediverse.Instance site.Params.fediverse.instance site.Params.fediverse.host }}
-    {{- $user := or .Params.Fediverse.User .Params.Fediverse.Username site.Params.fediverse.username site.Params.fediverse.user }}
-    {{- $post := or .Params.Fediverse.post .Params.Fediverse.link }}
-    {{- if and $instance $user $post }}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.1/purify.min.js" referrerpolicy="no-referrer"
-            integrity="sha512-uHOKtSfJWScGmyyFr2O2+efpDx2nhwHU2v7MVeptzZoiC7bdF6Ny/CmZhN2AwIK1oCFiVQQ5DA/L9FSzyPNu6Q==" crossorigin="anonymous" ></script>
-        {{- $fediverse := resources.Get "js/fediverse.js" | minify }}
-        {{- if eq hugo.Environment "development" }}
-            <script src="{{ $fediverse.Permalink }}" defer></script>
-        {{- else }}
-            {{- with $fediverse | fingerprint "sha384" }}
-                <script src="{{ $fediverse.Permalink }}"
-                    integrity="{{ .Data.Integrity }}" crossorigin="anonymous"
-                    defer></script>
-            {{- end }}
-        {{- end }}
-    {{- end }}
-{{- end }}
