@@ -3,14 +3,28 @@ author : ['Author Name']
 title: "Configure Discussion"
 description: "How to configure post discussion in Hugo Brewm theme"
 date: 2025-01-26
-lastmod: 2025-02-03
+lastmod: 2025-02-10
 type: post
 draft: false
 translationKey: discussion
 coffee: 1
 tags: ['configuration', 'discussion']
 categories: ['configuration']
+toot: "https://infosec.exchange/@foxx/113979609651534969"
 ---
+
+## The New Method
+
+Simply paste your toot link in `toot` or `comments` parameter in the front matter.
+
+```yaml
+---
+toot: https://example.com/@example/12345678901234567890
+---
+```
+
+
+## 'The-Long' Method
 
 You can integrate discussions from you Fediverse instance to you article. To enable this feature, add the `fediverse` section to your front matter with the required `host`, `user`, and `post` parameters:
 
