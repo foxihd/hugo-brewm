@@ -1,6 +1,7 @@
 ---
 title: 'Author Name'
 cover: 'https://upload.wikimedia.org/wikipedia/commons/4/4d/Cat_and_styrofoam_%E2%80%93_electrostatic_charge_%28235112299%29.jpg'
+flair: 'Available for hire (example flair)'
 ---
 
 ## Author Name

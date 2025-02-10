@@ -66,11 +66,12 @@
                 {{- if $authors }}
                     {{- if $notMultiAuthor }}
                         {{- range $authors }}
+                            {{ $flair := .Params.flair }}
                             {{- if $isComment }}
                                 <a id="avatar" href="{{ print "https://" $instance "/@" $user }}" aria-label="{{ $displayName }}">
                                     <img src="{{ $avatar }}" alt="{{ $displayName }}"/>
                                 </a>
-                            {{- else }}
+                            {{- else if $flair }}
                                 {{- $displayPicture := partial "partials/page/cover.html" (dict "page" .) }}
                                 <a id="avatar" href="{{ .Permalink }}" aria-label="{{ .LinkTitle }}">
                                     <img src="{{ $displayPicture }}" alt="{{ .LinkTitle }}"/>
@@ -80,6 +81,9 @@
                                 {{- if $isComment }}
                                     class="has-aria-label"
                                     aria-label="{{ print "@" $user "@" $instance}}"
+                                {{- else if $flair }}
+                                    class="has-aria-label"
+                                    aria-label="{{ $flair }}"
                                 {{- end }}>
                                 {{- .LinkTitle -}}
                             </a>
