@@ -18,7 +18,7 @@ if (id) {
         .stat a::before {vertical-align: text-top}
         a.replies.active, a.reblogs.active {color: var(--ac)}
         a.favourites.active {color: var(--i3i)}
-        .mastodon-comment .date {margin-left: auto; padding-left: 1rem; color: var(--mid); font-size: calc(10pt * var(--fonttScale))}
+        .mastodon-comment .date {margin-left: auto; padding-left: 1rem; color: var(--mid); font-size: calc(10pt * var(--fontScale))}
         @media only screen and (max-width: 960px) {
             .mastodon-comment .content, .mastodon-comment > footer {margin-left: 0}
         }

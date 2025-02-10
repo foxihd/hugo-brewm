@@ -75,7 +75,7 @@ a.favourites.active {
     margin-left: auto;
     padding-left: 1rem;
     color: var(--mid);
-    font-size: calc(10pt * var(--fonttScale));;
+    font-size: calc(10pt * var(--fontScale));;
 }
 
 @media only screen and (max-width: 960px) {
