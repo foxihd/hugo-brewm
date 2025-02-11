@@ -65,7 +65,6 @@
     (resources.Get "css/component/hero.css") 
     (resources.Get "css/layout/_default/single.css")
     (resources.Get "css/component/marginpar.css")
-    (resources.Get "css/component/share.css")
     (resources.Get "css/media/print.css")
     (resources.Get "css/optimize.css")
 }}
@@ -83,6 +82,10 @@
 {{- $search := resources.Get "css/component/search.css" }}
 {{- if site.Params.search.enable }}
     {{- $extrasSty = $extrasSty | append $search }}
+{{- end }}
+{{- $share := resources.Get "css/component/share.css" }}
+{{- if site.Params.posts.share }}
+    {{- $extrasSty = $extrasSty | append $share }}
 {{- end }}
 
 {{- $hugo_brewm := ($baseFonts | append ($baseSty | append $extrasSty)) | resources.Concat "css/hugo-brewm.css" | minify }}

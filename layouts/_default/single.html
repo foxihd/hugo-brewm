@@ -114,13 +114,19 @@
     </article>
     <hr class="hide" style="margin: 1in 0;">
     <div id="contentinfo" class="pagewidth" role="contentinfo" data-pagefind-ignore="all">
-        {{ partial "post/related.html" . }}
-        {{ partial "post/history.html" . }}
-        {{- if site.Params.posts.colophon }}
+        {{- if or .Params.related site.Params.posts.related }}
+            {{ partial "post/related.html" . }}
+        {{- end }}
+        {{- if not site.Params.posts.disableHistory }}
+            {{ partial "post/history.html" . }}
+        {{- end }}
+        {{- if or .Params.colophon site.Params.posts.colophon }}
             {{ partial "post/colophon.html" . }}
         {{- end }}
         {{ partial "post/contribute.html" . }}
-        {{ partial "nav.html" (dict "navID" "share" "page" .) }}
+        {{- if site.Params.posts.share }}
+            {{ partial "nav.html" (dict "navID" "share" "page" .) }}
+        {{- end }}
         {{- if not site.Params.comments.disabled }}
             {{- if $isComment }}
                 {{ partial "fediverse.html" (dict "instance" $instance "user" $user "post" $post "isComment" $isComment "commentUrl" $commentUrl) }}

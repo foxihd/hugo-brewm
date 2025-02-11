@@ -161,6 +161,12 @@ copyright = 'Copyright 2025 (c) Foxxi'
         noIndent = false
         ## Show colophon section (including QR code)
         colophon = true
+        ## disable redaction history
+        disableHistory = false
+        ## SHow related content
+        related = true
+        ## Show share buttons
+        share = true
 
     ## Search configuration
     [params.search]
