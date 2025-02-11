@@ -1,3 +1,6 @@
+# Please feel free to contribute to additional translation.
+# Copy this file and rename it to your language code.
+# Then translate the values.
 [404PageNotFound]
     other = "Page Not Found"
 [404Alert]
