@@ -2,7 +2,7 @@
 
 > Fine-brewed Hugo theme made open.
 
-Demosite: [https://hugo.brewm.co](https://hugo.brewm.co)
+Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hugo-brewm/en/)
 
 ## Feature Highlights
 
@@ -138,6 +138,12 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         noIndent = false
         ## Show colophon section (including QR code)
         colophon = true
+        ## disable redaction history
+        disableHistory = false
+        ## SHow related content
+        related = true
+        ## Show share buttons
+        share = true
 
     ## Search configuration
     [params.search]
@@ -188,6 +194,12 @@ To deploy your Hugo site with PageFind on GitHub Pages, simply copy the workflow
 ### Configuration for Gitlab Pages Deployment
 
 To deploy your Hugo site with PageFind on Gitlab Pages, copy the workflow file from [./themes/hugo-brewm/.gitlab-ci.yml](https://github.com/foxihd/hugo-brewm/blob/main/.gitlab-ci.yml) to your repository's workflow directory and start the Gitlab CI/CD pipeline.
+
+## Translation
+
+We currently only support Indonesian and English.
+Please feel free to contribute to additional [translation](https://github.com/foxihd/hugo-brewm/blob/main/i18n/).
+
 
 ## Special Thanks
 
