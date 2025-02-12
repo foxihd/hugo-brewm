@@ -13,6 +13,12 @@
     left: unset;
 }
 
+.marginpar-ctrl,
+.marginpar-ctrl + label::before {
+    position: absolute;
+    top: -100vh;
+}
+
 @media screen and (max-width: 640px) {
 
     .marginpar-ctrl + label {
@@ -21,6 +27,7 @@
     }
 
     .marginpar-ctrl + label::before {
+        position: unset;
         display: block !important;
         left: 0;
     }

@@ -39,9 +39,7 @@
 /* hide input checkbox */
 #a11y input[type=checkbox],
 #a11y input[type=radio],
-#bionReadSwitch,
-.marginpar-ctrl,
-.marginpar-ctrl + label::before {
+#bionReadSwitch {
     position: absolute;
     top: -100vh;
 }
