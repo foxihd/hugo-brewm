@@ -166,13 +166,13 @@
         {{ partial "nav/share/mastodon.html" (dict "page" $page ) }}
     </li>
     <li>
-        <a href="mailto:?subject={{ $page.Title | htmlEscape }}&body={{ $page.Permalink }}" title="{{ i18n "email" }}" role="button" aria-label="{{ i18n "email" }}">
+        <a href="mailto:?subject={{ $page.Title | htmlEscape }}&body={{ $page.Permalink }}" role="button" aria-label="{{ i18n "shareOn" }} {{ i18n "email"}}">
             <i class="email" aria-hidden="true"></i>
             <span class="t" role="tooltip">{{ i18n "shareOn" }} {{ i18n "email" }}</span>
         </a>
     </li>
     <li>
-        <a href="whatsapp://send?text={{ $page.Title | htmlEscape }}%20{{ $page.Permalink }}" title="{{ i18n "whatsapp" }}" role="button" aria-label="{{ i18n "whatsapp" }}">
+        <a href="whatsapp://send?text={{ $page.Title | htmlEscape }}%20{{ $page.Permalink }}" role="button" aria-label="{{ i18n "shareOn" }} Whatsapp">
             <i class="whatsapp" aria-hidden="true"></i>
             <span class="t" role="tooltip">{{ i18n "shareOn" }} Whatsapp</span>
         </a>
