@@ -40,10 +40,8 @@
 #a11y input[type=checkbox],
 #a11y input[type=radio],
 #bionReadSwitch,
-.marginpar-ctrl {
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
+.marginpar-ctrl,
+.marginpar-ctrl + label::before {
     position: absolute;
     top: -100vh;
 }
