@@ -117,7 +117,7 @@ details[open] > summary > .menu-icon::before,
 
 hr.ldots::after,
 #to-top::before,
-input:checked + label > #lightSwitchIndicator,
+input + label > #lightSwitchIndicator,
 .hand,
 .pagination .rfill a::before,
 .carousel__viewport__slide:last-child > nav a::before,

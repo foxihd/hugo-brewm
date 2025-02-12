@@ -9,7 +9,7 @@ const closeA11yConsole = () => getElement('has-a11y').removeAttribute('open');
 
 // Color scheme and contrast functions
 const matchMediaColor = () => {
-    lightSwitch.checked = !window.matchMedia('(prefers-color-scheme: dark)').matches;
+    lightSwitch.checked = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
     if (window.matchMedia('(prefers-contrast: more)').matches) {
         moreContrast.checked = true;
@@ -33,12 +33,12 @@ function setColor() {
             more: '--off: #fff; --fg: var(--fg-dark-more); --mid: var(--midtone-more); --ac: var(--ac-dark-more); --bg: var(--bg-dark-more); --border: 1pt solid var(--fg); --bound: var(--border);'
         }
     };
-    const scheme = lightSwitch.checked ? 'light' : 'dark';
+    const scheme = lightSwitch.checked ? 'dark' : 'light';
     const logomarkDark = getElement('logomark--dark');
     if (logomarkDark) {
         const logomark = getElement('logomark');
-        logomark.style.display = lightSwitch.checked ? 'inline-block' : 'none';
-        logomarkDark.style.display = lightSwitch.checked ? 'none' : 'inline-block';
+        logomark.style.display = lightSwitch.checked ? 'none' : 'inline-block';
+        logomarkDark.style.display = lightSwitch.checked ? 'inline-block' : 'none';
     }
     const contrast = lessContrast.checked ? 'less' : (moreContrast.checked ? 'more' : 'default');
     bodySty.setAttribute('style', styles[scheme][contrast]);
