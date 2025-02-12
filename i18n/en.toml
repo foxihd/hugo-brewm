@@ -113,6 +113,8 @@
     other = "Light"
 [main]
     other = "Main Menu"
+[marginpar]
+    other = "Additional Notes"
 [menuControls]
     other = "Accessibility Menu Controls"
 [modified]

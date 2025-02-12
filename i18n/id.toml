@@ -109,6 +109,8 @@
     other = "Terang"
 [main]
     other = "Menu Utama"
+[marginpar]
+    other = "Catatan Tambahan"
 [menuControls]
     other = "Kontrol Menu Aksesibilitas"
 [modified]
