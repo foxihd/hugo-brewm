@@ -2,6 +2,9 @@ const id = getElement('metadata-post').innerText;
 
 if (id) {
     const host = getElement('metadata-instance').innerText;
+    const i18nreplies = getElement('i18n--is-replies').innerHTML;
+    const i18nreblogs = getElement('i18n--is-reblogs').innerHTML;
+    const i18nfavourites = getElement('i18n--is-favourites').innerHTML;
     const style = document.createElement('style');
     style.textContent = `
         #comments > * {width: var(--golden-ratio)}
@@ -87,7 +90,7 @@ if (id) {
             <article class="mastodon-comment" style="--mul: ${depth}">
                 <header class="author">
                     <img src="${escapeHtml(toot.account.avatar_static)}" height=48 width=48 alt="${user_account(toot.account)}" loading="lazy"/>
-                    <a class="has-aria-label" href="${toot.account.url}" rel="nofollow" aria-label="${user_account(toot.account)}">
+                    <a class="has-aria-label" href="${toot.account.url}" rel="nofollow" title="${toot.account.display_name}" aria-label="${user_account(toot.account)}">
                         <span>${toot.account.display_name}</span>
                     </a>
                 </header>
@@ -99,13 +102,13 @@ if (id) {
                 </div>
                 <footer>
                     <div class="stat">
-                        <a class="replies ${toot_active(toot, 'replies')}" href="${toot.url}" rel="nofollow">
+                        <a class="replies ${toot_active(toot, 'replies')}" href="${toot.url}" rel="nofollow" aria-label="${i18nreplies}">
                             ${toot_count(toot, 'replies')}
                         </a>
-                        <a class="reblogs ${toot_active(toot, 'reblogs')}" href="${toot.url}" rel="nofollow">
+                        <a class="reblogs ${toot_active(toot, 'reblogs')}" href="${toot.url}" rel="nofollow" aria-label="${i18nreblogs}">
                             ${toot_count(toot, 'reblogs')}
                         </a>
-                        <a class="favourites ${toot_active(toot, 'favourites')}" href="${toot.url}" rel="nofollow">
+                        <a class="favourites ${toot_active(toot, 'favourites')}" href="${toot.url}" rel="nofollow" aria-label="${i18nfavourites}">
                             ${toot_count(toot, 'favourites')}
                         </a>
                     </div>
@@ -122,13 +125,13 @@ if (id) {
     };
 
     const toot_stats = toot => `
-        <a class="replies ${toot_active(toot, 'replies')}" href="${toot.url}" rel="nofollow">
+        <a class="replies ${toot_active(toot, 'replies')}" href="${toot.url}" rel="nofollow" aria-label="${i18nreplies}">
             ${toot_count(toot, 'replies')}
         </a>
-        <a class="reblogs ${toot_active(toot, 'reblogs')}" href="${toot.url}" rel="nofollow">
+        <a class="reblogs ${toot_active(toot, 'reblogs')}" href="${toot.url}" rel="nofollow" aria-label="${i18nreblogs}">
             ${toot_count(toot, 'reblogs')}
         </a>
-        <a class="favourites ${toot_active(toot, 'favourites')}" href="${toot.url}" rel="nofollow">
+        <a class="favourites ${toot_active(toot, 'favourites')}" href="${toot.url}" rel="nofollow" aria-label="${i18nfavourites}">
             ${toot_count(toot, 'favourites')}
         </a>`;
 

@@ -91,6 +91,12 @@
     other = "Gambar Unggulan"
 [fediverseIsLoading]
     other = "Memuat komentar di Fediverse"
+[FediverseReplies]
+    other = "Balasan"
+[FediverseReblogs]
+    other = "Reblog"
+[FediverseFavourites]
+    other = "Favorit"
 [followRSS]
     other = "Ikuti dengan RSS"
 [fontSize]

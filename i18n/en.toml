@@ -95,6 +95,15 @@
     other = "Featured image"
 [fediverseIsLoading]
     other = "Loading comments on Fediverse"
+[FediverseReplies]
+    one = "Reply"
+    other = "Replies"
+[FediverseReblogs]
+    one = "Reblog"
+    other = "Reblogs"
+[FediverseFavourites]
+    one = "Favourites"
+    other = "Favourites"
 [followRSS]
     other = "Follow with RSS"
 [fontSize]
