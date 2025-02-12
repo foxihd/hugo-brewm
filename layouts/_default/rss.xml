@@ -53,11 +53,11 @@
     <description>{{ i18n "recent"}} {{ if ne .Title site.Title }}{{ with .Title }}{{ i18n "in" | lower}} {{ . }} {{ end }}{{ end }}{{ i18n "on" | lower }} {{ site.Title }}</description>
     <generator>Hugo {{ hugo.Version }}</generator>
     <language>{{ site.Language.LanguageCode }}</language>
-    {{ with $authorEmail -}}
-      <managingEditor>{{.}}{{ with $authorName }} ({{ . }}){{ end }}</managingEditor>
+    {{ with $authorName -}}
+      <managingEditor>{{ . }}</managingEditor>
     {{ end -}}
-    {{ with $authorEmail -}}
-      <webMaster>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</webMaster>
+    {{ with $authorName }}
+      <webMaster>{{ . }}</webMaster>
     {{ end -}}
     {{ with site.Copyright -}}
       <copyright>{{ . }}</copyright>
@@ -71,20 +71,14 @@
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
       <pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
-      {{ with $authorEmail -}}
-        <author>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</author>
+      {{ with $authorName -}}
+        <author>{{ . }}</author>
       {{ end -}}
       <guid>{{ .Permalink }}</guid>
       <description>{{ $desc | transform.XMLEscape | safeHTML }}</description>
-      {{- $cover := or .Params.cover .Params.image }}
-      {{- $getCover := .Resources.GetMatch "cover.*" }}
-      {{ if or $cover $getCover -}}
-          {{- if $getCover }}
-              {{- $cover = $getCover.Permalink }}
-          {{- end }}
-          {{ with $cover -}}
-            <enclosure url="{{ . }}" length="0" type="image/jpeg" />
-          {{ end -}}
+      {{- $cover := partial "partials/page/cover.html" (dict "page" .) }}
+      {{ with $cover -}}
+        <enclosure url="{{ . }}" length="0" type="image/jpeg" />
       {{- end }}
     </item>
     {{- end }}
