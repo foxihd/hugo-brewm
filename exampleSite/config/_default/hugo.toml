@@ -126,9 +126,9 @@ copyright = 'Copyright 2025 (c) Foxxi'
     ## Fediverse integration settings
     [params.fediverse]
         ## Fediverse instance URL
-        instance = 'example.com'
+        # instance = 'example.com'
         ## Fediverse username
-        username = 'username'
+        # username = 'username'
 
     ## Logo configuration
     [params.logo]

@@ -30,24 +30,25 @@
     {{- $instance := or .Params.Fediverse.Host .Params.Fediverse.Instance site.Params.fediverse.instance site.Params.fediverse.host }}
     {{- $user := or .Params.Fediverse.User .Params.Fediverse.Username site.Params.fediverse.username site.Params.fediverse.user }}
     {{- $post := or .Params.Fediverse.post .Params.Fediverse.link }}
-    {{- $comments := or .Params.toot .Params.comment }}
-    {{- if $comments }}
+    {{- $commentUrl := or .Params.toot .Params.comment }}
+    {{- if $commentUrl }}
         {{- $toot := split (replaceRE "^https?://" "" .Params.toot) "/" }}
         {{- $instance = index $toot 0 -}}
         {{- $user = trim (index $toot 1) "@" -}}
         {{- $post = index $toot 2 }}
     {{- end }}
-    {{- $api := print "https://" $instance "/api/v1/statuses/" $post }}
     {{- $isComment := false }}
-    {{- $commentUrl :=  print "https://" $instance "/@" $user "/" $post }}
     {{- $avatar := false }}
     {{- $displayName := false }}
-    {{- with resources.GetRemote $api }}
-        {{- $data := . | transform.Unmarshal }}
-        {{- $isComment = $data.content }}
-        {{- $commentUrl = $data.url }}
-        {{- $avatar = $data.account.avatar }}
-        {{- $displayName = $data.account.display_name }}
+    {{- if and $instance $user $post }}
+        {{- $api := print "https://" $instance "/api/v1/statuses/" $post }}
+        {{- with resources.GetRemote $api }}
+            {{- $data := . | transform.Unmarshal }}
+            {{- $isComment = $data.content }}
+            {{- $commentUrl = $data.url }}
+            {{- $avatar = $data.account.avatar }}
+            {{- $displayName = $data.account.display_name }}
+        {{- end }}
     {{- end }}
 
     <article id="main-article" class="pagewidth"
