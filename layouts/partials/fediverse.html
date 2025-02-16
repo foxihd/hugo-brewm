@@ -2,7 +2,7 @@
 {{- $instance := .instance  }}
 {{- $user := .user  }}
 {{- $post := .post  }}
-{{- $isComment := .isComment }}
+{{- $tootContent := .tootContent }}
 {{- $commentUrl := .commentUrl }}
 <details id="comments" class="presentation" aria-label="{{ i18n "comments" }}" open>
     <summary class="section-title" role="button" aria-expanded="true" aria-controls="mastodon-comments-list">
@@ -31,7 +31,7 @@
         </div>
     </code>
         <article id="discussion-starter">
-            <div data-pagefind-body>{{ $isComment | safeHTML }}</div>
+            <div data-pagefind-body>{{ $tootContent | safeHTML }}</div>
             <footer>
                 <a id="join-discussion" href="{{ $commentUrl }}" rel="nofollow" data-post-counter="">
                     <span>{{ i18n "ctaComments" }}</span>

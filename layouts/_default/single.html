@@ -27,24 +27,25 @@
 {{- end }}
 
 {{- define "main" }}
+    {{- $commentIsEnable :=  not site.Params.comments.disabled}}
     {{- $instance := or .Params.Fediverse.Host .Params.Fediverse.Instance site.Params.fediverse.instance site.Params.fediverse.host }}
     {{- $user := or .Params.Fediverse.User .Params.Fediverse.Username site.Params.fediverse.username site.Params.fediverse.user }}
     {{- $post := or .Params.Fediverse.post .Params.Fediverse.link }}
     {{- $commentUrl := or .Params.toot .Params.comment }}
     {{- if $commentUrl }}
         {{- $toot := split (replaceRE "^https?://" "" .Params.toot) "/" }}
-        {{- $instance = index $toot 0 -}}
-        {{- $user = trim (index $toot 1) "@" -}}
+        {{- $instance = index $toot 0 }}
+        {{- $user = trim (index $toot 1) "@" }}
         {{- $post = index $toot 2 }}
     {{- end }}
-    {{- $isComment := false }}
+    {{- $commentIsToot := false }}
     {{- $avatar := false }}
     {{- $displayName := false }}
-    {{- if and $instance $user $post }}
+    {{- if and $commentIsEnable $instance $user $post }}
         {{- $api := print "https://" $instance "/api/v1/statuses/" $post }}
         {{- with resources.GetRemote $api }}
             {{- $data := . | transform.Unmarshal }}
-            {{- $isComment = $data.content }}
+            {{- $commentIsToot = $data.content }}
             {{- $commentUrl = $data.url }}
             {{- $avatar = $data.account.avatar }}
             {{- $displayName = $data.account.display_name }}
@@ -68,7 +69,7 @@
                     {{- if $notMultiAuthor }}
                         {{- range $authors }}
                             {{ $flair := .Params.flair }}
-                            {{- if $isComment }}
+                            {{- if and $commentIsEnable $commentIsToot }}
                                 <a id="avatar" href="{{ print "https://" $instance "/@" $user }}" aria-label="{{ $displayName }}">
                                     <img src="{{ $avatar }}" alt="{{ $displayName }}"/>
                                 </a>
@@ -79,7 +80,7 @@
                                 </a>
                             {{- end }}
                             <a href="{{ .Permalink }}"
-                                {{- if $isComment }}
+                                {{- if and $commentIsEnable $commentIsToot }}
                                     class="has-aria-label"
                                     aria-label="{{ print "@" $user "@" $instance}}"
                                 {{- else if $flair }}
@@ -128,9 +129,9 @@
         {{- if site.Params.posts.share }}
             {{ partial "nav.html" (dict "navID" "share" "page" .) }}
         {{- end }}
-        {{- if not site.Params.comments.disabled }}
-            {{- if $isComment }}
-                {{ partial "fediverse.html" (dict "instance" $instance "user" $user "post" $post "isComment" $isComment "commentUrl" $commentUrl) }}
+        {{- if $commentIsEnable }}
+            {{- if $commentIsToot }}
+                {{ partial "fediverse.html" (dict "instance" $instance "user" $user "post" $post "tootContent" $commentIsToot "commentUrl" $commentUrl) }}
             {{- end }}
         {{- end }}
     </div>
