@@ -44,6 +44,12 @@
     <link rel="icon" href="{{ . }}">
 {{ end }}
 
+{{- $host := partial "partials/fediverse/instance.html" . }}
+{{- $user := partial "partials/fediverse/username.html" .}}
+{{ if and $host $user }}
+    <link rel="me" href="{{ print "https://" $host "/@" $user  }}">
+{{ end }}
+
 {{- $ISO8601 := "2006-01-02T15:04:05-07:00" }}
 {{- $publishDate := .PublishDate.Format $ISO8601 }}
 {{- $lastMod := .Lastmod.Format $ISO8601 }}

@@ -1,4 +1,9 @@
 {{- define "head" }}
+    {{- $instance := partial "partials/fediverse/instance.html" . }}
+    {{- $username := partial "partials/fediverse/username.html" .}}
+    {{ if and $instance $username }}
+        <meta name="fediverse:creator" content="{{ print "@" $username "@" $instance }}">
+    {{ end }}
     {{- /*
 
         MathML render engine    */}}
@@ -28,20 +33,14 @@
 
 {{- define "main" }}
     {{- $commentIsEnable :=  not site.Params.comments.disabled}}
-    {{- $instance := or .Params.Fediverse.Host .Params.Fediverse.Instance site.Params.fediverse.instance site.Params.fediverse.host }}
-    {{- $user := or .Params.Fediverse.User .Params.Fediverse.Username site.Params.fediverse.username site.Params.fediverse.user }}
-    {{- $post := or .Params.Fediverse.post .Params.Fediverse.link }}
     {{- $commentUrl := or .Params.toot .Params.comment }}
-    {{- if $commentUrl }}
-        {{- $toot := split (replaceRE "^https?://" "" .Params.toot) "/" }}
-        {{- $instance = index $toot 0 }}
-        {{- $user = trim (index $toot 1) "@" }}
-        {{- $post = index $toot 2 }}
-    {{- end }}
+    {{- $instance := partial "partials/fediverse/instance.html" . }}
+    {{- $username :=  partial "partials/fediverse/username.html" . }}
+    {{- $post := partial "partials/fediverse/post.html" . }}
     {{- $commentIsToot := false }}
     {{- $avatar := false }}
     {{- $displayName := false }}
-    {{- if and $commentIsEnable $instance $user $post }}
+    {{- if and $commentIsEnable $instance $username $post }}
         {{- $api := print "https://" $instance "/api/v1/statuses/" $post }}
         {{- with resources.GetRemote $api }}
             {{- $data := . | transform.Unmarshal }}
@@ -70,7 +69,7 @@
                         {{- range $authors }}
                             {{ $flair := .Params.flair }}
                             {{- if and $commentIsEnable $commentIsToot }}
-                                <a id="avatar" href="{{ print "https://" $instance "/@" $user }}" aria-label="{{ $displayName }}">
+                                <a id="avatar" href="{{ print "https://" $instance "/@" $username }}" aria-label="{{ $displayName }}">
                                     <img src="{{ $avatar }}" alt="{{ $displayName }}"/>
                                 </a>
                             {{- else if $flair }}
@@ -82,7 +81,7 @@
                             <a href="{{ .Permalink }}"
                                 {{- if and $commentIsEnable $commentIsToot }}
                                     class="has-aria-label"
-                                    aria-label="{{ print "@" $user "@" $instance}}"
+                                    aria-label="{{ print "@" $username "@" $instance}}"
                                 {{- else if $flair }}
                                     class="has-aria-label"
                                     aria-label="{{ $flair }}"
@@ -131,7 +130,7 @@
         {{- end }}
         {{- if $commentIsEnable }}
             {{- if $commentIsToot }}
-                {{ partial "fediverse.html" (dict "instance" $instance "user" $user "post" $post "tootContent" $commentIsToot "commentUrl" $commentUrl) }}
+                {{ partial "fediverse.html" (dict "instance" $instance "user" $username "post" $post "tootContent" $commentIsToot "commentUrl" $commentUrl) }}
             {{- end }}
         {{- end }}
     </div>

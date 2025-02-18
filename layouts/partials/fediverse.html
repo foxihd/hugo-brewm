@@ -63,3 +63,33 @@
         {{- end }}
     {{- end }}
 {{- end }}
+
+{{- define "partials/fediverse/instance.html" -}}
+    {{- $instance := or .Params.Fediverse.Host .Params.Fediverse.Instance site.Params.fediverse.instance site.Params.fediverse.host }}
+    {{- $commentUrl := or .Params.toot .Params.comment }}
+    {{- if $commentUrl }}
+        {{- $toot := split (replaceRE "^https?://" "" .Params.toot) "/" }}
+        {{- $instance = index $toot 0 }}
+    {{- end }}
+    {{- return $instance }}
+{{- end }}
+
+{{- define "partials/fediverse/username.html" -}}
+    {{- $username := or .Params.Fediverse.User .Params.Fediverse.Username site.Params.fediverse.username site.Params.fediverse.user }}
+    {{- $commentUrl := or .Params.toot .Params.comment }}
+    {{- if $commentUrl }}
+        {{- $toot := split (replaceRE "^https?://" "" .Params.toot) "/" }}
+        {{- $username = trim (index $toot 1) "@" }}
+    {{- end }}
+    {{- return $username }}
+{{- end }}
+
+{{- define "partials/fediverse/post.html" -}}
+    {{- $post := or .Params.Fediverse.post .Params.Fediverse.link }}
+    {{- $commentUrl := or .Params.toot .Params.comment }}
+    {{- if $commentUrl }}
+        {{- $toot := split (replaceRE "^https?://" "" .Params.toot) "/" }}
+        {{- $post = index $toot 2 }}
+    {{- end }}
+    {{- return $post }}
+{{- end }}
