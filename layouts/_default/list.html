@@ -135,10 +135,10 @@
                         {{- $authors := .GetTerms "author" }}
                         {{- $categories := .GetTerms "categories" }}
                         {{- $desc := or .Params.Subtitle .Params.Description .Description .Summary }}
-                        {{- $images := or .Params.cover .Params.images }}
                         {{- $hasCover := partial "partials/page/cover.html" (dict "page" .) }}
+                        {{- $alt := or .Params.Alt .Params.coverAlt .Params.imagesAlt }}
                         {{- if $index }}<hr class="ldots" role="presentation" aria-hidden="true">{{- end }}
-                        {{ template "card" (dict "page" $page "paginator" $paginator "counter" $counter "desc" $desc "hasCover" $hasCover "author" $author "authors" $authors) }}
+                        {{ template "card" (dict "page" $page "paginator" $paginator "counter" $counter "desc" $desc "hasCover" $hasCover "alt" $alt "author" $author "authors" $authors) }}
                     {{- end }}
                     </div>
                     {{/*
@@ -260,7 +260,7 @@
         {{ $useFlowlines := site.Params.Feed.Flowlines }}
         <section {{ if or .hasCover $useFlowlines }}class="has-cover"{{ end }}>
             {{- if .hasCover }}
-                <img src={{ .hasCover }} alt="{{ i18n "featuredImg"}}: .page.Title" loading="lazy">
+                <img src={{ .hasCover }} alt="{{ if .alt }}{{ . }}{{ else }}{{ i18n "featuredImg"}}: .page.Title{{ end }}" loading="lazy">
             {{- else if $useFlowlines }}
                 {{- $src := partial "partials/flowlines.html" . }}
                 {{- $pseudoRandomPos := printf "object-position: %d%% %d%%" (index (seq 81 | shuffle) 11) (index (seq 80 | shuffle) 12) }}

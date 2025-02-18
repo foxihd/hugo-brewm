@@ -82,9 +82,10 @@
     {{ "<!-- hero.html -->" | safeHTML }}
     <div class="hero">
         <div class="hero__image">
-            {{- $src := partial "page/cover.html" (dict "page" .) }}
+            {{- $src := partial "page/cover.html" (dict "page" . ) }}
+            {{- $alt := or .Params.Alt .Params.coverAlt .Params.imagesAlt }}
             {{- if $src }}
-                <img src="{{ $src }}" alt="{{ .Title }}" role="doc-cover"/>
+                <img src="{{ $src }}" alt="{{ with $alt }}{{ . }}{{ end }}" role="doc-cover"/>
             {{- end }}
         </div>
         <div class="hero__content">
@@ -179,12 +180,12 @@
                     {{- $slideNum := add $index 1 }}
                     <section id="slide-{{ $slideNum }}" class="carousel__viewport__slide{{ with .Params.Background }} has-background{{ end }}"
                         aria-labelledby="slide-{{ $slideNum }}__heading">
-                        {{- $getCover := .Resources.GetMatch "cover.*" }}
-                        {{- $cover := or .Page.Params.cover .Page.Params.images }}
-                        {{- if or $cover $getCover }}
+                        {{- $hasCover := partial "partials/page/cover.html" (dict "page" .Page) }}
+                        {{- $alt := or .Page.Params.Alt .Page.Params.coverAlt .Page.Params.imagesAlt }}
+                        {{- if or $hasCover }}
                         <div class="carousel__viewport__slide__cover">
-                            <img src="{{ if $cover }}{{ $cover }}{{- else }}{{ $getCover.Permalink }}{{ end }}"
-                                alt="" {{ if ne $slideNum 1 }}loading="lazy"{{ end }}>
+                            <img src="{{ $hasCover }}"
+                                alt="{{ with $alt }}{{ . }}{{ end }}" {{ if ne $slideNum 1 }}loading="lazy"{{ end }}>
                         </div>
                         {{- end }}
                         <div class="carousel__viewport__slide__content">
