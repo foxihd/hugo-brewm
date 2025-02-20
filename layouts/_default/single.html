@@ -128,12 +128,14 @@
         {{- if site.Params.posts.share }}
             {{ partial "nav.html" (dict "navID" "share" "page" .) }}
         {{- end }}
-        {{- if $commentIsEnable }}
+    </div>
+    {{ if $commentIsEnable -}}
+        <div class="pagewidth">
             {{- if $commentIsToot }}
                 {{ partial "fediverse.html" (dict "instance" $instance "user" $username "post" $post "tootContent" $commentIsToot "commentUrl" $commentUrl) }}
             {{- end }}
-        {{- end }}
-    </div>
+        </div>
+    {{- end }}
 {{- end }}
 
 {{- define "post" }}
