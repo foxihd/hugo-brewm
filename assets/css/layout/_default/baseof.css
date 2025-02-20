@@ -138,6 +138,7 @@ body > footer {
 body.focus > header,
 body.focus > main > header,
 body.focus #contentinfo,
+body.focus #discussion-starter,
 body.focus #main-footer,
 body.focus #background-footer {
     display:none;
