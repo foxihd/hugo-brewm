@@ -136,8 +136,7 @@ body > footer {
 }
 
 body.focus > header,
-body.focus > main > header > menu,
-body.focus #main-article > footer,
+body.focus > main > header,
 body.focus #contentinfo,
 body.focus #main-footer,
 body.focus #background-footer {
@@ -146,6 +145,10 @@ body.focus #background-footer {
 
 body.focus > footer {
     position: unset;
+}
+
+body.focus #dwclock {
+    opacity: 0.1;
 }
 
 #top,

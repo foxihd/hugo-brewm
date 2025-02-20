@@ -97,6 +97,8 @@
     other = "Reblog"
 [FediverseFavourites]
     other = "Favorit"
+[focusMode]
+    other = "Mode Fokus"
 [followRSS]
     other = "Ikuti dengan RSS"
 [fontSize]

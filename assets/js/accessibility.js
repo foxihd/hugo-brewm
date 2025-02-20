@@ -50,13 +50,18 @@ addEvent(document, 'DOMContentLoaded', () => {
 });
 
 // Focus Mode
-function focusMode() {
-    if (defocusAuxElement.checked) {
-        document.body.classList.add('focus');
-    } else {
-        document.body.classList.remove('focus');
-    }
-};
+isPage = getElement('page');
+if (isPage) {
+    getElement('focusMode').className = '';
+    defocusAuxElement.checked = false;
+    function focusMode() {
+        if (defocusAuxElement.checked) {
+            document.body.classList.add('focus');
+        } else {
+            document.body.classList.remove('focus');
+        }
+    };
+}
 
 // Switch to keyboard-friendly mode
 addEvent(document, 'keydown', (element) => {

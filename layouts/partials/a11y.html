@@ -187,3 +187,17 @@
             </label>
     </div>
 {{- end }}
+
+{{- define "partials/a11y/focusMode.html" -}}
+    {{ "<!-- focusMode.html -->" | safeHTML }}
+    <div id="focusMode" class="hide">
+        <input
+            id="defocusAuxElement"
+            accesskey="d" type="checkbox"
+            onclick="focusMode()"
+            aria-keyshortcuts="d"
+            aria-label="{{ i18n "focusMode" }}"
+            >
+            <label id="focusModeButton" for="defocusAuxElement">⦿</label>
+    </div>
+{{- end }}

@@ -104,6 +104,8 @@
 [FediverseFavourites]
     one = "Favourites"
     other = "Favourites"
+[focusMode]
+    other = "Focus Mode"
 [followRSS]
     other = "Follow with RSS"
 [fontSize]
