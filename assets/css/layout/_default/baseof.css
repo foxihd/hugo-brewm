@@ -135,6 +135,19 @@ body > footer {
     font-size: var(--small);
 }
 
+body.focus > header,
+body.focus > main > header > menu,
+body.focus #main-article > footer,
+body.focus #contentinfo,
+body.focus #main-footer,
+body.focus #background-footer {
+    display:none;
+}
+
+body.focus > footer {
+    position: unset;
+}
+
 #top,
 .pagewidth {
     padding-right: var(--void);

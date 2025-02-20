@@ -49,6 +49,15 @@ addEvent(document, 'DOMContentLoaded', () => {
     setTimeout(() => htmlSty.setProperty('--flashGuard', '1s ease-in 0.1s'), 99);
 });
 
+// Focus Mode
+function focusMode() {
+    if (defocusAuxElement.checked) {
+        document.body.classList.add('focus');
+    } else {
+        document.body.classList.remove('focus');
+    }
+};
+
 // Switch to keyboard-friendly mode
 addEvent(document, 'keydown', (element) => {
     if (element.key === 'Tab') {
