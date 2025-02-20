@@ -91,6 +91,10 @@ hr.ldots {
         overflow-y: unset;
     }
 
+    aside + main#home {
+        margin-top: var(--vhead);
+    }
+
     body > main#home > aside#list-tags {
         top: var(--vhead);
     }
