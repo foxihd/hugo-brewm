@@ -27,13 +27,26 @@ function adaptViewport() {
         getElement('has-search')?.setAttribute('open', 'open');
         getElement('has-search')?.removeAttribute('name');
         getElement('has-more-menu')?.setAttribute('open', 'open');
+        // rotate to content top icon if homepage has slide
+        let hasSlide = getElement('slide-1');
+        if (hasSlide) {
+            function adjustToTopButon() {
+                let toTop = getElement('to-top');
+                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                    toTop.classList.remove('to-content-top')
+                } else {
+                    toTop.classList.add('to-content-top')
+                }
+            }
+            adjustToTopButon();
+            addEvent(window, 'scroll', adjustToTopButon);
+        };
     } else {
-        getElement('top-nav')?.setAttribute('open', 'open')
+        getElement('top-nav')?.setAttribute('open', 'open');
         addEvent(visualViewport, 'resize', adaptViewport);
     }
 }
 addEvent(window, 'DOMContentLoaded', adaptViewport);
-
 
 // Node collapse handlers
 const collapseParentNode = getElements('.js-cpn');
@@ -170,7 +183,7 @@ if (isDaytime) {
 //     }
 // });
 
-// clashes with details handler, need workaround
+// clashes with details handler on firefox, need workaround
 addEvent(window, 'beforeprint', function() {
     getElements('[name="redaction-history"]')?.forEach(e => {
         e.setAttribute('open', 'open');

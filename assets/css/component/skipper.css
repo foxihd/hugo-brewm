@@ -42,3 +42,7 @@ body > footer > nav {
 #to-top:focus::before {
     --tsf: unset;
 }
+
+.to-content-top#to-top::before {
+    --tsf: rotate(180deg)
+}
