@@ -68,23 +68,23 @@
                     {{- if $notMultiAuthor }}
                         {{- range $authors }}
                             {{ $flair := .Params.flair }}
-                            {{- if and $commentIsEnable $commentIsToot }}
-                                <a id="avatar" href="{{ print "https://" $instance "/@" $username }}" aria-label="{{ $displayName }}">
-                                    <img src="{{ $avatar }}" alt="{{ $displayName }}"/>
-                                </a>
-                            {{- else if $flair }}
+                            {{- if $flair }}
                                 {{- $displayPicture := partial "partials/page/cover.html" (dict "page" .) }}
                                 <a id="avatar" href="{{ .Permalink }}" aria-label="{{ .LinkTitle }}">
                                     <img src="{{ $displayPicture }}" alt="{{ .LinkTitle }}"/>
                                 </a>
+                            {{- else if and $commentIsEnable $commentIsToot }}
+                                <a id="avatar" href="{{ print "https://" $instance "/@" $username }}" aria-label="{{ $displayName }}">
+                                    <img src="{{ $avatar }}" alt="{{ $displayName }}"/>
+                                </a>
                             {{- end }}
                             <a href="{{ .Permalink }}"
-                                {{- if and $commentIsEnable $commentIsToot }}
-                                    class="has-aria-label"
-                                    aria-label="{{ print "@" $username "@" $instance}}"
-                                {{- else if $flair }}
+                                {{- if $flair }}
                                     class="has-aria-label"
                                     aria-label="{{ $flair }}"
+                                {{- else if and $commentIsEnable $commentIsToot }}
+                                    class="has-aria-label"
+                                    aria-label="{{ print "@" $username "@" $instance}}"
                                 {{- end }}>
                                 {{- .LinkTitle -}}
                             </a>
