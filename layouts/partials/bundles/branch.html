@@ -81,7 +81,7 @@
 {{- define "partials/hero.html" }}
     {{ "<!-- hero.html -->" | safeHTML }}
     <div class="hero">
-        <div class="hero__image">
+        <div class="hero__image {{ if not .Params.keepAspectRatio }} auto {{ end }}">
             {{- $src := partial "page/cover.html" (dict "page" . ) }}
             {{- $alt := or .Params.Alt .Params.coverAlt .Params.imagesAlt }}
             {{- if $src }}

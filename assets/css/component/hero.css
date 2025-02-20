@@ -23,8 +23,9 @@
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    float: left;
-    height: calc(var(--vbody) - 14.8rem - 1rem - 2ex);
+}
+
+.hero__image.auto {
     max-height: 1024px;
 }
 
@@ -32,11 +33,15 @@
     width: 50%;
 }
 
-.hero img {
+.hero__image img {
     margin-left: auto;
     padding: 2rem;
     max-width: 100%;
     max-height: calc(var(--vbody) - 14.8rem - 1rem - 2ex);
+    object-fit: contain;
+}
+
+.hero__image.auto img {
     object-fit: cover;
 }
 
@@ -84,6 +89,16 @@
 }
 
 @media only screen and (max-width: 480px) {
+
+    .hero__image.auto {
+        height: calc(var(--vbody) - 14.8rem - 1rem - 2ex);
+    }
+
+}
+
+@media only screen and (max-width: 480px) {
+
+
 
     .hero img {
         padding: 1rem;
