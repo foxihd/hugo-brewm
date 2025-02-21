@@ -191,7 +191,7 @@ copyright = 'Copyright 2025 (c) Foxxi'
         ## Enable twitter and opengraph social cards (same .params.extMeta setting)
         enable = true
         ## Default social card image
-        # image = "img/social-share.jpg" ## recommended resolution: 1200 x 630px
+        images = "https://repository-images.githubusercontent.com/923527728/46a32a19-69ac-45b3-91a4-c4d299fb234b" ## recommended resolution: 1200 x 630px
 
         ## Enable Twitter cards
         # twitter = true

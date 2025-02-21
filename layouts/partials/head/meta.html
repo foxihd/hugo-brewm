@@ -12,8 +12,8 @@
     {{- end }}
 {{- $desc = $desc | plainify | htmlUnescape | truncate 150 }}
 {{- $cover := partial "page/cover.html" (dict "page" .) }}
-    {{- if and (not $cover) (not .IsPage) }}
-        {{- $cover = or site.Params.images site.Params.socialCard }}
+    {{- if or (not $cover) .IsHome }}
+        {{- $cover = or site.Params.images site.Params.socialCard.images }}
     {{- end }}
 {{- $keywords := dict }}
     {{- $tag := or .Params.keywords .Params.tags }}

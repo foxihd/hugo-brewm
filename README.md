@@ -104,6 +104,9 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
     extMeta = true
     ## Enable coffee metric
     coffeeStat = true
+    ## Default social card image, recommended resolution: 1200 x 630px
+    # images = "example.com/img/social-share.jpg" 
+
 
     ## Author information
     [params.author]
@@ -190,8 +193,8 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
     [params.socialCard]
         ## Enable twitter and opengraph social cards (same as .params.extMeta)
         enable = true
-        ## Default social card image, recommended resolution: 1200 x 630px
-        # image = "img/social-share.jpg" 
+        ## Default social card image, same as .Params.images
+        # images = "img/social-share.jpg" 
         ## Enable Twitter cards
         # twitter = true
         ## Twitter creator handle
