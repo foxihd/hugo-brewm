@@ -6,7 +6,7 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 
 ## Feature Highlights
 
-- **Reader-first**: Prioritizes readability and accessibility with personalized settings for colors, fonts, and BionRead mode.
+- **Reader-first**: Prioritizes readability and accessibility with personalized settings for colors, fonts, BionRead and focus mode.
 - **Inclusive**: Graceful degradation design oriented with improved semantic HTML structure & WAI-ARIA attribute, the site remains fully functional even when JavaScript is disabled!
 - **Scalable**: Support for multiple authors and languages, optional Pagefind search, external feed over RSS and Fediverse-powered commenting system.
 - **Frameworkless**: Lower maintenace & carbon footprint by lesser resource usage.
@@ -15,7 +15,7 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 
 1. Create a new Hugo site (for an existing hugo site, skip to step 2) :
 
-```
+```sh
 hugo new site mysite
 cd mysite
 git init
@@ -23,14 +23,37 @@ git init
 
 2. Add this theme as a Git submodule:
 
-```
+```sh
 git submodule add https://github.com/foxihd/hugo-brewm themes/hugo-brewm
 ```
 
 3. Update your site's configuration in `config.toml`:
 
-```
+```sh
 theme = "hugo-brewm"
+```
+
+## Updating Theme
+
+To update the theme to the latest changes, run the following commands:
+
+1. Change to your site directory
+
+```sh
+cd mysite
+```
+
+2. Update the theme submodule
+
+```sh
+git submodule update --remote --merge themes/hugo-brewm
+```
+
+3. Commit the changes
+
+```sh
+git add themes/hugo-brewm
+git commit -m "Update hugo-brewm theme"
 ```
 
 ## Configuration
@@ -41,7 +64,7 @@ The following configuration options are available for hugo-brewm:
 
 ```toml
 ## Base URL for the site
-baseURL = 'https://foxihd.github.io/hugo-brewm/'
+baseURL = 'https://example.com'
 ## Site title
 title = 'Example'
 ## Use hugo-brewm theme
@@ -76,7 +99,7 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
     ## Site description
     description = "An ExampleSite built with Hugo and Hugo-Brewm theme"
     ## Copyright notice
-    copyright = "Copyright 2025 (c) Foxxi"
+    copyright = "Copyright 2025 (c) Author"
     ## Enable extended metadata (social cards)
     extMeta = true
     ## Enable coffee metric
@@ -86,7 +109,7 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
     [params.author]
         ## site author's name
         name = 'Author Name'
-        ## Author's email (will be used for RSS feed)
+        ## Author's email
         email = 'email@example.com'
         ## Other method to customize author and co-authors information
         coauthor = [
@@ -120,7 +143,7 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
     [params.feed]
         ## Enable flowlines
         flowlines = true
-        ## Limit number of flowlines
+        ## Limit number of flowlines with maximum 42
         flowlinesLimit = 21
 
     ## Home page display settings
@@ -151,6 +174,8 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         enable = true
         ## Use pagefind search when javascript enabled, currently only 'pagefind' is supported, further options to be determined
         pagefind = true
+        ## fallback searchbox when javascript disabled, currently only 'duckduckgo' is supported, further options to be determined
+        # fallback = 'duckduckgo'
 
     ## Typography settings
     [params.typeface]
