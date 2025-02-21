@@ -19,6 +19,7 @@
 
 .feed-item h1 {
     margin: 8pt 0 0 0;
+    color: var(--fg);
     font-size: var(--Large);
     font-weight: 700;
 }

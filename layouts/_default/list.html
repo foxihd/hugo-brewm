@@ -254,7 +254,9 @@
                 <!-- hfill -->
                 {{ partial "page/timestamp.html" .page }}
             </div>
-            <h1 id="{{ printf "title-%d" .counter }}">{{ .page.Title }}</h1>
+            <a href="{{ .page.RelPermalink }}">
+                <h1 id="{{ printf "title-%d" .counter }}">{{ .page.Title }}</h1>
+            </a>
         </hgroup>
         <a class="underline" href="{{ .page.RelPermalink }}" aria-label="{{ .page.Title }}"></a>
         {{ $useFlowlines := site.Params.Feed.Flowlines }}
