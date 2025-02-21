@@ -3,7 +3,7 @@ author : ['Author Name']
 title: "Configure Logo and Accent Color"
 description: "How to configure the Logo and Accent Color in Hugo Brewm theme"
 date: 2025-01-26
-lastmod: 2025-02-03
+lastmod: 2025-02-21
 type: post
 draft: false
 translationKey: logo
@@ -21,10 +21,36 @@ For example, in `exampleSite/assets/css/custom.css`:
 
 ```css
 :root {
-    --ac-light: #36b;
-    --ac-dark: #fa1;
+    /* default contrast */
+    --ac-light: #36c;      /* accent color on default contrast */
+    --fg-light: #111;      /* foreground color on default contrast */
+    --bg-light: #f9f9fb; /* background color on default contrast */
+    --midtone: gray;       /* midtone on default contrast */
+    --fg-dark: #f9f9fb;  /* foreground color on dark mode, default contrast */
+    --bg-dark: #111;       /* background color on dark mode, default contrast */
+    --ac-dark: #fa0;       /* accent color on dark mode, default contrast */
+    
+    /* less contrast */
+    --ac-light-less: var(--ac-light);
+    --fg-light-less: #13253d;
+    --bg-light-less: #e7e2e2; 
+    --midtone-less: #7d8490;
+    --fg-dark-less: #e7e2e2;
+    --bg-dark-less: #13253d;
+    --ac-dark-less: var(--ac-dark);
+
+    /* more contrast */
+    --ac-light-more: var(--ac-light);
+    --fg-light-more: #000;
+    --bg-light-more: #fff;
+    --midtone-more: gray;
+    --fg-dark-more: #fff;
+    --bg-dark-more: #000;
+    --ac-dark-more: var(--ac-dark);
 }
 ```
+
+This file will take the place of custom.css in the theme. To avoid missing the color variable during the build, please copy every variable and do not remove any.
 
 ## Adding Logo Image / Logomark Icon
 
