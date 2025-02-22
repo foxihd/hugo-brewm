@@ -169,6 +169,7 @@ body.focus #dwclock {
     margin: 1ex 1ex 2ex;
 }
 
+#top,
 #main-footer .column > *,
 #main-footer .column__item {
     /* margin: 1ex 0; */
