@@ -85,7 +85,7 @@
             {{- $src := partial "page/cover.html" (dict "page" . ) }}
             {{- $alt := or .Params.Alt .Params.coverAlt .Params.imagesAlt }}
             {{- if $src }}
-                <img src="{{ $src }}" alt="{{ with $alt }}{{ . }}{{ end }}" role="doc-cover"/>
+                <img src="{{ $src }}" alt="{{ with $alt }}{{ . }}{{ end }}"/>
             {{- end }}
         </div>
         <div class="hero__content">
