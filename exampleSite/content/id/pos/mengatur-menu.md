@@ -161,7 +161,7 @@ Di `config.toml`:
     [menu.main.params]
         lang = "en"
 
-[[menu.id.main]]
+[[menu.main]]
     identifier = "about"
     name = "Tentang"
     url = "/tentang/"

@@ -7,7 +7,6 @@ draft = false
 translationKey = "history"
 coffee = 1
 tags = ["authoring", "redaksi", "riwayat"]
-categories = ["authoring"]
 history = [
   {date = "2025-02-01", author = "Nama Penulis", reviewer = "Nama Pengulas", note = "Contoh"},
   {date = "2025-02-02", author = "Nama Penulis", editor = "Nama Editor", note = "Addendum (contoh)"},

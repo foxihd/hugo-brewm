@@ -7,10 +7,9 @@ draft: false
 translationKey: terms
 coffee: 1
 tags: ['authoring', 'cover', 'taxonomy', 'terms']
-categories: ['authoring']
 ---
 
-Anda dapat mengubah cover untuk setiap entry terms dengan menambahkan parameter `cover` di `_index.md` di bawah `[bahasa]\[taksonomi]\[terms]\`.
+Anda dapat mengubah cover untuk setiap _entry terms_ dengan menambahkan parameter `cover` di `_index.md` di bawah `[bahasa]\[taksonomi]\[terms]\`.
 Sebagai contoh, untuk mengatur cover dari term `kongigurasi` di categories, tambahkan parameter di `content\id\categories\konfigurasi\_index.md`.
 
 ```yaml
@@ -24,8 +23,8 @@ translationKey: konfigurasi
 Jika ada teks yang ditulis di sini, teks akan ditampilkan sebagai bagian hero.
 ```
 
-Untuk menghubungkan entry terms dalam bahasa lain, Anda dapat menambahkan parameter `translationKey`.
-Sebagai contoh, jika Anda ingin menghubungkan entry terms dalam bahasa Indonesia, tambahkan parameter di `content\id\categories\konfigurasi\_index.md`.
+Untuk menghubungkan _entry terms_ dalam bahasa lain, Anda dapat menambahkan parameter `translationKey`.
+Sebagai contoh, jika Anda ingin menghubungkan _entry terms_ dalam bahasa Indonesia, tambahkan parameter di `content\id\categories\konfigurasi\_index.md`.
 
 ```yaml
 ---
@@ -38,6 +37,6 @@ translationKey: konfigurasi
 Jika ada teks yang ditulis di sini, teks akan ditampilkan sebagai bagian hero.
 ```
 
-Dengan cara yang sama, Anda dapat mengatur cover untuk setiap entry terms untuk taksonomi `series` dan `author`.
+Dengan cara yang sama, Anda dapat mengatur cover untuk setiap _entry terms_ untuk taksonomi `series` dan `author`.
 Setelah membuat perubahan ini, bangun ulang situs Anda untuk melihat pembaruan cover dan terjemahan di breadcrumbs.
-Cover akan menggantikan gambar flowlines pada daftar taksonomi.
+Cover akan menggantikan gambar _flowlines_ pada daftar taksonomi.
