@@ -100,6 +100,8 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
     description = "An ExampleSite built with Hugo and Hugo-Brewm theme"
     ## Copyright notice
     copyright = "Copyright 2025 (c) Author"
+    ## Generate a robots.txt
+    enableRobotsTXT = true
     ## Enable extended metadata (social cards)
     extMeta = true
     ## Enable coffee metric

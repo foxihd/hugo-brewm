@@ -100,6 +100,8 @@ copyright = 'Copyright 2025 (c) Foxxi'
     description = "An ExampleSite built with Hugo and Hugo-Brewm theme"
     ## Copyright notice
     copyright = "Copyright 2025 (c) Foxxi"
+    ## Generate a robots.txt
+    enableRobotsTXT = true
     ## Enable extended metadata (social cards)
     extMeta = true
     ## Enable coffee metric
@@ -173,7 +175,7 @@ copyright = 'Copyright 2025 (c) Foxxi'
         ## Enable search functionality, use duckduckgo (no javascript)
         enable = true
         ## Use pagefind search when javascript enabled, currently only 'pagefind' is supported, further options to be determined
-        pagefind  = true
+        pagefind  = false
 
     ## Typography settings
     [params.typeface]
