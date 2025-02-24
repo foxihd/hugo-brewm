@@ -10,7 +10,6 @@ const closeA11yConsole = () => getElement('has-a11y').removeAttribute('open');
 // Color scheme and contrast functions
 const matchMediaColor = () => {
     lightSwitch.checked = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
     if (window.matchMedia('(prefers-contrast: more)').matches) {
         moreContrast.checked = true;
     } else if (window.matchMedia('(prefers-contrast: less)').matches) {
@@ -34,14 +33,14 @@ function setColor() {
         }
     };
     const scheme = lightSwitch.checked ? 'dark' : 'light';
+    const contrast = lessContrast.checked ? 'less' : (moreContrast.checked ? 'more' : 'default');
+    bodySty.setAttribute('style', styles[scheme][contrast]);
     const logomarkDark = getElement('logomark--dark');
     if (logomarkDark) {
         const logomark = getElement('logomark');
         logomark.style.display = lightSwitch.checked ? 'none' : 'inline-block';
         logomarkDark.style.display = lightSwitch.checked ? 'inline-block' : 'none';
     }
-    const contrast = lessContrast.checked ? 'less' : (moreContrast.checked ? 'more' : 'default');
-    bodySty.setAttribute('style', styles[scheme][contrast]);
 };
 
 // Flash guard
@@ -55,27 +54,23 @@ if (isPage) {
     getElement('focusMode').className = '';
     defocusAuxElement.checked = false;
     function focusMode() {
-        if (defocusAuxElement.checked) {
-            document.body.classList.add('focus');
-        } else {
-            document.body.classList.remove('focus');
-        }
+        defocusAuxElement.checked ? bodySty.classList.add('focus') : bodySty.classList.remove('focus');
     };
 }
 
 // Switch to keyboard-friendly mode
 addEvent(document, 'keydown', (element) => {
     if (element.key === 'Tab') {
-        document.body.classList.add('keydown');
+        bodySty.classList.add('keydown');
     }
     if (element.key === 'Escape') {
-        document.body.classList.remove('keydown');
+        bodySty.classList.remove('keydown');
     }
 });
 
 // Color palette functions
 function setColorPalette() {
-    document.body.className = colorPalette.value;
+    bodySty.className = colorPalette.value;
 };
 
 // OpenDyslexic functions
