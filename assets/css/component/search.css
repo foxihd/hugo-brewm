@@ -5,7 +5,7 @@
     content: '\e911';
 }
 
-#duckduckgo,
+.form.on-plank,
 .pagefind-ui {
     margin: 1rem var(--void) 1rem auto;
     width: calc(var(--marginparwidth) - 1rem);
@@ -34,7 +34,7 @@
     margin: 0;
 }
 
-#duckduckgo {
+.form.on-plank {
     flex-direction: row;
 }
 
@@ -55,18 +55,25 @@
     font-family: var(--sf), sans-serif;
 }
 
-#duckduckgo .form__input {
-    --ac: #de5833;
+.form.on-plank .form__input {
     flex: 1;
     border-bottom: 2pt solid var(--g18s);
     border-radius: 0.25ex;
     padding: 1ex;
 }
 
+#duckduckgo .form__input {
+    --ac: #de5833;
+}
+
+#mojeek .form__input {
+    --ac: #7ab93c;
+}
+
 .pagefind-ui__search-input:hover,
 .pagefind-ui__search-input:focus,
-#duckduckgo .form__input:hover,
-#duckduckgo .form__input:focus {
+.form.on-plank .form__input:hover,
+.form.on-plank .form__input:focus {
     --anm: underline 127ms ease-in;
     outline: none !important;
     border-color: var(--ac);
@@ -89,10 +96,11 @@
     padding: 0;
 }
 
-#duckduckgo .form__button,
-#duckduckgo .form__button > img {
+.form.on-plank .form__button,
+.form.on-plank .form__button > img {
     width: 2rem;
     height: 2rem;
+    object-fit: contain;
 }
 
 #duckduckgo .form__input:hover + .form__button,
@@ -100,8 +108,8 @@
     --tsf: scaleX(-1);
 }
 
-#duckduckgo .form__button:hover,
-#duckduckgo .form__button:focus {
+.form.on-plank .form__button:hover,
+.form.on-plank .form__button:focus {
     --tsf: scale(1.1);
 }
 
@@ -179,7 +187,7 @@ a.pagefind-ui__result-link {
     }
 
     #search,
-    #hasDuckDuckGo {
+    #has-search-fallback {
         position: unset;
         padding: 0;
         width: unset;
@@ -187,7 +195,7 @@ a.pagefind-ui__result-link {
     }
 
     .pagefind-ui,
-    #duckduckgo {
+    .form.on-plank {
         margin: 1ex;
         padding: 0;
         border: unset;

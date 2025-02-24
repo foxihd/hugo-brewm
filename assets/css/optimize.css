@@ -132,7 +132,7 @@ ul.carousel__viewport > li:focus-within,
 .parent-anchor a::after,
 #i18n-menu a::after,
 #content a::after,
-#duckduckgo .form__button,
+.form.on-plank .form__button,
 #to-content,
 .t {
     -webkit-transform: var(--tsf);

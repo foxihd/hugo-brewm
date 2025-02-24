@@ -439,7 +439,7 @@ a#has-i18n:active > .alt {
 
     #i18n-menu,
     #more-menu,
-    #hasDuckDuckGo,
+    #has-search-fallback,
     #main-menu .on-plank {
         /* also unset main menu plank */
         position: unset;

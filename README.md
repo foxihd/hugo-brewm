@@ -175,12 +175,12 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
 
     ## Search configuration
     [params.search]
-        ## Enable search functionality, use duckduckgo (no javascript)
+        ## Enable search functionality, please index your site first
         enable = true
         ## Use pagefind search when javascript enabled, currently only 'pagefind' is supported, further options to be determined
         pagefind = true
-        ## fallback searchbox when javascript disabled, currently only 'duckduckgo' is supported, further options to be determined
-        # fallback = 'duckduckgo'
+        ## fallback searchbox when javascript disabled, currently the options limited to 'mojeek', otherwise duckduckgo will be used
+        # fallback = 'mojeek'
 
     ## Typography settings
     [params.typeface]

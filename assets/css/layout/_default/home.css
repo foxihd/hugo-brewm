@@ -57,14 +57,14 @@ hr.ldots {
     padding: 0 1ex;
 }
 
-#duckduckgo,
+.form.on-plank,
 #i18n-menu > .on-plank,
 #more-menu > .on-plank,
 .pagefind-ui {
     margin-right: 1rem;
 }
 
-#hasDuckDuckGo.pagewidth {
+#has-search-fallback.pagewidth {
     padding-right: 1rem;
 }
 
@@ -127,7 +127,7 @@ hr.ldots {
         padding-left: unset;
     }
 
-    #duckduckgo,
+    .form.on-plank,
     .pagefind-ui {
         margin-right: 1ex;
     }
