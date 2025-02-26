@@ -2,7 +2,7 @@
 <details id="has-a11y" class="presentation js-details" name="on-deck" aria-haspopup="true" aria-labelledby="has-a11y-summary">
     <summary id="has-a11y-summary" accesskey="a" aria-keyshortcuts="a">
         <span>&nbsp;{{ i18n "accessibility" }}</span>
-        <kbd class="key">a</kbd>
+        <kbd class="key" aria-hidden="true">a</kbd>
     </summary>
     {{ "<!-- a11y console -->" | safeHTML }}
     <fieldset id="a11y" role="region" disabled>
@@ -76,7 +76,7 @@
     {{ "<!-- colorPalette.html -->" | safeHTML }}
     <div id="setColorPalette" style="display:none;">
         <label for="colorPalette">{{ i18n "colorPalette" }}</label>
-        <select id="colorPalette" name="colorPalette" oninput="setColorPalette()">
+        <select id="colorPalette" name="colorPalette" oninput="setColorPalette()" aria-label="{{ i18n "colorPalette" }}">
             <option value="defaultColor">{{ i18n "defaultColor" }}</option>
             <option value="deuteranopia">{{ i18n "deuteranopia" }}</option>
             <option value="protanopia">{{ i18n "protanopia" }}</option>
@@ -183,7 +183,7 @@
             >
             <label id="bionReadButton" for="bionReadSwitch">
                 <span><strong>Bion</strong>Read</span>
-                <kbd class="key">b</kbd>
+                <kbd class="key" aria-hidden="true">b</kbd>
             </label>
     </div>
 {{- end }}
