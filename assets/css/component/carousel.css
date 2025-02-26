@@ -182,7 +182,7 @@ ul.carousel__viewport > li > a > span::after {
 
 /* 2 item */
 
-#list-tags > nav a,
+#list-tags .underline,
 .carousel__viewport__slide > nav a {
     display: inline-flex;
     padding: 1ex;
@@ -196,7 +196,7 @@ ul.carousel__viewport > li > a > span::after {
 }
 
 .pagination .lfill a::after,
-#list-tags > nav a::after,
+#list-tags .underline::after,
 .carousel__viewport__slide:first-child > nav a::after {
     /* -> */
     --tsf: rotate(90deg);

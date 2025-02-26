@@ -348,10 +348,10 @@ input + label > span {
 }
 
 #focusModeButton {
-	position: fixed;
-	bottom: var(--vfoot);
-	padding: 3pt 6pt;
-	display: flex;
+    position: fixed;
+    bottom: var(--vfoot);
+    padding: 3pt 6pt;
+    display: flex;
     opacity: 0.7;
 }
 

@@ -32,21 +32,21 @@ p * {
 
 blockquote {
     margin: 0;
-    background: #ffe8aa22;
     padding: 1pt var(--indent);
     width: var(--golden-ratio);
-    font-style: italic;
 }
 
 blockquote blockquote {
     margin-bottom: var(--indent);
     border-left: var(--bound);
-    background: none;
     width: unset;
 }
 
-blockquote cite {
-    font-style: italic;
+blockquote footer {
+    font-style: normal;
+    font-size: 0.9em;
+    margin: 1em 0;
+    text-align: end;
 }
 
 kbd {

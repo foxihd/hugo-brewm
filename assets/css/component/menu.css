@@ -59,8 +59,12 @@ body > header > nav {
     font-family: 'base-ui';
 }
 
+.keydown #has-search > summary,
 .keydown .menu-icon::before {
     border: var(--border);
+    border-radius: 8pt;
+    padding: 8pt 0;
+    box-shadow: var(--box-shadow-focus);
 }
 
 #has-more-menu > summary {
@@ -187,6 +191,12 @@ details[open] .on-plank,
 
 .anchor {
     align-items: center;
+}
+
+summary.anchor .has-aria-label::after {
+    color: var(--mid);
+    font-size: 0.9em;
+    font-weight: normal;
 }
 
 #has-l10n a:hover,
