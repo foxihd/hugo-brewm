@@ -31,13 +31,27 @@
 
 figure img,
 figure svg {
-    width: 100%;
+    width: var(--golden-ratio);
     height: auto;
     object-fit: cover;
 }
 
+figure .marginpar {
+    left: unset;
+}
+
+figure.fullwidth {
+    clear: both;
+}
+
+figure.fullwidth img {
+    width: 100%;
+}
+
 #doc-author,
-#doc-author a {
+#doc-author a,
+.epigraph,
+blockquote cite {
     color: var(--fg);
     font-style: italic;
 }
@@ -137,12 +151,6 @@ header time {
     margin: 0.618pc 0;
     width: 100%;
     overflow-x: auto;
-}
-
-#content figure {
-    clear: both;
-    max-width: var(--golden-ratio);
-    overflow: auto;
 }
 
 #content figure.fullwidth {
