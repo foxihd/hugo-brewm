@@ -1,5 +1,19 @@
 {{- $type := .Get "type" }}
 {{- $figID := print "fig-" .Page.File.UniqueID "-" .Ordinal }}
+{{- $src := .Get "src" }}
+{{- $alt := .Get "alt" }}
+{{- $var := .Get 0 }}
+{{- if eq $src "cover" }}
+    {{- $src = partial "partials/page/cover.html" (dict "page" $.Page ) }}
+    {{- $coverAlt := or $.Page.Params.Alt $.Page.Params.coverAlt $.Page.Params.imagesAlt }}
+    {{- if and $coverAlt (not $alt) }}
+        {{ $alt = $coverAlt }}
+    {{- end }}
+{{- end }}
+{{ $caption := .Get "caption" }}
+{{- if eq $caption "alt" }}
+    {{ $caption = $alt }}
+{{- end }}
 {{- if not (eq $type "margin") }}
     {{- if eq $type "full" }}<figure class="fullwidth">
     {{- else }}<figure {{ with .Get "class" }} class="{{ . }}"{{ end }}>
@@ -7,8 +21,8 @@
 {{- end }}
 {{- if eq $type "full" }}
     {{- with .Get "link" }}<a href="{{ . }}" class="has-img">{{ end }}
-        <img src="{{ .Get "src" }}"
-            {{ with .Get "alt" }}
+        <img src="{{ $src }}"
+            {{ with $alt }}
                 alt=" {{ . }}"
                 title="{{ . }}"
             {{ end }}
@@ -24,14 +38,14 @@
         <span id="the-{{ $figID }}" class="marginpar">
         {{- with .Get "link" }}<a href="{{ . }}" class="has-img">
         {{- end }}
-            <img src="{{ .Get "src" }}" {{ with .Get "alt" }} alt=" {{ . }}" title="{{ . }}" {{ end }} aria-describedby="{{ $figID }}" loading="lazy">
+            <img src="{{ $src }}" {{ with $alt }} alt=" {{ . }}" title="{{ . }}" {{ end }} aria-describedby="{{ $figID }}" loading="lazy">
         {{- if .Get "link" }}</a>{{ end }}
     {{ else }}
     <span id="the-{{ $figID }}" class="marginpar">
     {{- end }}
 {{- end }}
     {{ with .Get "title" }}<strong>{{ . }} </strong>{{ end }}
-    {{ with .Get "caption" }}{{ . }}{{ end }}
+    {{ with $caption }}{{ . }}{{ end }}
     {{ with .Get "attrlink" }}<a href="{{ .}}">{{ end }}
     {{- with .Get "attr" }}{{ . }}{{ end }}
     {{- if .Get "attrlink" }}</a>{{ end }}
@@ -42,8 +56,8 @@
 {{- end }}
 {{- if and (not (eq $type "full")) (not (eq $type "margin")) }}
     {{ with .Get "link" }}<a href="{{ . }}" class="has-img">{{ end }}
-        <img src="{{ .Get "src" }}"
-            {{- with .Get "alt" }}
+        <img src="{{ $src }}"
+            {{- with $alt }}
                 alt="{{ . }}"
                 title="{{ . }}"
             {{- end -}}

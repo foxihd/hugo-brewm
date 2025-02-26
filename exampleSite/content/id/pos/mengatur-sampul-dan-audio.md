@@ -5,8 +5,13 @@ description: "Panduan menambahkan gambar sampul dan artikel audio"
 draft: false
 type: "post"
 tags: ["authoring", "konten", "media", "audio", "sampul", "gambar", "alt"]
+cover: 'https://upload.wikimedia.org/wikipedia/commons/4/4d/Cat_and_styrofoam_%E2%80%93_electrostatic_charge_%28235112299%29.jpg'
+alt: 'Kucing bernama cooper dengan gabus yang menempel pada bulu karena elektrostatis.'
+translationKey: 'media'
 ---
 ## Menambahkan Gambar Sampul
+
+### Menambahkan Gambar ke Parameter
 
 Untuk menambahkan gambar sampul ke artikel Anda, ada dua pilihan:
 
@@ -29,6 +34,18 @@ alt: "Deskripsi gambar"
 - Beri nama gambar Anda `cover.*`
 - Letakkan di folder yang sama dengan konten Anda
 - Atur teks _alt_ di _frontmatter_ artikel
+
+### Menambahkan Gambar ke Badan Artikel
+
+Anda dapat menambahkan gambar dalam berbagai layout, dimana saja di badan artikel dengan _shortcode_ `{{</* figure */>}}`:
+
+```toml
+{{</* figure src="cover" caption="alt" */>}}
+```
+
+Ini adalah kebebasan untuk menata artikel!
+
+{{< figure src="cover" caption="alt" >}}
 
 ## Menambahkan Artikel Audio
 
