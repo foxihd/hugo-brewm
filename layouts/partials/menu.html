@@ -73,7 +73,9 @@
         {{- end }}
         {{- $icon := .Pre }}
         {{- with $icon }}
-            {{- $attrs = merge $attrs (dict "title" . "aria-label" .) }}
+            {{- if not $name }}
+                {{- $attrs = merge $attrs (dict "title" . "aria-label" .) }}
+            {{- end }}
         {{- end }}
         {{- $identifier := .Identifier }}
         <li role="presentation">
