@@ -6,7 +6,7 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 
 ## Feature Highlights
 
-- **Reader-first**: Prioritizes readability and accessibility with personalized settings for colors, fonts, BionRead and focus mode.
+- **Reader-first**: Prioritizes privacy, readability and accessibility with personalized  settings for colors, fonts, BionRead and focus mode (It's Tracker Free!).
 - **Inclusive**: Graceful degradation design oriented with improved semantic HTML structure & WAI-ARIA attribute, the site remains fully functional even when JavaScript is disabled!
 - **Scalable**: Support for multiple authors and languages, optional Pagefind search, external feed over RSS and Fediverse-powered commenting system.
 - **Frameworkless**: Lower maintenace & carbon footprint by lesser resource usage.
@@ -98,8 +98,8 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
     title = "Example"
     ## Site description
     description = "An ExampleSite built with Hugo and Hugo-Brewm theme"
-    ## Copyright notice
-    copyright = "Copyright 2025 (c) Author"
+    ## Copyright notice, not implemented yet
+    # copyright = "Copyright 2025 (c) Author"
     ## Generate a robots.txt
     enableRobotsTXT = true
     ## Enable extended metadata (social cards)
