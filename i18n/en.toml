@@ -32,7 +32,7 @@
 [buildTime]
     other = "This page is built on"
 [bypass]
-    other = "Bypass Navigation"
+    other = "Bypass"
 [categories]
     one = "Category"
     other = "Categories"
@@ -208,6 +208,9 @@
     other = "Share"
 [shareOn]
     other = "Share on"
+[slide]
+    one = "slide"
+    other = "slides"
 [switchLangTo]
     other = "Switch Language to"
 [TableOfContents]
@@ -220,6 +223,6 @@
 [toTop]
     other = "To Content Top"
 [top-nav]
-    other = "Top Nav"
+    other = "Top"
 [tritanopia]
     other = "Tritanopia"
