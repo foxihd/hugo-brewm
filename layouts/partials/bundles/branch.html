@@ -8,7 +8,7 @@
     {{- with index site.Taxonomies $taxonomy }}
         <ul class="{{ $class }}" role="presentation">
             {{- $index := 0 }}
-            {{ range . -}}
+            {{ range .ByCount -}}
                 {{- $index = add $index 1 }}
                 {{- if or (le $index $limit) (not $limit) -}}
                     {{- $src := partial "partials/page/cover.html" (dict "page" .Page) }}
@@ -162,7 +162,7 @@
         <aside class="carousel">
             {{- $numSlides := len . }}
             {{- if gt $numSlides 2 }}
-                <nav class="carousel__nav">
+                <nav class="carousel__nav" aria-label="{{ i18n "slide" }}">
                     <ul class="rounded invert" role="presentation">
                         {{- range $index, $slide := . }}
                             <li>
