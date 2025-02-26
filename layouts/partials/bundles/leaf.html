@@ -131,11 +131,11 @@
 
 {{- define "partials/post/tagged.html" -}}
     {{- with .Params.tags }}
-    <div id="keywords">
+    <nav id="keywords" aria-label="{{ i18n "tags" }}">
         <span>{{ printf "%s:" (i18n "tags" (len . ))}}&nbsp;</span>
         {{ $class := cond (eq (len .) 1) "inline" "delimiter" }}
         {{ partial "terms.html" (dict "taxonomy" "tags" "class" $class "page" $) }}
-    </div>
+    </nav>
     {{- end }}
 {{- end }}
 
@@ -170,7 +170,7 @@
         {{- $author := .Params.author | default site.Params.Author.Name }}
         <div id="has-timeline">
             <strong class="section-title">{{ i18n "redactionHistory" }}</strong>
-            <ol>
+            <ol aria-label="{{ i18n "redactionHistory" }}">
             {{- if .Params.History }}
                 {{- range sort .Params.History "date" "asc" }}
                     <li>
@@ -234,7 +234,7 @@
     {{- $related := site.RegularPages.Related . | first 5 }}
     {{- $series := .GetTerms "series" }}
     {{- if or $related $series }}
-    <nav id="related">
+    <nav id="related" aria-label="{{ i18n "related" }}">
         <strong class="section-title">{{ i18n "related" }}</strong>
         {{- if $series }}
             {{- range $series | first 1 -}}

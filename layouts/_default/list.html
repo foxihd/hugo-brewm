@@ -70,10 +70,10 @@
                 <header class="section-title">
                     <strong>{{ i18n "discover" }}</strong>
                 </header>
-                {{ partial "taxonomies.html" (dict "taxonomy" "tags" "class" "rounded has-hash" "limit" 16) }}
-                <nav>
-                    <a class="underline" href="{{ "/tags/" | relLangURL }}">{{- i18n "seeMore" }}</a>
+                <nav aria-label="{{ i18n "discover" }}">
+                    {{ partial "taxonomies.html" (dict "taxonomy" "tags" "class" "rounded has-hash" "limit" 16) }}
                 </nav>
+                <a class="underline" href="{{ "/tags/" | relLangURL }}">{{- i18n "seeMore" }}</a>
             </aside>
         {{- else if or (eq .Data.Singular "tag") .IsSection }}
             <aside id="list-tags">
@@ -254,7 +254,7 @@
                 <!-- hfill -->
                 {{ partial "page/timestamp.html" .page }}
             </div>
-            <a href="{{ .page.RelPermalink }}">
+            <a href="{{ .page.RelPermalink }}" tabindex="-1">
                 <h1 id="{{ printf "title-%d" .counter }}">{{ .page.Title }}</h1>
             </a>
         </hgroup>

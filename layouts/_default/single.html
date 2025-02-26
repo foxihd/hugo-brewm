@@ -80,11 +80,13 @@
                             {{- end }}
                             <a href="{{ .Permalink }}"
                                 {{- if $flair }}
-                                    class="has-aria-label"
-                                    aria-label="{{ $flair }}"
+                                    class="has-desc"
+                                    aria-label="{{ .LinkTitle }}"
+                                    aria-description="{{ $flair }}"
                                 {{- else if and $commentIsEnable $commentIsToot }}
-                                    class="has-aria-label"
-                                    aria-label="{{ print "@" $username "@" $instance}}"
+                                    class="has-desc"
+                                    aria-label="{{ .LinkTitle }}"
+                                    aria-description="{{ print "@" $username "@" $instance}}"
                                 {{- end }}>
                                 {{- .LinkTitle -}}
                             </a>

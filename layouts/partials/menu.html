@@ -8,10 +8,10 @@
     <nav id="menu-footer" class="has-aria-label-top" aria-label="{{ i18n "keepInTouch" }}">
         <ul role="presentation">
         {{- range . }}
-            {{- $label := or .Name .Pre }}
+            {{- $label := or .Name .Pre .Identifier }}
             <li><a href="{{ .URL }}" aria-label="{{ $label }}">
                 {{- with .Pre }}        
-                    <i class="icon {{ . }}" role="presentation" aria-hidden="true"></i>
+                    <i class="icon {{ . }}" aria-hidden="true"></i>
                     <span class="t" role="tooltip">{{ $label }}</span>
                 {{- end }}
                 </a>
@@ -94,7 +94,11 @@
                 {{- printf " %s=%s" $key $val | safeHTMLAttr }}
             {{- end }}
         {{- end }}
-        {{ with .desc }} aria-description="{{ . }}" {{ end }}>
+        {{- if .desc }}
+            aria-label="{{ .name }}"
+            aria-description="{{ .desc }}"
+        {{- end -}}
+        >
         {{ if not .name }}
             {{- $tooltip := .identifier }}
             <span class="t" role="tooltip">{{ title $tooltip }}</span>
@@ -114,7 +118,7 @@
         {{- if eq .menuID "more" }} open {{ else }} {{ .open | safeHTMLAttr }} {{ end }}>
         <summary class="anchor {{ if .deck }} on-deck {{ end }}">
             {{ with .icon }}<i class="icon {{ . }}" aria-hidden="true"></i>{{ end }}
-            <span {{ with .desc }} class="has-desc" aria-description="{{ . }}" {{ end }}>
+            <span {{ with .desc }} class="has-aria-label" aria-label="{{ . }}" {{ end }}>
                 {{- .name -}}
             </span>
         </summary>
