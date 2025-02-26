@@ -1,0 +1,11 @@
+{{- $var := .Get 0 }}
+{{- if .IsNamedParams }}
+<section {{ with .Get "class" }} class="{{ . }}"{{ end }}{{ with .Get "id" }} id="{{ . }}"{{ end }}{{ with .Get "role" }} role="{{ . }}"{{ end }}>
+{{- else if or (eq $var "") (eq $var "begin") }}
+<section>
+{{- else if eq $var "end" }}
+</section>
+{{- else if eq $var "break" }}
+</section>
+<section>
+{{- end }}

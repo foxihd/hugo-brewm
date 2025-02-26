@@ -1,0 +1,13 @@
+{{- $link := .Get "link" }}
+<div role="doc-epigraph" class="epigraph">
+    <blockquote>
+    {{ .Inner | markdownify }}
+    {{- if .IsNamedParams }}
+        <footer>
+        {{- with .Get "pre" }}{{ . }}{{ end }}
+        {{- with .Get "cite" }}<cite>{{ if $link }}<a href="{{ $link }}">{{ . }}</a>{{ else }}{{ . }}{{ end }}</cite>{{ end }}
+        {{- with .Get "post" }}{{ . }}{{ end }}
+        </footer>
+    {{- end }}
+    <blockquote>
+</div>
