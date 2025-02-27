@@ -251,7 +251,7 @@ This project could not be made, without a lot efforts of — thank to:
 - [Risilab/Cormorant](https://github.com/risilab/cormorant) - for serif typeface.
 - [Rsms/Inter](https://github.com/rsms/inter) - for sans-serif typeface.
 - [Skoch/Crimson](https://github.com/skosch/Crimson) - for serif typeface.
-- [Slashformotion/Hugo Tufte](https://github.com/slashformotion/hugo-tufte) - for figure & marginpar shortcodes.
+- [Slashformotion/Hugo Tufte](https://github.com/slashformotion/hugo-tufte) - for figure, marginpar, epigraph and section shortcodes.
 
 ## License
 
