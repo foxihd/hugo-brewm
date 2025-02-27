@@ -13,13 +13,16 @@ Footer utama di tema Hugo Brewm dapat disesuaikan melalui beberapa opsi konfigur
 
 Untuk mengatur konten footer utama, buat file markdown di direktori konten Anda dengan front matter berikut:
 
-
+```yaml
 ---
 type: footer
 title: "Judul Footer Utama Anda"
 weight: 1
+params:
+    headless: true # cegah pembuatan halaman dan alihkan ke 404.html
+    target: "https://example.com" # atau alihan ke target
 ---
-
+```
 
 Anda kemudian dapat menambahkan konten footer di bawah front matter menggunakan markdown.
 Beberapa bagian footer dapat dibuat menggunakan file markdown yang berbeda.

@@ -18,6 +18,9 @@ Untuk membuat beberapa slide, Anda perlu membuat file terpisah yang berisi struk
 ---
 type: slide
 title: "Judul Slide"
+params:
+    headless: true # cegah pembuatan halaman dan alihkan ke 404.html
+    target: "https://example.com" # atau alihan ke target
 ---
 ```
 

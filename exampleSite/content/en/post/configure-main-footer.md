@@ -22,6 +22,9 @@ To set up the main footer content, create a markdown file in your content direct
 type: footer
 title: "Your Main Footer Title"
 weight: 1
+params:
+    headless: true # prevent page body to be render and redirect to 404.html
+    target: "https://example.com" # override the redirect target
 ---
 ```
 

@@ -1,8 +1,10 @@
 ---
 type: 'footer'
 weight: 1
-target: 'https://example.com'
 coffee: 2
+params:
+    headless: true
+    target: 'https://github.com/foxihd/hugo-brewm'
 ---
 
 <strong class="section-title">Foxx Edelweiss <i class="icon copyleft"></i> 2025</strong>

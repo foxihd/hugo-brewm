@@ -6,7 +6,7 @@
     {{ partial "head.html" . }}
     {{ block "head" . }}{{ end }}
 </head>
-{{- if not .Params.Headless }}
+{{- if not (or .Params.headless .Params.target .Params.alias) }}
 <body {{ with .Params.Type }} id="{{ . }}" {{ end -}}>
     {{ partial "header.html" . }}
     {{ block "aside" . }}{{ end }}

@@ -21,6 +21,9 @@ To create multiple slides, you'll need to make separate files containing this fr
 ---
 type: slide
 title: "Slide Title"
+params:
+    headless: true # prevent page body to be render and redirect to 404.html
+    target: "https://example.com" # override the redirect target
 ---
 ```
 
