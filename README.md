@@ -4,6 +4,8 @@
 
 Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hugo-brewm/en/)
 
+![A11y Console](https://repository-images.githubusercontent.com/923527728/46a32a19-69ac-45b3-91a4-c4d299fb234b)
+
 ## Feature Highlights
 
 - **Reader-first**: Prioritizes privacy, readability and accessibility with personalized  settings for colors, fonts, BionRead and focus mode (It's Tracker Free!).
@@ -230,6 +232,19 @@ To deploy your Hugo site with PageFind on Gitlab Pages, copy the workflow file f
 We currently only support Indonesian and English.
 Please feel free to contribute to additional [translation](https://github.com/foxihd/hugo-brewm/blob/main/i18n/).
 
+## Support
+
+> Most of us love coffee, aren't we?
+
+For what it's worth.
+This theme was originally made for my tiny coffee business that I work on myself.
+But things have to shifted in last two years, as coffee prices hikes due to shortages induced by climate change.
+I open my github sponsor if you'd love to help me.
+I would appreciate it too if you saved your morning brew by supporting your local coffee shop.
+That's maybe one of the small ethical revolutions we can do everyday if addressing our planet's issues can't be done in couple of earth's revolutions.
+I hope this will help you recognise.
+
+Keep brewing! :)
 
 ## Special Thanks
 
