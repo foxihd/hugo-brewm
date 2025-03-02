@@ -250,7 +250,7 @@
   identifier = 'hashnode'
   pageRef    = '/'
   weight     = 2
-  name        = 'hashnode'
+  name       = 'hashnode'
   pre        = 'hashnode'
 
 [[footer]]
@@ -264,12 +264,18 @@
   identifier = 'linkedin'
   pageRef    = '/'
   weight     = 4
-  name        = 'linkedin'
+  name       = 'linkedin'
   pre        = 'linkedin'
 
 [[footer]]
   identifier = 'karyakarsa'
   pageRef    = '/'
   weight     = 5
-  name        = 'karya karsa'
+  name       = 'karya karsa'
   pre        = 'karyakarsa'
+
+[[contrib]]
+  identifier = 'githubsponsors'
+  url        = 'https://github.com/sponsors/foxihd/'
+  name       = 'Github Sponsors'
+  pre        = 'githubsponsors'
