@@ -247,6 +247,10 @@ header time {
     color: var(--bg);
 }
 
+#has-contrib-menu {
+    padding: .4rem 0;
+}
+
 #contentinfo ol {
     position: relative;
     margin-bottom: 0;
