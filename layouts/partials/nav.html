@@ -105,8 +105,10 @@
             </a>
         </li>
         <li>
-            <a id="copyPermalink" class="hide" href="javascript:navigator.clipboard.writeText(window.location.href)" title="{{ i18n "copy" }}" role="button" aria-label="{{ i18n "copy" }}">
-                <span class="t" role="tooltip">{{ i18n "copy" }}</span>
+            <a id="copyPermalink" {{ if ne hugo.Environment "development" }}class="hide"{{ end }} href="javascript:navigator.clipboard.writeText(window.location.href)" title="{{ i18n "copy" }}" role="button" aria-label="{{ i18n "copy" }}">
+                <span id="copy" class="t" role="tooltip">{{ i18n "copy" }}</span>
+                <span id="isCopying" style="display: none;">{{ i18n "copying" }}</span>
+                <span id="copyText" style="display: none;">{{ i18n "copy" }}</span>
             </a>
         </li>
         {{- if and (eq .Kind "term" ) (eq .Data.Plural "series") -}}

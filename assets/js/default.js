@@ -189,3 +189,10 @@ addEvent(window, 'beforeprint', function() {
         e.setAttribute('open', 'open');
     });
 });
+
+// copying
+const copyPermalink = getElement('copyPermalink');
+addEvent(copyPermalink, 'click', function() {
+    getElement('copy').innerText = getElement('isCopying').innerText;
+    setTimeout(() => getElement('copy').innerText = getElement('copyText').innerText, 2000 )
+});

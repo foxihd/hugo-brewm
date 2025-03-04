@@ -67,7 +67,9 @@
 [contribCoffeeStatPost]
     other = "helped me write this article?"
 [copy]
-    other = "Copy Url"
+    other = "Copy URL"
+[copying]
+    other = "Copying..."
 [ctaComments]
     other = "Join Discussion"
 [cup]

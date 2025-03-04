@@ -65,6 +65,8 @@
     other = "telah membantu saya menulis artikel ini?"
 [copy]
     other = "Salin Tautan"
+[copying]
+    other = "Menyalin..."
 [ctaComments]
     other = "Bergabung dalam Diskusi"
 [cup]
