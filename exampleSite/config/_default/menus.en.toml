@@ -277,5 +277,5 @@
 [[contrib]]
   identifier = 'githubsponsors'
   url        = 'https://github.com/sponsors/foxihd/'
-  name       = 'Github Sponsors'
+  name       = 'Become Github Sponsors'
   pre        = 'githubsponsors'
