@@ -55,6 +55,7 @@ main#page > header > menu {
     visibility: visible;
 }
 
+label .t::after,
 main#term #print-button {
     visibility: hidden;
 }

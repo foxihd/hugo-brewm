@@ -347,12 +347,23 @@ input + label > span {
     max-width: 20rem;
 }
 
-#focusModeButton {
+#focusMode {
     position: fixed;
-    bottom: var(--vfoot);
+    bottom: calc(var(--vfoot) + 1rem);
     padding: 3pt 6pt;
     display: flex;
+}
+
+#focusModeButton {
     opacity: 0.7;
+    position: relative;
+}
+
+label:hover .t,
+label:focus .t {
+    position: unset;
+    visibility: visible;
+    margin-left: 2rem;
 }
 
 input:checked + #focusModeButton {

@@ -245,6 +245,8 @@ details.presentation > summary {
     content: '';
 }
 
+label:hover .t,
+label:focus .t,
 button:focus > .t,
 .icon:hover + .t,
 a:hover .t,

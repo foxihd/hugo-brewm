@@ -198,6 +198,8 @@
             aria-keyshortcuts="d"
             aria-label="{{ i18n "focusMode" }}"
             >
-            <label id="focusModeButton" for="defocusAuxElement" title="{{ i18n "focusMode" }}" aria-label="{{ i18n "focusMode" }}">⦿</label>
+            <label id="focusModeButton" for="defocusAuxElement" aria-label="{{ i18n "focusMode" }}">
+                ⦿ <span class="t" role="tooltip">{{ i18n "focusMode" }}</span>
+            </label>
     </div>
 {{- end }}
