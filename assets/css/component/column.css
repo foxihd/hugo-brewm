@@ -39,7 +39,7 @@
 }
 
 .column.pin {
-    --col: 12rem;
+    --col: 13rem;
 }
 
 .has-quote {
@@ -58,6 +58,23 @@
 
 .has-quote > img {
     margin: 1ex 0;
+}
+
+
+@media screen and (min-width: 2560px) {
+
+    .column {
+        --col: 20rem;
+    }
+
+}
+
+@media screen and (min-width: 1920px) {
+
+    .column.pin {
+        --col: 16rem;
+    }
+
 }
 
 @media screen and (max-width: 640px) {
