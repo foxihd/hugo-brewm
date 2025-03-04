@@ -1,8 +1,8 @@
 /* this style is used inline in list.html */
 
 body {
-    margin: auto;
-    max-width: 2560px;
+    margin: auto !important;
+    max-width: 2560px !important;
 }
 
 body > footer.pagewidth,
@@ -31,11 +31,11 @@ body > main#home > aside#list-tags {
     top: 0;
     right: 0;
     margin: 1rem auto;
-    width: calc(100% - var(--golden-ratio))
+    width: calc(100% - var(--golden-ratio));
 }
 
 #home #top {
-    padding: 1rem;
+    padding: 0 1rem;
 }
 
 #home #list-posts {
@@ -43,7 +43,7 @@ body > main#home > aside#list-tags {
     width: var(--golden-ratio);
 }
 
-div[role='feed'] {
+div[role="feed"] {
     padding: 1ex;
 }
 
@@ -57,7 +57,6 @@ hr.ldots {
     padding: 0 1ex;
 }
 
-.form.on-plank,
 #i18n-menu > .on-plank,
 #more-menu > .on-plank,
 .pagefind-ui {
@@ -112,19 +111,18 @@ hr.ldots {
         width: var(--canonic);
     }
 
-    aside + #list-posts .feed-item > section {
-        flex-direction: row-reverse;
-        aspect-ratio: 10/3;
-    }
-
     #home #list-posts {
         margin: var(--bigskip) auto;
-        padding: unset;
-        width: var(--canonic);
+        padding: 0 var(--void);
     }
+
 
     #list-posts .section-title {
         padding-left: unset;
+    }
+
+    div[role="feed"] {
+        padding: 0;
     }
 
     .form.on-plank,
@@ -133,13 +131,3 @@ hr.ldots {
     }
 
 }
-
-@media only screen and (max-width: 480px) {
-
-    aside + #list-posts .feed-item > section {
-        flex-direction: column;
-        aspect-ratio: unset;
-    }
-
-}
-
