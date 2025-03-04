@@ -72,7 +72,7 @@ ul.invert a:visited {
 ul.has-hash a {
     text-transform: uppercase;
     letter-spacing: 0.1rem;
-    font-size: 0.9em;
+    font-size: var(--footnotesize);
 }
 
 #term .section-title > .tag::before,
