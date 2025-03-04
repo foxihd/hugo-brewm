@@ -91,7 +91,7 @@
 @media only screen and (max-width: 480px) {
 
     .hero__image.auto {
-        height: calc(var(--vbody) - 14.8rem - 1rem - 2ex);
+        max-height: calc(var(--vbody) - 15.8rem - 2ex);
     }
 
 }

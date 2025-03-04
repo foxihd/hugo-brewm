@@ -27,7 +27,7 @@
 .feed-item img {
     width: auto;
     height: auto;
-    max-height: 38vh;
+    max-height: calc((86vw - 2ex - 2rem ) * 0.8);
     aspect-ratio: 10/8;
     object-fit: cover;
 }
