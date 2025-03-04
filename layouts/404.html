@@ -9,7 +9,7 @@
     <meta http-equiv="refresh" content="15;url={{ absLangURL "" }}">
     {{ partialCached "head/css.html" . -}}
     <style>
-        h1 {--anm: fade 15s;-webkit-animation: var(--anm);-moz-animation: var(--anm);-o-animation: var(--anm);animation: var(--anm);font-size: 5rem;}
+        h1 {--anm: fade 15s forwards;-webkit-animation: var(--anm);-moz-animation: var(--anm);-o-animation: var(--anm);animation: var(--anm);font-size: 5rem;}
         h1::after {font-size: 2rem}
         @keyframes fade {0% {opacity: 1} 100% {opacity: 0}}
         @-webkit-keyframes fade {0% {opacity: 1} 100% {opacity: 0}}
