@@ -1,0 +1,139 @@
+/* this style is used inline in list.html */
+
+.carousel__viewport__slide__cover {
+    flex: 1 1 40%;
+    padding: 1.5rem 0 5rem 1.5rem;
+    height: 100%;
+    max-height: 1024px;
+}
+
+.carousel__viewport__slide__content {
+    margin-bottom: auto;
+    padding: 0 2rem;
+    width: 100%;
+    max-height: calc(100% - 5rem);
+    overflow-y: auto;
+}
+
+.carousel__viewport__slide__content h1.section-title {
+    margin: 0 !important;
+    padding: var(--smallskip) 0 1ex;
+    font: italic var(--Large) var(--rm), serif;
+}
+
+.carousel__viewport__slide__content h2 {
+    font-size: var(--large);
+}
+
+.carousel__viewport__slide__content h3 {
+    font-size: var(--normalsize);
+}
+
+.carousel__viewport__slide__content p {
+    max-width: var(--canonic);
+}
+
+.carousel__viewport__slide__content .footnotes p {
+    max-width: unset;
+}
+
+.carousel__viewport__slide__cover + .carousel__viewport__slide__content {
+    flex: 1 1 60%;
+    margin-bottom: 5rem;
+}
+
+.carousel__viewport__slide__cover + .carousel__viewport__slide__content p {
+    width: unset;
+}
+
+.carousel__viewport__slide__cover img {
+    border-radius: 1ex;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 2 item */
+
+.carousel__viewport__slide > nav a {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--fg);
+}
+
+@media only screen and (max-width: 960px) {
+
+    aside.carousel {
+        width: unset;
+    }
+
+}
+
+@media only screen and (max-width: 640px) {
+
+    .carousel__nav {
+        right: 0;
+        bottom: 0;
+        background: var(--bg);
+        width: unset;
+    }
+
+    .carousel__viewport__slide > .carousel__nav {
+        position: sticky;
+        position: -webkit-sticky;
+        width: 100%;
+    }
+
+    aside .carousel__viewport > div,
+    aside .carousel__viewport > section,
+    aside .carousel__viewport__slide {
+        flex-direction: column;
+        justify-content: end;
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    .carousel__viewport__slide__cover {
+        padding: unset;
+        height: unset;
+    }
+
+    .carousel__viewport__slide__cover img {
+        position: absolute;
+        left: 0;
+        max-width: 100%;
+        height: calc(100% - 3rem);
+    }
+
+    .carousel__viewport__slide__content {
+        padding: 0 1rem 5rem;
+        max-height: unset;
+    }
+
+    .carousel__viewport__slide__cover + .carousel__viewport__slide__content {
+        flex: unset;
+        z-index: 0;
+        margin: 1rem 1rem 4rem;
+        border-radius: 1ex;
+        background: var(--bg);
+        padding: 1rem;
+        width: auto;
+    }
+
+    .carousel__viewport__slide__cover + .carousel__viewport__slide__content.white {
+        background: none;
+        color: #fff;
+    }
+
+    .carousel__viewport__slide__cover + .carousel__viewport__slide__content.black {
+        background: none;
+        color: #000;
+    }
+
+    .carousel__nav > ul.rounded {
+        padding: 1ex 0;
+        width: calc(100vw - 2rem);
+        text-align: right;
+    }
+
+}
