@@ -61,7 +61,6 @@
         frequency for content view style  */}}
     {{- $changeFreq := or .Params.Sitemap.ChangeFreq .Sitemap.ChangeFreq | lower }}
     {{- $active := eq $changeFreq (or "always" "hourly" "daily" "weekly") }}
-    {{- $passive := ne $changeFreq (or "always" "hourly" "daily" "weekly") }}
     {{- /*
 
         main aside */}}

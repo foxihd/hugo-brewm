@@ -86,18 +86,21 @@ hr.ldots::after {
     width: var(--golden-ratio);
 }
 
-.list-year.textwidth {
+.list-year {
     display: flex;
     position: relative;
     align-items: baseline;
+}
+
+.list-year.textwidth {
     margin-left: auto;
 }
 
 .list-year > .section-title {
-    padding: 8pt;
-    width: 5rem;
+    width: 52pt;
     text-align: right;
 }
+
 
 .list-year > div {
     flex: 1;
@@ -118,7 +121,7 @@ hr.ldots::after {
 
 .list-day a.has-pre::before {
     position: absolute;
-    left: -9pt;
+    left: 0;
     padding: 0.25rem 0;
     width: 5rem;
     text-align: right;
