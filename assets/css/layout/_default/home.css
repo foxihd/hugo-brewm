@@ -106,16 +106,12 @@ hr.ldots {
         padding: 0 calc(var(--void) / 2);
     }
 
-    body > main#home > aside#list-tags {
-        padding: unset;
-        width: var(--canonic);
-    }
-
+    body > main#home > aside#list-tags,
     #home #list-posts {
         margin: var(--bigskip) auto;
         padding: 0 var(--void);
+        width: var(--golden-ratio);
     }
-
 
     #list-posts .section-title {
         padding-left: unset;
