@@ -80,15 +80,16 @@ if (window.innerWidth > 640) {
     });
 }
 
-// Share functionality
-if (typeof navigatorShare !== 'undefined') {
-    getElement('navigatorShare')?.setAttribute(
-        'href',
-        'javascript:navigator.share({title: document.title, url: window.location.href})'
-    );
+// enable copy and navigatorShare element when protocol is secure
+if (location.protocol === 'https:') {
+    getElement('copyPermalink')?.removeAttribute('class');
 
-    if (location.protocol === 'https:') {
-        getElement('copyPermalink')?.removeAttribute('class');
+    // use navigator.share when supported
+    if (navigator.share) {
+        getElement('navigatorShare')?.setAttribute(
+            'href',
+            'javascript:navigator.share({title: document.title, url: window.location.href})'
+        );
     }
 }
 
