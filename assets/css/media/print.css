@@ -6,6 +6,8 @@
 
     @page {
         margin: 10vmin;
+        /* ragged bottom if supported */
+        margin-bottom: clamp(8vmin, 10vmin, 12vmin)
     }
 
     body {
@@ -16,6 +18,7 @@
 
     body > header,
     body > footer,
+    #background-footer,
     body > footer *,
     body > div,
     body > aside,
@@ -26,8 +29,9 @@
     #contribute,
     #related,
     #coffee-counter,
-    #menu-footer
-     {
+    #menu-footer,
+    #has-timeline ol li::before,
+    #discussion-starter > footer {
         display: none;
     }
 
@@ -35,14 +39,14 @@
         height: unset;
     }
 
-    figure {
-        position: relative;
-    }
-
     body > main > #main-footer {
         border: unset;
         margin:var(--vskip);
         padding: unset;
+    }
+
+    figure {
+        position: relative
     }
 
     .pagewidth,
@@ -55,22 +59,10 @@
         color: var(--fg);
     }
 
+    #main-article,
     body h1:first-of-type {
         margin-top: 0;
     }
-
-    /* dont work properly on firefox
-    h1,
-    section > h1,
-    .section-title {
-        page-break-before: always;
-        break-before: always;
-
-    header > h1 {
-        page-break-before: avoid !important;
-        break-before: avoid !important;
-    }
-    } */
 
     h1,
     h2,
@@ -79,7 +71,9 @@
     h5,
     h6,
     .section-title {
+        page-break-before: auto;
         page-break-after: avoid;
+        break-before: auto;
         break-after: avoid;
     }
 
@@ -132,6 +126,20 @@
     #contentinfo {
         display: block;
     }
+
+    #has-timeline {
+        padding-left: calc(96px + 1rem);
+        font: 1rem/2rem monospace;
+    }
+
+    #has-timeline ol,
+    #has-timeline ol li {
+        margin: 0;
+        padding: 0;
+        border: none;
+        list-style: inherit;
+    }
+
 }
 
 /* font-size scaling = 1/sqrt(640/device-width)
