@@ -35,6 +35,10 @@
         height: unset;
     }
 
+    figure {
+        position: relative;
+    }
+
     body > main > #main-footer {
         border: unset;
         margin:var(--vskip);
