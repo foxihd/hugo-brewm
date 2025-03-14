@@ -281,6 +281,11 @@ header time {
     content: '>';
 }
 
+#has-timeline {
+    grid-column-start: 2;
+    grid-row-start: 1;
+}
+
 #has-timeline ol {
     margin: 1ex 0 0 1rem;
     border-left: 2.5pt solid var(--g18s);
@@ -288,12 +293,13 @@ header time {
 }
 
 #has-timeline ol li::before {
-    left: -1rem;
+    left: -8pt;
     border: 4pt solid var(--bg);
     background: var(--mid);
-    padding: 0 3pt;
-    font-size: 0.6em;
+    padding: 0;
     content: '\a0';
+    height: 6pt;
+    width: 6pt;
 }
 
 #TableOfContents,

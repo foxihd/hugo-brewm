@@ -120,11 +120,11 @@
         {{- if or .Params.related site.Params.posts.related }}
             {{ partial "post/related.html" . }}
         {{- end }}
-        {{- if not site.Params.posts.disableHistory }}
-            {{ partial "post/history.html" . }}
-        {{- end }}
         {{- if or .Params.colophon site.Params.posts.colophon }}
             {{ partial "post/colophon.html" . }}
+        {{- end }}
+        {{- if not site.Params.posts.disableHistory }}
+            {{ partial "post/history.html" . }}
         {{- end }}
         {{ partial "post/contribute.html" . }}
         {{- if site.Params.posts.share }}
