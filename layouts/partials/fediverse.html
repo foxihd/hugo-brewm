@@ -50,8 +50,8 @@
 
 {{- define "partials/fediverse/js.html" -}}
     {{ "<!-- fediverse/js.html -->" | safeHTML }}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.1/purify.min.js" referrerpolicy="no-referrer"
-        integrity="sha512-uHOKtSfJWScGmyyFr2O2+efpDx2nhwHU2v7MVeptzZoiC7bdF6Ny/CmZhN2AwIK1oCFiVQQ5DA/L9FSzyPNu6Q==" crossorigin="anonymous" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.4/purify.min.js" referrerpolicy="no-referrer"
+        integrity="sha384-eEu5CTj3qGvu9PdJuS+YlkNi7d2XxQROAFYOr59zgObtlcux1ae1Il3u7jvdCSWu" crossorigin="anonymous"></script>
     {{- $fediverse := resources.Get "js/fediverse.js" | minify }}
     {{- if eq hugo.Environment "development" }}
         <script src="{{ $fediverse.Permalink }}" defer></script>
