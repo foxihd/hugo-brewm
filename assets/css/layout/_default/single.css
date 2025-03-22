@@ -58,8 +58,7 @@ blockquote cite {
 
 /* with avatar */
 #avatar,
-.author,
-.mastodon-comment > footer {
+.author {
     display: flex;
     align-items: center;
     line-height: 1.272;
@@ -69,7 +68,6 @@ blockquote cite {
     font: 1rem var(--sf);
 }
 
-.mastodon-comment > .author > img,
 #avatar {
     margin-right: 12pt;
 }

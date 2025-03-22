@@ -8,32 +8,24 @@ translationKey: pagefind
 coffee: 1
 ---
 
-## Mengatur pencarian di konfigurasi Hugo
+## Menautkan diskusi dengan postingan Mastodon
 
-Untuk mengaktifkan fungsi pencarian, Anda perlu memodifikasi file `config.toml`. Pertama, aktifkan tombol pencarian menggunakan `.params.search`. Kemudian aktifkan `.params.pagefind`, jika Anda melewatkan langkah ini, tema akan menggunakan DuckDuckGo sebagai default.
-
-```toml
-[params]
-  search = true
-  pagefind = true
-```
-
-## Mengatur frontmatter pos
-
-Untuk membuat pos terindeks, Anda perlu mengatur `type` menjadi `post` pada frontmatter setiap pos.
+Tautkan URL postingan Mastodon ke front matter menggunakan parameter `toot`, `mstd`, atau `mastodon`.
 
 ```yaml
 ---
-title: "Pos"
-type: post
+toot: https://example.com/@example/12345678901234567890
 ---
 ```
 
-## Mengatur pipeline CI/CD
+## Menautkan diskusi dengan postingan Bluesky
 
-Untuk membuat indeks pencarian, tambahkan perintah ini ke langkah build pipeline CI/CD Anda:
+Tautkan URL postingan Bluesky ke front matter menggunakan parameter `bsky` atau `bluesky`.
 
 ```yaml
-- name: Index pagefind
-  run: npx pagefind --source "public"
+---
+bsky: https://bsky.app/profile/example.com/post/12345678901234
+---
 ```
+
+Catatan: Anda mungkin perlu memperkirakan permalink artikel pada pratinjau lokal sebelum membagikan ke platform Fediverse untuk mendapatkan tautan postingan, atau Anda mungkin perlu menjalankan operasi CI/CD dua kali.

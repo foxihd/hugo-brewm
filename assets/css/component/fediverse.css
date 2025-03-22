@@ -18,44 +18,66 @@
     justify-content: space-between;
 }
 
-.mastodon-comment {
+.fediverse-comment {
     margin: 1rem 0 1rem calc(var(--mul) * var(--indent));
     border: 1pt solid #fff4;
     border-left: 2pt solid var(--ac);
-    box-shadow: 0 0.5pt 1pt 0 var(--g18s);
     background: #80808008;
     padding: 1rem 1rem 1ex;
+    box-shadow: 0 0.5pt 1pt 0 var(--g18s);
     overflow: auto;
 }
 
-.mastodon-comment .content {
+.fediverse-comment.bsky {
+    --ac: #1185fe;
+}
+
+.fediverse-comment.mstd {
+    --ac: #563acc;
+}
+
+.fediverse-comment > .author > img{
+    margin-right: 12pt;
+}
+
+.fediverse-comment .content {
     margin-left: 4rem;
     line-height: calc(var(--baselineStretch) * 1.272);
 }
 
-.mastodon-comment .par a {
+.fediverse-comment .par a {
     max-width: 100%;
     vertical-align: bottom;
     white-space: break-spaces;
 }
 
-.mastodon-comment .attachments * {
-    width: 100%;
-    height: auto;
-}
-
-.mastodon-comment > footer {
+.fediverse-comment > footer {
+    display: flex;
+    align-items: center;
     margin-top: 1rem;
     margin-left: 3.5rem;
+    line-height: 1.272;
+    white-space: nowrap;
 }
 
-.mastodon-comment > footer .stat {
+.fediverse-comment > footer .stat {
     display: inline-flex;
     flex-shrink: 0;
     gap: 5pt;
 }
 
-.stat a {
+.attachments {
+    display: flex;
+    overflow: auto;
+}
+
+.attachments > * {
+    flex-shrink: 0;
+    width: 100%;
+    height: auto;
+}
+
+.stat > * {
     display: inline-flex;
     align-items: center;
     padding: 2pt;
@@ -63,26 +85,36 @@
     gap: 2pt;
 }
 
-.stat a::before {
+.stat > *::before {
     vertical-align: text-top;
+    font-family: "base-ui";
+}
+
+.stat > * > span {
+    font-size: 0.8em;
+}
+
+a.replies.active,
+a.reblogs.active {
+    color: var(--ac);
 }
 
 a.favourites.active {
     color: var(--i3i);
 }
 
-.mastodon-comment .date {
+.fediverse-comment .date {
     margin-left: auto;
     padding-left: 1rem;
     color: var(--mid);
-    font-size: calc(10pt * var(--fontScale));;
+    font-size: calc(10pt * var(--fontScale));
 }
 
 @media only screen and (max-width: 960px) {
-
-    .mastodon-comment .content,
-    .mastodon-comment > footer {
-      margin-left: 0;
+    .fediverse-comment .content,
+    .fediverse-comment > footer {
+        margin-left: 0;
     }
 
 }
+

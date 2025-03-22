@@ -1,32 +1,56 @@
-const id = getElement('metadata-post').innerText;
+const mstdRoot = getElement('mastodon-comments');
+const tootUri = mstdRoot.dataset.uri;
 
-if (id) {
-    const host = getElement('metadata-instance').innerText;
-    const i18nreplies = getElement('i18n--is-replies').innerHTML;
-    const i18nreblogs = getElement('i18n--is-reblogs').innerHTML;
-    const i18nfavourites = getElement('i18n--is-favourites').innerHTML;
-    const style = document.createElement('style');
-    style.textContent = `
-        #comments > * {width: var(--golden-ratio)}
-        #comments noscript {margin: var(--medskip) 0}
-        #discussion-starter {margin-bottom: var(--medskip)}
-        #discussion-starter > footer {display: flex; align-items: center; justify-content: space-between}
-        .mastodon-comment {margin: 1rem 0 1rem calc(var(--mul) * var(--indent)); border: 1pt solid #fff4; border-left: 2pt solid var(--ac); background: #80808008; padding: 1rem 1rem 1ex; box-shadow: 0 .5pt 1pt 0 var(--g18s); overflow: auto}
-        .mastodon-comment .content {margin-left: 4rem; line-height: calc(var(--baselineStretch) * 1.272)}
-        .mastodon-comment .par a {max-width: 100%; vertical-align: bottom; white-space: break-spaces}
-        .mastodon-comment .attachments * {width: 100%; height: auto}
-        .mastodon-comment > footer {margin-top: 1rem; margin-left: 3.5rem}
-        .mastodon-comment > footer .stat {display: inline-flex; flex-shrink: 0; gap: 5pt}
-        .stat a {display: inline-flex; align-items: center; padding: 2pt; color: var(--mid); gap: 2pt}
-        .stat a::before {vertical-align: text-top}
-        a.replies.active, a.reblogs.active {color: var(--ac)}
-        a.favourites.active {color: var(--i3i)}
-        .mastodon-comment .date {margin-left: auto; padding-left: 1rem; color: var(--mid); font-size: calc(10pt * var(--fontScale))}
-        @media only screen and (max-width: 960px) {
-            .mastodon-comment .content, .mastodon-comment > footer {margin-left: 0}
-        }
-    `;
-    document.head.appendChild(style);
+// display on scroll
+const respondToVisibility = (element, callback) => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.intersectionRatio > 0) {
+                callback();
+            }
+        });
+    }, { root: null });
+
+    observer.observe(element);
+};
+
+// sync localization with hugo i18n
+const i18nreplies = getElement('i18n--is-replies').innerHTML;
+const i18nreblogs = getElement('i18n--is-reblogs').innerHTML;
+const i18nfavourites = getElement('i18n--is-favourites').innerHTML;
+const i18nLoading = getElement('i18n--is-loading').innerHTML;
+const i18nErr = getElement('i18n--is-error').innerHTML;
+const i18nNoComment = getElement('i18n--no-comment').innerHTML;
+
+const style = document.createElement('style');
+style.textContent = `
+    #comments > * {width: var(--golden-ratio)}
+    #comments noscript {margin: var(--medskip) 0}
+    #discussion-starter {margin-bottom: var(--medskip)}
+    #discussion-starter > footer {display: flex; align-items: center; justify-content: space-between}
+    .fediverse-comment {margin: 1rem 0 1rem calc(var(--mul) * var(--indent)); border: 1pt solid #fff4; border-left: 2pt solid var(--ac); background: #80808008; padding: 1rem 1rem 1ex; box-shadow: 0 0.5pt 1pt 0 var(--g18s); overflow: auto}
+    .fediverse-comment.bsky {--ac: #1185fe}
+    .fediverse-comment.mstd {--ac: #563acc}
+    .fediverse-comment > .author > img{margin-right: 12pt}
+    .fediverse-comment .content {margin-left: 4rem; line-height: calc(var(--baselineStretch) * 1.272)}
+    .fediverse-comment .par a {max-width: 100%; vertical-align: bottom; white-space: break-spaces}
+    .fediverse-comment > footer {display: flex; align-items: center; margin-top: 1rem; margin-left: 3.5rem; white-space: nowrap}
+    .fediverse-comment > footer .stat {display: inline-flex; flex-shrink: 0; gap: 5pt}
+    .attachments {display: flex;overflow: auto}
+    .attachments > * {flex-shrink: 0; width: 100%; height: auto}
+    .attachments img {width: 100%; height: auto}
+    .stat > * {display: inline-flex; align-items: center; padding: 2pt; color: var(--mid); gap: 2pt;}
+    .stat > *::before {vertical-align: text-top; font-family: 'base-ui';}
+    .stat > * > span {font-size: 0.8em}
+    a.replies.active, a.reblogs.active {color: var(--ac)}
+    a.favourites.active {color: var(--i3i)}
+    .fediverse-comment .date {margin-left: auto; padding-left: 1rem; color: var(--mid); font-size: calc(10pt * var(--fontScale))}
+    @media only screen and (max-width: 960px) {
+        .fediverse-comment .content, .fediverse-comment > footer {margin-left: 0}
+    }`;
+document.head.appendChild(style);
+
+if (tootUri) {
 
     function escapeHtml(unsafe) {
         return unsafe
@@ -48,6 +72,34 @@ if (id) {
         const count = toot[`${what}_count`];
         return count > 0 ? count : '';
     };
+
+    const renderStat = toot => `
+        <a class="replies ${toot_active(toot, 'replies')}" href="${toot.url}" rel="nofollow" aria-label="${i18nreplies}">
+            <span>${toot_count(toot, 'replies')}</span>
+        </a>
+        <a class="reblogs ${toot_active(toot, 'reblogs')}" href="${toot.url}" rel="nofollow" aria-label="${i18nreblogs}">
+            <span>${toot_count(toot, 'reblogs')}</span>
+        </a>
+        <a class="favourites ${toot_active(toot, 'favourites')}" href="${toot.url}" rel="nofollow" aria-label="${i18nfavourites}">
+            <span>${toot_count(toot, 'favourites')}</span>
+        </a>`;
+
+    const renderAttachment = attachment => {
+        const attachmentTypes = {
+            image: () => `<a href="${attachment.url}" rel="nofollow"><img src="${attachment.preview_url}" alt="${attachment.description}" loading="lazy" /></a>`,
+            video: () => `<video controls><source src="${attachment.url}" type="${attachment.mime_type}"></video>`,
+            gifv: () => `<video autoplay loop muted playsinline><source src="${attachment.url}" type="${attachment.mime_type}"></video>`,
+            audio: () => `<audio controls><source src="${attachment.url}" type="${attachment.mime_type}"></audio>`,
+            default: () => `<a href="${attachment.url}" rel="nofollow">${attachment.type}</a>`
+        };
+
+        return (attachmentTypes[attachment.type] || attachmentTypes.default)();
+    };
+
+    const renderContent = toot => `
+        <div class="par" data-bionRead-safe>${toot.content}</div>
+        <div class="attachments">${toot.media_attachments.map(renderAttachment).join('')}</div>
+    `;
 
     const user_account = (account) => {
         let result = `@${account.acct}`;
@@ -74,77 +126,46 @@ if (id) {
             );
         });
 
-        const renderAttachment = attachment => {
-            const attachmentTypes = {
-                image: () => `<a href="${attachment.url}" rel="nofollow"><img src="${attachment.preview_url}" alt="${attachment.description}" loading="lazy" /></a>`,
-                video: () => `<video controls><source src="${attachment.url}" type="${attachment.mime_type}"></video>`,
-                gifv: () => `<video autoplay loop muted playsinline><source src="${attachment.url}" type="${attachment.mime_type}"></video>`,
-                audio: () => `<audio controls><source src="${attachment.url}" type="${attachment.mime_type}"></audio>`,
-                default: () => `<a href="${attachment.url}" rel="nofollow">${attachment.type}</a>`
-            };
-
-            return (attachmentTypes[attachment.type] || attachmentTypes.default)();
-        };
-
         const mastodonComment = `
-            <article class="mastodon-comment" style="--mul: ${depth}">
+        <li>
+            <article class="fediverse-comment mstd" style="--mul: ${depth}">
                 <header class="author">
                     <img src="${escapeHtml(toot.account.avatar_static)}" height=48 width=48 alt="${user_account(toot.account)}" loading="lazy"/>
                     <a class="has-aria-label" href="${toot.account.url}" rel="nofollow" title="${toot.account.display_name}" aria-label="${user_account(toot.account)}">
                         <span>${toot.account.display_name}</span>
                     </a>
                 </header>
-                <div class="content">
-                    <div class="par" data-bionRead-safe>${toot.content}</div>
-                    <div class="attachments">
-                        ${toot.media_attachments.map(renderAttachment).join('')}
-                    </div>
-                </div>
+                <div class="content">${renderContent(toot)}</div>
                 <footer>
-                    <div class="stat">
-                        <a class="replies ${toot_active(toot, 'replies')}" href="${toot.url}" rel="nofollow" aria-label="${i18nreplies}">
-                            ${toot_count(toot, 'replies')}
-                        </a>
-                        <a class="reblogs ${toot_active(toot, 'reblogs')}" href="${toot.url}" rel="nofollow" aria-label="${i18nreblogs}">
-                            ${toot_count(toot, 'reblogs')}
-                        </a>
-                        <a class="favourites ${toot_active(toot, 'favourites')}" href="${toot.url}" rel="nofollow" aria-label="${i18nfavourites}">
-                            ${toot_count(toot, 'favourites')}
-                        </a>
-                    </div>
+                    <div class="stat">${renderStat(toot)}</div>
                     <a class="date" href="${toot.url}" rel="nofollow">
                         <time>${toot.created_at.substr(0, 10)} ${toot.created_at.substr(11, 8)}</time>
                     </a>
                 </footer>
-            </article>`;
+            </article>
+        </li>`;
 
-        getElement('mastodon-comments-list')
-            .appendChild(DOMPurify.sanitize(mastodonComment, {'RETURN_DOM_FRAGMENT': true}));
+        mstdRoot.appendChild(DOMPurify.sanitize(mastodonComment, {'RETURN_DOM_FRAGMENT': true}));
 
         render_toots(toots, toot.id, depth + 1);
     };
 
-    const toot_stats = toot => `
-        <a class="replies ${toot_active(toot, 'replies')}" href="${toot.url}" rel="nofollow" aria-label="${i18nreplies}">
-            ${toot_count(toot, 'replies')}
-        </a>
-        <a class="reblogs ${toot_active(toot, 'reblogs')}" href="${toot.url}" rel="nofollow" aria-label="${i18nreblogs}">
-            ${toot_count(toot, 'reblogs')}
-        </a>
-        <a class="favourites ${toot_active(toot, 'favourites')}" href="${toot.url}" rel="nofollow" aria-label="${i18nfavourites}">
-            ${toot_count(toot, 'favourites')}
-        </a>`;
-
     const loadComments = async () => {
         if (commentsLoaded) return;
 
-        const commentsList = getElement('mastodon-comments-list');
-        commentsList.innerHTML = getElement('i18n--is-loading').innerHTML;
+        mstdRoot.innerHTML = i18nLoading;
+
+        const splitUrl = tootUri.split('/');
+        function getJson() {
+            if (splitUrl[0] === 'https:' || splitUrl[0] === 'http:') {
+                return 'https://' + splitUrl[2] + '/api/v1/statuses/' + splitUrl[4]
+            }
+        }
 
         try {
             const [tootResponse, contextResponse] = await Promise.all([
-                fetch(`https://${host}/api/v1/statuses/${id}`),
-                fetch(`https://${host}/api/v1/statuses/${id}/context`)
+                fetch(getJson()),
+                fetch(getJson()+`/context`)
             ]);
 
             const [toot, data] = await Promise.all([
@@ -152,35 +173,23 @@ if (id) {
                 contextResponse.json()
             ]);
 
-            getElement("mastodon-stats").innerHTML = toot_stats(toot);
+            getElement("mastodon-content").innerHTML = renderContent(toot);
+            getElement("mastodon-stats").innerHTML = renderStat(toot);
 
             if (data.descendants?.length > 0) {
-                commentsList.innerHTML = "";
-                render_toots(data.descendants, id, 0);
+                mstdRoot.innerHTML = "";
+                render_toots(data.descendants, splitUrl[4], 0);
             } else {
-                commentsList.innerHTML = getElement('i18n--no-comment').innerHTML;
+                mstdRoot.innerHTML = i18nNoComment;
             }
 
             commentsLoaded = true;
-            commentsList.setAttribute('aria-busy', 'false');
+            mstdRoot.setAttribute('aria-busy', 'false');
         } catch (error) {
-            console.error('Error loading comments:', error);
-            commentsList.innerHTML = 'Error loading comments';
+            console.error(`Mastodon ${i18nErr}`, error);
+            mstdRoot.innerHTML = `Mastodon ${i18nErr} : ${error}`;
         }
     };
 
-    const respondToVisibility = (element, callback) => {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.intersectionRatio > 0) {
-                    callback();
-                }
-            });
-        }, { root: null });
-
-        observer.observe(element);
-    };
-
-    const comments = getElement("mastodon-comments-list");
-    respondToVisibility(comments, loadComments);
+    respondToVisibility(mstdRoot, loadComments);
 }

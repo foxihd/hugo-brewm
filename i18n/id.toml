@@ -91,6 +91,10 @@
     other = "Surel"
 [featuredImg]
     other = "Gambar Unggulan"
+[fediverseBluesky]
+    other = "Balas dengan Bluesky"
+[fediverseErr]
+    other = "Terjadi kesalahan saat memuat komentar"
 [fediverseIsLoading]
     other = "Memuat komentar di Fediverse"
 [FediverseReplies]

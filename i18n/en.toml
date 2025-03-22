@@ -95,6 +95,10 @@
     other = "Email"
 [featuredImg]
     other = "Featured image"
+[fediverseBluesky]
+    other = "Reply with bluesky"
+[fediverseErr]
+    other = "Error when loading comments"
 [fediverseIsLoading]
     other = "Loading comments on Fediverse"
 [FediverseReplies]

@@ -67,7 +67,7 @@
 .icon.copyleft:before {content: '\e906';}
 #has-share .email:before,
 .icon.email:before {content: '\e907';}
-a.favourites::before,
+.favourites::before,
 .icon.heart:before {content: '\e908';}
 .icon.internationalization:before {content: '\e909';}
 .icon.localization:before {content: '\e90a';}
@@ -76,7 +76,7 @@ a.favourites::before,
 .icon.print:before {content: '\e90c';}
 .reblogs::before,
 .icon.reblog:before {content: '\e90d';}
-a.replies::before,
+.replies::before,
 .icon.reply:before {content: '\e90e';}
 .icon.reset:before {content: '\e90f';}
 .icon.rss:before {content: '\e910';}

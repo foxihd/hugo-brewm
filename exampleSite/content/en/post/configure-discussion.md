@@ -11,11 +11,12 @@ coffee: 1
 tags: ['configuration', 'discussion']
 categories: ['configuration']
 toot: "https://infosec.exchange/@foxx/113979609651534969"
+bsky: "https://bsky.app/profile/foxx808.bsky.social/post/3lknem6ci2s2h"
 ---
 
-## The New Method
+## Linking discussions with Mastodon post
 
-Simply paste your toot link in `toot` or `comments` parameter in the front matter.
+Link your Mastodon post URL to the front matter using either `toot`, `mstd`, or `mastodon` parameter.
 
 ```yaml
 ---
@@ -23,29 +24,14 @@ toot: https://example.com/@example/12345678901234567890
 ---
 ```
 
+## Linking discussions with Bluesky post
 
-## 'The-Long' Method
-
-You can integrate discussions from you Fediverse instance to you article. To enable this feature, add the `fediverse` section to your front matter with the required `host`, `user`, and `post` parameters:
+Link your Mastodon post URL to the front matter using either `bsky` or `bluesky` parameter.
 
 ```yaml
 ---
-title: "Example"
-type: "post"
-fediverse:
-    host: fediverse.instance
-    user: user-name
-    post: 123456789012345678
+bsky: https://bsky.app/profile/example.com/post/12345678901234
 ---
 ```
 
-If you are single author, you can set the `host` and `user` parameter globally in the `config.toml` file:
-
-```toml
-[params]
-    [params.fediverse]
-    host = "example.com"
-    user = "username"
-```
-
-You might need to preview the article's permalink before sharing it on the Fediverse network to get post ID, or perform CI/CD twice.
+Note: You may need to estimating the article's permalink on your local preview before sharing on Fediverse platforms to obtain the post link, or you might need to run CI/CD operations twice.

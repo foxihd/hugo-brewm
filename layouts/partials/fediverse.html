@@ -1,58 +1,64 @@
-{{ "<!-- fediverse.html -->" | safeHTML }}
-{{- $instance := .instance  }}
-{{- $user := .user  }}
-{{- $post := .post  }}
-{{- $tootContent := .tootContent }}
-{{- $commentUrl := .commentUrl }}
+{{ "<!-- mastodon.html -->" | safeHTML }}
+{{- $bsky := .bsky }}
+{{- $toot := .toot }}
 <details id="comments" class="presentation" aria-label="{{ i18n "comments" }}" open>
-    <summary class="section-title" role="button" aria-expanded="true" aria-controls="mastodon-comments-list">
+    <summary class="section-title" role="button" aria-expanded="true" aria-controls="mastodon-comments">
         <span>{{ i18n "comments" }}</span>
     </summary>
-    <code class="verbose" aria-hidden="true" hidden>
-        <div class="has-aria-label-top" aria-label="Source:">
-            <span>https://</span><span id="metadata-instance">{{ $instance }}</span>
-            <span>/@</span><span id="metadata-user">{{ $user }}</span>
-            <span>/</span><span id="metadata-post">{{ $post }}</span>
-        </div>
-        <div id="i18n--no-comment" class="has-aria-label-top" aria-label="[l10n] if no comment to display:">
-            {{- i18n "noComment" -}}
-        </div>
-        <div id="i18n--is-loading" class="has-aria-label-top loading" aria-label="[l10n] if comments is loading:">
-            {{- i18n "fediverseIsLoading" -}}
-        </div>
-        <div id="i18n--is-replies" class="has-aria-label-top" aria-label="[l10n] replies:">
-            {{- i18n "FediverseReplies" }}
-        </div>
-        <div id="i18n--is-reblogs" class="has-aria-label-top" aria-label="[l10n] reblogs:">
-            {{- i18n "FediverseReblogs" }}
-        </div>
-        <div id="i18n--is-favourites" class="has-aria-label-top" aria-label="[l10n] favorites:">
-            {{- i18n "FediverseFavourites" }}
-        </div>
-    </code>
-        <article id="discussion-starter">
-            <div data-pagefind-body>{{ $tootContent | safeHTML }}</div>
-            <footer>
-                <a id="join-discussion" href="{{ $commentUrl }}" rel="nofollow" data-post-counter="">
-                    <span>{{ i18n "ctaComments" }}</span>
+
+    <article id="discussion-starter">
+        <div id="mastodon-content"></div>
+        <footer>
+            <div style="margin-top: 1em;">
+                {{- $cta := cond $toot $toot $bsky }}
+                <a id="join-discussion" href="{{ $cta }}" rel="nofollow" aria-label="{{ i18n "fediverseBluesky" }}">
+                    <i class="icon {{ if $toot }}mastodon{{ else }}bluesky{{ end }}" style="padding-right: 3pt;"></i><span>{{ i18n "ctaComments" }}</span>
                 </a>
-                <div id="mastodon-stats" class="stat" aria-live="polite"></div>
-            </footer>
-        </article>
-    <div id="mastodon-comments-list" role="feed" aria-busy="true" aria-label="{{ i18n "comments" }}"></div>
+                {{- if and $toot $bsky }}
+                    <a id="join-discussion-alt" href="{{ $bsky }}" rel="nofollow" style="margin-left: 5pt; border-left: var(--border); color: #1185fe">
+                        <i class="icon bluesky" style="padding: 5pt;"></i>
+                    </a>
+                {{- end }}
+            </div>
+            <div id="mastodon-stats" class="stat" aria-live="polite"></div>
+        </footer>
+    </article>
+
+    <code class="verbose" aria-hidden="true" hidden>
+        <div id="i18n--no-comment" class="has-aria-label-top" aria-label="[l10n] if no comment to display:">{{- i18n "noComment" -}}</div>
+        <div id="i18n--is-error" class="has-aria-label-top" aria-label="[l10n] Err:">{{- i18n "fediverseErr" }}</div>
+        <div id="i18n--is-loading" class="has-aria-label-top" aria-label="[l10n] if comments is loading:"><span class="loading">{{ i18n "fediverseIsLoading" -}}</span></div>
+        <div id="i18n--is-replies" class="has-aria-label-top" aria-label="[l10n] replies:">{{- i18n "fediverseReplies" }}</div>
+        <div id="i18n--is-reblogs" class="has-aria-label-top" aria-label="[l10n] reblogs:">{{- i18n "fediverseReblogs" }}</div>
+        <div id="i18n--is-favourites" class="has-aria-label-top" aria-label="[l10n] favorites:">{{- i18n "fediverseFavourites" }}</div>
+    </code>
+
+    {{ with $toot }}
+        <ul id="mastodon-comments" role="feed" aria-busy="true" aria-label="{{ i18n "comments" }}" 
+            style="padding: 0; list-style: none; width: var(--golden-ratio)"
+            data-uri="{{ . }}"></ul>
+    {{ end }}
+    {{- with $bsky }}
+        <ul id="bsky-comments" role="feed" role="feed" aria-busy="true" aria-label="{{ i18n "comments" }}" 
+            style="padding: 0; list-style: none; width: var(--golden-ratio)"
+            data-uri="{{ . }}"></ul>
+    {{- end }}
+
     <noscript>
         <div id="comments-error" role="alert">{{ i18n "noScript" }} {{ i18n "noComment" }}</div>
     </noscript>
-    {{ partialCached "partials/fediverse/js.html" . }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.4/purify.min.js" referrerpolicy="no-referrer"
+        integrity="sha384-eEu5CTj3qGvu9PdJuS+YlkNi7d2XxQROAFYOr59zgObtlcux1ae1Il3u7jvdCSWu" crossorigin="anonymous"></script>
+    {{ partialCached "partials/fediverse/js.html" . }}    
 </details>
 
-{{/*-------------------- end of fediverse.html ---------------------*/}}
+{{/*-------------------- end of mastodon.html ---------------------*/}}
 
 {{- define "partials/fediverse/js.html" -}}
     {{ "<!-- fediverse/js.html -->" | safeHTML }}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.4/purify.min.js" referrerpolicy="no-referrer"
-        integrity="sha384-eEu5CTj3qGvu9PdJuS+YlkNi7d2XxQROAFYOr59zgObtlcux1ae1Il3u7jvdCSWu" crossorigin="anonymous"></script>
-    {{- $fediverse := resources.Get "js/fediverse.js" | minify }}
+    {{- $mastodon := resources.Get "js/fediverse.js" }}
+    {{- $bluesky := resources.Get "js/bsky-comments.js" }}
+    {{- $fediverse := slice $mastodon $bluesky | resources.Concat "css/fediverse.js" | minify  }}
     {{- if eq hugo.Environment "development" }}
         <script src="{{ $fediverse.Permalink }}" defer></script>
     {{- else }}
@@ -64,32 +70,17 @@
     {{- end }}
 {{- end }}
 
-{{- define "partials/fediverse/instance.html" -}}
-    {{- $instance := or .Params.Fediverse.Host .Params.Fediverse.Instance site.Params.fediverse.instance site.Params.fediverse.host }}
-    {{- $commentUrl := or .Params.toot .Params.comment }}
-    {{- if $commentUrl }}
-        {{- $toot := split (replaceRE "^https?://" "" .Params.toot) "/" }}
-        {{- $instance = index $toot 0 }}
+{{- define "partials/fediverse/meta.html" -}}
+    {{- $toot := or .Params.toot .Params.comment }}
+    {{- $toots := split (replaceRE "^https?://" "" $toot) "/" }}
+    {{- $host := index $toots 0 }}
+    {{- $user := trim (index $toots 1) "@" }}
+    {{- $instance := or site.Params.fediverse.instance site.Params.fediverse.host $host }}
+    {{- $username := or site.Params.fediverse.username site.Params.fediverse.user $user }}
+    {{- if and $instance $username }}
+        <link rel="me" href="{{ print "https://" $instance "/@" $username }}">
+    {{ end }}
+    {{- if and $host $user .IsPage }}
+        <meta name="mastodon:creator" content="{{ print "@" $user "@" $host }}">
     {{- end }}
-    {{- return $instance }}
-{{- end }}
-
-{{- define "partials/fediverse/username.html" -}}
-    {{- $username := or .Params.Fediverse.User .Params.Fediverse.Username site.Params.fediverse.username site.Params.fediverse.user }}
-    {{- $commentUrl := or .Params.toot .Params.comment }}
-    {{- if $commentUrl }}
-        {{- $toot := split (replaceRE "^https?://" "" .Params.toot) "/" }}
-        {{- $username = trim (index $toot 1) "@" }}
-    {{- end }}
-    {{- return $username }}
-{{- end }}
-
-{{- define "partials/fediverse/post.html" -}}
-    {{- $post := or .Params.Fediverse.post .Params.Fediverse.link }}
-    {{- $commentUrl := or .Params.toot .Params.comment }}
-    {{- if $commentUrl }}
-        {{- $toot := split (replaceRE "^https?://" "" .Params.toot) "/" }}
-        {{- $post = index $toot 2 }}
-    {{- end }}
-    {{- return $post }}
 {{- end }}
