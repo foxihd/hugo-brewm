@@ -9,7 +9,7 @@
     <article id="discussion-starter">
         <div id="mastodon-content"></div>
         <footer>
-            <div style="margin-top: 1em;">
+            <div>
                 {{- $cta := cond $toot $toot $bsky }}
                 <a id="join-discussion" href="{{ $cta }}" rel="nofollow" aria-label="{{ i18n "fediverseBluesky" }}">
                     <i class="icon {{ if $toot }}mastodon{{ else }}bluesky{{ end }}" style="padding-right: 3pt;"></i><span>{{ i18n "ctaComments" }}</span>

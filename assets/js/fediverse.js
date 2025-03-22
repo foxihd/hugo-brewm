@@ -27,7 +27,7 @@ style.textContent = `
     #comments > * {width: var(--golden-ratio)}
     #comments noscript {margin: var(--medskip) 0}
     #discussion-starter {margin-bottom: var(--medskip)}
-    #discussion-starter > footer {display: flex; align-items: center; justify-content: space-between}
+    #discussion-starter > footer {display: flex; align-items: center; justify-content: space-between; margin-top: 1em}
     .fediverse-comment {margin: 1rem 0 1rem calc(var(--mul) * var(--indent)); border: 1pt solid #fff4; border-left: 2pt solid var(--ac); background: #80808008; padding: 1rem 1rem 1ex; box-shadow: 0 0.5pt 1pt 0 var(--g18s); overflow: auto}
     .fediverse-comment.bsky {--ac: #1185fe}
     .fediverse-comment.mstd {--ac: #563acc}

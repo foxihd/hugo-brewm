@@ -16,6 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 1em;
 }
 
 .fediverse-comment {
@@ -73,6 +74,11 @@
 
 .attachments > * {
     flex-shrink: 0;
+    width: 100%;
+    height: auto;
+}
+
+.attachments img {
     width: 100%;
     height: auto;
 }
