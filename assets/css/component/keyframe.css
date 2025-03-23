@@ -23,13 +23,13 @@
 }
 
 @-webkit-keyframes blinking {
-    from, to {visibility: visible;}
-    50% {visibility: hidden;}
+    from, to {opacity: 1;;}
+    50% {opacity: 0;}
 }
 
 @keyframes blinking {
-    from, to {visibility: visible;}
-    50% {visibility: hidden;}
+    from, to {opacity: 1;;}
+    50% {opacity: 0;}
 }
 
 @keyframes expand {
