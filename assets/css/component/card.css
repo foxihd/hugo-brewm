@@ -146,11 +146,6 @@ ul.pagination {
         width: var(--golden-ratio);
     }
 
-    aside + #list-posts .feed-item > section {
-        flex-direction: column;
-        aspect-ratio: unset;
-    }
-
     aside + #list-posts .feed-item .par {
         max-height: 25vh;
         width: unset;
