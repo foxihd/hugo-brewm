@@ -345,6 +345,18 @@ header time {
     grid-column: 1 / 3;
 }
 
+#join-discussion-bluesky {
+    position: relative;
+    margin-left: 5pt;
+    border-left: var(--border);
+    padding: 5pt;
+    color: #1185fe;
+}
+
+#join-discussion-bluesky > .t {
+    --tsf: translate(-5em);
+}
+
 @media screen and (max-width: 640px) {
 
     #contentinfo {
