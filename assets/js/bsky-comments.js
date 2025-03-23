@@ -191,7 +191,7 @@ if (atProto) {
 					<span>${comment.post.likeCount > 0 ? comment.post.likeCount : ''}</span>
 				</a>
 				</div>
-				<a class="date" href="${ToBskyUrl(comment.post.uri)}" rel="nofollow"><time>${replyDate.toLocaleString()}</time></a>
+				<a class="date" href="${ToBskyUrl(comment.post.uri)}" rel="nofollow"><time datetime="${replyDate.toISOString}">${formatDate(replyDate)}</time></a>
 			</footer>
 			</article>
 			<ul class="hasReplies" style="margin-left: var(--indent); padding: 0; list-style: none"></ul>

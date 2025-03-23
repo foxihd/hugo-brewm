@@ -97,7 +97,23 @@ getElement('print-button')?.removeAttribute('class');
 getElement('back')?.removeAttribute('class');
 
 // Date handling
+
 const date = new Date();
+function formatDate(dateString) {
+    return new Date(dateString).toLocaleString('en-US', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+        formatMatcher: 'basic'
+    }).replace(',', '').replace(/(\d+)\/(\d+)\/(\d+)/, '$3-$1-$2')
+}
+
+function toISOString(dateString) {
+    return new Date(dateString).toISOString()
+}
 
 // Mastodon and QR code functionality
 if (typeof mastodonInstance !== 'undefined') {
@@ -125,10 +141,9 @@ if (typeof mastodonInstance !== 'undefined') {
             })
         );
 
-        const isoTime = date.toISOString();
         const timeStamp = getElement('time-stamp');
-              timeStamp.innerHTML = isoTime;
-              timeStamp?.setAttribute('datetime', isoTime);
+              timeStamp.innerHTML = formatDate(date);
+              timeStamp?.setAttribute('datetime', date.toISOString());
     }
 }
 

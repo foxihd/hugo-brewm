@@ -139,7 +139,7 @@ if (tootUri) {
                 <footer>
                     <div class="stat">${renderStat(toot)}</div>
                     <a class="date" href="${toot.url}" rel="nofollow">
-                        <time>${toot.created_at.substr(0, 10)} ${toot.created_at.substr(11, 8)}</time>
+                        <time datetime="${toISOString(toot.created_at)}">${formatDate(toot.created_at)}</time>
                     </a>
                 </footer>
             </article>
