@@ -101,13 +101,13 @@
     other = "Error when loading comments"
 [fediverseIsLoading]
     other = "Loading comments on Fediverse"
-[FediverseReplies]
+[fediverseReplies]
     one = "Reply"
     other = "Replies"
-[FediverseReblogs]
+[fediverseReblogs]
     one = "Reblog"
     other = "Reblogs"
-[FediverseFavourites]
+[fediverseFavourites]
     one = "Favourites"
     other = "Favourites"
 [focusMode]

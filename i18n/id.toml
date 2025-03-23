@@ -97,11 +97,11 @@
     other = "Terjadi kesalahan saat memuat komentar"
 [fediverseIsLoading]
     other = "Memuat komentar di Fediverse"
-[FediverseReplies]
+[fediverseReplies]
     other = "Balasan"
-[FediverseReblogs]
+[fediverseReblogs]
     other = "Reblog"
-[FediverseFavourites]
+[fediverseFavourites]
     other = "Favorit"
 [focusMode]
     other = "Mode Fokus"
