@@ -160,4 +160,14 @@ ul.pagination {
         aspect-ratio: unset !important;
     }
 
+    .feed-item img {
+        max-height: unset;
+        aspect-ratio: unset;
+    }
+
+    .feed-item img.flowlines {
+        max-height: 68.8vw;
+        aspect-ratio: 10/8;
+    }
+
 }
