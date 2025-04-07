@@ -282,9 +282,10 @@ details[open] > .anchor.on-deck:after {
 /* bilingual */
 
 a#has-i18n {
+    align-items: center;
     width: auto;
+    font-size: .9em;
     font-weight: 700;
-    font-size: 0.9em;
     gap: 3pt;
 }
 
@@ -531,13 +532,18 @@ a#has-i18n:active > .alt {
 
     /* bilingual */
 
+    a#has-i18n {
+        margin-bottom: 1rem;
+    }
+
     a#has-i18n::after {
         margin: 0 auto 0 1.5ex;
         content: attr(aria-label);
     }
 
     a#has-i18n > img {
-        display: initial;
+        display: initial !important;
+        margin-left: 1ex;
     }
 
     /* multilingual */
