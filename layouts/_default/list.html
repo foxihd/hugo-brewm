@@ -94,7 +94,9 @@
 
             if page don't have article */}}
         {{- if eq (len $paginator.Pages) 0 }}
-            {{ template "no-content"}}
+            {{- if not .Content }}
+                {{ template "no-content"}}
+            {{- end }}
         {{- else }}
             <section id="list-posts" class="pagewidth">
                 <header {{ with .Data.Singular }}id="{{ . }}"{{ end }} class="section-title">
@@ -155,7 +157,9 @@
         {{- end }}
     {{- else }}
         {{- if eq (index site.Taxonomies .Data.Plural | len) 0 }}
-            {{ template "no-content"}}
+            {{- if not .Content }}
+                {{ template "no-content"}}
+            {{- end }}
         {{- else }}
         {{- /*
 
