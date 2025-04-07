@@ -5,7 +5,7 @@
         <kbd class="key" aria-hidden="true">a</kbd>
     </summary>
     {{ "<!-- a11y console -->" | safeHTML }}
-    <fieldset id="a11y" role="region" disabled>
+    <fieldset id="a11y" role="region" aria-label="{{ i18n "accessibility" }}" disabled>
         {{ "<!-- brightness & contrast -->" | safeHTML }}
         <div id="setColorScheme" role="group" aria-label="{{ i18n "colorSettings" }}">
             {{ partialCached "a11y/darkMode.html" . }}
@@ -96,7 +96,7 @@
                 oninput="setFontSize()">
             <output
                 id="fontSizeState"
-                onclick="resetFontSize()"
+                role="status"
                 aria-live="polite"
                 >10</output>
         </label>
@@ -114,7 +114,7 @@
                 >
             <output
                 id="baselineStretchState"
-                onclick="resetStretch()"
+                role="status"
                 aria-live="polite"
                 >1</output>
         </label>
@@ -123,7 +123,7 @@
 
 {{- define "partials/a11y/OpenDyslexic.html" -}}
     {{ "<!-- OpenDyslexic.html -->" | safeHTML }}
-    <div id="setOpenDyslexic">
+    <div id="setOpenDyslexic" aria-label="{{ i18n "OpenDyslexic" }}">
         <input
             id="OpenDyslexic"
             type="checkbox"
