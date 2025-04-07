@@ -20,7 +20,7 @@
                             aria-label="{{ i18n $taxonomy 1 }}:{{ .Page.Title }}"
                             data-post-counter="{{ printf "%d" .Count }}"
                             >
-                            <span>{{ humanize .Page.Title | title }}</span>
+                            <span>{{ humanize .Page.Title }}</span>
                         </a>
                         {{- /* workaround needed */}}
                         {{- /*  {{- if eq $taxonomy "categories" }}
