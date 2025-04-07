@@ -49,7 +49,7 @@
 
 * {
     box-sizing: border-box;
-    scroll-margin-top: calc(var(--vhead) + 4.118rem);
+    scroll-margin-top: var(--vhead);
     scroll-behavior: smooth;
     scrollbar-color: var(--g18) transparent;
     scrollbar-width: thin;

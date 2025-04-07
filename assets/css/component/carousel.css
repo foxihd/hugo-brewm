@@ -130,7 +130,7 @@ ul.carousel__viewport > li > a > span::after {
 #list-tags .underline,
 .carousel__viewport__slide > nav a {
     display: inline-flex;
-    padding: 1ex;
+    padding: 1ex 1rem;
     gap: 1ex;
 }
 
