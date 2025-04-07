@@ -10,7 +10,7 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 
 - **Reader-first**: Prioritizes privacy, readability and accessibility with personalized  settings for colors, fonts, BionRead and focus mode (It's Tracker Free!).
 - **Inclusive**: Graceful degradation design oriented with improved semantic HTML structure & WAI-ARIA attribute, the site remains fully functional even when JavaScript is disabled!
-- **Scalable**: Support for multiple authors and languages, optional Pagefind search, external feed over RSS and Fediverse-powered commenting system (Currently only support Mastodon & Bluesky).
+- **Scalable**: Support for multiple authors and languages, optional Pagefind search, external feed over RSS, Giscus and Fediverse-powered commenting system.
 - **Frameworkless**: Lower maintenance & carbon footprint by lesser resource usage.
 
 ## Translation
@@ -109,10 +109,10 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
     [params.comments]
         ## Disable comments (disable fediverse comments)
         disabled = false
-        ## Comment platform selection, currently only 'fediverse' is supported, further options to be determined
-        # platform = 'fediverse'
+        ## Comment platform selection, pending rule implementation
+        # platform = 'giscus'
 
-    ## Fediverse integration settings
+    ## Fediverse integration settings for verification
     [params.fediverse]
         ## Fediverse instance URL
         instance = 'example.com'
