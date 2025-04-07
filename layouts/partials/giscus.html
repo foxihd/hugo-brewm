@@ -1,0 +1,19 @@
+{{- if and (isset site.Params.giscus "repo") (ne site.Params.giscus.repo "" ) -}}
+<div class="textwidth">
+<script src="https://giscus.app/client.js"
+    data-repo="{{ site.Params.giscus.repo }}"
+    data-repo-id="{{ site.Params.giscus.repoID }}"
+    data-category="{{ site.Params.giscus.category }}"
+    data-category-id="{{ site.Params.giscus.categoryID }}"
+    data-mapping="{{ default "pathname" site.Params.giscus.mapping }}"
+    data-reactions-enabled="{{ default "1" site.Params.giscus.reactionsEnabled }}"
+    data-emit-metadata="{{ default "0" site.Params.giscus.emitMetadata }}"
+    data-input-position="{{ default "top" site.Params.giscus.inputPosition }}"
+    data-theme="{{ default "preferred_color_scheme" site.Params.giscus.theme }}"
+    data-lang="{{ default "en" (index (split $.Language.LanguageCode "-") 0) }}"
+    data-loading="{{ default "lazy" site.Params.giscus.loading }}"
+    crossorigin="anonymous"
+    async>
+</script>
+</div>
+{{- end -}}

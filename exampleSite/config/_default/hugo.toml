@@ -132,6 +132,13 @@ copyright = 'Copyright 2025 (c) Foxxi'
         ## Fediverse username
         # username = 'username'
 
+    ## Giscus integration settings
+    [params.giscus]
+        repo = "foxihd/hugo-brewm"
+        repoID = "R_kgDONwvqMA"
+        category = "Articles"
+        categoryID = "DIC_kwDONwvqMM4CnXDQ"
+
     ## Logo configuration
     [params.logo]
         ## Light mode logo mark
