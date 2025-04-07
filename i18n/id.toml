@@ -143,6 +143,8 @@
     other = "Tidak ada artikel untuk ditampilkan."
 [noArticlePost]
     other = "Sepertinya penulis kami kehabisan kopi... Tetap santai, kami akan membuatnya segera!"
+[noGiscus]
+    other = "Giscus memerlukan Javascript dan LocalStorage untuk aktif."
 [noComment]
     other = "Tidak ada komentar untuk ditampilkan."
 [noScript]

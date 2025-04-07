@@ -152,6 +152,8 @@
     other = "It appears that our author ran out of coffee... Keep calm, we'll brew one shortly!"
 [noComment]
     other = "No comments to display."
+[noGiscus]
+    other = "Giscus require Javascript and LocalStorage to be enable."
 [noScript]
     other = "Uh-oh... Javascript is disabled!"
 [noLocalStorage]

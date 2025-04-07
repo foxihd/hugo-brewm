@@ -1,5 +1,11 @@
 {{- if and (isset site.Params.giscus "repo") (ne site.Params.giscus.repo "" ) -}}
 <div class="textwidth">
+<noscript id="noGiscus">
+    <center role="alert">{{ i18n "noGiscus" }}</center>
+</noscript>
+<div id="noDOMGiscus" class="hide">
+    <center role="alert">{{ i18n "noGiscus" }}</center>
+</div>
 <script src="https://giscus.app/client.js"
     data-repo="{{ site.Params.giscus.repo }}"
     data-repo-id="{{ site.Params.giscus.repoID }}"

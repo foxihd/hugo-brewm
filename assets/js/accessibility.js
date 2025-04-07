@@ -106,6 +106,7 @@ function hasLocalStorage() {
     } catch(e) {
         defaultContrast.checked = true;
         getElement('noLocalStorage').className = '';
+        getElement('noDOMGiscus').className = '';
         return false;
     };
 };
