@@ -58,11 +58,13 @@
 [contribAskReaderResponse]
     other = "Terima kasih!"
 [contribAskReaderToContribute]
-    other = "Anda juga dapat mendukung saya dengan memberikan kontribusi berikut:"
+    one = "Anda juga dapat mendukung saya dengan memberikan kontribusi berikut:"
+    other = "Anda juga dapat mendukung kami dengan memberikan kontribusi berikut:"
 [contribCoffeeStat]
     other = "Tahukah Anda bahwa"
 [contribCoffeeStatPost]
-    other = "telah membantu saya menulis artikel ini?"
+    one = "telah membantu saya menulis artikel ini?"
+    other = "telah membantu kami menulis artikel ini?"
 [copy]
     other = "Salin Tautan"
 [copying]

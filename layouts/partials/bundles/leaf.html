@@ -212,14 +212,15 @@
 {{- define "partials/post/contribute.html" -}}
     {{- if index site.Menus "contrib" }}
     <div id="contribute">
+        {{ $authorCount := or site.Taxonomies.author (.GetTerms "author") | len }}
         <strong class="section-title">{{ i18n "contribAskReader" }}</strong>
         <br>
         <span>
             {{ i18n "contribAskReaderResponse" }}
             {{- with .Params.Coffee }}
-            {{ i18n "contribCoffeeStat" }} {{ printf "%d %s" . (i18n "cup" . | lower) }} {{ i18n "contribCoffeeStatPost" }}
+            {{ i18n "contribCoffeeStat" $authorCount }} {{ printf "%d %s" . (i18n "cup" . | lower) }} {{ i18n "contribCoffeeStatPost" }}
             {{- end }}
-            {{ i18n "contribAskReaderToContribute" }}
+            {{ i18n "contribAskReaderToContribute" $authorCount }}
         </span>
         {{ partial "menu.html" (dict "menuID" "contrib" "open" "open" "page" .)}}
     </div>

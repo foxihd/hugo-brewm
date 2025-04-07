@@ -61,11 +61,13 @@
 [contribAskReaderResponse]
     other = "Awesome!"
 [contribAskReaderToContribute]
-    other = "You can also support me by making the following contributions:"
+    one = "You can also support me by making the following contributions:"
+    other = "You can also support us by making the following contributions:"
 [contribCoffeeStat]
     other = "Did you know that"
 [contribCoffeeStatPost]
-    other = "helped me write this article?"
+    one =  "helped me write this article?"
+    other = "helped us write this article?"
 [copy]
     other = "Copy URL"
 [copying]
