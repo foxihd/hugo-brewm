@@ -46,11 +46,6 @@ hr.ldots::after {
     right: var(--void);
 }
 
-.section-title,
-#list-tags > ul {
-    margin: var(--medskip) 0 1ex;
-}
-
 #term section.pagewidth,
 #taxonomy section.pagewidth,
 #list-posts  {
@@ -143,6 +138,16 @@ hr.ldots::after {
         margin: var(--bigskip) auto;
         padding: 0;
         width: var(--canonic);
+    }
+
+    #list-tags > nav {
+        padding: 0 1ex;
+    }
+
+    #list-tags .underline,
+    #list-tags .section-title,
+    #list-posts .section-title {
+        padding-left: 1rem;
     }
 
 }

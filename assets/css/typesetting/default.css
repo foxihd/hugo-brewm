@@ -191,6 +191,10 @@ tbody tr:nth-child(2n) {
     /* font-variant-caps: all-small-caps; */
 }
 
+.section-title {
+    margin: var(--medskip) 0 1ex;
+}
+
 details.presentation > summary {
     cursor: pointer;
     list-style: none;

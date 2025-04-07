@@ -44,7 +44,7 @@ body > main#home > aside#list-tags {
 }
 
 div[role="feed"] {
-    padding: 1ex;
+    padding: 0 1ex;
 }
 
 .carousel .feed-item,
@@ -111,10 +111,6 @@ hr.ldots {
         margin: var(--bigskip) auto;
         padding: 0 var(--void);
         width: var(--golden-ratio);
-    }
-
-    #list-posts .section-title {
-        padding-left: unset;
     }
 
     div[role="feed"] {

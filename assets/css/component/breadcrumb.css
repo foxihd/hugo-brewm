@@ -7,7 +7,7 @@ main > header.pagewidth {
 #back {
     display: inline-flex;
     position: relative;
-    top: 2.8pt;
+    top: 5pt;
     float: left;
     border: none;
     background: none;
