@@ -112,6 +112,15 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         ## Comment platform selection, pending rule implementation
         # platform = 'giscus'
 
+    ## Favicon configuration
+    [params.favicon]
+        # png = '/favicon-96x96.png'
+        # svg = '/favicon.svg'
+        # ico = '/favicon.ico'
+        # apple = '/apple-touch-icon.png'
+        # appTitle = 'App Title'
+        # webmanifest = '/site.webmanifest'
+
     ## Fediverse integration settings for verification
     [params.fediverse]
         ## Fediverse instance URL

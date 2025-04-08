@@ -40,10 +40,7 @@
         <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ .Language.LanguageName }}">
     {{- end }}
 {{- end }}
-{{ with .Site.Params.favicon }}
-    <link rel="icon" href="{{ . }}">
-{{ end }}
-
+{{ partialCached "head/meta/favicon.html" . }}
 {{ partial "fediverse/meta.html" . }}
 
 {{- $ISO8601 := "2006-01-02T15:04:05-07:00" }}
@@ -70,6 +67,17 @@
 {{- end }}
 
 {{- /*---------------------- end of meta.html ----------------------*/}}
+
+{{- define "partials/head/meta/favicon.html" }}
+    {{- with site.Params.favicon }}
+        {{ with .png -}}<link rel="icon" type="image/png" href="{{ . }}" sizes="96x96" />{{ end }}
+        {{ with .svg -}}<link rel="icon" type="image/svg+xml" href="{{ . }}" />{{ end }}
+        {{ with .ico -}}<link rel="shortcut icon" href="{{ . }}" />{{ end }}
+        {{ with .apple -}}<link rel="apple-touch-icon" sizes="180x180" href="{{ . }}" />{{ end }}
+        <meta name="apple-mobile-web-app-title" content="{{ or .appTitle site.Title }}" />
+        {{ with .webmanifest -}}<link rel="manifest" href="{{ . }}" />{{ end }}
+    {{- end }}
+{{- end }}
 
 {{- define "openGraph" }}
     {{ "<!-- openGraph -->" | safeHTML -}}
