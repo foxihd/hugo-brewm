@@ -133,11 +133,8 @@ hr.ldots::after {
 
     body > main > aside#list-tags {
         position: unset;
-        position: unset;
         float: unset;
-        margin: var(--bigskip) auto;
-        padding: 0;
-        width: var(--canonic);
+        padding: 0 var(--void);
     }
 
     #list-tags > nav {
