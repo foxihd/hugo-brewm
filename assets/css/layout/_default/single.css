@@ -4,6 +4,16 @@
     font-family: var(--rm), serif;
 }
 
+#main-page h1 {
+    font-weight: 700;
+}
+
+#main-page .subtitle,
+#main-page h2,
+#main-page h3 {
+    font-style: normal;
+}
+
 /* article frontmatter */
 
 #main-article > header {
@@ -130,6 +140,7 @@ header time {
     border-radius: 2rem;
 }
 
+#main-page section > p,
 #main-article audio,
 #main-article section > p {
     margin: 0.618pc 0;
@@ -196,6 +207,7 @@ header time {
     font-variant-position: super;
 }
 
+#main-page > header,
 #content,
 #keywords,
 #contentinfo {

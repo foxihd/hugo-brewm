@@ -27,15 +27,17 @@
 {{- end }}
 
 {{- define "main" }}
-    <article id="main-article" class="pagewidth"
+    {{- $isPost := eq .Params.type (or "post" "articles") }}
+    <article id="{{ if $isPost }}main-article{{ else }}main-page{{ end }}" class="pagewidth"
         role="document" aria-labelledby="title"
         {{- if ne (lower .Params.type) (or "post" "articles") }}
             data-pagefind-ignore="all"
         {{- else }}
             data-pagefind-body
         {{- end }}>
-        <header class="textwidth" aria-labelledby="title">
+        <header aria-labelledby="title">
             {{ partial "page/title.html" . }}
+            {{- if $isPost }}
             <div id="doc-author" class="textsw author">
                 {{- $author := cond .Params.author .Params.author site.Params.Author.name }}
                 {{- $authors := .GetTerms "author" }}
@@ -67,6 +69,7 @@
                 {{- end }}
             </div>
             {{ partial "page/timestamp.html" . }}
+            {{- end }}
         </header>
         {{- with .Params.toc }}
             {{ partial "nav.html" (dict "navID" "TableOfContents" "page" $) }}
@@ -79,22 +82,26 @@
                 {{ .Content }}
             {{- end }}
         </section>
-        <footer>
-            {{ partial "post/tagged.html" . }}
-        </footer>
+        {{- if $isPost }}
+            <footer>
+                {{ partial "post/tagged.html" . }}
+            </footer>
+        {{- end }}
     </article>
     <hr class="hide" style="margin: 1in 0;">
     <div id="contentinfo" class="pagewidth" role="contentinfo" data-pagefind-ignore="all">
-        {{- if or .Params.related site.Params.posts.related }}
-            {{ partial "post/related.html" . }}
+        {{- if $isPost }}
+            {{- if or .Params.related site.Params.posts.related }}
+                {{ partial "post/related.html" . }}
+            {{- end }}
+            {{- if or .Params.colophon site.Params.posts.colophon }}
+                {{ partial "post/colophon.html" . }}
+            {{- end }}
+            {{- if not site.Params.posts.disableHistory }}
+                {{ partial "post/history.html" . }}
+            {{- end }}
+            {{ partial "post/contribute.html" . }}
         {{- end }}
-        {{- if or .Params.colophon site.Params.posts.colophon }}
-            {{ partial "post/colophon.html" . }}
-        {{- end }}
-        {{- if not site.Params.posts.disableHistory }}
-            {{ partial "post/history.html" . }}
-        {{- end }}
-        {{ partial "post/contribute.html" . }}
         {{- if site.Params.posts.share }}
             {{ partial "nav.html" (dict "navID" "share" "page" .) }}
         {{- end }}
