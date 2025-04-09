@@ -140,6 +140,7 @@ if (atProto) {
 
     function renderAttachment(post) {
         let attachment = "";
+        const did = post.author.did;
         if (post.embed) {
             const embedType = post.embed.$type;
 
@@ -151,14 +152,14 @@ if (atProto) {
             } else if (embedType === "app.bsky.embed.images#view") {
                 const images = post.record.embed.images;
                 attachment = images.map(image => {
-                    const thumb = ToBskyImgUrl(post.author.did, image.image.ref.$link, true);
-                    const src = ToBskyImgUrl(post.author.did, image.image.ref.$link, false);
+                    const thumb = ToBskyImgUrl(did, image.image.ref.$link, true);
+                    const src = ToBskyImgUrl(did, image.image.ref.$link, false);
                     return `<a href="${src}" target="_blank"><img src="${thumb}" alt="${image.alt}"></a>`;
                 }).join('');
             } else if (embedType === "app.bsky.embed.video#view") {
                 const video = post.record.embed.video;
-                return `<video controls poster="${post.embed.thumbnail}">
-                    <source src="https://bsky.social/xrpc/com.atproto.sync.getBlob?cid=${video.ref.$link}&did=${post.author.did}" type="${video.mimeType}"></video>`
+                attachment = `<video controls poster="${post.embed.thumbnail}">
+                    <source src="https://bsky.social/xrpc/com.atproto.sync.getBlob?cid=${video.ref.$link}&did=${did}" type="${video.mimeType}"></video>`
             }
         }
         return attachment;
