@@ -227,7 +227,7 @@ details.presentation > summary {
     z-index: 1;
     border-radius: 1em;
     background: var(--fg);
-    padding: 0.25em;
+    padding: 0.25em 0.42em;
     width: 7.5em;
     text-align: center;
     color: var(--bg);

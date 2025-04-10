@@ -54,6 +54,12 @@ body > header > nav {
 
 /* menu icon */
 
+#top-nav .icon {
+    position: relative;
+    top: -0.05em;
+    margin-right: 0.3em;
+}
+
 .menu-icon::before {
     content: '\e90b';
     font-family: 'base-ui';
@@ -173,7 +179,6 @@ details[open] .on-plank,
 #top-nav a,
 .anchor {
     display: flex;
-    align-items: baseline;
     border: 2pt solid transparent;
     border-width: 0 0 2pt 0;
     padding: 1ex;
@@ -181,16 +186,8 @@ details[open] .on-plank,
     color: var(--fg);
 }
 
-#top-nav a > .icon::after {
-    content: '\a0';
-}
-
 #top-nav a.has-desc {
     flex-direction: column;
-}
-
-.anchor {
-    align-items: center;
 }
 
 summary.anchor .has-aria-label::after {
@@ -245,6 +242,7 @@ summary.anchor .has-aria-label::after {
     position: relative;
     top: 0.23em;
     left: 0.43em;
+    align-self: center;
     margin-left: auto;
     background: linear-gradient(to top, transparent 49%, var(--g18) 51%);
     -webkit-background-clip: text;
@@ -282,7 +280,7 @@ details[open] > .anchor.on-deck:after {
 /* bilingual */
 
 a#has-i18n {
-    align-items: center;
+    align-items: end;
     width: auto;
     font-size: .9em;
     font-weight: 700;
@@ -316,7 +314,7 @@ a#has-i18n:active > .alt {
 
 #has-l10n summary {
     display: block !important;
-    padding: 4pt 1.4ex 4pt 4pt;
+    padding: 0 1.4ex 0 4pt;
     font-size: 0.9em;
 }
 
@@ -563,6 +561,7 @@ a#has-i18n:active > .alt {
 
     /* hide desktop element */
 
+    a#has-i18n > .t,
     #top-nav > nav .screening,
     #top-nav > summary > .t,
     #has-search[open] > summary,

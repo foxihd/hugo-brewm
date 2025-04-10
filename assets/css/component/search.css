@@ -196,9 +196,14 @@ a.pagefind-ui__result-link {
 
     .pagefind-ui,
     .form.on-plank {
-        margin: 1ex;
-        padding: 0;
+        margin: 0;
         border: unset;
+        padding: 0;
+        width: 100%;
+    }
+
+    #duckduckgo {
+        padding: 1ex;
     }
 
 }

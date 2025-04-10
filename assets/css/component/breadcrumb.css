@@ -6,18 +6,16 @@ main > header.pagewidth {
 
 #back {
     display: inline-flex;
-    position: relative;
-    top: 5pt;
     float: left;
     border: none;
     background: none;
-    padding: 0;
+    padding: 5pt 0;
     color: inherit;
 }
 
 #back::before,
 header > menu a::before {
-    padding: 6pt 9pt;
+    padding: 3pt 7pt;
     font-size: var(--large);
 }
 
