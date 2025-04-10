@@ -68,10 +68,14 @@ enableRobotsTXT = true
 ## Files to ignore when building site
 ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
 
-## Enable code fence highlighting
+## markup configuration
 [markup]
+
     [markup.highlight]
+        ## Enable code fence highlighting
         codeFences = true
+        ## Use hugo-brewm classes for verbatim styling
+        noClasses = false
 
 ## Sitemap configuration
 [sitemap]
@@ -128,6 +132,43 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         ## Fediverse username
         username = 'username'
 
+    ## Feed display settings
+    [params.feed]
+        ## Enable flowlines
+        flowlines = true
+        ## Limit number of flowlines with maximum 42
+        flowlinesLimit = 21
+
+    ## Giscus configuration
+    [params.giscus]
+        ## Repository name
+        repo = "username/repository"
+        ## Repository ID
+        repoID = "R_xxx"
+        ## Discussion category
+        category = "Comments"
+        ## Category ID
+        categoryID = "DIC_xxx"
+        ## Discussion mapping
+        mapping = "og:title"
+        ## Enable reactions
+        reactionsEnabled = "1"
+        ## Emit discussion metadata
+        emitMetadata = "0"
+        ## Comment input box position
+        inputPosition = "bottom"
+        ## Color theme
+        theme = "light"
+        ## Loading behavior
+        loading = "lazy"
+
+    ## Home page display settings
+    [params.home]
+        ## Disable slide carousel
+        disableSlide = false
+        ## Disable taxonomy listing carousel
+        disableListing = false
+
     ## Logo configuration
     [params.logo]
         ## Light mode logo mark
@@ -136,20 +177,6 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         logoMarkDark = 'https://example.com/logoMarkDark.svg'
         ## Enable logo type
         logoType = true
-
-    ## Feed display settings
-    [params.feed]
-        ## Enable flowlines
-        flowlines = true
-        ## Limit number of flowlines with maximum 42
-        flowlinesLimit = 21
-
-    ## Home page display settings
-    [params.home]
-        ## Disable slide carousel
-        disableSlide = false
-        ## Disable taxonomy listing carousel
-        disableListing = false
 
     ## Post display settings
     [params.posts]
@@ -175,15 +202,6 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         ## fallback searchbox when javascript disabled, currently the options limited to 'mojeek', otherwise duckduckgo will be used
         # fallback = 'mojeek'
 
-    ## Typography settings
-    [params.typeface]
-        ## Use web safe fonts (will overide font selection below)
-        webSafe = false
-        ## Serif font selection
-        roman = 'crimson'
-        ## Sans-serif font selection
-        sans = 'inter'
-
     ## Extended Metadata and Social card configuration
     [params.socialCard]
         ## Enable twitter and opengraph social cards (same as .params.extMeta)
@@ -208,6 +226,16 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         # schema = true
         ## JsonLD (EXPERIMENTAL, cannot validate permalink)
         # jsonLD = true
+
+    ## Typography settings
+    [params.typeface]
+        ## Use web safe fonts (will overide font selection below)
+        webSafe = false
+        ## Serif font selection
+        roman = 'crimson'
+        ## Sans-serif font selection
+        sans = 'inter'
+
 ```
 
 ### Preview Changes
