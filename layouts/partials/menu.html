@@ -103,11 +103,16 @@
             {{- $tooltip := .identifier }}
             <span class="t" role="tooltip">{{ title $tooltip }}</span>
         {{- end }}
-        {{- with .icon -}}
-            <i class="icon {{ . }}" aria-hidden="true"></i>
+        {{- if and .icon (not .desc) }}
+            <i class="icon {{ .icon }}" aria-hidden="true"></i>
         {{- end }}
-        {{- with .name }}
-            <span>{{ . }}</span>
+        {{- if .name }}
+            <span>
+                {{- if and .icon .desc }}
+                    <i class="icon {{ .icon }}" aria-hidden="true"></i>
+                {{- end }}
+                {{ .name -}}
+            </span>
         {{- end }}
     </a>
 {{- end }}
@@ -117,8 +122,13 @@
         {{ if .deck }}name="on-deck"{{ end }}
         {{- if eq .menuID "more" }} open {{ else }} {{ .open | safeHTMLAttr }} {{ end }}>
         <summary class="anchor {{ if .deck }} on-deck {{ end }}">
-            {{ with .icon }}<i class="icon {{ . }}" aria-hidden="true"></i>{{ end }}
+            {{- if and .icon (not .desc) }}
+                <i class="icon {{ .icon }}" aria-hidden="true"></i>
+            {{- end }}
             <span {{ with .desc }} class="has-aria-label" aria-label="{{ . }}" {{ end }}>
+                {{- if and .icon .desc }}
+                    <i class="icon {{ .icon }}" aria-hidden="true"></i>
+                {{- end }}
                 {{- .name -}}
             </span>
         </summary>
