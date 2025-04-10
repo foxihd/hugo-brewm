@@ -531,7 +531,7 @@ a#has-i18n:active > .alt {
     /* bilingual */
 
     a#has-i18n {
-        margin-bottom: 1rem;
+        margin: auto 1rem 1rem;
     }
 
     a#has-i18n::after {
@@ -548,6 +548,7 @@ a#has-i18n:active > .alt {
 
     #has-i18n img {
         height: 12pt;
+        margin: auto 0;
     }
 
     #i18n-menu {
