@@ -76,7 +76,7 @@
       {{ end -}}
       <guid>{{ .Permalink }}</guid>
       <description>{{ $desc | transform.XMLEscape | safeHTML }}</description>
-      {{- $cover := partial "partials/page/cover.html" (dict "page" .) }}
+      {{- $cover := partial "page/cover.html" (dict "page" .) }}
       {{ with $cover -}}
         <enclosure url="{{ . }}" length="0" type="image/jpeg" />
       {{- end }}

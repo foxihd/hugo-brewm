@@ -1,6 +1,6 @@
 {{- define "head" -}}
     {{ "<!-- list.html [head] -->" | safeHTML }}
-    {{- $paginator := partial "partials/paginator.html" . }}
+    {{- $paginator := partial "paginator.html" . }}
     {{- $enableSlide := not site.Params.home.disableSlide }}
     {{- $slides := where .Site.RegularPages "Type" "slide" }}
     {{- if and .IsHome (not $paginator.HasPrev) $enableSlide $slides }}
@@ -12,7 +12,7 @@
 {{- end -}}
 
 {{- define "aside" -}}
-    {{- $paginator := partial "partials/paginator.html" . }}
+    {{- $paginator := partial "paginator.html" . }}
     {{- $enableSlide := not site.Params.home.disableSlide }}
     {{- if and .IsHome (not $paginator.HasPrev) $enableSlide}}
         {{ partialCached "carousel.html" . }}
@@ -20,7 +20,7 @@
 {{- end -}}
 
 {{- define "top" -}}
-    {{- $paginator := partial "partials/paginator.html" . }}
+    {{- $paginator := partial "paginator.html" . }}
     {{- $enableListing := not site.Params.home.disableListing }}
     {{- if not $paginator.HasPrev }}
         {{- if .IsHome }}
@@ -54,7 +54,7 @@
 {{- end -}}
 
 {{- define "main" -}}
-    {{- $paginator := partial "partials/paginator.html" . }}
+    {{- $paginator := partial "paginator.html" . }}
     {{- $firstPage := not $paginator.HasPrev }}
     {{- /*
 
@@ -139,7 +139,7 @@
                         {{- $authors := .GetTerms "author" }}
                         {{- $categories := .GetTerms "categories" }}
                         {{- $desc := or .Params.Subtitle .Params.Description .Description .Summary }}
-                        {{- $hasCover := partial "partials/page/cover.html" (dict "page" .) }}
+                        {{- $hasCover := partial "page/cover.html" (dict "page" .) }}
                         {{- $alt := or .Params.Alt .Params.coverAlt .Params.imagesAlt }}
                         {{- if $index }}<hr class="ldots" role="presentation" aria-hidden="true">{{- end }}
                         {{ template "card" (dict "page" $page "paginator" $paginator "counter" $counter "desc" $desc "hasCover" $hasCover "alt" $alt "author" $author "authors" $authors) }}
@@ -270,7 +270,7 @@
             {{- if .hasCover }}
                 <img src={{ .hasCover }} alt="{{ if .alt }}{{ .alt }}{{ else }}{{ i18n "featuredImg"}}: {{ .page.Title }}{{ end }}" loading="lazy">
             {{- else if $useFlowlines }}
-                {{- $src := partial "partials/flowlines.html" . }}
+                {{- $src := partial "flowlines.html" . }}
                 {{- $pseudoRandomPos := printf "object-position: %d%% %d%%" (index (seq 81 | shuffle) 11) (index (seq 80 | shuffle) 12) }}
                 <img class="flowlines" src="{{ $src }}" alt="" style="{{ $pseudoRandomPos }}" loading="lazy">
             {{- end }}

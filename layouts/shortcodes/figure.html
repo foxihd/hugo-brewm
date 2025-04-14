@@ -4,7 +4,7 @@
 {{- $alt := .Get "alt" }}
 {{- $var := .Get 0 }}
 {{- if eq $src "cover" }}
-    {{- $src = partial "partials/page/cover.html" (dict "page" $.Page ) }}
+    {{- $src = partial "page/cover.html" (dict "page" $.Page ) }}
     {{- $coverAlt := or $.Page.Params.Alt $.Page.Params.coverAlt $.Page.Params.imagesAlt }}
     {{- if and $coverAlt (not $alt) }}
         {{ $alt = $coverAlt }}

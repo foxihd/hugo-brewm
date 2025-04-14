@@ -11,9 +11,9 @@
             {{ range .ByCount -}}
                 {{- $index = add $index 1 }}
                 {{- if or (le $index $limit) (not $limit) -}}
-                    {{- $src := partial "partials/page/cover.html" (dict "page" .Page) }}
+                    {{- $src := partial "page/cover.html" (dict "page" .Page) }}
                     {{- if not $src}}
-                        {{- $src = partial "partials/flowlines.html" . }}
+                        {{- $src = partial "flowlines.html" . }}
                     {{- end }}
                     <li  {{ if $cover }}style="background-image:url({{ $src }});"{{ end }}>
                         <a href="{{ .Page.Permalink }}"
@@ -180,7 +180,7 @@
                     {{- $slideNum := add $index 1 }}
                     <section id="slide-{{ $slideNum }}" class="carousel__viewport__slide"
                         aria-labelledby="slide-{{ $slideNum }}__heading">
-                        {{- $hasCover := partial "partials/page/cover.html" (dict "page" .Page) }}
+                        {{- $hasCover := partial "page/cover.html" (dict "page" .Page) }}
                         {{- $alt := or .Page.Params.Alt .Page.Params.coverAlt .Page.Params.imagesAlt }}
                         {{- if or $hasCover }}
                         <div class="carousel__viewport__slide__cover">

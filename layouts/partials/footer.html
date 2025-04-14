@@ -44,7 +44,7 @@
                         </div>
                     {{- end }}
                     {{- if site.Params.coffeeStat }}
-                        {{- $coffeeStat := partialCached "partials/coffeeStat.html" . }}
+                        {{- $coffeeStat := partialCached "coffeeStat.html" . }}
                         {{- with $coffeeStat }}
                         <div id="coffee-counter">
                             <strong class="section-title">{{ i18n "coffeeStat" }}</strong>

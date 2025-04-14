@@ -47,7 +47,7 @@
                         {{- range $authors }}
                             {{ $flair := .Params.flair }}
                             {{- if $flair }}
-                                {{- $displayPicture := partial "partials/page/cover.html" (dict "page" .) }}
+                                {{- $displayPicture := partial "page/cover.html" (dict "page" .) }}
                                 <a id="avatar" href="{{ .Permalink }}" aria-label="{{ .LinkTitle }}">
                                     <img src="{{ $displayPicture }}" alt="{{ .LinkTitle }}"/>
                                 </a>
