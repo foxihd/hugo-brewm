@@ -178,6 +178,8 @@
     other = "Post by"
 [postsOn]
     other = "Posts on"
+[poweredBy]
+    other = "Powered by"
 [prev]
     other = "Previous"
 [print]

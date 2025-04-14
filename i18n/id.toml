@@ -179,6 +179,8 @@
     other = "Protanopia"
 [published]
     other = "Diterbitkan"
+[poweredBy]
+    other = "Didukung oleh"
 [readingTime]
     other = "Menit untuk baca"
 [recent]

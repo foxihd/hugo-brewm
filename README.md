@@ -88,8 +88,10 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
     title = "Example"
     ## Site description
     description = "An ExampleSite built with Hugo and Hugo-Brewm theme"
-    ## Copyright notice, not implemented yet
-    # copyright = "Copyright 2025 (c) Author"
+    ## Copyright notice on colophon
+    copyright = "Copyright 2025 &copy; Author"
+    ## Hide "powered by hugo" on colophon
+    HideHugoCredit = true
     ## Enable extended metadata (social cards)
     extMeta = true
     ## Enable coffee metric

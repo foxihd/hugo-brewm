@@ -147,9 +147,15 @@
             <div id="qr" role="img" aria-label="QR code"></div>
             <div class="verbose">
                 <div class="has-aria-label-top" aria-label="{{ .Title }}"><span>{{- .Permalink }}</span></div>
-                <div><span>{{ i18n "accessTime" }}: </span><time id="time-stamp"></time></div>
+                {{- $copyright := or site.Copyright site.Params.copyright }}
+                {{- if $copyright -}}
+                    <div><span>{{ markdownify $copyright }}</span></div>
+                {{- end }}
                 <div><span>{{ i18n "buildTime" }}: </span><time datetime="{{ now.Format "2006-01-02T15:04:05-07:00" }}">{{ now.Format "2006-01-02 15:04" }}</time></div>
-                {{/*  <div class="sf">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer"> Hugo</a></div>  */}}
+                <div><span>{{ i18n "accessTime" }}: </span><time id="time-stamp"></time></div>
+                {{- if not site.Params.HideHugoCredit -}}
+                    <div><span>{{ i18n "poweredBy" }}: </span><a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> {{ hugo.Version }} & <a href="https://github.com/foxihd/hugo-brewm" target="_blank" rel="noopener">hugo-brewm</a>.</div>
+                {{- end }}
             </div>
         </div>
     </div>
