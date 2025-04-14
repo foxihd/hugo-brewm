@@ -158,7 +158,9 @@
     {{- else }}
         {{- if eq (index site.Taxonomies .Data.Plural | len) 0 }}
             {{- if not .Content }}
-                {{ template "no-content"}}
+                <div class="pagewidth">
+                    {{ template "no-content"}}
+                </div>
             {{- end }}
         {{- else }}
         {{- /*
