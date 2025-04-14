@@ -1,6 +1,7 @@
 +++
 author = "AUTHOR NAME"
 date = "2016-02-20T13:56:01-08:00"
+type = "post"
 meta = true
 math = true
 title = "Hugo-Tufte Features compatibility"
