@@ -24,6 +24,7 @@ https://raw.githubusercontent.com/antijingoist/opendyslexic/master/compiled/Open
 https://raw.githubusercontent.com/antijingoist/opendyslexic/master/compiled/OpenDyslexic-Italic.woff2
 https://raw.githubusercontent.com/antijingoist/opendyslexic/master/compiled/OpenDyslexic-Bold.woff2
 https://raw.githubusercontent.com/antijingoist/opendyslexic/master/compiled/OpenDyslexic-Bold-Italic.woff2
+https://raw.githubusercontent.com/foxihd/hugo-brewm/main/static/css/fonts/OpenDyslexicMono-Regular.woff2
 https://raw.githubusercontent.com/CatharsisFonts/Cormorant/master/fonts/webfonts/Cormorant-Regular.woff2
 https://raw.githubusercontent.com/CatharsisFonts/Cormorant/master/fonts/webfonts/Cormorant-Italic.woff2
 https://raw.githubusercontent.com/CatharsisFonts/Cormorant/master/fonts/webfonts/Cormorant-Bold.woff2
@@ -49,4 +50,4 @@ https://raw.githubusercontent.com/rsms/inter/master/docs/font-files/Inter-BoldIt
 https://raw.githubusercontent.com/imedadel/typeface-eb-garamond-latest/master/files/EBGaramond12-Regular.woff2
 https://raw.githubusercontent.com/imedadel/typeface-eb-garamond-latest/master/files/EBGaramond12-Italic.woff2
 https://raw.githubusercontent.com/googlefonts/ebgaramond-specimen/main/docs/fonts/EBGaramond12-Bold.woff
-https://raw.githubusercontent.com/googlefonts/ebgaramond-specimen/main/docs/fonts/EBGaramond12-BoldItalic.woff
+https://raw.githubusercontent.com/googlefonts/ebgaramond-specimen/main/docs/fonts/EBGaramond12-BoldItalic.wof

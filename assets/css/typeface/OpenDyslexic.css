@@ -39,8 +39,20 @@
     font-style: italic;
     font-weight: 700;
     font-display: swap;
-    src: local('OpenDyslexic Bold Italic'),
+    src: local('OpenDyslexicMono'),
          url(https://raw.githubusercontent.com/antijingoist/OpenDyslexic/master/compiled/OpenDyslexic-Bold-Italic.woff2) format('woff2');
+    size-adjust: 83%;
+    ascent-override: 106%;
+    descent-override: 36%;
+}
+
+@font-face {
+    font-family: 'OpenDyslexicMono';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('OpenDyslexicMono'),
+         url(https://raw.githubusercontent.com/foxihd/hugo-brewm/main/static/css/fonts/OpenDyslexicMono-Regular.woff2) format('woff2');
     size-adjust: 83%;
     ascent-override: 106%;
     descent-override: 36%;

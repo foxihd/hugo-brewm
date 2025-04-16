@@ -78,11 +78,13 @@ function useOpenDyslexic() {
     if (OpenDyslexic.checked) {
         htmlSty.setProperty('--rm', 'OpenDyslexic');
         htmlSty.setProperty('--sf', 'OpenDyslexic');
+        htmlSty.setProperty('--tt', 'OpenDyslexicMono');
     } else {
         htmlSty.removeProperty('--rm');
         htmlSty.removeProperty('--sf');
+        htmlSty.removeProperty('--tt');
     }
-    recalcLogotypeWidth();
+    setTimeout(() => recalcLogotypeWidth(), 1000);
 };
 
 // Font size functions
