@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'Lexica Ultralegible';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Lexica Ultralegible'),
+         url(https://raw.githubusercontent.com/jacobxperez/lexica-ultralegible/main/fonts/web/LexicaUltralegible-Regular.woff2) format('woff2');
+    size-adjust: 93%;
+    ascent-override: 95%;
+    descent-override: 33%;
+}
+
+@font-face {
+    font-family: 'Lexica Ultralegible';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Lexica Ultralegible Italic'),
+         url(https://raw.githubusercontent.com/jacobxperez/lexica-ultralegible/main/fonts/web/LexicaUltralegible-Italic.woff2) format('woff2');
+    size-adjust: 93%;
+    ascent-override: 95%;
+    descent-override: 33%;
+}
+
+@font-face {
+    font-family: 'Lexica Ultralegible';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Lexica Ultralegible Bold'),
+         url(https://raw.githubusercontent.com/jacobxperez/lexica-ultralegible/main/fonts/web/LexicaUltralegible-Bold.woff2) format('woff2');
+    size-adjust: 93%;
+    ascent-override: 95%;
+    descent-override: 33%;
+}
+
+@font-face {
+    font-family: 'Lexica Ultralegible';
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Lexica Ultralegible Bold Italic'),
+         url(https://raw.githubusercontent.com/jacobxperez/lexica-ultralegible/main/fonts/web/LexicaUltralegible-BoldItalic.woff2) format('woff2');
+    size-adjust: 93%;
+    ascent-override: 95%;
+    descent-override: 33%;
+}
+
+:root {
+    --sf: 'Lexica Ultralegible';
+}

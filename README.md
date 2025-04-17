@@ -108,7 +108,7 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         email = 'email@example.com'
         ## Other method to customize author and co-authors information
         coauthor = [
-            {name = "A.N. Other", bio = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
+            {name = "A.N. Other", bio = "Lorem ipsum dolor sit amet."}
         ]
 
     ## Comments configuration
@@ -233,9 +233,9 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
     [params.typeface]
         ## Use web safe fonts (will overide font selection below)
         webSafe = false
-        ## Serif font selection
-        roman = 'crimson'
-        ## Sans-serif font selection
+        ## Serif font selection: 'Cormorant' 'EB Garamond' and 'crimson' (default)
+        roman = 'crimson' 
+        ## Sans-serif font selection: 'Inter' 'Montserrat' 'Rorasio' and 'Lexica Ultralegible' (default)
         sans = 'inter'
 
 ```
@@ -348,6 +348,7 @@ This project could not be made, without a lot efforts of — thank to:
 - [Georgd/EB-Garamond](https://github.com/georgd/EB-Garamond), [Imedadel/Typeface EB Garamond/](https://github.com/imedadel/typeface-eb-garamond-latest/) & [Googlefonts/Ebgaramond Specimen/](https://github.com/googlefonts/ebgaramond-specimen/) - for serif typeface.
 - [GoogleFonts/Inconsolata](https://github.com/googlefonts/Inconsolata) - for teletype typeface.
 - [IcoMoon](https://icomoon.io) - for icon font.
+- [Jacobxperez/Lexica Ultralegible](https://github.com/jacobxperez/lexica-ultralegible)
 - [JulietaUla/Montserrat](https://github.com/JulietaUla/Montserrat) - for sans-serif typeface.
 - [Markmead/JS Bionic Reading](https://github.com/markmead/js-bionic-reading) - for BionRead support.
 - [Mrozilla on codepen](https://codepen.io/mrozilla/pen/OJJNjRb) - for dark/light mode toggle style.

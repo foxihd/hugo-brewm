@@ -11,6 +11,7 @@
 {{- /*  teletype & other */}}
 {{- $inconsolata  := resources.Get "css/typeface/Inconsolata.css" }}
 {{- $openDyslexic := resources.Get "css/typeface/OpenDyslexic.css" }}
+{{- $lexicaUl     := resources.Get "css/typeface/LexicaUltralegible.css" }}
 {{- $icon         := resources.Get "css/typeface/icon.css" }}
 {{- $websafe      := resources.Get "css/typeface/websafe.css" }}
 
@@ -24,6 +25,7 @@
     {{- $rosario      = resources.Get "css/typeface-local/Rosario.css" }}
     {{- $inconsolata  = resources.Get "css/typeface-local/Inconsolata.css" }}
     {{- $openDyslexic = resources.Get "css/typeface-local/OpenDyslexic.css" }}
+    {{- $lexicaUl     = resources.Get "css/typeface-local/LexicaUltralegible.css" }}
 {{- end }}
 
 {{- $teletype := $inconsolata }}
@@ -37,12 +39,14 @@
     {{- $roman = $crimson }}
 {{- end }}
 
-{{- $sans := $rosario }}
+{{- $sans := $$lexicaUl }}
 {{- $uSans := lower (or site.Params.Typeface.Sans site.Params.Typeface.SansSerif) }}
 {{- if eq $uSans "montserrat" }}
     {{- $sans = $montserrat }}
 {{- else if eq $uSans "inter" }}
     {{- $sans = $inter }}
+{{- else if eq $uSans "rosario" }}
+    {{- $sans = $rosario }}
 {{- end }}
 
 {{- /*--------------------------- layout ---------------------------*/}}
