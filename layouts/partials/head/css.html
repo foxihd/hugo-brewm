@@ -39,7 +39,7 @@
     {{- $roman = $crimson }}
 {{- end }}
 
-{{- $sans := $$lexicaUl }}
+{{- $sans := $lexicaUl }}
 {{- $uSans := lower (or site.Params.Typeface.Sans site.Params.Typeface.SansSerif) }}
 {{- if eq $uSans "montserrat" }}
     {{- $sans = $montserrat }}
