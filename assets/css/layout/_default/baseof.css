@@ -259,7 +259,8 @@ hr {
 
 @media only screen and (max-width: 480px) {
 
-    :root {
+    header.pagewidth,
+    footer.pagewidth {
         --void: calc(var(--vfoot) / 2) !important;
     }
 
