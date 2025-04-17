@@ -31,7 +31,8 @@
     #coffee-counter,
     #menu-footer,
     #has-timeline ol li::before,
-    #discussion-starter > footer {
+    #discussion-starter > footer,
+    .giscus {
         display: none;
     }
 
