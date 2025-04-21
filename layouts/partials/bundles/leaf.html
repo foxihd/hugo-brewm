@@ -154,7 +154,7 @@
                 <div><span>{{ i18n "buildTime" }}: </span><time datetime="{{ now.Format "2006-01-02T15:04:05-07:00" }}">{{ now.Format "2006-01-02 15:04" }}</time></div>
                 <div><span>{{ i18n "accessTime" }}: </span><time id="time-stamp"></time></div>
                 {{- if not site.Params.HideHugoCredit -}}
-                    <div><span>{{ i18n "poweredBy" }}: </span><a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> {{ hugo.Version }} & <a href="https://github.com/foxihd/hugo-brewm" target="_blank" rel="noopener">hugo-brewm</a>.</div>
+                    <div><span>{{ i18n "poweredBy" }} </span><a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <a href="https://github.com/gohugoio/hugo/releases/tag/v{{ hugo.Version }}"  target="_blank" rel="noopener">v{{ hugo.Version }}</a> & <a href="https://github.com/foxihd/hugo-brewm" target="_blank" rel="noopener">hugo-brewm</a>.</div>
                 {{- end }}
             </div>
         </div>
