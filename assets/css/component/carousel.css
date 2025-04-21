@@ -73,6 +73,7 @@ ul.carousel__viewport > li {
     position: relative;
     margin: 1ex;
     border-radius: 1ex;
+    background-position: center;
     background-size: cover;
     width: 16rem;
     height: 12.8rem;
