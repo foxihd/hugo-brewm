@@ -273,7 +273,13 @@ cd mysite
 git submodule update --remote --merge themes/hugo-brewm
 ```
 
-3. Commit the changes
+3. If updating submodule has conflict, run:
+
+```sh
+git reset HEAD themes/hugo-brewm
+```
+
+4. Commit the changes
 
 ```sh
 git add themes/hugo-brewm
