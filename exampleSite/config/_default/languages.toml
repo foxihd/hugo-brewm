@@ -26,6 +26,8 @@
         path = 'laman'
     [id.params.feed]
         flowlines = false
+    [id.params.home]
+        disableListing = true
 
 [it]
     contentDir = 'content/it'
