@@ -132,11 +132,12 @@
                         {{- $author := default site.Params.Author.name .Params.author }}
                         {{- $authors := .GetTerms "author" }}
                         {{- $categories := .GetTerms "categories" }}
+                        {{- $stage := .GetTerms "stage" }}
                         {{- $desc := or .Params.Subtitle .Params.Description .Description .Summary }}
                         {{- $hasCover := partial "page/cover.html" (dict "page" .) }}
                         {{- $alt := or .Params.Alt .Params.coverAlt .Params.imagesAlt }}
                         {{- if $index }}<hr class="ldots" role="presentation" aria-hidden="true">{{- end }}
-                        {{ template "card" (dict "page" $page "paginator" $paginator "counter" $counter "desc" $desc "hasCover" $hasCover "alt" $alt "author" $author "authors" $authors) }}
+                        {{ template "card" (dict "page" $page "paginator" $paginator "counter" $counter "desc" $desc "hasCover" $hasCover "alt" $alt "author" $author "authors" $authors "stage" $stage) }}
                     {{- end }}
                     </div>
                     {{/*
@@ -274,6 +275,11 @@
             </div>
         </section>
         <footer>
+            {{- with .stage }}
+                {{- range . }}
+                    <img src="{{ or .Params.indicator .Params.icon .Params.badge }}" class="stage-indicator">
+                {{- end }}
+            {{- end }}
             <span class="readingTime">
                 {{- printf "%d %s" .page.ReadingTime (i18n "readingTime" .page.ReadingTime | lower ) }}
             </span>

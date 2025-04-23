@@ -108,6 +108,11 @@
     font-size: var(--scriptsize);
 }
 
+.stage-indicator {
+    margin-right: 1ex;
+    height: 1.4em;
+}
+
 .readingTime {
     margin-right: auto;
     padding-right: 1rem;
