@@ -147,7 +147,7 @@ ul.carousel__viewport > li > a > span::after {
 
 #list-taxonomy > .carousel__viewport {
     flex-direction: column;
-    height: calc(14.8rem + 2ex);
+    height: 16.8rem;
     overflow-y: auto;
     scroll-snap-type: y mandatory;
 }
