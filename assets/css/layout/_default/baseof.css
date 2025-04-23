@@ -101,7 +101,7 @@ body > header {
 }
 
 body > main {
-    min-height: var(--vbody);
+    min-height: 114vh;
 }
 
 .marginpar,
