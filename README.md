@@ -280,7 +280,7 @@ git add themes/hugo-brewm
 git commit -m "Update hugo-brewm theme"
 ```
 
-## Resolving Submodule Conflicts
+### Resolving Submodule Conflicts
 
 My apologies for my bad practice on force updating,
 If you encounter conflicts when updating the submodule, here's an alternative approach:
