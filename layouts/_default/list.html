@@ -27,7 +27,13 @@
             {{- if $enableListing}}
                 <div id="list-taxonomy" class="carousel">
                     <div class="carousel__viewport">
+                    {{- with site.Params.home.featuredListing }}
+                        {{- range . }}
+                            {{ partial "listing.html" (dict "entry" .) }}
+                        {{- end }}
+                    {{- else}}
                         {{ template "taxonomy-listing" }}
+                    {{- end }}
                     </div>
                 </div>
             {{- end }}
@@ -164,12 +170,8 @@
             <section class="pagewidth">
                 {{- if eq .Data.Singular "tag" }}
                     {{ template "taxonomy-listing" }}
-                {{- else if eq .Data.Singular "category" }}
-                    {{ partial "listing.html" (dict "entry" "categories") }}
-                {{- else if eq .Data.Singular "series" }}
-                    {{ partial "listing.html" (dict "entry" "series") }}
-                {{- else if eq .Data.Singular "author" }}
-                    {{ partial "listing.html" (dict "entry" "author") }}
+                {{- else }}
+                    {{ partial "listing.html" (dict "entry" .Data.Plural ) }}
                 {{- end }}
             </section>
             {{- end }}
@@ -309,7 +311,7 @@
 
 {{- define "taxonomy-listing" }}
     {{- range $name, $taxonomy := site.Taxonomies }}
-        {{- if and (ne $name "author") (ne $name "tags") }}
+        {{- if ne $name "tags" }}
             {{ partial "listing.html" (dict "entry" $name) }}
         {{- end }}
     {{- end }}

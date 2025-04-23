@@ -82,6 +82,14 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
     ## Change frequency setting (will affect posts listings layout): 'always', 'hourly', 'daily', 'weekly', 'monthly', 'yearly', 'never'
     changeFreq = 'monthly'
 
+## Taxonomy register
+    category = 'categories'
+    tag = 'tags'
+    author = 'author'
+    # series = 'series'
+    # lenses = 'lenses'
+    # cameras = 'cameras'
+
 ## Site parameters
 [params]
     ## Site title
@@ -170,6 +178,8 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         disableSlide = false
         ## Disable taxonomy listing carousel
         disableListing = false
+        ## Select taxonomy listing to be featured
+        # featuredListing = ['categories', 'series', 'author', 'cameras', 'lenses']
 
     ## Logo configuration
     [params.logo]

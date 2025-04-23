@@ -161,6 +161,8 @@ enableRobotsTXT = true
         disableSlide = false
         ## Enable taxonomy listing carousel
         disableListing = false
+        ## Select taxonomy listing to be featured
+        featuredListing = ['categories', 'series']
 
     ## Post display settings
     [params.posts]
