@@ -25,17 +25,11 @@
     {{- if not $paginator.HasPrev }}
         {{- if .IsHome }}
             {{- if $enableListing}}
-                {{- if and site.Taxonomies.series site.Taxonomies.categories }}
-                    <div id="list-taxonomy" class="carousel">
-                        <div class="carousel__viewport">
-                            {{ partial "listing.html" (dict "entry" "series") }}
-                            {{ partial "listing.html" (dict "entry" "categories") }}
-                        </div>
+                <div id="list-taxonomy" class="carousel">
+                    <div class="carousel__viewport">
+                        {{ template "taxonomy-listing" }}
                     </div>
-                {{- else }}
-                    {{ partial "listing.html" (dict "entry" "series") }}
-                    {{ partial "listing.html" (dict "entry" "categories") }}
-                {{- end }}
+                </div>
             {{- end }}
             {{- with .Content }}
                 {{ partial "hero.html" $ }}
@@ -95,7 +89,7 @@
             if page don't have article */}}
         {{- if eq (len $paginator.Pages) 0 }}
             {{- if not .Content }}
-                {{ template "no-content"}}
+                {{ template "no-content" }}
             {{- end }}
         {{- else }}
             <section id="list-posts" class="pagewidth">
@@ -168,8 +162,7 @@
             taxonomy listing */}}
             <section class="pagewidth">
                 {{- if eq .Data.Singular "tag" }}
-                    {{ partial "listing.html" (dict "entry" "series") }}
-                    {{ partial "listing.html" (dict "entry" "categories") }}
+                    {{ template "taxonomy-listing" }}
                 {{- else if eq .Data.Singular "category" }}
                     {{ partial "listing.html" (dict "entry" "categories") }}
                 {{- else if eq .Data.Singular "series" }}
@@ -307,3 +300,11 @@
         </div>
     </div>
 {{- end -}}
+
+{{- define "taxonomy-listing" }}
+    {{- range $name, $taxonomy := site.Taxonomies }}
+        {{- if and (ne $name "author") (ne $name "tags") }}
+            {{ partial "listing.html" (dict "entry" $name) }}
+        {{- end }}
+    {{- end }}
+{{- end }}

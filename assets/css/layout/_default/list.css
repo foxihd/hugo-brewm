@@ -25,16 +25,14 @@ hr.ldots::after {
     padding: 0 1rem;
 }
 
-#list-series,
-#list-categories {
+#list-taxonomy .carousel {
     display: flex;
     flex-direction: row-reverse;
     flex-wrap: nowrap;
     align-items: flex-start;
 }
 
-#list-series .section-title,
-#list-categories .section-title {
+#list-taxonomy .section-title {
     margin: var(--smallskip);
     writing-mode: tb;
 }
