@@ -57,8 +57,9 @@
 {{- define "main" -}}
     {{- $paginator := partial "paginator.html" . }}
     {{- $firstPage := not $paginator.HasPrev }}
-    {{- $noContent := and (eq (len $paginator.Pages) 0) (not .Content)}}
-    {{- if $noContent }}
+    {{- $noContent := and (or .IsHome .IsSection) (eq (len $paginator.Pages) 0) (not .Content) }}
+    {{- $noContentinTaxonomy := and (not .IsHome) (not .IsSection) (eq (index site.Taxonomies .Data.Plural | len) 0) (not .Content) }}
+    {{- if or $noContent $noContentinTaxonomy }}
         <div class="pagewidth">
             {{ template "no-content" . }}
         </div>
