@@ -21,8 +21,9 @@
 
 {{- define "top" -}}
     {{- $paginator := partial "paginator.html" . }}
+    {{- $noContent := and (eq (len $paginator.Pages) 0) (not .Content)}}
     {{- $enableListing := not site.Params.home.disableListing }}
-    {{- if not $paginator.HasPrev }}
+    {{- if and (not $paginator.HasPrev) (not $noContent) }}
         {{- if .IsHome }}
             {{- if $enableListing}}
                 <div id="list-taxonomy" class="carousel">
@@ -56,48 +57,43 @@
 {{- define "main" -}}
     {{- $paginator := partial "paginator.html" . }}
     {{- $firstPage := not $paginator.HasPrev }}
-    {{- /*
+    {{- $noContent := and (eq (len $paginator.Pages) 0) (not .Content)}}
+    {{- if $noContent }}
+        <div class="pagewidth">
+            {{ template "no-content" . }}
+        </div>
+    {{- else }}
+        {{- /*
 
-        frequency for content view style  */}}
-    {{- $changeFreq := or .Params.Sitemap.ChangeFreq .Sitemap.ChangeFreq | lower }}
-    {{- $active := eq $changeFreq (or "always" "hourly" "daily" "weekly") }}
-    {{- /*
-
-        main aside */}}
-    {{- if and site.Taxonomies.tags $firstPage (ne .Kind "term") }}
-        {{- if .IsHome }}
-            <aside id="list-tags">
-                <header class="section-title">
-                    <strong>{{ i18n "discover" }}</strong>
-                </header>
-                <nav aria-label="{{ i18n "discover" }}">
-                    {{ partial "taxonomies.html" (dict "taxonomy" "tags" "class" "rounded has-hash" "limit" 16) }}
-                </nav>
-                <a class="underline" href="{{ "/tags/" | relLangURL }}">{{- i18n "seeMore" }}</a>
-            </aside>
-        {{- else if or (eq .Data.Singular "tag") .IsSection }}
-            <aside id="list-tags">
-                <header class="section-title">
-                    <strong>{{ i18n "tags" }}</strong>
-                </header>
-                <nav aria-label="{{ i18n "tags" }}">
-                    {{ partial "taxonomies.html" (dict "taxonomy" "tags" "class" "rounded has-hash") }}
-                </nav>
-            </aside>
+            main aside */}}
+        {{- if and site.Taxonomies.tags $firstPage (ne .Kind "term") }}
+            {{- if .IsHome }}
+                <aside id="list-tags">
+                    <header class="section-title">
+                        <strong>{{ i18n "discover" }}</strong>
+                    </header>
+                    <nav aria-label="{{ i18n "discover" }}">
+                        {{ partial "taxonomies.html" (dict "taxonomy" "tags" "class" "rounded has-hash" "limit" 16) }}
+                    </nav>
+                    <a class="underline" href="{{ "/tags/" | relLangURL }}">{{- i18n "seeMore" }}</a>
+                </aside>
+            {{- else if or (eq .Data.Singular "tag") .IsSection }}
+                <aside id="list-tags">
+                    <header class="section-title">
+                        <strong>{{ i18n "tags" }}</strong>
+                    </header>
+                    <nav aria-label="{{ i18n "tags" }}">
+                        {{ partial "taxonomies.html" (dict "taxonomy" "tags" "class" "rounded has-hash") }}
+                    </nav>
+                </aside>
+            {{- end }}
         {{- end }}
-    {{- end }}
-    {{/*
-
-        feed */}}
-    {{- if ne .Kind "taxonomy" }}
         {{/*
 
-            if page don't have article */}}
-        {{- if eq (len $paginator.Pages) 0 }}
-            {{- if not .Content }}
-                {{ template "no-content" }}
-            {{- end }}
-        {{- else }}
+            feed */}}
+        {{- if ne .Kind "taxonomy" }}
+            {{- $changeFreq := or .Params.Sitemap.ChangeFreq .Sitemap.ChangeFreq | lower }}
+            {{- $active := eq $changeFreq (or "always" "hourly" "daily" "weekly") }}    
             <section id="list-posts" class="pagewidth">
                 <header {{ with .Data.Singular }}id="{{ . }}"{{ end }} class="section-title">
                     <strong>
@@ -155,18 +151,10 @@
                     {{- end }}
                 {{- end }}
             </section>
-        {{- end }}
-    {{- else }}
-        {{- if eq (index site.Taxonomies .Data.Plural | len) 0 }}
-            {{- if not .Content }}
-                <div class="pagewidth">
-                    {{ template "no-content"}}
-                </div>
-            {{- end }}
         {{- else }}
-        {{- /*
+            {{- /*
 
-            taxonomy listing */}}
+                taxonomy listing */}}
             <section class="pagewidth">
                 {{- if eq .Data.Singular "tag" }}
                     {{ template "taxonomy-listing" }}
@@ -174,8 +162,8 @@
                     {{ partial "listing.html" (dict "entry" .Data.Plural ) }}
                 {{- end }}
             </section>
-            {{- end }}
         {{- end }}
+    {{- end }}
 {{- end -}}
 
 {{- define "li" -}}
