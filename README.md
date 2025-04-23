@@ -273,17 +273,27 @@ cd mysite
 git submodule update --remote --merge themes/hugo-brewm
 ```
 
-3. If updating submodule has conflict, run:
-
-```sh
-git reset HEAD themes/hugo-brewm
-```
-
-4. Commit the changes
+3. Commit the changes
 
 ```sh
 git add themes/hugo-brewm
 git commit -m "Update hugo-brewm theme"
+```
+
+## Resolving Submodule Conflicts
+
+My apologies for my bad practice on force updating,
+If you encounter conflicts when updating the submodule, here's an alternative approach:
+
+1. Force remove the existing submodule
+```sh
+git submodule deinit -f themes/hugo-brewm
+rm themes/hugo-brewm
+```
+
+2. Re-add the submodule with force flag
+```sh
+git submodule add -f https://github.com/foxihd/hugo-brewm themes/hugo-brewm
 ```
 
 ### Customizing Templates
