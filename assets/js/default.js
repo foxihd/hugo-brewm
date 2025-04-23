@@ -152,9 +152,8 @@ const hour = date.getHours();
 const isDaytime = hour > 6 && hour < 21;
 
 function toggleNightElements(hidden) {
-    const elements = ['grain', 'dwclock'];
-    elements.forEach(id => {
-        const element = getElement(id);
+    const elements = getElements('.grain, #dwclock');
+    elements.forEach(element => {
         element?.[hidden ? 'setAttribute' : 'removeAttribute']('hidden', 'hidden');
     });
 }
