@@ -24,6 +24,7 @@ body > aside.carousel {
 
 body > main#home {
     height: var(--vbody);
+    min-height: unset;
     overflow-y: auto;
 }
 
