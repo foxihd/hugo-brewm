@@ -110,7 +110,7 @@
 
 .stage-indicator {
     margin-right: 1ex;
-    height: 1.4em;
+    height: 1.3em !important;
 }
 
 .readingTime {

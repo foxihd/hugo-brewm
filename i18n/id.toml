@@ -213,6 +213,8 @@
     other = "Bagikan"
 [shareOn]
     other = "Bagikan di"
+[stage]
+    other = "fase"
 [switchLangTo]
     other = "Ganti Bahasa ke"
 [TableOfContents]

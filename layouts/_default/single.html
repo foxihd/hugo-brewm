@@ -39,10 +39,10 @@
             {{- $series := .GetTerms "series" }}
             {{- $stage := .GetTerms "stage" }}
             {{ if or $series $stage }}
-            <span class="section-title">
+            <span id="has-stage" class="section-title">
                 {{- with $series }}
                     {{- range . | first 1 }}
-                        <a href="{{ .Permalink }}" aria-label="{{ i18n "series" 1 }}: {{ .Title }}">
+                        <a href="{{ .Permalink }}" id="series" aria-label="{{ i18n "series" 1 }}: {{ .Title }}">
                             <span>{{ .Title }}</span>
                         </a>
                     {{- end }}
@@ -50,7 +50,7 @@
                 {{- with $stage }}
                     {{- range . | first 1 }}
                         <img src="{{ or .Params.indicator .Params.icon .Params.badge }}" class="stage-indicator">
-                        <a href="{{ .Permalink }}" aria-label="{{ i18n "stage" 1 }}: {{ .Title }}">
+                        <a href="{{ .Permalink }}" id="stage" aria-label="{{ i18n "stage" 1 }}: {{ .Title }}">
                             <span>{{ .Title }}</span>
                         </a>
                     {{- end }}

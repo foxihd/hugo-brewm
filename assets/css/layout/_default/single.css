@@ -23,6 +23,23 @@
     gap: 1rem;
 }
 
+#has-stage {
+    display: flex;
+    align-items: center;
+    font-family: var(--sf);
+    font-size: var(--footnotesize);
+}
+
+#series,
+#stage {
+    opacity: 0.8;
+    color: var(--fg);
+}
+
+#series + .stage-indicator {
+    margin: 0 8pt;
+}
+
 .subtitle {
     opacity: 0.86;
     margin: 1ex 0 0;
@@ -177,7 +194,7 @@ header time {
 /* article backmatter */
 
 #main-article > footer {
-    margin:var(--vskip);
+    margin: var(--vskip);
     border-bottom: var(--bound) ;
 }
 

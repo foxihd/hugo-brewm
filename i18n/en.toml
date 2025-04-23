@@ -223,6 +223,9 @@
 [slide]
     one = "slide"
     other = "slides"
+[stage]
+    one = "stage"
+    other = "stages"
 [switchLangTo]
     other = "Switch Language to"
 [TableOfContents]
