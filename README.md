@@ -36,13 +36,118 @@ git init
 git submodule add https://github.com/foxihd/hugo-brewm themes/hugo-brewm
 ```
 
-3. Update your site's configuration in `config.toml`:
+3. Add `theme = "hugo-brewm"` to site's configuration in `config.toml`:
 
 ```sh
-theme = "hugo-brewm"
+echo 'theme = "hugo-brewm"' >> config.toml
 ```
 
-### Configuration
+### Preview Changes
+
+1. Change to your site directory
+
+```sh
+cd mysite
+```
+
+
+2. To preview your changes locally before pushing to the repository, run Hugo's development server with the following command, make sure to update the baseURL to match your local IP address - this will make your site accessible across your local network:
+
+```sh
+hugo serve --minify --port=8080 --bind=0.0.0.0 --baseURL=http://192.168.0.1
+```
+
+3. With Hugo running, you can now configure your site and begin writing articles
+
+### Updating Theme
+
+To update the theme to the latest changes, run the following commands:
+
+1. Change to your site directory
+
+```sh
+cd mysite
+```
+
+2. Update the theme submodule
+
+```sh
+git submodule update --remote --merge themes/hugo-brewm
+```
+
+3. Commit the changes
+
+```sh
+git add themes/hugo-brewm
+git commit -m "Update hugo-brewm theme"
+```
+
+### Resolving Submodule Conflicts
+
+My apologies for my bad practice on force updating,
+If you encounter conflicts when updating the submodule, here's an alternative approach:
+
+1. Change to your site directory
+
+```sh
+cd mysite
+```
+
+2. Force remove the existing submodule
+
+```sh
+git submodule deinit -f themes/hugo-brewm
+rm themes/hugo-brewm
+```
+
+3. Re-add the submodule with force flag
+```sh
+git submodule add -f https://github.com/foxihd/hugo-brewm themes/hugo-brewm
+```
+
+### Customizing Templates
+
+To customize the theme's templates, create files with matching names in your site's root directory. These will override the default theme templates.
+
+```
+ mysite/
+    ├── ...
+    ├── assets/
+    │   └── css/
+    │       └── custom.css # This will replace theme's custom.css template
+    ├── content/
+    ├── layouts/
+    │   ├── shortcodes/
+    │   │   └── myshortcode.html # This will add {{< myshortcode >}} shortcodes
+    │   ├── partials/
+    │   │   └── header.html # This will replace theme's header.html template
+    │   └── 404.html # This will replace theme's 404.html template
+    ├── ...
+    ├── static/
+    └── themes/
+        └── hugo-brewm/ # The remote theme
+            ├── ...
+            ├── assets/
+            │   └── css/
+            │       └── custom.css
+            ├── layouts/
+            │   ├── partials/
+            │   │   └── header.html
+            │   └── 404.html
+            ├── static/
+            └── ...
+```
+
+### Deploy on GitHub Pages
+
+To deploy your Hugo site with PageFind on GitHub Pages, copy the workflow file from [./themes/hugo-brewm/github/workflows/hugo.yml](https://github.com/foxihd/hugo-brewm/blob/main/.github/workflows/hugo.yml) to your repository's workflow directory and start the GitHub Action.
+
+### Deploy on Gitlab Pages
+
+To deploy your Hugo site with PageFind on Gitlab Pages, copy the workflow file from [./themes/hugo-brewm/.gitlab-ci.yml](https://github.com/foxihd/hugo-brewm/blob/main/.gitlab-ci.yml) to your repository's workflow directory and start the Gitlab CI/CD pipeline.
+
+
+## Configuration
 
 The following configuration options are available for hugo-brewm:
 
@@ -249,104 +354,6 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         sans = 'inter'
 
 ```
-
-### Preview Changes
-
-1. Change to your site directory
-
-```sh
-cd mysite
-```
-
-
-2. To preview your changes locally before pushing to the repository, run Hugo's development server with the following command, make sure to update the baseURL to match your local IP address - this will make your site accessible across your local network:
-
-```sh
-hugo serve --minify --port=8080 --bind=0.0.0.0 --baseURL=http://192.168.0.1
-```
-
-3. With Hugo running, you can now configure your site and begin writing articles
-
-### Updating Theme
-
-To update the theme to the latest changes, run the following commands:
-
-1. Change to your site directory
-
-```sh
-cd mysite
-```
-
-2. Update the theme submodule
-
-```sh
-git submodule update --remote --merge themes/hugo-brewm
-```
-
-3. Commit the changes
-
-```sh
-git add themes/hugo-brewm
-git commit -m "Update hugo-brewm theme"
-```
-
-### Resolving Submodule Conflicts
-
-My apologies for my bad practice on force updating,
-If you encounter conflicts when updating the submodule, here's an alternative approach:
-
-1. Force remove the existing submodule
-```sh
-git submodule deinit -f themes/hugo-brewm
-rm themes/hugo-brewm
-```
-
-2. Re-add the submodule with force flag
-```sh
-git submodule add -f https://github.com/foxihd/hugo-brewm themes/hugo-brewm
-```
-
-### Customizing Templates
-
-To customize the theme's templates, create files with matching names in your site's root directory. These will override the default theme templates.
-
-```
- mysite/
-    ├── ...
-    ├── assets/
-    │   └── css/
-    │       └── custom.css # This will replace theme's custom.css template
-    ├── content/
-    ├── layouts/
-    │   ├── shortcodes/
-    │   │   └── myshortcode.html # This will add {{< myshortcode >}} shortcodes
-    │   ├── partials/
-    │   │   └── header.html # This will replace theme's header.html template
-    │   └── 404.html # This will replace theme's 404.html template
-    ├── ...
-    ├── static/
-    └── themes/
-        └── hugo-brewm/ # The remote theme
-            ├── ...
-            ├── assets/
-            │   └── css/
-            │       └── custom.css
-            ├── layouts/
-            │   ├── partials/
-            │   │   └── header.html
-            │   └── 404.html
-            ├── static/
-            └── ...
-```
-
-### Deploy on GitHub Pages
-
-To deploy your Hugo site with PageFind on GitHub Pages, copy the workflow file from [./themes/hugo-brewm/github/workflows/hugo.yml](https://github.com/foxihd/hugo-brewm/blob/main/.github/workflows/hugo.yml) to your repository's workflow directory and start the GitHub Action.
-
-### Deploy on Gitlab Pages
-
-To deploy your Hugo site with PageFind on Gitlab Pages, copy the workflow file from [./themes/hugo-brewm/.gitlab-ci.yml](https://github.com/foxihd/hugo-brewm/blob/main/.gitlab-ci.yml) to your repository's workflow directory and start the Gitlab CI/CD pipeline.
-
 
 ## Support
 
