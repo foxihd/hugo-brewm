@@ -50,7 +50,6 @@ echo 'theme = "hugo-brewm"' >> config.toml
 cd mysite
 ```
 
-
 2. To preview your changes locally before pushing to the repository, run Hugo's development server with the following command, make sure to update the baseURL to match your local IP address - this will make your site accessible across your local network:
 
 ```sh
@@ -101,6 +100,7 @@ rm themes/hugo-brewm
 ```
 
 3. Re-add the submodule with force flag
+
 ```sh
 git submodule add -f https://github.com/foxihd/hugo-brewm themes/hugo-brewm
 ```
@@ -145,7 +145,6 @@ To deploy your Hugo site with PageFind on GitHub Pages, copy the workflow file f
 ### Deploy on Gitlab Pages
 
 To deploy your Hugo site with PageFind on Gitlab Pages, copy the workflow file from [./themes/hugo-brewm/.gitlab-ci.yml](https://github.com/foxihd/hugo-brewm/blob/main/.gitlab-ci.yml) to your repository's workflow directory and start the Gitlab CI/CD pipeline.
-
 
 ## Configuration
 
@@ -202,7 +201,7 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
     ## Site description
     description = "An ExampleSite built with Hugo and Hugo-Brewm theme"
     ## Copyright notice on colophon
-    copyright = "Copyright 2025 &copy; Author"
+    copyright = "Copyright 2025 © Author"
     ## Hide "powered by hugo" on colophon
     HideHugoCredit = true
     ## Enable extended metadata (social cards)
@@ -355,7 +354,51 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
 
 ```
 
-## Support
+### Add stage taxonomy for Digital Garden
+
+This theme supports taxonomy and growth stage indicators, but it does not ship with an indicator icon right now. It must be manually set up as follows:
+
+1. Register the taxonomy in your `config.toml`:
+
+```toml
+[taxonomies]
+    stage = "stage"
+```
+
+2. Create taxonomy folder and it's terms `_index.md`:
+
+```
+mysite/
+    ├── ...
+    ├── content/
+    │   └── stage/
+    │       ├─ seedling/
+    │       │   └─ _index.md
+    │       ├─ budding/
+    │       │   └─ _index.md
+    │       └─ evergreen/
+    │           └─ _index.md
+    └── ...
+```
+
+3. Setup your custom indicator icon in `_index.md`:
+
+```yaml
+---
+title: 'Evergreen'
+translationKey: evergreen
+indicator: 'https://example.com/indicator.svg'
+---
+```
+
+4. Add the stage parameter into your post:
+
+```yaml
+---
+title: 'My Post'
+stage: 'seedling'
+---
+```
 
 > Most of us love coffee, aren't we?
 
