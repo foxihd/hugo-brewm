@@ -400,6 +400,8 @@ stage: 'seedling'
 ---
 ```
 
+## Support
+
 > Most of us love coffee, aren't we?
 
 For what it's worth.
