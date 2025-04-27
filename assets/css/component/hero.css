@@ -23,14 +23,11 @@
     position: -webkit-sticky;
     position: sticky;
     top: 0;
+    width: 50%;
 }
 
 .hero__image.auto {
     max-height: 1024px;
-}
-
-.hero > * {
-    width: 50%;
 }
 
 .hero__image img {
@@ -46,10 +43,14 @@
 }
 
 .hero__content {
-    --col: 27rem;
     padding: 2rem 0;
-    max-width: var(--col);
+    width: 100%;
     font-size: var(--small);
+}
+
+.hero__image + .hero__content {
+    width: 50%;
+    max-width: 27rem;
 }
 
 .hero__content h1,

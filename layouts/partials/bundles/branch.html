@@ -46,7 +46,7 @@
     {{- with $page.GetTerms $taxonomy }}
     <ul class="{{ $class }}" role="presentation">
         {{- range . }}
-            <li><a href="{{ .RelPermalink }}">{{ humanize .LinkTitle | title }}</a></li>
+            <li><a href="{{ .RelPermalink }}">{{ .Page.Title }}</a></li>
         {{- end }}
     </ul>
     {{- end }}
@@ -81,13 +81,13 @@
 {{- define "partials/hero.html" }}
     {{ "<!-- hero.html -->" | safeHTML }}
     <div class="hero">
+        {{- $src := partial "page/cover.html" (dict "page" . ) }}
+        {{- $alt := or .Params.Alt .Params.coverAlt .Params.imagesAlt }}
+        {{- if $src }}
         <div class="hero__image {{ if not .Params.keepAspectRatio }} auto {{ end }}">
-            {{- $src := partial "page/cover.html" (dict "page" . ) }}
-            {{- $alt := or .Params.Alt .Params.coverAlt .Params.imagesAlt }}
-            {{- if $src }}
-                <img src="{{ $src }}" alt="{{ with $alt }}{{ . }}{{ end }}"/>
-            {{- end }}
+            <img src="{{ $src }}" alt="{{ with $alt }}{{ . }}{{ end }}"/>
         </div>
+        {{- end }}
         <div class="hero__content">
             {{- .Content }}
             {{- /*
