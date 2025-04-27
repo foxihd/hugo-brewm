@@ -67,6 +67,9 @@ enableRobotsTXT = true
             ## Allow HTML in markdown
             unsafe = true
 
+[outputs]
+  home = ['html', 'rss', 'json']
+
 ## Sitemap configuration
 [sitemap]
     ## Change frequency setting (will affect posts listings layout): 'always', 'hourly', 'daily', 'weekly', 'monthly', 'yearly', 'never'
