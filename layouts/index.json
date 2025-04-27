@@ -1,0 +1,47 @@
+{{- $post := where site.RegularPages "Type" (or "post" "articles") }}
+{{- if $post }}
+{
+    "nodes": [
+        {{- range $post }}
+        {
+            "id": "{{ .Page.File.UniqueID }}",
+            "title": "{{ .Title }}",
+            "permalink": "{{ .Permalink }}"
+        },
+        {{- end }}
+        {{- range $name, $taxonomy := site.Taxonomies -}}
+            {{- with index site.Taxonomies $name }}
+                {{- range . }}
+                    {
+                        "id": "{{ print $name "-" (anchorize .Page.Title) }}",
+                        "title": "{{ .Page.Title }}",
+                    },
+                {{- end }}
+            {{- end }}
+        {{- end }}
+    ],
+    "links": [
+        {{- range $post }}
+            {{- $source := .Page.File.UniqueID }}
+            {{ partial "taxolink.html" (dict "source" $source "page" .) }}
+        {{- end }}
+    ],
+}
+{{- end }}
+
+{{- define "partials/taxolink.html" -}}
+    {{- $page := .page }}
+    {{- $source := .source }}
+    {{- range $name, $taxonomy := site.Taxonomies -}}
+        {{- if ne $name "author" }}
+            {{- with $page.GetTerms $name }}
+                {{- range . }}
+                    {
+                    "source": "{{ $source }}",
+                    "target": "{{ print $name "-" (anchorize .Page.Title) }}",
+                    },
+                {{- end }}
+            {{- end }}
+        {{- end }}
+    {{- end }}
+{{- end }}
