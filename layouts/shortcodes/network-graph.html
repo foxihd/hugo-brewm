@@ -1,0 +1,90 @@
+{{ $dataPath := .Get "data" }}
+<div id="network-graph" data-source="{{ $dataPath }}"></div>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+const width = document.getElementById('network-graph').getBoundingClientRect().width;
+const height = 480;
+const svg = d3.select("#network-graph")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+const simulation = d3.forceSimulation()
+    .force("link", d3.forceLink().id(d => d.id))
+    .force("charge", d3.forceManyBody())
+    .force("center", d3.forceCenter(width / 2, height / 2));
+
+d3.json(document.getElementById("network-graph").dataset.source).then(function(graph) {
+    const link = svg.append("g")
+        .attr("class", "links")
+        .selectAll("line")
+        .data(graph.links)
+        .enter().append("line")
+        .attr("class", "link")
+        .attr("stroke", "var(--mid)")
+        .attr("stroke-width", "1px");
+
+    const node = svg.append("g")
+        .attr("class", "nodes")
+        .selectAll("g")
+        .data(graph.nodes)
+        .enter().append("g")
+        .style("cursor", "pointer")
+        .on("click", (event, d) => {
+            window.location.href = d.permalink;
+        });
+        
+    const circles = node.append("circle")
+        .attr("class", "node")
+        .attr("r", 5)
+        .attr("fill", "var(--ac)")
+        .call(d3.drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended));
+
+    const labels = node.append("text")
+        .text(d => d.title)
+        .attr('x', 6)
+        .attr('y', 3)
+        .attr("fill", "var(--mid)");
+
+    node.append("title")
+        .text(d => d.title);
+
+    simulation
+        .nodes(graph.nodes)
+        .on("tick", ticked);
+
+    simulation.force("link")
+        .links(graph.links);
+
+    function ticked() {
+        link
+            .attr("x1", d => d.source.x)
+            .attr("y1", d => d.source.y)
+            .attr("x2", d => d.target.x)
+            .attr("y2", d => d.target.y);
+
+        node
+            .attr("transform", d => `translate(${d.x},${d.y})`);
+    }
+});
+
+function dragstarted(event, d) {
+    if (!event.active) simulation.alphaTarget(0.3).restart();
+    d.fx = d.x;
+    d.fy = d.y;
+}
+
+function dragged(event, d) {
+    d.fx = event.x;
+    d.fy = event.y;
+}
+
+function dragended(event, d) {
+    if (!event.active) simulation.alphaTarget(0);
+    d.fx = null;
+    d.fy = null;
+}
+</script>

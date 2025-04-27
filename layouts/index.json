@@ -11,11 +11,14 @@
         {{- end }}
         {{- range $name, $taxonomy := site.Taxonomies -}}
             {{- with index site.Taxonomies $name }}
-                {{- range . }}
-                    {
-                        "id": "{{ print $name "-" (anchorize .Page.Title) }}",
-                        "title": "{{ .Page.Title }}",
-                    },
+                {{- if ne $name "author" }}
+                    {{- range . }}
+                            {
+                                "id": "{{ print $name "-" (anchorize .Page.Title) }}",
+                                "title": "{{ .Page.Title }}",
+                                "permalink": "{{ .Page.Permalink }}"
+                            },
+                    {{- end }}
                 {{- end }}
             {{- end }}
         {{- end }}

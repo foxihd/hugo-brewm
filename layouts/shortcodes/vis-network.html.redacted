@@ -1,0 +1,28 @@
+{{ $dataPath := .Get "data" }}
+<div id="network-graph" data-source="{{ $dataPath }}"></div>
+<script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+<script>
+// [links] > [edges]
+// [source] > [from]
+// [target] > [to]
+const container = document.getElementById('network-graph');
+const dataSource = container.dataset.source;
+fetch(dataSource)
+    .then(response => response.json())
+    .then(jsonData => {
+    const data = {
+        nodes: new vis.DataSet(jsonData.nodes),
+        edges: new vis.DataSet(jsonData.edges)
+    };
+    const options = {
+        nodes: {
+            shape: 'dot',
+            size: 16,
+            font: {
+                size: 14
+            }
+        }
+    };
+    const network = new vis.Network(container, data, options);
+    });
+</script>
