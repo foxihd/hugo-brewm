@@ -1,4 +1,16 @@
 <div id="network-graph" data-source="{{ .Get "data" }}" style="height: {{ or (.Get "height") "480px" }};"></div>
+<style>
+    .link {
+        stroke: var(--mid);
+        stroke-width: 1px;
+    }
+    .node {
+        fill: var(--ac);
+    }
+    .nodes text {
+        fill: var(--mid);
+    }
+</style>
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
 const width = document.getElementById('network-graph').getBoundingClientRect().width;
@@ -19,9 +31,7 @@ d3.json(document.getElementById("network-graph").dataset.source).then(function(g
         .selectAll("line")
         .data(graph.links)
         .enter().append("line")
-        .attr("class", "link")
-        .attr("stroke", "var(--mid)")
-        .attr("stroke-width", "1px");
+        .attr("class", "link");
 
     const node = svg.append("g")
         .attr("class", "nodes")
@@ -36,7 +46,6 @@ d3.json(document.getElementById("network-graph").dataset.source).then(function(g
     const circles = node.append("circle")
         .attr("class", "node")
         .attr("r", 5)
-        .attr("fill", "var(--ac)")
         .call(d3.drag()
             .on("start", dragstarted)
             .on("drag", dragged)
@@ -45,8 +54,7 @@ d3.json(document.getElementById("network-graph").dataset.source).then(function(g
     const labels = node.append("text")
         .text(d => d.title)
         .attr('x', 6)
-        .attr('y', 3)
-        .attr("fill", "var(--mid)");
+        .attr('y', 3);
 
     node.append("title")
         .text(d => d.title);
