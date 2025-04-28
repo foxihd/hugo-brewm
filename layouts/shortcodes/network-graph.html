@@ -1,9 +1,8 @@
-{{ $dataPath := .Get "data" }}
-<div id="network-graph" data-source="{{ $dataPath }}"></div>
+<div id="network-graph" data-source="{{ .Get "data" }}" style="height: {{ or (.Get "height") "480px" }};"></div>
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
 const width = document.getElementById('network-graph').getBoundingClientRect().width;
-const height = 480;
+const height = document.getElementById('network-graph').getBoundingClientRect().height;
 const svg = d3.select("#network-graph")
     .append("svg")
     .attr("width", width)

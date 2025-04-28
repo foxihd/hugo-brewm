@@ -68,7 +68,7 @@ enableRobotsTXT = true
             unsafe = true
 
 [outputs]
-  home = ['html', 'rss', 'json']
+    home = ['html', 'rss', 'json']
 
 ## Sitemap configuration
 [sitemap]
