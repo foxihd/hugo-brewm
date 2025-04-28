@@ -13,12 +13,26 @@
 </style>
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
-const width = document.getElementById('network-graph').getBoundingClientRect().width;
-const height = document.getElementById('network-graph').getBoundingClientRect().height;
+const width = document.getElementById("network-graph").getBoundingClientRect().width;
+const height = document.getElementById("network-graph").getBoundingClientRect().height;
 const svg = d3.select("#network-graph")
     .append("svg")
     .attr("width", width)
-    .attr("height", height);
+    .attr("height", height)
+    .attr("pointer-events", "all")
+    .call(d3.zoom().on("zoom", redraw))
+    .append("g");
+
+svg.append("rect")
+    .attr("width", width)
+    .attr("height", height)
+    .attr("fill", "none");
+
+function redraw(event) {
+    svg.attr("transform",
+        "translate(" + event.transform.x + "," + event.transform.y + ")"
+        + " scale(" + event.transform.k + ")");
+}
 
 const simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(d => d.id))
@@ -53,8 +67,8 @@ d3.json(document.getElementById("network-graph").dataset.source).then(function(g
 
     const labels = node.append("text")
         .text(d => d.title)
-        .attr('x', 6)
-        .attr('y', 3);
+        .attr("x", 6)
+        .attr("y", 3);
 
     node.append("title")
         .text(d => d.title);
