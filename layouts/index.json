@@ -1,23 +1,33 @@
 {{- $post := where site.RegularPages "Type" (or "post" "articles") }}
+{{- $includeSection := site.Params.home.includeSectionInJson }}
 {{- if $post }}
 {
     "nodes": [
-        {{- range $post }}
-        {
-            "id": "{{ .Page.File.UniqueID }}",
-            "title": "{{ .Title }}",
-            "permalink": "{{ .Permalink }}"
-        },
+        {{- range $post -}}
+            {
+                "id": "{{ .Page.File.UniqueID }}",
+                "title": "{{ .Title }}",
+                "permalink": "{{ .Permalink }}"
+            },
+        {{- end }}
+        {{- if $includeSection }}
+            {{- range .Sections -}}
+                {
+                    "id": "{{ print "section-" (anchorize .Page.Title) }}",
+                    "title": "{{ .Page.Title }}",
+                    "permalink": "{{ .Page.Permalink }}"
+                },
+            {{- end }}
         {{- end }}
         {{- range $name, $taxonomy := site.Taxonomies -}}
-            {{- with index site.Taxonomies $name }}
-                {{- if ne $name "author" }}
+            {{- if ne $name "author" }}
+                {{- with index site.Taxonomies $name }}
                     {{- range . }}
-                            {
-                                "id": "{{ print $name "-" (anchorize .Page.Title) }}",
-                                "title": "{{ .Page.Title }}",
-                                "permalink": "{{ .Page.Permalink }}"
-                            },
+                        {
+                            "id": "{{ print $name "-" (anchorize .Page.Title) }}",
+                            "title": "{{ .Page.Title }}",
+                            "permalink": "{{ .Page.Permalink }}"
+                        },
                     {{- end }}
                 {{- end }}
             {{- end }}
@@ -27,6 +37,9 @@
         {{- range $post }}
             {{- $source := .Page.File.UniqueID }}
             {{ partial "taxolink.html" (dict "source" $source "page" .) }}
+        {{- end }}
+        {{- if $includeSection }}
+            {{ partial "seclink.html" . }}
         {{- end }}
     ],
 }
@@ -40,10 +53,24 @@
             {{- with $page.GetTerms $name }}
                 {{- range . }}
                     {
-                    "source": "{{ $source }}",
-                    "target": "{{ print $name "-" (anchorize .Page.Title) }}",
+                        "source": "{{ $source }}",
+                        "target": "{{ print $name "-" (anchorize .Page.Title) }}",
                     },
                 {{- end }}
+            {{- end }}
+        {{- end }}
+    {{- end }}
+{{- end }}
+
+{{- define "partials/seclink.html" -}}
+    {{- range .Sections -}}
+        {{- $name := .Page.Title }}
+        {{- with (where .CurrentSection.RegularPages "Type" (or "post" "articles")) }}
+            {{ range . }}
+                {
+                    "source": "{{ print "section-" (anchorize $name) }}",
+                    "target": "{{ .Page.File.UniqueID }}",
+                },
             {{- end }}
         {{- end }}
     {{- end }}

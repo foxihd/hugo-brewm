@@ -284,6 +284,8 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         disableListing = false
         ## Select taxonomy listing to be featured
         # featuredListing = ['categories', 'series', 'author', 'cameras', 'lenses']
+        ## include section nodes in json
+        includeSectionInJson = false
 
     ## Logo configuration
     [params.logo]
