@@ -1,10 +1,15 @@
-<div id="network-graph" data-source="{{ .Get "data" }}" style="height: {{ or (.Get "height") "480px" }};"></div>
+<div id="network-graph" 
+    data-title="{{ .Get "title" }}"
+    data-source="{{ .Get "data" }}" 
+    style="height: {{ or (.Get "height") "480px" }};"></div>
 <style>
     .link {
         stroke: var(--mid);
         stroke-width: 1px;
     }
-    .node {
+
+    .node,
+    .nodes text:hover {
         fill: var(--ac);
     }
     .nodes text {
@@ -13,15 +18,18 @@
 </style>
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
-const width = document.getElementById("network-graph").getBoundingClientRect().width;
-const height = document.getElementById("network-graph").getBoundingClientRect().height;
+const container = document.getElementById("network-graph");
+const width = container.getBoundingClientRect().width;
+const height = container.getBoundingClientRect().height;
 const svg = d3.select("#network-graph")
     .append("svg")
     .attr("width", width)
     .attr("height", height)
     .attr("pointer-events", "all")
-    .call(d3.zoom().on("zoom", redraw))
-    .append("g");
+    .call(d3.zoom().on("zoom", redraw));
+
+svg.append("title")
+    .text(container.dataset.title)
 
 svg.append("rect")
     .attr("width", width)
@@ -39,7 +47,7 @@ const simulation = d3.forceSimulation()
     .force("charge", d3.forceManyBody())
     .force("center", d3.forceCenter(width / 2, height / 2));
 
-d3.json(document.getElementById("network-graph").dataset.source).then(function(graph) {
+d3.json(container.dataset.source).then(function(graph) {
     const link = svg.append("g")
         .attr("class", "links")
         .selectAll("line")
