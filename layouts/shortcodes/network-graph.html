@@ -3,17 +3,38 @@
     data-source="{{ .Get "data" }}" 
     style="height: {{ or (.Get "height") "480px" }};"></div>
 <style>
+    #network-graph {
+        overflow: hidden;
+    }
     .link {
         stroke: var(--mid);
-        stroke-width: 1px;
+        stroke-width: 1pt;
     }
-
-    .node,
-    .nodes text:hover {
+    .node {
+        fill: none;
+        stroke: var(--ac);
+        stroke-width: 1pt;
+        z-index: 2;
+        cursor: pointer;
+    }
+    .node.post {
         fill: var(--ac);
+        stroke: none;
+    }
+    .node.tags {
+        stroke-dasharray: 1pt;
     }
     .nodes text {
-        fill: var(--mid);
+        fill: var(--fg);
+        font-size: 7pt;
+        opacity: 0.5;
+    }
+    .node:hover {
+        transform: scale(1.5);
+    }
+    .node:hover + text {
+        opacity: 1;
+        font-size: 8pt;
     }
 </style>
 <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -59,15 +80,17 @@ d3.json(container.dataset.source).then(function(graph) {
         .attr("class", "nodes")
         .selectAll("g")
         .data(graph.nodes)
-        .enter().append("g")
-        .style("cursor", "pointer")
+        .enter().append("g");
+
+    const title = node.append("title")
+        .text(d => d.title);
+
+    const circles = node.append("circle")
+        .attr("class", d => "node " + d.type)
+        .attr("r", 5)
         .on("click", (event, d) => {
             window.location.href = d.permalink;
-        });
-        
-    const circles = node.append("circle")
-        .attr("class", "node")
-        .attr("r", 5)
+        })
         .call(d3.drag()
             .on("start", dragstarted)
             .on("drag", dragged)
@@ -75,11 +98,8 @@ d3.json(container.dataset.source).then(function(graph) {
 
     const labels = node.append("text")
         .text(d => d.title)
-        .attr("x", 6)
+        .attr("x", 9)
         .attr("y", 3);
-
-    node.append("title")
-        .text(d => d.title);
 
     simulation
         .nodes(graph.nodes)
