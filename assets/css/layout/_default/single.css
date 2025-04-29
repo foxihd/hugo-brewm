@@ -213,6 +213,7 @@ header time {
     width: 16.18rem;
 }
 
+#has-stage + #title,
 #has-timeline > p,
 .footnotes ol {
     margin-top: 0;
