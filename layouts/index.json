@@ -1,5 +1,6 @@
 {{- $post := where site.RegularPages "Type" (or "post" "articles") }}
 {{- $includeSection := site.Params.home.includeSectionInJson }}
+{{- $excludedTaxonomy := slice "author" "stage" }}
 {{- if $post }}
 {
     "nodes": [
@@ -7,7 +8,8 @@
             {
                 "id": "{{ .Page.File.UniqueID }}",
                 "title": "{{ .Title }}",
-                "permalink": "{{ .Permalink }}"
+                "permalink": "{{ .Permalink }}",
+                "type": "post"
             },
         {{- end }}
         {{- if $includeSection }}
@@ -15,18 +17,20 @@
                 {
                     "id": "{{ print "section-" (anchorize .Page.Title) }}",
                     "title": "{{ .Page.Title }}",
-                    "permalink": "{{ .Page.Permalink }}"
+                    "permalink": "{{ .Page.Permalink }}",
+                    "type": "section"
                 },
             {{- end }}
         {{- end }}
         {{- range $name, $taxonomy := site.Taxonomies -}}
-            {{- if ne $name "author" }}
+            {{- if not (in $excludedTaxonomy $name) }}
                 {{- with index site.Taxonomies $name }}
                     {{- range . }}
                         {
                             "id": "{{ print $name "-" (anchorize .Page.Title) }}",
                             "title": "{{ .Page.Title }}",
-                            "permalink": "{{ .Page.Permalink }}"
+                            "permalink": "{{ .Page.Permalink }}",
+                            "type": "{{ $name }}"
                         },
                     {{- end }}
                 {{- end }}
@@ -48,8 +52,9 @@
 {{- define "partials/taxolink.html" -}}
     {{- $page := .page }}
     {{- $source := .source }}
+    {{- $excludedTaxonomy := slice "author" "stage" }}
     {{- range $name, $taxonomy := site.Taxonomies -}}
-        {{- if ne $name "author" }}
+        {{- if not (in $excludedTaxonomy $name) }}
             {{- with $page.GetTerms $name }}
                 {{- range . }}
                     {
