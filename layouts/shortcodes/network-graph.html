@@ -11,11 +11,10 @@
         stroke-width: 1pt;
     }
     .node {
+        cursor: pointer;
         fill: none;
         stroke: var(--ac);
         stroke-width: 1pt;
-        z-index: 2;
-        cursor: pointer;
     }
     .node.post {
         fill: var(--ac);
@@ -25,9 +24,9 @@
         stroke-dasharray: 1pt;
     }
     .nodes text {
-        fill: var(--fg);
-        font-size: 7pt;
         opacity: 0.5;
+        font-size: 7pt;
+        fill: var(--fg);
     }
     .node:hover {
         transform: scale(1.5);
@@ -44,21 +43,26 @@ const width = container.getBoundingClientRect().width;
 const height = container.getBoundingClientRect().height;
 const svg = d3.select("#network-graph")
     .append("svg")
-    .attr("width", width)
-    .attr("height", height)
-    .attr("pointer-events", "all")
-    .call(d3.zoom().on("zoom", redraw));
+        .attr("id", "network-graph-svg")
+        .attr("width", width)
+        .attr("height", height)
+        .attr("pointer-events", "all")
+        .call(d3.zoom().on("zoom", redraw));
 
 svg.append("title")
-    .text(container.dataset.title)
+    .text(container.dataset.title);
 
 svg.append("rect")
+    .attr("id", "placeholder")
     .attr("width", width)
     .attr("height", height)
     .attr("fill", "none");
 
+const svgNG = svg.append("g")
+    .attr("id", "network-graph-data");
+
 function redraw(event) {
-    svg.attr("transform",
+    svgNG.attr("transform",
         "translate(" + event.transform.x + "," + event.transform.y + ")"
         + " scale(" + event.transform.k + ")");
 }
@@ -69,14 +73,14 @@ const simulation = d3.forceSimulation()
     .force("center", d3.forceCenter(width / 2, height / 2));
 
 d3.json(container.dataset.source).then(function(graph) {
-    const link = svg.append("g")
+    const link = svgNG.append("g")
         .attr("class", "links")
         .selectAll("line")
         .data(graph.links)
         .enter().append("line")
         .attr("class", "link");
 
-    const node = svg.append("g")
+    const node = svgNG.append("g")
         .attr("class", "nodes")
         .selectAll("g")
         .data(graph.nodes)
