@@ -61,10 +61,6 @@
     line-height: 1.618;
 }
 
-.hero__content p {
-    width: var(--golden-ratio);
-}
-
 @media only screen and (max-width: 960px) {
 
     .hero {
@@ -82,7 +78,7 @@
 
     .hero > * {
         align-self: center;
-        width: 86% !important;
+        width: 86%;
     }
 
     .hero__image {
