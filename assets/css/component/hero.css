@@ -61,6 +61,11 @@
     line-height: 1.618;
 }
 
+.hero__content p {
+    --col: 27rem;
+    max-width: var(--col);
+}
+
 @media only screen and (max-width: 960px) {
 
     .hero {
