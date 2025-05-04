@@ -144,10 +144,12 @@
     other = "More Menu"
 [moreContrast]
     other = "High"
-[next]
-    other = "Next"
 [nav]
     other = "Navigation"
+[networkGraph]
+    other = "Content Network Graph"
+[next]
+    other = "Next"
 [noArticle]
     other = "No articles to show."
 [noArticlePost]

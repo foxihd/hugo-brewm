@@ -139,6 +139,8 @@
     other = "Tinggi"
 [nav]
     other = "Navigasi"
+[networkGraph]
+    other = "Grafik Jaringan Konten"
 [next]
     other = "Selanjutnya"
 [noArticle]

@@ -83,11 +83,19 @@
     <div class="hero">
         {{- $src := partial "page/cover.html" (dict "page" . ) }}
         {{- $alt := or .Params.Alt .Params.coverAlt .Params.imagesAlt }}
+        {{- $networkGraph := .Params.NetworkGraph }}
         {{- if $src }}
         <div class="hero__image {{ if not .Params.keepAspectRatio }} auto {{ end }}">
             <img src="{{ $src }}" alt="{{ with $alt }}{{ . }}{{ end }}"/>
         </div>
-        {{- end }}
+        {{- else if $networkGraph }}
+            <div id="network-graph" 
+                data-title="{{ i18n "networkGraph"}}"
+                data-source="{{ absLangURL "index.json" }}" 
+                style="height: 480px;">
+                {{ partial "head/js/network-graph.html" . }}
+            </div>
+        {{ end }}
         <div class="hero__content">
             {{- .Content }}
             {{- /*
