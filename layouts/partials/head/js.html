@@ -93,7 +93,7 @@
             .nodes text{ opacity: 0.5; font-size: 7pt; fill: var(--fg);}
             .node:hover{ transform: scale(1.5);}
             .node:hover + text{ opacity: 1; font-size: 8pt;}
-            @media only screen and (max-width: 480px) {#network-graph, #network-graph + .hero__content{width:50%}}
+            @media only screen and (min-width: 480px) {.hero > #network-graph, #network-graph + .hero__content{width:50%}}
         `
         document.head.appendChild(ngSty);
         const container = document.getElementById("network-graph");
