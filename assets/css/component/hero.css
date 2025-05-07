@@ -81,7 +81,8 @@
         flex-direction: column;
     }
 
-    .hero > * {
+    .hero > *,
+    .hero__image + .hero__content {
         align-self: center;
         width: 86%;
     }
