@@ -34,15 +34,19 @@ ul.carousel__viewport > li > a > span,
 }
 
 #background-header {
-    /* border-bottom: var(--border); */
+    border-bottom: var(--opt-border);
     height: var(--vhead);
 }
 
 #background-footer {
     top: unset;
     bottom: 0;
-    /* border-top: var(--border); */
+    border-top: var(--opt-border);
     height: var(--vfoot);
+}
+
+.has-border {
+    --opt-border: var(--border);
 }
 
 /* grain */

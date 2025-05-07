@@ -43,6 +43,7 @@
 
 .carousel__viewport {
     display: flex;
+    border: var(--opt-border);
     height: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -147,14 +148,13 @@ ul.carousel__viewport > li > a > span::after {
 
 #list-taxonomy > .carousel__viewport {
     flex-direction: column;
-    height: 16.8rem;
+    height: 14.75rem;
     overflow-y: auto;
     scroll-snap-type: y mandatory;
 }
 
-#list-taxonomy #list-series,
-#list-taxonomy #list-categories {
-    padding: 1rem 0;
+#list-taxonomy {
+    margin: 1rem 0;
 }
 
 #list-series ul.carousel__viewport,

@@ -41,6 +41,10 @@ function setColor() {
         logomark.style.display = lightSwitch.checked ? 'none' : 'inline-block';
         logomarkDark.style.display = lightSwitch.checked ? 'inline-block' : 'none';
     }
+    const elements = getElements('#background-header, #background-footer, .carousel__viewport');
+    elements.forEach(element => {
+        moreContrast.checked ? element.classList.add('has-border') : element.classList.remove('has-border');
+    });
 };
 
 // Flash guard
