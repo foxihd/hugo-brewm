@@ -43,7 +43,6 @@
 
 .carousel__viewport {
     display: flex;
-    border: var(--opt-border);
     height: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
