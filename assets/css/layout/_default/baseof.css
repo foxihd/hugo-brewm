@@ -49,8 +49,6 @@
 
 * {
     box-sizing: border-box;
-    scroll-margin-top: var(--vhead);
-    scroll-behavior: smooth;
     scrollbar-color: var(--g18) transparent;
     scrollbar-width: thin;
     text-rendering: optimizeLegibility;
@@ -70,6 +68,11 @@
             hyphenate-lines: 2;
     orphans: 2;
     widows: 2;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-block-start: var(--vhead);
 }
 
 body {
