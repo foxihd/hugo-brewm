@@ -28,7 +28,8 @@
 
 {{- define "main" }}
     {{- $isPost := eq .Params.type (or "post" "articles") }}
-    <article id="{{ if $isPost }}main-article{{ else }}main-page{{ end }}" class="pagewidth"
+    {{- $sf := or site.Params.Posts.sfdefault .Params.sfdefault }}
+    <article id="main-article" class="pagewidth {{ if or (not $isPost) $sf }}sf{{ else }}rm{{ end }}"
         role="document" aria-labelledby="title"
         {{- if ne (lower .Params.type) (or "post" "articles") }}
             data-pagefind-ignore="all"

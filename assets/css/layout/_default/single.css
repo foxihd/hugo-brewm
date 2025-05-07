@@ -1,16 +1,18 @@
 #main-article {
     margin-top: 1in;
     line-height: calc(var(--baselineStretch) * 1.618);
-    font-family: var(--rm), serif;
 }
 
-#main-page h1 {
+#main-article.sf h1 {
     font-weight: 700;
 }
 
-#main-page .subtitle,
-#main-page h2,
-#main-page h3 {
+#main-article.sf header time,
+#main-article.sf .subtitle,
+#main-article.sf #doc-author,
+#main-article.sf #doc-author a,
+#main-article.sf h2,
+#main-article.sf h3 {
     font-style: normal;
 }
 
@@ -157,7 +159,6 @@ header time {
     border-radius: 2rem;
 }
 
-#main-page section > p,
 #main-article audio,
 #main-article section > p {
     margin: 0.618pc 0;
@@ -225,7 +226,7 @@ header time {
     font-variant-position: super;
 }
 
-#main-page > header,
+#main-article.sf > header,
 #content,
 #keywords,
 #contentinfo {

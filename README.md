@@ -308,6 +308,8 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         disableHistory = false
         ## SHow related content
         related = true
+        ## Use sans-serif fonts as default
+        sfdefault = false
         ## Show share buttons
         share = true
 

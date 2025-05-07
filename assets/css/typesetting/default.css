@@ -18,6 +18,14 @@
     --vskip:var(--bigskip) 0;
 }
 
+.rm {
+    font-family: var(--rm), serif;
+}
+
+.sf {
+    font-family: var(--sf), sans-serif;
+}
+
 h1 + p,
 h2 + p,
 h3 + p,
