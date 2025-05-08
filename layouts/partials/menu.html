@@ -59,6 +59,7 @@
     {{- $deck := and $main (eq $n 2) }}
     {{ range .menuEntries -}}
         {{- $name := .Name }}
+        {{- $class := .Params.class }}
         {{- $attrs := dict "href" .URL }}
         {{- if $page.IsMenuCurrent .Menu . }}
             {{- $attrs = merge $attrs (dict "aria-current" "page") }}
@@ -78,7 +79,7 @@
             {{- end }}
         {{- end }}
         {{- $identifier := .Identifier }}
-        <li role="presentation">
+        <li role="presentation" {{ with $class }}class="{{ . }}"{{ end }}>
             {{- if .Children }}
                 {{- template "menuItemWithChildren" dict "item" . "attrs" $attrs "icon" $icon "name" $name "desc" $desc "deck" $deck "menuID" $menuID "open" $open "l" $l "n" $n "page" $page }}
             {{- else }}
