@@ -450,7 +450,7 @@ a#has-i18n:active > .alt {
         justify-content: unset;
         z-index: 3;
         padding: 1.414ex;
-        width: 100vw;
+        width: 101vw;
         height: var(--vbody);
         overflow-y: auto;
     }
@@ -527,10 +527,17 @@ a#has-i18n:active > .alt {
     #has-search {
         /* make as plank */
         margin: 1ex;
-        border: var(--border);
-        border-radius: 1ex;
         background: var(--bg);
         padding: 1ex;
+    }
+
+    #has-more-menu {
+        border: var(--border);
+        border-radius: 1ex;
+    }
+
+    #has-more-menu[open] {
+        border: none;
     }
 
     details[open] > .anchor.on-deck:after {
