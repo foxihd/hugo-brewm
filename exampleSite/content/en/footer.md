@@ -7,7 +7,7 @@ params:
     target: 'https://github.com/foxihd/hugo-brewm'
 ---
 
-<strong class="section-title">Foxx Edelweiss <i class="icon copyleft"></i> 2025</strong>
+<strong class="section-title">Author <i class="icon copyleft"></i> 2025</strong>
 
 Some rights reserved.
 

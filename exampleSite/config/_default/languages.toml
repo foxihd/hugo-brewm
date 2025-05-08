@@ -15,6 +15,7 @@
         tag = 'tags'
 
 [id]
+    title = 'Contoh'
     contentDir = 'content/id'
     disabled = false
     languageCode = 'id-ID'
@@ -24,6 +25,9 @@
         disableAliases = false
         pagerSize = 12
         path = 'laman'
+    [id.params]
+        coffeeStat = false
+
     [id.params.feed]
         flowlines = false
     [id.params.home]

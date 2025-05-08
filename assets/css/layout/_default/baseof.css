@@ -196,11 +196,19 @@ body.focus #dwclock {
     font-size: var(--small);
 }
 
+#menu-footer:first-child {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+#main-footer a {
+    padding: 0.62rem;
+    color: #fff;
+}
+
 #menu-footer a {
     display: inline-flex;
     position: relative;
-    padding: 0.62rem;
-    color: #fff;
     font-size: var(--large);
 }
 
