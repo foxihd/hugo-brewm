@@ -35,7 +35,8 @@
         <nav id="{{ printf "%s-menu" $menuID }}" aria-label="{{ i18n $menuID }}">
             {{- $n := 1 }}
             {{- $no := printf "l%d" $n }}
-            <ul class="{{ $no }} {{ if $more }} on-plank {{ end }}" role="presentation" tabindex="-1" >
+            {{- $hasChildFree := partial "menu/hasChildFree.html" (dict "menuEntries" .) }}
+            <ul class="{{ $no }} {{ if $more }} on-plank {{ end }} {{ if $hasChildFree }} has-childfree {{ end }}" role="presentation" tabindex="-1" >
                 {{ partial "inline/menu/walk.html" (dict "page" $page "menuID" $menuID "n" $n "menuEntries" .) }}
             </ul>
             {{- if $more }}
@@ -47,6 +48,16 @@
 {{- end }}
 
 {{- /*---------------------- end of menu.html ----------------------*/}}
+
+{{- define "partials/menu/hasChildFree.html"}}
+    {{- $hasChildFree := true }}
+    {{- range .menuEntries }}
+        {{- if .Children }}
+            {{- $hasChildFree = false }}
+        {{- end }}
+    {{- end }}
+    {{ return $hasChildFree }}
+{{- end }}
 
 {{- define "partials/inline/menu/walk.html" -}}
     {{- $page := .page }}
