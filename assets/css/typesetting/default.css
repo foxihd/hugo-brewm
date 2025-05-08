@@ -189,7 +189,8 @@ tbody tr:nth-child(2n) {
 .hero__content h3,
 #share > span,
 #menu-footer::before,
-.section-title {
+.section-title,
+.textssc {
     vertical-align: middle;
     text-transform: uppercase;
     letter-spacing: 2pt;

@@ -1,0 +1,23 @@
+[[main]]
+  name       = 'Github'
+  identifier = 'fork'
+  weight     = 1
+  url        = 'https://github.com/foxihd/hugo-brewm'
+  [[main.params]]
+    class = 'lfill textssc'
+
+[[main]]
+  name       = 'Tentang'
+  identifier = 'about'
+  weight     = 2
+  url        = '#'
+  [[main.params]]
+    class = 'textssc'
+
+[[main]]
+  name       = 'Galeri'
+  identifier = 'galeri'
+  weight     = 3
+  url        = '#'
+  [[main.params]]
+    class = 'rfill textssc'
