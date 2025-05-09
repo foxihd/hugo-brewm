@@ -1,7 +1,14 @@
 {{ "<!-- mastodon.html -->" | safeHTML }}
 {{- $bsky := .bsky }}
 {{- $toot := .toot }}
-<details id="comments" class="presentation" aria-label="{{ i18n "comments" }}" open>
+<details id="comments" class="presentation" aria-label="{{ i18n "comments" }}" open
+    data-i18n-noComment="{{ i18n "noComment" }}"
+    data-i18n-err="{{ i18n "fediverseErr" }}"
+    data-i18n-loading="{{ i18n "fediverseIsLoading" }}"
+    data-i18n-replies="{{ i18n "fediverseReplies" }}"
+    data-i18n-reblogs="{{ i18n "fediverseReblogs" }}"            
+    data-i18n-favourites="{{ i18n "fediverseFavourites" }}"
+    >
     <summary class="section-title" role="button" aria-expanded="true" aria-controls="mastodon-comments">
         <span>{{ i18n "comments" }}</span>
     </summary>
@@ -24,15 +31,6 @@
             <div id="mastodon-stats" class="stat" aria-live="polite"></div>
         </footer>
     </article>
-
-    <code class="verbose" aria-hidden="true" hidden>
-        <div id="i18n--no-comment" class="has-aria-label-top" aria-label="[l10n] if no comment to display:">{{- i18n "noComment" -}}</div>
-        <div id="i18n--is-error" class="has-aria-label-top" aria-label="[l10n] Err:">{{- i18n "fediverseErr" }}</div>
-        <div id="i18n--is-loading" class="has-aria-label-top" aria-label="[l10n] if comments is loading:"><span class="loading">{{ i18n "fediverseIsLoading" -}}</span></div>
-        <div id="i18n--is-replies" class="has-aria-label-top" aria-label="[l10n] replies:">{{- i18n "fediverseReplies" }}</div>
-        <div id="i18n--is-reblogs" class="has-aria-label-top" aria-label="[l10n] reblogs:">{{- i18n "fediverseReblogs" }}</div>
-        <div id="i18n--is-favourites" class="has-aria-label-top" aria-label="[l10n] favorites:">{{- i18n "fediverseFavourites" }}</div>
-    </code>
 
     {{ with $toot }}
         <ul id="mastodon-comments" role="feed" aria-busy="true" aria-label="{{ i18n "comments" }}" 

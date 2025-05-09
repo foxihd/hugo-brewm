@@ -15,12 +15,13 @@ const respondToVisibility = (element, callback) => {
 };
 
 // sync localization with hugo i18n
-const i18nreplies = getElement('i18n--is-replies').innerHTML;
-const i18nreblogs = getElement('i18n--is-reblogs').innerHTML;
-const i18nfavourites = getElement('i18n--is-favourites').innerHTML;
-const i18nLoading = getElement('i18n--is-loading').innerHTML;
-const i18nErr = getElement('i18n--is-error').innerHTML;
-const i18nNoComment = getElement('i18n--no-comment').innerHTML;
+const cmt = getElement('comments');
+const i18nReplies = cmt.dataset.i18nReplies;
+const i18nReblogs = cmt.dataset.i18nReblogs;
+const i18nFavourites = cmt.dataset.i18nFavourites;
+const i18nLoading = cmt.dataset.i18nLoading;
+const i18nErr = cmt.dataset.i18nErr;
+const i18nNoComment = cmt.dataset.i18nNoComment;
 
 const style = document.createElement('style');
 style.textContent = `
@@ -74,13 +75,13 @@ if (tootUri) {
     };
 
     const renderStat = toot => `
-        <a class="replies ${toot_active(toot, 'replies')}" href="${toot.url}" rel="nofollow" aria-label="${i18nreplies}">
+        <a class="replies ${toot_active(toot, 'replies')}" href="${toot.url}" rel="nofollow" aria-label="${i18nReplies}">
             <span>${toot_count(toot, 'replies')}</span>
         </a>
-        <a class="reblogs ${toot_active(toot, 'reblogs')}" href="${toot.url}" rel="nofollow" aria-label="${i18nreblogs}">
+        <a class="reblogs ${toot_active(toot, 'reblogs')}" href="${toot.url}" rel="nofollow" aria-label="${i18nReblogs}">
             <span>${toot_count(toot, 'reblogs')}</span>
         </a>
-        <a class="favourites ${toot_active(toot, 'favourites')}" href="${toot.url}" rel="nofollow" aria-label="${i18nfavourites}">
+        <a class="favourites ${toot_active(toot, 'favourites')}" href="${toot.url}" rel="nofollow" aria-label="${i18nFavourites}">
             <span>${toot_count(toot, 'favourites')}</span>
         </a>`;
 

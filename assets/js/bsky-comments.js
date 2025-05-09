@@ -182,13 +182,13 @@ if (atProto) {
             </div>
             <footer>
                 <div class="stat">
-                <a class="replies ${comment.post.replyCount > 0 ? 'active' : ''}" href="${ToBskyUrl(comment.post.uri)}" rel="nofollow"  aria-label="${i18nreplies}">
+                <a class="replies ${comment.post.replyCount > 0 ? 'active' : ''}" href="${ToBskyUrl(comment.post.uri)}" rel="nofollow"  aria-label="${i18nReplies}">
                     <span>${comment.post.replyCount > 0 ? comment.post.replyCount : ''}</span>
                 </a>
-                <a class="reblogs ${comment.post.repostCount > 0 ? 'active' : ''}" href="${ToBskyUrl(comment.post.uri)}" rel="nofollow" aria-label="${i18nreblogs}">
+                <a class="reblogs ${comment.post.repostCount > 0 ? 'active' : ''}" href="${ToBskyUrl(comment.post.uri)}" rel="nofollow" aria-label="${i18nReblogs}">
                     <span>${comment.post.repostCount > 0 ? comment.post.repostCount : ''}</span>
                 </a>
-                <a class="favourites ${comment.post.likeCount > 0 ? 'active' : ''}" href="${ToBskyUrl(comment.post.uri)}" rel="nofollow" aria-label="${i18nfavourites}">
+                <a class="favourites ${comment.post.likeCount > 0 ? 'active' : ''}" href="${ToBskyUrl(comment.post.uri)}" rel="nofollow" aria-label="${i18nFavourites}">
                     <span>${comment.post.likeCount > 0 ? comment.post.likeCount : ''}</span>
                 </a>
                 </div>
