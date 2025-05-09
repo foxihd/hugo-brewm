@@ -146,10 +146,6 @@
 
 {{- define "post" }}
     {{ "<!-- [post] single.html -->" | safeHTML }}
-    {{- /* display color palette for pages with code blocks */}}
-    {{- with findRE `class="chroma"` .Content 1 -}}
-        <script>document.getElementById('setColorPalette').setAttribute('style', 'display:flex;');</script>
-    {{- end }}
     {{- /*
 
         bionRead Snapshot */}}

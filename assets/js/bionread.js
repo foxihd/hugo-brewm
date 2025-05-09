@@ -1,5 +1,11 @@
 // make sure the switch unchecked on reload
-getElement('useBionRead').className = '';
+getElement('useBionRead').innerHTML = `
+<input id="bionReadSwitch" accesskey="b" type="checkbox" onclick="bionRead()" aria-keyshortcuts="b" aria-label="${a11y.dataset.i18nBionread}">
+<label id="bionReadButton" for="bionReadSwitch">
+    <span><strong>Bion</strong>Read</span>
+    <kbd class="key" aria-hidden="true">b</kbd>
+</label>
+`;
 bionReadSwitch.checked = false;
 // define the function
 function bionRead() {

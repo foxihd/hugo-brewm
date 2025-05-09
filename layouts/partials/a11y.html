@@ -1,205 +1,40 @@
 {{ "<!-- a11y.html -->" | safeHTML -}}
-<details id="has-a11y" class="presentation js-details" name="on-deck" aria-haspopup="true" aria-labelledby="has-a11y-summary">
+<details id="has-a11y" class="presentation js-details hide" name="on-deck" aria-haspopup="true" aria-labelledby="has-a11y-summary">
     <summary id="has-a11y-summary" accesskey="a" aria-keyshortcuts="a">
         <span>&nbsp;{{ i18n "accessibility" }}</span>
         <kbd class="key" aria-hidden="true">a</kbd>
     </summary>
     {{ "<!-- a11y console -->" | safeHTML }}
-    <fieldset id="a11y" role="region" aria-label="{{ i18n "accessibility" }}" disabled>
-        {{ "<!-- brightness & contrast -->" | safeHTML }}
-        <div id="setColorScheme" role="group" aria-label="{{ i18n "colorSettings" }}">
-            {{ partialCached "a11y/darkMode.html" . }}
-            {{ partialCached "a11y/contrast.html" . }}
-        </div>
-        {{ partialCached "a11y/colorPalette.html" . }}
-        {{ partialCached "a11y/fontsize.html" . }}
-        {{ partialCached "a11y/baselineStretch.html" . }}
-        {{ partialCached "a11y/OpenDyslexic.html" . }}
-        {{ partialCached "a11y/menu.html" . }}
+    <fieldset id="a11y" role="region" aria-label="{{ i18n "accessibility" }}"
+        data-i18n-colorSettings="{{ i18n "colorSettings" }}"
+        data-i18n-darkMode="{{ i18n "darkMode" }}"
+        data-i18n-light="{{ i18n "light" }}"
+        data-i18n-dark="{{ i18n "dark" }}"
+        data-i18n-contrast="{{ i18n "contrast" }}"
+        data-i18n-lessContrast="{{ i18n "lessContrast" }}"
+        data-i18n-moreContrast="{{ i18n "moreContrast" }}"
+        data-i18n-defaultContrast="{{ i18n "defaultContrast" }}"
+        data-i18n-colorPalette="{{ i18n "colorPalette" }}"
+        data-i18n-defaultColor="{{ i18n "defaultColor" }}"
+        data-i18n-deuteranopia="{{ i18n "deuteranopia" }}"
+        data-i18n-protanopia="{{ i18n "protanopia" }}"
+        data-i18n-tritanopia="{{ i18n "tritanopia" }}"
+        data-i18n-monochrome="{{ i18n "monochrome" }}"
+        data-i18n-fontSize="{{ i18n "fontSize" }}"
+        data-i18n-baselineStretch="{{ i18n "baselineStretch" }}"        
+        data-i18n-OpenDyslexic="{{ i18n "OpenDyslexic" }}"
+        data-i18n-menuControls="{{ i18n "menuControls" }}"
+        data-i18n-save="{{ i18n "save" }}"
+        data-i18n-reset="{{ i18n "reset" }}"
+        data-i18n-close="{{ i18n "close" }}"
+        data-i18n-bionRead="{{ i18n "bionRead" }}"
+        data-i18n-focusMode="{{ i18n "focusMode" }}"
+        data-i18n-noLocalStorage="{{ i18n "noLocalStorage" }}">
         <noscript>
             <center id="noScript" role="alert">{{ i18n "noScript" }}</center>
         </noscript>
-        <center id="noLocalStorage" class="hide" role="alert">{{ i18n "noLocalStorage" }}</center>
     </fieldset>
     <div class="screening js-cpn" role="presentation" aria-hidden="true"></div>
 </details>
 
 {{/*----------------------- end of a11y.html ------------------------*/}}
-
-{{- define "partials/a11y/darkMode.html" -}}
-    {{ "<!-- darkMode.html -->" | safeHTML }}
-    <input
-        id="lightSwitch"
-        type="checkbox"
-        onclick="setColor()"
-        aria-label="{{ i18n "darkMode" }}"
-        >
-        <label for="lightSwitch">
-            <div class="has-aria-label off" role="status" aria-label="{{ i18n "light" }}"></div>
-            <div class="has-aria-label on" role="status" aria-label="{{ i18n "dark" }}"></div>
-            <div id="lightSwitchIndicator" aria-hidden="true"></div>
-        </label>
-{{- end }}
-
-{{- define "partials/a11y/contrast.html" -}}
-    {{ "<!-- contrast.html -->" | safeHTML }}
-    <fieldset id="setContrast">
-        <legend>{{ i18n "contrast" }}</legend>
-        <input
-            id="lessContrast"
-            type="radio" name="setContrast" value="less"
-            onclick="setColor()"
-            >
-            <label for="lessContrast">
-                <span>{{ i18n "lessContrast" }}</span>
-            </label>
-        <input
-            id="defaultContrast"
-            type="radio" name="setContrast" value="default"
-            onclick="setColor()"
-            >
-            <label for="defaultContrast">
-                <span>{{ i18n "defaultContrast" }}</span>
-            </label>
-        <input
-            id="moreContrast"
-            type="radio" name="setContrast" value="more"
-            onclick="setColor()"
-            >
-            <label for="moreContrast">
-                <span>{{ i18n "moreContrast" }}</span>
-            </label>
-    </fieldset>
-{{- end }}
-
-{{- define "partials/a11y/colorPalette.html" -}}
-    {{ "<!-- colorPalette.html -->" | safeHTML }}
-    <div id="setColorPalette" style="display:none;">
-        <label for="colorPalette">{{ i18n "colorPalette" }}</label>
-        <select id="colorPalette" name="colorPalette" oninput="setColorPalette()" aria-label="{{ i18n "colorPalette" }}">
-            <option value="defaultColor">{{ i18n "defaultColor" }}</option>
-            <option value="deuteranopia">{{ i18n "deuteranopia" }}</option>
-            <option value="protanopia">{{ i18n "protanopia" }}</option>
-            <option value="tritanopia">{{ i18n "tritanopia" }}</option>
-            <option value="monochrome">{{ i18n "monochrome" }}</option>
-        </select>
-    </div>
-{{- end }}
-
-{{- define "partials/a11y/fontsize.html" -}}
-    {{ "<!-- fontsize.html -->" | safeHTML }}
-    <div class="has-aria-label-top" aria-label="{{ i18n "fontSize" }}">
-        <label class="range" for="fontSize" aria-label="{{ i18n "fontSize" }}">
-            <input
-                id="fontSize"
-                type="range" min="8" max="12" step="0.5"
-                oninput="setFontSize()">
-            <output
-                id="fontSizeState"
-                role="status"
-                aria-live="polite"
-                >10</output>
-        </label>
-    </div>
-{{- end }}
-
-{{- define "partials/a11y/baselineStretch.html" -}}
-    {{ "<!-- baselineStretch.html -->" | safeHTML }}
-    <div id="setBaselineStretch" class="has-aria-label-top" aria-label="{{ i18n "baselineStretch" }}">
-        <label class="range" for="baselineStretch">
-            <input
-                id="baselineStretch"
-                type="range" min="0.8" max="1.2" step="0.05"
-                oninput="setStretch()"
-                >
-            <output
-                id="baselineStretchState"
-                role="status"
-                aria-live="polite"
-                >1</output>
-        </label>
-    </div>
-{{- end }}
-
-{{- define "partials/a11y/OpenDyslexic.html" -}}
-    {{ "<!-- OpenDyslexic.html -->" | safeHTML }}
-    <div id="setOpenDyslexic" aria-label="{{ i18n "OpenDyslexic" }}">
-        <input
-            id="OpenDyslexic"
-            type="checkbox"
-            onclick="useOpenDyslexic()"
-            aria-label="{{ i18n "OpenDyslexic" }}"
-            >
-            <label
-                class="has-aria-label-top"
-                for="OpenDyslexic"
-                aria-label="{{ i18n "OpenDyslexic" }}"
-                >
-                <span id="OpenDyslexicState" aria-hidden="true">
-                    <span id="OpenDyslexicIndicator"></span>
-                </span>
-            </label>
-    </div>
-{{- end }}
-
-{{- define "partials/a11y/menu.html" -}}
-    {{ "<!-- menu.html -->" | safeHTML }}
-    <menu
-        id="a11y-menu"
-        class="hide"
-        role="toolbar"
-        aria-label="{{ i18n "menuControls" }}"
-        >
-        <button
-            id="saveButton" class="reverse"
-            onclick="saveA11y()"
-            disabled>
-            {{- i18n "save" }}
-        </button>
-        <button
-            id="resetButton" class="has-aria-label"
-            onclick="resetA11y()"
-            aria-label="{{ i18n "reset" }}"
-            disabled>
-        </button>
-        <button
-            id="closeButton" class="has-aria-label"
-            onclick="closeA11yConsole()"
-            aria-label="{{ i18n "close" }}"
-            >
-        </button>
-    </menu>
-{{- end }}
-
-{{- define "partials/a11y/bionread.html" -}}
-    {{ "<!-- bionread.html -->" | safeHTML }}
-    <div id="useBionRead" class="hide">
-        <input
-            id="bionReadSwitch"
-            accesskey="b" type="checkbox"
-            onclick="bionRead()"
-            aria-keyshortcuts="b"
-            aria-label="{{ i18n "bionRead" }}"
-            >
-            <label id="bionReadButton" for="bionReadSwitch">
-                <span><strong>Bion</strong>Read</span>
-                <kbd class="key" aria-hidden="true">b</kbd>
-            </label>
-    </div>
-{{- end }}
-
-{{- define "partials/a11y/focusMode.html" -}}
-    {{ "<!-- focusMode.html -->" | safeHTML }}
-    <div id="focusMode" class="hide">
-        <input
-            id="defocusAuxElement"
-            accesskey="d" type="checkbox"
-            onclick="focusMode()"
-            aria-keyshortcuts="d"
-            aria-label="{{ i18n "focusMode" }}"
-            >
-            <label id="focusModeButton" for="defocusAuxElement" aria-label="{{ i18n "focusMode" }}">
-                ⦿ <span class="t" role="tooltip">{{ i18n "focusMode" }}</span>
-            </label>
-    </div>
-{{- end }}
