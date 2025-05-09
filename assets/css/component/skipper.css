@@ -25,9 +25,14 @@ body > footer > nav {
 }
 
 #to-top {
-    padding: 1ex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+    background: var(--bg);
+    width: 2.7rem;
+    height: 2.7rem;
     color: var(--fg);
-    overflow: hidden;
 }
 
 #to-top::before {
