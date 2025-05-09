@@ -47,7 +47,7 @@
         <div id="comments-error" role="alert">{{ i18n "noScript" }} {{ i18n "noComment" }}</div>
     </noscript>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.4/purify.min.js" referrerpolicy="no-referrer"
-        integrity="sha384-eEu5CTj3qGvu9PdJuS+YlkNi7d2XxQROAFYOr59zgObtlcux1ae1Il3u7jvdCSWu" crossorigin="anonymous"></script>
+        integrity="sha384-eEu5CTj3qGvu9PdJuS+YlkNi7d2XxQROAFYOr59zgObtlcux1ae1Il3u7jvdCSWu" crossorigin="anonymous" defer></script>
     {{ partialCached "fediverse/js.html" . }}    
 </details>
 
@@ -57,7 +57,7 @@
     {{ "<!-- fediverse/js.html -->" | safeHTML }}
     {{- $mastodon := resources.Get "js/fediverse.js" }}
     {{- $bluesky := resources.Get "js/bsky-comments.js" }}
-    {{- $fediverse := slice $mastodon $bluesky | resources.Concat "css/fediverse.js" | minify  }}
+    {{- $fediverse := slice $mastodon $bluesky | resources.Concat "js/fediverse.js" | minify  }}
     {{- if eq hugo.Environment "development" }}
         <script src="{{ $fediverse.Permalink }}" defer></script>
     {{- else }}
