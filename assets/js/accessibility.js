@@ -30,9 +30,9 @@ a11y.innerHTML = `
         <input id="lessContrast" type="radio" name="setContrast" value="less" onclick="setColor()">
             <label for="lessContrast"><span>${a11y.dataset.i18nLesscontrast}</span></label>
         <input id="defaultContrast" type="radio" name="setContrast" value="default" onclick="setColor()">
-            <label for="defaultContrast"><span>${a11y.dataset.i18nMorecontrast}</span></label>
+            <label for="defaultContrast"><span>${a11y.dataset.i18nDefaultcontrast}</span></label>
         <input id="moreContrast" type="radio" name="setContrast" value="more" onclick="setColor()">
-            <label for="moreContrast"><span>${a11y.dataset.i18nDefaultcontrast}</span></label>
+            <label for="moreContrast"><span>${a11y.dataset.i18nMorecontrast}</span></label>
     </fieldset>
 </div>
 <!-- setColorPalette -->
