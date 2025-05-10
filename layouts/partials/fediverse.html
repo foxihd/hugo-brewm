@@ -14,7 +14,11 @@
     </summary>
 
     <article id="discussion-starter">
-        <div id="mastodon-content"></div>
+        <div id="mastodon-content">
+            <noscript>
+                <div id="comments-error" role="alert">{{ i18n "noScript" }} {{ i18n "noComment" }}</div>
+            </noscript>
+        </div>
         <footer>
             <div>
                 {{- $cta := cond $toot $toot $bsky }}
@@ -43,9 +47,6 @@
             data-uri="{{ . }}"></ul>
     {{- end }}
 
-    <noscript>
-        <div id="comments-error" role="alert">{{ i18n "noScript" }} {{ i18n "noComment" }}</div>
-    </noscript>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.4/purify.min.js" referrerpolicy="no-referrer"
         integrity="sha384-eEu5CTj3qGvu9PdJuS+YlkNi7d2XxQROAFYOr59zgObtlcux1ae1Il3u7jvdCSWu" crossorigin="anonymous" defer></script>
     {{ partialCached "fediverse/js.html" . }}    
