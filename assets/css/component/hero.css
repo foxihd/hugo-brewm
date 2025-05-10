@@ -24,9 +24,11 @@
     position: sticky;
     top: 0;
     width: 50%;
+    height: fit-content;
 }
 
 .hero__image.auto {
+    height: auto;
     max-height: 1024px;
 }
 
