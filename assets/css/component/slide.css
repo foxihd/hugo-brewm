@@ -18,7 +18,7 @@
 .carousel__viewport__slide__content h1.section-title {
     margin: 0 !important;
     padding: var(--smallskip) 0 1ex;
-    font: italic var(--Large) var(--rm), serif;
+    font-size: var(--Large);
 }
 
 .carousel__viewport__slide__content h2 {

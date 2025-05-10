@@ -57,8 +57,10 @@
 .hero__content h2,
 .hero__content h3 {
     margin: 4pt 0;
-    font: italic var(--Large) var(--rm), serif;
-    line-height: 1.618;
+    line-height: 1.2;
+    font-size: var(--LARGE);
+    font-weight: bold;
+    font-style: normal;
 }
 
 .hero__content p {
