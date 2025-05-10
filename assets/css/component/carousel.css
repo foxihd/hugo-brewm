@@ -19,28 +19,6 @@
     overflow: hidden;
 }
 
-.carousel__nav {
-    display: flex;
-    position: absolute;
-    right: 2rem;
-    bottom: 2rem;
-    justify-content: flex-end;
-    z-index: 1;
-    width: calc(100% - 4rem);
-    font-size: var(--small);
-}
-
-.carousel__nav > ul {
-    overflow-x: auto;
-    white-space: nowrap;
-}
-
-.carousel__viewport nav a {
-    display: flex;
-    z-index: 2;
-    font-size: var(--small);
-}
-
 .carousel__viewport {
     display: flex;
     height: 100%;

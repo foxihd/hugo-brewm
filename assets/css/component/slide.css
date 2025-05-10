@@ -1,8 +1,34 @@
 /* this style is used inline in list.html */
 
+.carousel__nav {
+    display: flex;
+    position: absolute;
+    right: 2rem;
+    bottom: 1rem;
+    justify-content: flex-end;
+    z-index: 1;
+    width: calc(100% - 4rem);
+    font-size: var(--small);
+}
+
+.carousel__viewport__slide > .carousel__nav {
+    bottom: 0;
+}
+
+.carousel__nav > ul {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.carousel__viewport nav a {
+    display: flex;
+    z-index: 2;
+    font-size: var(--small);
+}
+
 .carousel__viewport__slide__cover {
     flex: 1 1 40%;
-    padding: 1.5rem 0 5rem 1.5rem;
+    padding: 1.5rem 0 3.6rem 1.5rem;
     height: 100%;
     max-height: 1024px;
 }
@@ -11,7 +37,7 @@
     margin-bottom: auto;
     padding: 0 2rem;
     width: 100%;
-    max-height: calc(100% - 5rem);
+    max-height: calc(100% - 3.6rem);
     overflow-y: auto;
 }
 
@@ -33,17 +59,16 @@
     max-width: var(--canonic);
 }
 
-.carousel__viewport__slide__content .footnotes p {
+
+.carousel__viewport__slide__content .footnotes p,
+.carousel__viewport__slide__cover + .carousel__viewport__slide__content p {
     max-width: unset;
 }
 
 .carousel__viewport__slide__cover + .carousel__viewport__slide__content {
     flex: 1 1 60%;
     margin-bottom: 5rem;
-}
-
-.carousel__viewport__slide__cover + .carousel__viewport__slide__content p {
-    width: unset;
+    height: unset;
 }
 
 .carousel__viewport__slide__cover img {
@@ -74,18 +99,19 @@
     .carousel__nav {
         right: 0;
         bottom: 0;
-        background: var(--bg);
         width: 100%;
     }
 
-    aside .carousel__viewport {
-        height: calc(100% - 3.7rem);
+    .carousel__viewport__slide__cover img,
+    .carousel__nav + .carousel__viewport,
+    .carousel__viewport__slide__content {
+        height: calc(100% - 3rem);
     }
 
     .carousel__viewport__slide > .carousel__nav {
         position: sticky;
         position: -webkit-sticky;
-        width: 100%;
+        padding-right: 1ex;
     }
 
     aside .carousel__viewport > div,
@@ -94,6 +120,7 @@
         flex-direction: column;
         justify-content: end;
         height: 100%;
+        overflow-x: hidden;
         overflow-y: auto;
     }
 
@@ -108,6 +135,9 @@
         border-radius: 1ex;
         padding: 1rem;
         max-width: 100%;
+    }
+
+    .carousel__nav + .carousel__viewport .carousel__viewport__slide__cover img {
         height: 100%;
     }
 
