@@ -136,6 +136,11 @@ if (isPage) {
     function focusMode() {
         defocusAuxElement.checked ? bodySty.classList.add('focus') : bodySty.classList.remove('focus');
     };
+    // display color palette selections
+    hasChroma = getElements('.chroma');
+    if (hasChroma) {
+        getElement('setColorPalette').setAttribute('style', 'display:flex;');
+    }
 }
 
 // Switch to keyboard-friendly mode
@@ -149,10 +154,6 @@ addEvent(document, 'keydown', (element) => {
 });
 
 // Color palette functions
-hasChroma = getElements('.chroma');
-if (hasChroma) {
-    getElement('setColorPalette').setAttribute('style', 'display:flex;');
-}
 function setColorPalette() {
     bodySty.className = colorPalette.value;
 };
