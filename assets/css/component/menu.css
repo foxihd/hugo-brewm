@@ -437,7 +437,7 @@ a#has-i18n:active > .alt {
     #top-nav-screen.screening {
         display: block;
         background-color: var(--bg);
-        backdrop-filter: blur(5vmin);
+        height: calc(var(--vbody) + var(--vfoot));
     }
 
     /* swap hull element */
@@ -527,7 +527,6 @@ a#has-i18n:active > .alt {
     #has-search {
         /* make as plank */
         margin: 1ex;
-        background: var(--bg);
         padding: 1ex;
     }
 
