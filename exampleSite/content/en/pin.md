@@ -10,7 +10,7 @@ This is a slide with `{{</* pin */>}}` shortcode.
 
 ## Pin it as Showcase (Example)
 
-Section with `Pin` shortcode.
+Section with `{{</* pin */>}}` shortcode.
 The item order is column-based.
 If images are not square, the layout will displayed as masonry style.
 
