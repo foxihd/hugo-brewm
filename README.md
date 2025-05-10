@@ -9,9 +9,16 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 ## Feature Highlights
 
 - **Reader-first**: Prioritizes privacy, readability and accessibility with personalized  settings for colors, fonts, BionRead and focus mode (It's Tracker Free!).
-- **Inclusive**: Graceful degradation design oriented with improved semantic HTML structure & WAI-ARIA attribute, the site remains fully functional even when JavaScript is disabled!
-- **Scalable**: Support for multiple authors and languages, optional Pagefind search, external feed over RSS, Giscus and Fediverse-powered commenting system.
-- **Frameworkless**: Lower maintenance & carbon footprint by lesser resource usage.
+- **Inclusive**: Graceful degradation design oriented with improved semantic HTML structure & WAI-ARIA attribute, printer friendly, the site remains fully functional even when JavaScript is disabled!
+- **Scalable**: Start small and grow into a thriving digital garden; with multi-author support, multilingual capabilities and content organization through taxonomy. Features include optional Pagefind search integration, RSS feed syndication (site-wide and series-specific), external feed embed over RSS, and social engagement via Giscus, Mastodon and Bluesky comments.
+- **Frameworkless**: Lower maintenance & carbon footprint by lesser resource usage. Hugo-brewm's combined JavaScript and stylesheet assets totaling under 96KB and compressed to less than 26KB when Gzipped!
+
+Excited about the performance numbers? We've got something great to share!
+Here are performance benchmarks from the demo site hosted on GitHub Pages. Note that actual speeds may vary depending on your hosting provider. For optimal performance, consider self-hosting fonts and implementing longer cache durations for assets:
+- [Websitecarbon.com](https://www.websitecarbon.com/website/foxihd-github-io-hugo-brewm-en/)
+- [PageSpeed Insights](https://pagespeed.web.dev/analysis/https-foxihd-github-io-hugo-brewm-en/ou12d3eemt?form_factor=desktop)
+- [Lighthouse Metrics](https://lighthouse-metrics.com/lighthouse/checks/c3e50367-ec53-4027-81ad-ab95a64b1c1c)
+- [Github CI Build Time](https://github.com/foxihd/hugo-brewm/actions)
 
 ## Translation
 
