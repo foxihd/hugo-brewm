@@ -437,7 +437,7 @@ a#has-i18n:active > .alt {
     #top-nav-screen.screening {
         display: block;
         background-color: var(--bg);
-        height: calc(var(--vbody) + var(--vfoot));
+        height: calc(100vh - var(--vhead));
     }
 
     /* swap hull element */

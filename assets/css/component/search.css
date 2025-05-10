@@ -198,6 +198,7 @@ a.pagefind-ui__result-link {
     .form.on-plank {
         margin: 0;
         border: unset;
+        background: unset;
         padding: 0;
         width: 100%;
     }
