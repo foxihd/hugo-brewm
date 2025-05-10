@@ -53,7 +53,7 @@ hr.ldots::after {
     position: unset;
     float: unset;
     margin: unset;
-    padding: 0 var(--void);
+    padding: 0 var(--void) 3ex;
     width: unset;
 }
 
@@ -138,8 +138,8 @@ hr.ldots::after {
         padding: 0 1ex;
     }
 
-    #list-tags .section-title,
-    #list-posts .section-title {
+    #home #list-tags .section-title,
+    #home #list-posts .section-title {
         padding-left: 1rem;
     }
 
