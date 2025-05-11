@@ -175,7 +175,7 @@
     {{- end }}
     {{- range $yearGroup }}
     {{- $year := .Key }}
-    <div class="list-year {{ if $descending }}textwidth{{ end }}" role="listitem" aria-labelledby="{{ .Key }}">
+    <div class="list-year textwidth {{ if $descending }}descending{{ end }}" role="listitem" aria-labelledby="{{ .Key }}">
         <strong id="{{ $year }}" class="section-title" role="heading" aria-level="1">{{ $year }}</strong>
         <div role="list" aria-label="{{ $year }}">
             {{- $monthGroup := .Pages.GroupByDate "January" }}
