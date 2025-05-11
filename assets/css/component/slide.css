@@ -146,6 +146,10 @@
         max-height: unset;
     }
 
+    .carousel__nav + .carousel__viewport .carousel__viewport__slide__content:first-child {
+        margin-bottom: 1rem;
+    }
+
     .carousel__viewport__slide__cover + .carousel__viewport__slide__content {
         flex: unset;
         z-index: 0;
