@@ -15,7 +15,7 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 
 Love the performance metrics?  
 We've got good news for you!
-Here are performance benchmarks from the examplSite that deployed [under a minute](https://github.com/foxihd/hugo-brewm/actions) on GitHub Pages:
+Here are performance benchmarks from the exampleSite that deployed [under a minute](https://github.com/foxihd/hugo-brewm/actions) on GitHub Pages:
 - [Websitecarbon.com](https://www.websitecarbon.com/website/foxihd-github-io-hugo-brewm-en/)
 - [PageSpeed Insights](https://pagespeed.web.dev/analysis/https-foxihd-github-io-hugo-brewm-en/ou12d3eemt?form_factor=desktop)
 - [Lighthouse Metrics](https://lighthouse-metrics.com/lighthouse/checks/c3e50367-ec53-4027-81ad-ab95a64b1c1c)
@@ -196,6 +196,7 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
     changeFreq = 'monthly'
 
 ## Taxonomy register
+[taxonomies]
     category = 'categories'
     tag = 'tags'
     author = 'author'
