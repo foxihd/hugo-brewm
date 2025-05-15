@@ -23,8 +23,8 @@ const i18nLoading = cmt.dataset.i18nLoading;
 const i18nErr = cmt.dataset.i18nErr;
 const i18nNoComment = cmt.dataset.i18nNoComment;
 
-const style = document.createElement('style');
-style.textContent = `
+const cmtSty = document.createElement('style');
+cmtSty.textContent = `
     #comments > * {width: var(--golden-ratio)}
     #comments noscript {margin: var(--medskip) 0}
     #discussion-starter {margin-bottom: var(--medskip)}
@@ -49,7 +49,7 @@ style.textContent = `
     @media only screen and (max-width: 960px) {
         .fediverse-comment .content, .fediverse-comment > footer {margin-left: 0}
     }`;
-document.head.appendChild(style);
+document.head.appendChild(cmtSty);
 
 if (tootUri) {
 

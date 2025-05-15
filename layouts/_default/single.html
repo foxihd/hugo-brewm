@@ -133,13 +133,11 @@
         {{- $bsky := or .Params.bsky .Params.bluesky .Params.bsky_thread }}
         {{- $giscus := isset .Site.Params "giscus" }}
         {{ if or $toot $bsky $giscus -}}
-            <div class="pagewidth">
-                {{ if not (or $toot $bsky) -}}
-                    {{ partial "giscus.html" . }}
-                {{- else }}
-                    {{ partial "fediverse.html" (dict "toot" $toot "bsky" $bsky ) }}
-                {{- end }}
-            </div>
+            {{ if not (or $toot $bsky) -}}
+                {{ partial "giscus.html" . }}
+            {{- else }}
+                {{ partial "fediverse.html" (dict "toot" $toot "bsky" $bsky ) }}
+            {{- end }}
         {{- end }}
     {{- end }}
 {{- end }}

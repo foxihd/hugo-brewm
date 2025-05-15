@@ -49,7 +49,10 @@ function ToBskyImgUrl(did, blobLink, thumb) {
 const atProto = ToAtProtoUri(bskyRoot.dataset.uri);
 
 if (atProto) {
+    let bskyCommentsLoaded = false;
     const loadBskyComments = async () => {
+        if (bskyCommentsLoaded) return;
+
         try {
             const response = await fetch(
                 "https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread?uri=" + atProto
@@ -67,6 +70,9 @@ if (atProto) {
             } else {
                 bskyRoot.innerHTML = i18nNoComment;
             }
+
+            bskyCommentsLoaded = true;
+            bskyRoot.setAttribute('aria-busy', 'false');
         } catch (error) {
             console.error(`Bluesky ${i18nErr}`, error);
             bskyRoot.innerHTML = `Bluesky ${i18nErr} : ${error}`;
@@ -199,6 +205,6 @@ if (atProto) {
         </li>`;
     }
 
-    respondToVisibility(bskyRoot, loadBskyComments());
+    respondToVisibility(bskyRoot, loadBskyComments);
 
 }
