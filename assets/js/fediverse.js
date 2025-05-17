@@ -118,7 +118,9 @@ if (tootUri) {
         tootsToRender.forEach(toot => render_toot(toots, toot, depth));
     };
 
-    const render_toot = (toots, toot, depth) => {
+    const splitUrl = tootUri.split('/');
+
+    const render_toot = (toots, toot) => {
         toot.account.display_name = escapeHtml(toot.account.display_name);
         toot.account.emojis.forEach(emoji => {
             toot.account.display_name = toot.account.display_name.replace(
@@ -129,7 +131,7 @@ if (tootUri) {
 
         const mastodonComment = `
         <li>
-            <article class="fediverse-comment mstd" style="--mul: ${depth}">
+            <article class="fediverse-comment mstd">
                 <header class="author">
                     <img src="${escapeHtml(toot.account.avatar_static)}" height=48 width=48 alt="${user_account(toot.account)}" loading="lazy"/>
                     <a class="has-aria-label" href="${toot.account.url}" rel="nofollow" aria-label="${user_account(toot.account)}">
@@ -144,11 +146,22 @@ if (tootUri) {
                     </a>
                 </footer>
             </article>
+            <ul id="${toot.id}" class="hasReplies"></ul>
         </li>`;
 
-        mstdRoot.appendChild(DOMPurify.sanitize(mastodonComment, {'RETURN_DOM_FRAGMENT': true}));
+        if (toot.in_reply_to_id === splitUrl[4]) {
+            // reply to root
+            mstdRoot.appendChild(DOMPurify.sanitize(mastodonComment, {'RETURN_DOM_FRAGMENT': true}));
+        } else {
+            // reply to toot
+            const parentToot = toots.find(t => t.id === toot.in_reply_to_id);
+            if (parentToot) {
+                getElement(toot.in_reply_to_id).appendChild(DOMPurify.sanitize(mastodonComment, {'RETURN_DOM_FRAGMENT': true}));
+            }
+        }
 
-        render_toots(toots, toot.id, depth + 1);
+        render_toots(toots, toot.id);
+
     };
 
     const loadComments = async () => {
@@ -156,7 +169,6 @@ if (tootUri) {
 
         mstdRoot.innerHTML = i18nLoading;
 
-        const splitUrl = tootUri.split('/');
         function getJson() {
             if (splitUrl[0] === 'https:' || splitUrl[0] === 'http:') {
                 return 'https://' + splitUrl[2] + '/api/v1/statuses/' + splitUrl[4]
