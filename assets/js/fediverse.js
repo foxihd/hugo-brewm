@@ -132,7 +132,7 @@ if (tootUri) {
             <article class="fediverse-comment mstd" style="--mul: ${depth}">
                 <header class="author">
                     <img src="${escapeHtml(toot.account.avatar_static)}" height=48 width=48 alt="${user_account(toot.account)}" loading="lazy"/>
-                    <a class="has-aria-label" href="${toot.account.url}" rel="nofollow" title="${toot.account.display_name}" aria-label="${user_account(toot.account)}">
+                    <a class="has-aria-label" href="${toot.account.url}" rel="nofollow" aria-label="${user_account(toot.account)}">
                         <span>${toot.account.display_name}</span>
                     </a>
                 </header>
