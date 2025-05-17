@@ -23,6 +23,7 @@ SOFTWARE.
 */
 
 const bskyRoot = document.querySelector("#bsky-comments");
+var bskyCommentsLoaded = false;
 
 function ToBskyUrl(uri) {
     const splitUri = uri.split('/');
@@ -49,7 +50,6 @@ function ToBskyImgUrl(did, blobLink, thumb) {
 const atProto = ToAtProtoUri(bskyRoot.dataset.uri);
 
 if (atProto) {
-    let bskyCommentsLoaded = false;
     const loadBskyComments = async () => {
         if (bskyCommentsLoaded) return;
 
@@ -174,7 +174,7 @@ if (atProto) {
     function renderComment(comment) {
         const replyDate = new Date(comment.post.record.createdAt);
         return `
-        <li>
+        <li data-date="${toISOString(replyDate)}">
             <article class="fediverse-comment bsky" style="margin-bottom: 1rem">
             <header class="author">
                 <img src="${comment.post.author.avatar}" width=58 height=48 alt="${comment.post.author.handle}" loading="lazy" />
@@ -198,10 +198,10 @@ if (atProto) {
                     <span>${comment.post.likeCount > 0 ? comment.post.likeCount : ''}</span>
                 </a>
                 </div>
-                <a class="date" href="${ToBskyUrl(comment.post.uri)}" rel="nofollow"><time datetime="${replyDate.toISOString}">${formatDate(replyDate)}</time></a>
+                <a class="date" href="${ToBskyUrl(comment.post.uri)}" rel="nofollow"><time datetime="${toISOString(replyDate)}">${formatDate(replyDate)}</time></a>
             </footer>
             </article>
-            <ul class="hasReplies" style="margin-left: var(--indent); padding: 0; list-style: none"></ul>
+            <ul class="hasReplies"></ul>
         </li>`;
     }
 

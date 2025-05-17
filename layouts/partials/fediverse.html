@@ -38,14 +38,16 @@
 
     {{ with $toot }}
         <ul id="mastodon-comments" role="feed" aria-busy="true" aria-label="{{ i18n "comments" }}" 
-            style="padding: 0; list-style: none; width: var(--golden-ratio)"
             data-uri="{{ . }}"></ul>
     {{ end }}
     {{- with $bsky }}
         <ul id="bsky-comments" role="feed" role="feed" aria-busy="true" aria-label="{{ i18n "comments" }}" 
-            style="padding: 0; list-style: none; width: var(--golden-ratio)"
             data-uri="{{ . }}"></ul>
     {{- end }}
+
+    {{- if and $toot $bsky }}
+        <ul id="fediverse-comments" role="feed" aria-busy="false" aria-label="{{ i18n "comments" }}" ></ul>
+    {{ end }}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.4/purify.min.js" referrerpolicy="no-referrer"
         integrity="sha384-eEu5CTj3qGvu9PdJuS+YlkNi7d2XxQROAFYOr59zgObtlcux1ae1Il3u7jvdCSWu" crossorigin="anonymous" defer></script>

@@ -1,3 +1,4 @@
+const fed = getElement('fediverse-comments');
 const mstdRoot = getElement('mastodon-comments');
 const tootUri = mstdRoot.dataset.uri;
 
@@ -28,8 +29,9 @@ cmtSty.textContent = `
     #comments > * {width: var(--golden-ratio)}
     #comments noscript {margin: var(--medskip) 0}
     #discussion-starter {margin-bottom: var(--medskip)}
+    #mastodon-comments, #bsky-comments, #fediverse-comments {padding: 0;list-style: none;width: var(--golden-ratio);}
     #discussion-starter > footer {display: flex; align-items: center; justify-content: space-between; margin-top: 1em}
-    .fediverse-comment {margin: 1rem 0 1rem calc(var(--mul) * var(--indent)); border: 1pt solid #fff4; border-left: 2pt solid var(--ac); background: #80808008; padding: 1rem 1rem 1ex; box-shadow: 0 0.5pt 1pt 0 var(--g18s); overflow: auto}
+    .fediverse-comment {margin: 1rem 0 1rem calc(var(--mul) * var(--indent)); border-left: 3pt solid var(--ac); background: #80808008; padding: 1rem 1rem 1ex; overflow: auto}
     .fediverse-comment.bsky {--ac: #1185fe}
     .fediverse-comment.mstd {--ac: #563acc}
     .fediverse-comment > .author > img{margin-right: 12pt}
@@ -46,10 +48,12 @@ cmtSty.textContent = `
     a.replies.active, a.reblogs.active {color: var(--ac)}
     a.favourites.active {color: var(--i3i)}
     .fediverse-comment .date {margin-left: auto; padding-left: 1rem; color: var(--mid); font-size: calc(10pt * var(--fontScale))}
+    .hasReplies {margin-top:1rem;list-style:none;}
     @media only screen and (max-width: 960px) {
         .fediverse-comment .content, .fediverse-comment > footer {margin-left: 0}
     }`;
 document.head.appendChild(cmtSty);
+var commentsLoaded = false;
 
 if (tootUri) {
 
@@ -61,8 +65,6 @@ if (tootUri) {
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
     }
-
-    let commentsLoaded = false;
 
     const toot_active = (toot, what) => {
         const count = toot[`${what}_count`];
@@ -130,7 +132,7 @@ if (tootUri) {
         });
 
         const mastodonComment = `
-        <li>
+        <li data-date="${toISOString(toot.created_at)}">
             <article class="fediverse-comment mstd">
                 <header class="author">
                     <img src="${escapeHtml(toot.account.avatar_static)}" height=48 width=48 alt="${user_account(toot.account)}" loading="lazy"/>
