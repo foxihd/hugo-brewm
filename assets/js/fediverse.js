@@ -90,7 +90,7 @@ if (tootUri) {
     const renderAttachment = attachment => {
         const attachmentTypes = {
             image: () => `<a href="${attachment.url}" rel="nofollow"><img src="${attachment.preview_url}" alt="${attachment.description}" loading="lazy" /></a>`,
-            video: () => `<video controls><source src="${attachment.url}" type="${attachment.mime_type}"></video>`,
+            video: () => `<video controls preload="none"><source src="${attachment.url}" type="${attachment.mime_type}"></video>`,
             gifv: () => `<video autoplay loop muted playsinline><source src="${attachment.url}" type="${attachment.mime_type}"></video>`,
             audio: () => `<audio controls><source src="${attachment.url}" type="${attachment.mime_type}"></audio>`,
             default: () => `<a href="${attachment.url}" rel="nofollow">${attachment.type}</a>`

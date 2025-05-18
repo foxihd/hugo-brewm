@@ -171,7 +171,7 @@ if (atProto) {
                 }).join('');
             } else if (embedType === "app.bsky.embed.video#view") {
                 const video = post.record.embed.video;
-                attachment = `<video controls poster="${post.embed.thumbnail}">
+                attachment = `<video controls poster="${post.embed.thumbnail}" preload="none">
                     <source src="https://bsky.social/xrpc/com.atproto.sync.getBlob?cid=${video.ref.$link}&did=${did}" type="${video.mimeType}"></video>`
             }
         }
