@@ -1,7 +1,6 @@
 /* this style is used inline in accessibility.js */
 
 /* a11y button */
-
 #has-a11y {
     margin-right: auto;
 }
@@ -211,6 +210,7 @@ input:checked + label > #lightSwitchIndicator {
     display: flex;
     margin-left: auto;
     border-radius: 1em;
+    box-shadow: inset 0 1px 5px #0001,0 1px 0 #fff5,0 -1px 0 #0005;
     background: #80808080;
     width: 2.4em;
     height: 0.8em;
