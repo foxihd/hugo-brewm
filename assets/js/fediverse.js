@@ -1,4 +1,9 @@
 const fed = getElement('fediverse-comments');
+if (fed) {
+    var replies = 0;
+    var reblogs = 0;
+    var favourites = 0;
+}
 const mstdRoot = getElement('mastodon-comments');
 const tootUri = mstdRoot.dataset.uri;
 
@@ -76,7 +81,7 @@ if (tootUri) {
         return count > 0 ? count : '';
     };
 
-    const renderStat = toot => `
+    const renderStat = (toot) => `
         <a class="replies ${toot_active(toot, 'replies')}" href="${toot.url}" rel="nofollow" aria-label="${i18nReplies}">
             <span>${toot_count(toot, 'replies')}</span>
         </a>
@@ -193,7 +198,14 @@ if (tootUri) {
             ]);
 
             getElement("mastodon-content").innerHTML = renderContent(toot);
-            getElement("mastodon-stats").innerHTML = renderStat(toot);
+
+            if (fed) {
+                replies = replies + toot_count(toot, 'replies');
+                reblogs = reblogs + toot_count(toot, 'reblogs');
+                favourites = favourites + toot_count(toot, 'favourites');
+            } else {
+                getElement("mastodon-stats").innerHTML = renderStat(toot);
+            }
 
             if (data.descendants?.length > 0) {
                 mstdRoot.innerHTML = "";

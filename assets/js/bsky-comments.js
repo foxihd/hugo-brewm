@@ -66,8 +66,10 @@ if (atProto) {
 
             if (typeof data.thread.replies != "undefined" && data.thread.replies.length > 0) {
                 if (fed) {
+                    replies = replies + data.thread.post.replyCount;
+                    reblogs = reblogs + data.thread.post.repostCount;
+                    favourites = favourites + data.thread.post.likeCount;
                     fed.appendChild(DOMPurify.sanitize(renderComments(data.thread), {RETURN_DOM_FRAGMENT: true}));
-
                 } else {
                     bskyRoot.appendChild(DOMPurify.sanitize(renderComments(data.thread), {RETURN_DOM_FRAGMENT: true}));
                     bskyRoot.setAttribute('aria-busy', 'false');
@@ -77,9 +79,7 @@ if (atProto) {
                     bskyRoot.innerHTML = i18nNoComment;
                 }
             }
-
             bskyCommentsLoaded = true;
-
         } catch (error) {
             console.error(`Bluesky ${i18nErr}`, error);
             bskyRoot.innerHTML = `Bluesky ${i18nErr} : ${error}`;
@@ -229,7 +229,11 @@ function aggregateComment() {
                 } else {
                     item.remove();
                 }
-            });        
+            });
+        getElement("mastodon-stats").innerHTML = `
+            <a class="replies ${replies > 0 ? "active" : "" }" href="${bskyRoot.dataset.uri}" rel="nofollow" aria-label="${i18nReplies}"><span>${replies > 0 ? replies : "" }</span></a>
+            <a class="reblogs ${reblogs > 0 ? "active" : "" }" href="${bskyRoot.dataset.uri}" rel="nofollow" aria-label="${i18nReblogs}"><span>${reblogs > 0 ? reblogs : "" }</span></a>
+            <a class="favourites ${favourites > 0 ? "active" : "" }" href="${bskyRoot.dataset.uri}" rel="nofollow" aria-label="${i18nFavourites}"><span>${favourites > 0 ? favourites : "" }</span></a>`;
         bskyRoot.remove();
         mstdRoot.remove();
     } else {
