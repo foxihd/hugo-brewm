@@ -163,6 +163,8 @@ body.focus #dwclock {
     max-width: var(--max-width); */
 }
 
+#comments > *,
+.giscus,
 .textwidth {
     width: var(--golden-ratio);
 }
