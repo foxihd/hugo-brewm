@@ -118,11 +118,11 @@ if (tootUri) {
         return result;
     };
 
-    const render_toots = (toots, in_reply_to, depth) => {
+    const render_toots = (toots, in_reply_to) => {
         const tootsToRender = toots
             .filter(toot => toot.in_reply_to_id === in_reply_to)
             .sort((a, b) => a.created_at.localeCompare(b.created_at));
-        tootsToRender.forEach(toot => render_toot(toots, toot, depth));
+        tootsToRender.forEach(toot => render_toot(toots, toot));
     };
 
     const splitUrl = tootUri.split('/');
