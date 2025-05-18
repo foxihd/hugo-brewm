@@ -152,10 +152,12 @@ if (tootUri) {
         </li>`;
 
         if (toot.in_reply_to_id === splitUrl[4]) {
-            // reply to root
-            mstdRoot.appendChild(DOMPurify.sanitize(mastodonComment, {'RETURN_DOM_FRAGMENT': true}));
+            if (fed) {
+                fed.appendChild(DOMPurify.sanitize(mastodonComment, {'RETURN_DOM_FRAGMENT': true}));
+            } else {
+                mstdRoot.appendChild(DOMPurify.sanitize(mastodonComment, {'RETURN_DOM_FRAGMENT': true}));
+            }
         } else {
-            // reply to toot
             const parentToot = toots.find(t => t.id === toot.in_reply_to_id);
             if (parentToot) {
                 getElement(toot.in_reply_to_id).appendChild(DOMPurify.sanitize(mastodonComment, {'RETURN_DOM_FRAGMENT': true}));
@@ -195,7 +197,9 @@ if (tootUri) {
                 mstdRoot.innerHTML = "";
                 render_toots(data.descendants, splitUrl[4], 0);
             } else {
-                mstdRoot.innerHTML = i18nNoComment;
+                if (!fed) {
+                    mstdRoot.innerHTML = i18nNoComment;
+                }
             }
 
             commentsLoaded = true;

@@ -65,14 +65,21 @@ if (atProto) {
             const data = await response.json();
 
             if (typeof data.thread.replies != "undefined" && data.thread.replies.length > 0) {
-                bskyRoot.appendChild(DOMPurify.sanitize(renderComments(data.thread), {RETURN_DOM_FRAGMENT: true}));
-                bskyRoot.setAttribute('aria-busy', 'false');
+                if (fed) {
+                    fed.appendChild(DOMPurify.sanitize(renderComments(data.thread), {RETURN_DOM_FRAGMENT: true}));
+
+                } else {
+                    bskyRoot.appendChild(DOMPurify.sanitize(renderComments(data.thread), {RETURN_DOM_FRAGMENT: true}));
+                    bskyRoot.setAttribute('aria-busy', 'false');
+                }
             } else {
-                bskyRoot.innerHTML = i18nNoComment;
+                if (!fed) {
+                    bskyRoot.innerHTML = i18nNoComment;
+                }
             }
 
             bskyCommentsLoaded = true;
-            bskyRoot.setAttribute('aria-busy', 'false');
+
         } catch (error) {
             console.error(`Bluesky ${i18nErr}`, error);
             bskyRoot.innerHTML = `Bluesky ${i18nErr} : ${error}`;
@@ -207,4 +214,19 @@ if (atProto) {
 
     respondToVisibility(bskyRoot, loadBskyComments);
 
+}
+
+// aggregate mastodon and bluesky comments
+function aggregateComment() {
+    if (commentsLoaded && bskyCommentsLoaded) {
+        Array.from(document.querySelectorAll("#fediverse-comments > li[data-date]"))
+            .sort(({dataset: {date: a}}, {dataset: {date: b}}) => a.localeCompare(b))
+            .forEach((item) => item.parentNode.appendChild(item));
+    } else {
+        window.setTimeout(aggregateComment, 100);
+    }
+}
+
+if (bskyRoot && mstdRoot) {
+    aggregateComment();
 }
