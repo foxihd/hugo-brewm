@@ -9,9 +9,9 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 ## Feature Highlights
 
 - **Reader-first**: Prioritizes privacy, readability and accessibility with personalized  settings for colors, fonts, BionRead and focus mode (It's Tracker Free!).
-- **Inclusive**: Graceful degradation design oriented with improved semantic HTML structure & WAI-ARIA attribute, printer-friendly plain vanilla website that remains fully functional even when JavaScript is disabled!
+- **Inclusive**: Graceful degradation design[^1] oriented with improved semantic HTML structure & WAI-ARIA attribute, printer-friendly plain vanilla website that remains fully functional even when JavaScript is disabled!
 - **Scalable**: Start small and grow into a thriving digital garden; with multi-author support, multilingual capabilities and content organization through taxonomy. Features include optional Pagefind search integration, RSS feed syndication (site-wide and series-specific), external feed embed over RSS, and social engagement via Giscus, Mastodon and Bluesky comments.
-- **Frameworkless**: Lower maintenance & carbon footprint by lesser resource usage. Hugo-brewm's combined JavaScript and stylesheet assets totaling under 96KB and compressed to less than 26KB when Gzipped!
+- **Frameworkless**: Lower maintenance & carbon footprint by lesser resource usage. Hugo-brewm's combined JavaScript and stylesheet assets (excluding optional external libraries like MathJax, Katex or PageFind) totaling under 100KB and compressed to less than 27KB when Gzipped!
 
 Love the performance metrics?  
 We've got good news for you!
@@ -455,3 +455,5 @@ This project could not be made, without a lot efforts of — thank to:
 ## License
 
 This theme is released under the MIT License.
+
+[^1]: This theme requires browsers from 2016 or newer since it utilizes WOFF2 fonts, CSS variables, and `calc()` functions. For optimal security and user experience, please ensure your browser is up to date as support for older browsers is not guaranteed.
