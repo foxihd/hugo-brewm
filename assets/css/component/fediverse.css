@@ -1,9 +1,5 @@
 /* this style is used inline in fediverse.js */
 
-#comments > * {
-    width: var(--golden-ratio);
-}
-
 #comments noscript {
     margin: var(--medskip) 0;
 }
@@ -124,3 +120,6 @@ a.favourites.active {
 
 }
 
+@media print {
+    
+}

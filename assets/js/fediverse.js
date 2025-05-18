@@ -31,7 +31,6 @@ const i18nNoComment = cmt.dataset.i18nNoComment;
 
 const cmtSty = document.createElement('style');
 cmtSty.textContent = `
-    #comments > * {width: var(--golden-ratio)}
     #comments noscript {margin: var(--medskip) 0}
     #discussion-starter {margin-bottom: var(--medskip)}
     #mastodon-comments, #bsky-comments, #fediverse-comments {padding: 0;list-style: none;width: var(--golden-ratio);}
