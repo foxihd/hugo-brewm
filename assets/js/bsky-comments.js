@@ -47,6 +47,14 @@ function ToBskyImgUrl(did, blobLink, thumb) {
     return `https://cdn.bsky.app/img/${thumb ? "feed_thumbnail" : "feed_fullsize"}/plain/${did}/${blobLink}`;
 }
 
+
+function renderMainStat() {
+    getElement("mastodon-stats").innerHTML = `
+        <a class="replies ${replies > 0 ? "active" : "" }" href="${bskyRoot.dataset.uri}" rel="nofollow" aria-label="${i18nReplies}"><span>${replies > 0 ? replies : "" }</span></a>
+        <a class="reblogs ${reblogs > 0 ? "active" : "" }" href="${bskyRoot.dataset.uri}" rel="nofollow" aria-label="${i18nReblogs}"><span>${reblogs > 0 ? reblogs : "" }</span></a>
+        <a class="favourites ${favourites > 0 ? "active" : "" }" href="${bskyRoot.dataset.uri}" rel="nofollow" aria-label="${i18nFavourites}"><span>${favourites > 0 ? favourites : "" }</span></a>`;
+}
+
 const atProto = ToAtProtoUri(bskyRoot.dataset.uri);
 
 if (atProto) {
@@ -71,6 +79,10 @@ if (atProto) {
                     favourites = favourites + data.thread.post.likeCount;
                     fed.appendChild(DOMPurify.sanitize(renderComments(data.thread), {RETURN_DOM_FRAGMENT: true}));
                 } else {
+                    if (!mstdRoot) {
+                        getElement('mastodon-content').innerHTML =  renderRichText(data.thread.post.record);
+                        renderMainStat();
+                    }
                     bskyRoot.appendChild(DOMPurify.sanitize(renderComments(data.thread), {RETURN_DOM_FRAGMENT: true}));
                     bskyRoot.setAttribute('aria-busy', 'false');
                 }
@@ -230,10 +242,7 @@ function aggregateComment() {
                     item.remove();
                 }
             });
-        getElement("mastodon-stats").innerHTML = `
-            <a class="replies ${replies > 0 ? "active" : "" }" href="${bskyRoot.dataset.uri}" rel="nofollow" aria-label="${i18nReplies}"><span>${replies > 0 ? replies : "" }</span></a>
-            <a class="reblogs ${reblogs > 0 ? "active" : "" }" href="${bskyRoot.dataset.uri}" rel="nofollow" aria-label="${i18nReblogs}"><span>${reblogs > 0 ? reblogs : "" }</span></a>
-            <a class="favourites ${favourites > 0 ? "active" : "" }" href="${bskyRoot.dataset.uri}" rel="nofollow" aria-label="${i18nFavourites}"><span>${favourites > 0 ? favourites : "" }</span></a>`;
+        renderMainStat();
         bskyRoot.remove();
         mstdRoot.remove();
     } else {
