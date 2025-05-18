@@ -202,7 +202,7 @@ if (atProto) {
                 </a>
             </header>
             <div class="content">
-                <div class="par">${renderRichText(comment.post.record)}</div>
+                <div class="par" data-bionRead-safe>${renderRichText(comment.post.record)}</div>
                 <div class="attachments">${renderAttachment(comment.post)}</div>
             </div>
             <footer>
