@@ -92,7 +92,7 @@ if (atProto) {
             const renderedString = renderComment(comment);
             const htmlContent = createElementFromHTML(renderedString);
 
-            htmlContent.querySelector(".hasReplies").appendChild(renderComments(comment));
+            htmlContent.querySelector(".rep").appendChild(renderComments(comment));
 
             commentsNode.appendChild(htmlContent);
         }
@@ -181,7 +181,7 @@ if (atProto) {
     function renderComment(comment) {
         const replyDate = new Date(comment.post.record.createdAt);
         return `
-        <li data-date="${toISOString(replyDate)}">
+        <li data-date="${toISOString(replyDate)}" id="${comment.post.cid}">
             <article class="fediverse-comment bsky" style="margin-bottom: 1rem">
             <header class="author">
                 <img src="${comment.post.author.avatar}" width=58 height=48 alt="${comment.post.author.handle}" loading="lazy" />
@@ -208,7 +208,7 @@ if (atProto) {
                 <a class="date" href="${ToBskyUrl(comment.post.uri)}" rel="nofollow"><time datetime="${toISOString(replyDate)}">${formatDate(replyDate)}</time></a>
             </footer>
             </article>
-            <ul class="hasReplies"></ul>
+            <ul class="rep"></ul>
         </li>`;
     }
 
@@ -219,9 +219,19 @@ if (atProto) {
 // aggregate mastodon and bluesky comments
 function aggregateComment() {
     if (commentsLoaded && bskyCommentsLoaded) {
-        Array.from(document.querySelectorAll("#fediverse-comments > li[data-date]"))
-            .sort(({dataset: {date: a}}, {dataset: {date: b}}) => a.localeCompare(b))
-            .forEach((item) => item.parentNode.appendChild(item));
+        const items = Array.from(document.querySelectorAll("#fediverse-comments > li[data-date]"));
+        const seen = new Set();
+        items.sort(({dataset: {date: a}}, {dataset: {date: b}}) => a.localeCompare(b))
+            .forEach((item) => {
+                if (!seen.has(item.id)) {
+                    seen.add(item.id);
+                    item.parentNode.appendChild(item);
+                } else {
+                    item.remove();
+                }
+            });        
+        bskyRoot.remove();
+        mstdRoot.remove();
     } else {
         window.setTimeout(aggregateComment, 100);
     }

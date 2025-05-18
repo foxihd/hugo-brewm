@@ -30,6 +30,7 @@ cmtSty.textContent = `
     #comments noscript {margin: var(--medskip) 0}
     #discussion-starter {margin-bottom: var(--medskip)}
     #mastodon-comments, #bsky-comments, #fediverse-comments {padding: 0;list-style: none;width: var(--golden-ratio);}
+    #comments li, #comments li > ul {margin-top:1rem;list-style:none;}
     #discussion-starter > footer {display: flex; align-items: center; justify-content: space-between; margin-top: 1em}
     .fediverse-comment {margin: 1rem 0 1rem calc(var(--mul) * var(--indent)); border-left: 3pt solid var(--ac); background: #80808008; padding: 1rem 1rem 1ex; overflow: auto}
     .fediverse-comment.bsky {--ac: #1185fe}
@@ -48,7 +49,6 @@ cmtSty.textContent = `
     a.replies.active, a.reblogs.active {color: var(--ac)}
     a.favourites.active {color: var(--i3i)}
     .fediverse-comment .date {margin-left: auto; padding-left: 1rem; color: var(--mid); font-size: calc(10pt * var(--fontScale))}
-    .hasReplies {margin-top:1rem;list-style:none;}
     @media only screen and (max-width: 960px) {
         .fediverse-comment .content, .fediverse-comment > footer {margin-left: 0}
     }`;
@@ -132,7 +132,7 @@ if (tootUri) {
         });
 
         const mastodonComment = `
-        <li data-date="${toISOString(toot.created_at)}">
+        <li data-date="${toISOString(toot.created_at)}" id="${toot.id}">
             <article class="fediverse-comment mstd">
                 <header class="author">
                     <img src="${escapeHtml(toot.account.avatar_static)}" height=48 width=48 alt="${user_account(toot.account)}" loading="lazy"/>
@@ -148,7 +148,6 @@ if (tootUri) {
                     </a>
                 </footer>
             </article>
-            <ul id="${toot.id}" class="hasReplies"></ul>
         </li>`;
 
         if (toot.in_reply_to_id === splitUrl[4]) {
@@ -160,7 +159,10 @@ if (tootUri) {
         } else {
             const parentToot = toots.find(t => t.id === toot.in_reply_to_id);
             if (parentToot) {
-                getElement(toot.in_reply_to_id).appendChild(DOMPurify.sanitize(mastodonComment, {'RETURN_DOM_FRAGMENT': true}));
+                const ul = document.createElement('ul');
+                getElement(toot.in_reply_to_id)
+                    .appendChild(ul)
+                    .appendChild(DOMPurify.sanitize(mastodonComment, {'RETURN_DOM_FRAGMENT': true}));
             }
         }
 
