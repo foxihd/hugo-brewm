@@ -182,6 +182,12 @@
                                 <time datetime="{{ .date | time.Format $dateMachine }}">
                                     {{- .date | time.Format "2006-01-02" -}}
                                 </time>
+                                {{- $stage := .stage }}
+                                {{- range site.Taxonomies.stage }}
+                                    {{- if eq (lower .Page.Title) (lower $stage) }}
+                                        <img src="{{- or .Page.Params.indicator .Page.Params.icon .Page.Params.badge | absURL }}" class="stage-indicator">
+                                    {{- end }}
+                                {{- end }}
                             </summary>
                             {{- $writtenAuthor := .author | default $author }}
                             {{- with $writtenAuthor }}

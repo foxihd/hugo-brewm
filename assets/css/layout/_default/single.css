@@ -317,6 +317,10 @@ header time {
     grid-row-start: 1;
 }
 
+#has-timeline summary {
+    display: flex;
+}
+
 #has-timeline ol {
     margin: 1ex 0 0 1rem;
     border-left: 2.5pt solid var(--g18s);
