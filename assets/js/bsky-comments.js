@@ -186,7 +186,10 @@ if (atProto) {
                 attachment = `<video controls poster="${post.embed.thumbnail}" preload="none">
                     <source src="https://bsky.social/xrpc/com.atproto.sync.getBlob?cid=${video.ref.$link}&did=${did}" type="${video.mimeType}"></video>`
             }
+
+            return `<div class="attachments">`+attachment+`</div>`
         }
+
         return attachment;
     }
 
@@ -203,7 +206,7 @@ if (atProto) {
             </header>
             <div class="content">
                 <div class="par" data-bionRead-safe>${renderRichText(comment.post.record)}</div>
-                <div class="attachments">${renderAttachment(comment.post)}</div>
+                ${renderAttachment(comment.post)}
             </div>
             <footer>
                 <div class="stat">

@@ -100,12 +100,14 @@ if (tootUri) {
             default: () => `<a href="${attachment.url}" rel="nofollow">${attachment.type}</a>`
         };
 
-        return (attachmentTypes[attachment.type] || attachmentTypes.default)();
+        if (attachmentTypes) {
+            return `<div class="attachments">`+(attachmentTypes[attachment.type] || attachmentTypes.default)()+`</div>`;
+        }
     };
 
     const renderContent = toot => `
         <div class="par" data-bionRead-safe>${toot.content}</div>
-        <div class="attachments">${toot.media_attachments.map(renderAttachment).join('')}</div>
+        ${toot.media_attachments.map(renderAttachment).join('')}
     `;
 
     const user_account = (account) => {
