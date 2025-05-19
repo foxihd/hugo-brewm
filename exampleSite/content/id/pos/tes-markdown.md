@@ -15,7 +15,7 @@ Dan ini adalah marginpar.
 **Teks tebal**,
 *Teks miring*,
 ***Teks tebal dan miring***,
-~~Teks dicoret~~
+~~Teks dicoret~~,
 [Teks tautan](https://example.com)
 ---juga berfungsi.
 {{< /marginpar >}}

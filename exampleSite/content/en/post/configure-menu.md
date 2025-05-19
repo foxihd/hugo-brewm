@@ -150,29 +150,9 @@ Create dropdown menus by using the `parent` parameter:
 
 ## Language Support
 
-There are four ways to add multi-language support to your menus:
+There are three ways to add multi-language support to your menus:
 
-### 1. Using `menu.[menuID].params.lang`
-
-In `config.toml`:
-
-```toml
-[[menu.main]]
-    identifier = "about"
-    name = "About"
-    url = "/about/"
-    [menu.main.params]
-        lang = "en"
-
-[[menu.main]]
-    identifier = "about"
-    name = "Tentang"
-    url = "/tentang/"
-    [menu.main.params]
-        lang = "id"
-```
-
-### 2. Using `menu.[lang].[menuID]`
+### 1. Using `menu.[lang].[menuID]`
 
 In `config.toml`:
 
@@ -200,7 +180,7 @@ In `config.toml`:
         parent = "about"
 ```
 
-### 3. Using Separate Menu Files
+### 2. Using Separate Menu Files
 
 In `menus.en.toml`:
 
@@ -232,7 +212,7 @@ In `menus.id.toml`:
         parent = "about"
 ```
 
-### 4. Using Front Matter in Markdown Files
+### 3. Using Front Matter in Markdown Files
 
 in `index[.lang].md` `_index[.lang].md` or `filename[.lang].md`
 

@@ -9,7 +9,7 @@ translationKey: markdown
 coffee: 1
 tags: ['markdown']
 categories: ['test']
-toot: "https://infosec.exchange/@foxx/113979609651534969"
+comments: false
 ---
 
 <span class="letterine"><i>T</i>his is example of span with letterine class.</span>
@@ -19,7 +19,7 @@ And this is marginpar.
 **Bold text**,
 *Italic text*,
 ***Bold and italic text***,
-~~Strikethrough text~~
+~~Strikethrough text~~,
 [Link text](https://example.com)
 ---also works.
 {{< /marginpar >}}
