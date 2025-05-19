@@ -129,12 +129,14 @@
         {{- end }}
     </div>
     {{ if not site.Params.comments.disabled -}}
-        {{- $toot := or .Params.toot .Params.mastodon .Params.mstd .Params.comment }}
-        {{- $bsky := or .Params.bsky .Params.bluesky .Params.bsky_thread }}
+        {{- $toot := or .Params.toot  .Params.mstd .Params.mastodon }}
+        {{- $bsky := or .Params.skeet .Params.bsky .Params.bluesky }}
         {{- $giscus := isset .Site.Params "giscus" }}
         {{ if or $toot $bsky $giscus -}}
             {{ if not (or $toot $bsky) -}}
-                {{ partial "giscus.html" . }}
+                {{ if ne .Params.comments false }}
+                    {{ partial "giscus.html" . }}
+                {{ end }}
             {{- else }}
                 {{ partial "fediverse.html" (dict "toot" $toot "bsky" $bsky ) }}
             {{- end }}
