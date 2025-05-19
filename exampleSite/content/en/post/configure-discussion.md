@@ -27,15 +27,7 @@ To enable Giscus comments on your Hugo site, follow these steps:
     repoID = "R_kgDxxxxxxxx"
     category = "Announcements"
     categoryID = "DIC_kwDxxxxxxxxxxxxxxxx"
-    mapping = "pathname"
-    strict = "0"
-    reactionsEnabled = "1"
-    emitMetadata = "0"
-    inputPosition = "bottom"
-    theme = "preferred_color_scheme"
-    lang = "en"
 ```
-
 Replace the following values:
 - `repo`: Your GitHub username and repository name
 - `repoID`: Your repository ID (get from Giscus website)
@@ -43,8 +35,19 @@ Replace the following values:
 - `categoryID`: The discussion category ID (get from Giscus website)
 
 You can generate these values by visiting [Giscus.app](https://giscus.app) and configuring your preferences.
+The following parameters can be optionally configured:
 
-To enable/disable comments on specific posts, use the front matter parameter:
+```toml
+    mapping = "pathname"
+    strict = "0"
+    reactionsEnabled = "1"
+    emitMetadata = "0"
+    inputPosition = "bottom"
+    theme = "preferred_color_scheme"
+    loading = "lazy"
+```
+
+3. By default, Giscus comments will appear on all posts. To disable comments on specific posts, use the front matter parameter:
 
 ```yaml
 ---
@@ -68,7 +71,7 @@ toot: https://example.com/@example/12345678901234567890
 
 ### Linking discussions with Bluesky post
 
-Link your Mastodon post URL to the front matter using either `skeet`, `bsky` or `bluesky` parameter.
+Link your Bluesky post URL to the front matter using either `skeet`, `bsky` or `bluesky` parameter.
 
 ```yaml
 ---

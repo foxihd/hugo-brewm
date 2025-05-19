@@ -22,13 +22,6 @@ Untuk mengaktifkan komentar Giscus di situs Hugo Anda, ikuti langkah-langkah ber
     repoID = "R_kgDxxxxxxxx"
     category = "Announcements"
     categoryID = "DIC_kwDxxxxxxxxxxxxxxxx"
-    mapping = "pathname"
-    strict = "0"
-    reactionsEnabled = "1"
-    emitMetadata = "0"
-    inputPosition = "bottom"
-    theme = "preferred_color_scheme"
-    lang = "en"
 ```
 
 Ganti kata-kunci berikut:
@@ -39,7 +32,19 @@ Ganti kata-kunci berikut:
 
 Anda bisa mendapatkan kata-kunci tersebut dengan mengunjungi [Giscus.app](https://giscus.app) dan mengatur preferensi Anda.
 
-Untuk mengaktifkan/menonaktifkan komentar pada postingan tertentu, gunakan parameter front matter:
+Parameter berikut juga dapat dikonfigurasi secara opsional:
+
+```toml
+    mapping = "pathname"
+    strict = "0"
+    reactionsEnabled = "1"
+    emitMetadata = "0"
+    inputPosition = "bottom"
+    theme = "preferred_color_scheme"
+    loading = "lazy"
+```
+
+3. Secara default, komentar Giscus akan muncul di semua postingan. Untuk menonaktifkan komentar pada postingan tertentu, gunakan parameter front matter:
 
 ```yaml
 ---
@@ -53,7 +58,7 @@ Ketika Anda menyertakan tautan ke postingan Bluesky atau Mastodon di front matte
 
 ### Menautkan diskusi dengan postingan Mastodon
 
-Tautkan URL postingan Mastodon ke front matter menggunakan parameter `toot`, `mstd`, atau `mastodon`.
+Tautkan URL postingan Bluesky ke front matter menggunakan parameter `toot`, `mstd`, atau `mastodon`.
 
 ```yaml
 ---
