@@ -89,10 +89,10 @@ if (tootUri) {
         <a class="replies ${toot_active(toot, 'replies')}" href="${toot.url}" rel="nofollow" aria-label="${i18nReplies}">
             <span>${toot_count(toot, 'replies')}</span>
         </a>
-        <a class="reblogs ${toot_active(toot, 'reblogs')}" href="${toot.url}" rel="nofollow" aria-label="${i18nReblogs}">
+        <a class="reblogs ${toot_active(toot, 'reblogs')}" href="${toot.url}/reblogs" rel="nofollow" aria-label="${i18nReblogs}">
             <span>${toot_count(toot, 'reblogs')}</span>
         </a>
-        <a class="favourites ${toot_active(toot, 'favourites')}" href="${toot.url}" rel="nofollow" aria-label="${i18nFavourites}">
+        <a class="favourites ${toot_active(toot, 'favourites')}" href="${toot.url}/favourites" rel="nofollow" aria-label="${i18nFavourites}">
             <span>${toot_count(toot, 'favourites')}</span>
         </a>`;
 

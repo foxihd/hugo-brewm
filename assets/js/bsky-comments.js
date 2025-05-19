@@ -51,8 +51,8 @@ function ToBskyImgUrl(did, blobLink, thumb) {
 function renderMainStat() {
     getElement("mastodon-stats").innerHTML = `
         <a class="replies ${replies > 0 ? "active" : "" }" href="${bskyRoot.dataset.uri}" rel="nofollow" aria-label="${i18nReplies}"><span>${replies > 0 ? replies : "" }</span></a>
-        <a class="reblogs ${reblogs > 0 ? "active" : "" }" href="${bskyRoot.dataset.uri}" rel="nofollow" aria-label="${i18nReblogs}"><span>${reblogs > 0 ? reblogs : "" }</span></a>
-        <a class="favourites ${favourites > 0 ? "active" : "" }" href="${bskyRoot.dataset.uri}" rel="nofollow" aria-label="${i18nFavourites}"><span>${favourites > 0 ? favourites : "" }</span></a>`;
+        <a class="reblogs ${reblogs > 0 ? "active" : "" }" href="${bskyRoot.dataset.uri}/reposted-by" rel="nofollow" aria-label="${i18nReblogs}"><span>${reblogs > 0 ? reblogs : "" }</span></a>
+        <a class="favourites ${favourites > 0 ? "active" : "" }" href="${bskyRoot.dataset.uri}/liked-by" rel="nofollow" aria-label="${i18nFavourites}"><span>${favourites > 0 ? favourites : "" }</span></a>`;
 }
 
 const atProto = ToAtProtoUri(bskyRoot.dataset.uri);
@@ -213,10 +213,10 @@ if (atProto) {
                 <a class="replies ${comment.post.replyCount > 0 ? 'active' : ''}" href="${ToBskyUrl(comment.post.uri)}" rel="nofollow"  aria-label="${i18nReplies}">
                     <span>${comment.post.replyCount > 0 ? comment.post.replyCount : ''}</span>
                 </a>
-                <a class="reblogs ${comment.post.repostCount > 0 ? 'active' : ''}" href="${ToBskyUrl(comment.post.uri)}" rel="nofollow" aria-label="${i18nReblogs}">
+                <a class="reblogs ${comment.post.repostCount > 0 ? 'active' : ''}" href="${ToBskyUrl(comment.post.uri)}/reposted-by" rel="nofollow" aria-label="${i18nReblogs}">
                     <span>${comment.post.repostCount > 0 ? comment.post.repostCount : ''}</span>
                 </a>
-                <a class="favourites ${comment.post.likeCount > 0 ? 'active' : ''}" href="${ToBskyUrl(comment.post.uri)}" rel="nofollow" aria-label="${i18nFavourites}">
+                <a class="favourites ${comment.post.likeCount > 0 ? 'active' : ''}" href="${ToBskyUrl(comment.post.uri)}/liked-by" rel="nofollow" aria-label="${i18nFavourites}">
                     <span>${comment.post.likeCount > 0 ? comment.post.likeCount : ''}</span>
                 </a>
                 </div>
