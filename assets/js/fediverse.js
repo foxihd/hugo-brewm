@@ -33,7 +33,7 @@ const cmtSty = document.createElement('style');
 cmtSty.textContent = `
     #comments noscript {margin: var(--medskip) 0}
     #discussion-starter {margin-bottom: var(--medskip)}
-    #mastodon-comments, #bsky-comments, #fediverse-comments {padding: 0;list-style: none;width: var(--golden-ratio);}
+    #mastodon-comments, #bsky-comments, #fediverse-comments {padding: 0;list-style: none;width: var(--golden-ratio)}
     #comments li, #comments li > ul {margin-top:1rem;list-style:none;}
     #discussion-starter > footer {display: flex; align-items: center; justify-content: space-between; margin-top: 1em}
     .fediverse-comment {margin: 1rem 0 1rem calc(var(--mul) * var(--indent)); border-left: 3pt solid var(--ac); background: #80808008; padding: 1rem 1rem 1ex; overflow: auto}
@@ -47,14 +47,19 @@ cmtSty.textContent = `
     .attachments {display: flex;overflow: auto}
     .attachments > * {flex-shrink: 0; width: 100%; height: auto}
     .attachments img {width: 100%; height: auto}
-    .stat > * {display: inline-flex; align-items: center; padding: 2pt; color: var(--mid); gap: 2pt;}
-    .stat > *::before {vertical-align: text-top; font-family: 'base-ui';}
+    .stat > * {display: inline-flex; align-items: center; padding: 2pt; color: var(--mid); gap: 2pt}
+    .stat > *::before {vertical-align: text-top; font-family: 'base-ui'}
     .stat > * > span {font-size: 0.8em}
     a.replies.active, a.reblogs.active {color: var(--ac)}
     a.favourites.active {color: var(--i3i)}
     .fediverse-comment .date {margin-left: auto; padding-left: 1rem; color: var(--mid); font-size: calc(10pt * var(--fontScale))}
     @media only screen and (max-width: 960px) {
         .fediverse-comment .content, .fediverse-comment > footer {margin-left: 0}
+    }
+    @media print {
+        .fediverse-comment {position: relative; background: none; padding-bottom: 0}
+        .fediverse-comment .date {position: absolute; top: 0; right: 0}
+        .fediverse-comment .stat {display: none !important}
     }`;
 document.head.appendChild(cmtSty);
 var commentsLoaded = false;

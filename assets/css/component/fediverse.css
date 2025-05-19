@@ -121,5 +121,20 @@ a.favourites.active {
 }
 
 @media print {
-    
+    .fediverse-comment {
+        position: relative;
+        background: none;
+        padding-bottom: 0;
+    }
+
+    .fediverse-comment .date {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    #discussion-starter,
+    .fediverse-comment .stat {
+        display: none !important;
+    }
 }
