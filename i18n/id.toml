@@ -216,13 +216,13 @@
 [shareOn]
     other = "Bagikan di"
 [stage]
-    other = "fase"
+    other = "Fase"
 [switchLangTo]
     other = "Ganti Bahasa ke"
 [TableOfContents]
     other = "Daftar Isi"
 [tags]
-    other = "Tag"
+    other = "Kata Kunci"
 [toContent]
     other = "Langsung ke Konten Utama"
 [toTop]
