@@ -6,6 +6,16 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 
 ![A11y Console](https://repository-images.githubusercontent.com/923527728/46a32a19-69ac-45b3-91a4-c4d299fb234b)
 
+> [!NOTE]
+> It took about 2 years to make this work up to this point. I enjoy every milestone this work has passes, every check boxes it ticked on my notes, and every sip on my brew.  
+>  
+> As for now, this work probably won't be getting any more active development. I can't spent too much time for perfectionism on this work.  
+> Nonetheless, it still mantained in my free time.  
+>
+> Keep Growing!  
+> 🌱🌱🌱
+
+
 ## Feature Highlights
 
 - **Reader-first**: Prioritizes privacy, readability and accessibility with personalized  settings for colors, fonts, BionRead and focus mode (It's Tracker Free!).
