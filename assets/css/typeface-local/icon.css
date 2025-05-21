@@ -57,6 +57,7 @@
 
 .emoji {
     font-family: 'Apple Color Emoji', 'Segoe UI Emoji', NotoColorEmoji, 'Segoe UI Symbol', 'Android Emoji', EmojiSymbols;
+    font-size: 1.8ex;
 }
 
 .icon.accessibility:before {content: '\e900';}
