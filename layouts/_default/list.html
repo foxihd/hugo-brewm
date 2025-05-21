@@ -268,7 +268,11 @@
         <footer>
             {{- with .stage }}
                 {{- range . }}
-                    <img src="{{ or .Params.indicator .Params.icon .Params.badge }}" class="stage-indicator">
+                    {{- if .Params.emoji }}
+                        <span class="emoji">{{ .Params.emoji }}</span>
+                    {{- else }}
+                        <img src="{{ or .Params.indicator .Params.icon .Params.badge }}" class="stage-indicator">
+                    {{- end }}
                 {{- end }}
             {{- end }}
             <span class="readingTime">
