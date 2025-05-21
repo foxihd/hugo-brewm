@@ -50,7 +50,11 @@
                 {{- end }}
                 {{- with $stage }}
                     {{- range . | first 1 }}
-                        <img src="{{ or .Params.indicator .Params.icon .Params.badge }}" class="stage-indicator">
+                        {{- if .Params.emoji }}
+                            <span class="emoji emoji--stage">{{ .Params.emoji }}</span>
+                        {{- else }}
+                            <img src="{{ or .Params.indicator .Params.icon .Params.badge }}" class="stage-indicator">
+                        {{- end }}
                         <a href="{{ .Permalink }}" id="stage" aria-label="{{ i18n "stage" 1 }}: {{ .Title }}">
                             <span>{{ .Title }}</span>
                         </a>

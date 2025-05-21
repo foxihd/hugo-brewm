@@ -8,11 +8,6 @@
         disableAliases = false
         pagerSize = 12
         path = 'page'
-    [en.taxonomies]
-        author = 'author'
-        category = 'categories'
-        series = 'series'
-        tag = 'tags'
 
 [id]
     title = 'Contoh'

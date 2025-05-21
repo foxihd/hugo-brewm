@@ -269,7 +269,7 @@
             {{- with .stage }}
                 {{- range . }}
                     {{- if .Params.emoji }}
-                        <span class="emoji">{{ .Params.emoji }}</span>
+                        <span class="emoji emoji--stage">{{ .Params.emoji }}</span>
                     {{- else }}
                         <img src="{{ or .Params.indicator .Params.icon .Params.badge }}" class="stage-indicator">
                     {{- end }}

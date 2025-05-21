@@ -108,6 +108,10 @@
     font-size: var(--scriptsize);
 }
 
+.emoji.emoji--stage {
+    padding: 0 3pt 3pt 0;
+}
+
 .stage-indicator {
     margin-right: 1ex;
     height: 1.3em !important;

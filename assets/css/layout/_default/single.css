@@ -337,6 +337,11 @@ header time {
     width: 6pt;
 }
 
+#has-timeline .emoji--stage {
+    position: absolute;
+    left: -8pt;
+}
+
 #TableOfContents,
 .letterine {
     text-transform: lowercase;

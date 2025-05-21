@@ -186,7 +186,7 @@
                                 {{- range site.Taxonomies.stage }}
                                     {{- if eq (lower .Page.Title) (lower $stage) }}
                                         {{- if .Page.Params.emoji }}
-                                            <span class="emoji">{{ .Page.Params.emoji }}</span>
+                                            <span class="emoji emoji--stage">{{ .Page.Params.emoji }}</span>
                                         {{- else }}
                                             <img src="{{- or .Page.Params.indicator .Page.Params.icon .Page.Params.badge | absURL }}" class="stage-indicator">
                                         {{- end }}

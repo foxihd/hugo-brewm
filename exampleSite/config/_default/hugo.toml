@@ -96,6 +96,8 @@ enableRobotsTXT = true
     series = "series"
     ## Stage taxonomy
     stage = "stage"
+    ## Author taxonomy
+    author = "author"
 
 ## Site parameters
 [params]
