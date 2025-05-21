@@ -38,6 +38,7 @@
     color: var(--fg);
 }
 
+#series + .emoji--stage,
 #series + .stage-indicator {
     margin: 0 8pt;
 }
