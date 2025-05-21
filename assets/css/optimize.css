@@ -7,9 +7,7 @@
 #bionReadSwitch:active + label,
 #bionReadSwitch:checked + label,
 #join-discussion:hover,
-#join-discussion:focus,
-a.cta:hover,
-a.cta:focus {
+#join-discussion:focus {
     background: var(--ac);
 }
 
