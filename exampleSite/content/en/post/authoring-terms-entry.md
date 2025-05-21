@@ -9,6 +9,7 @@ translationKey: terms
 coffee: 1
 tags: ['authoring', 'cover', 'taxonomy', 'terms']
 categories: ['authoring']
+stage: [seedling]
 ---
 
 You can change the cover of each terms entry by adding the `cover` parameter in `_index.md` under `[lang]\[taxonomies]\[terms]\`.

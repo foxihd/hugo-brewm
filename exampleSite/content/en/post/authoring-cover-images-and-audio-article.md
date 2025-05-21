@@ -10,6 +10,7 @@ categories: ["authoring"]
 cover: 'https://upload.wikimedia.org/wikipedia/commons/4/4d/Cat_and_styrofoam_%E2%80%93_electrostatic_charge_%28235112299%29.jpg'
 alt: 'Cat named Cooper with styrofoam on his fur due to electrostatic charge.'
 translationKey: 'media'
+stage: 'budding'
 ---
 
 ## Adding Cover Images

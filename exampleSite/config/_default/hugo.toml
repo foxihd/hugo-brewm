@@ -94,6 +94,8 @@ enableRobotsTXT = true
     tag = "tags"
     ## Series taxonomy
     series = "series"
+    ## Stage taxonomy
+    stage = "stage"
 
 ## Site parameters
 [params]

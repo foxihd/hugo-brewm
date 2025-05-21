@@ -9,10 +9,11 @@ translationKey = "history"
 coffee = 1
 tags = ["authoring", "redaction", "history"]
 categories = ["authoring"]
+stage = "evergreen"
 history = [
-  {date = "2025-02-01", author = "Author Name", reviewer = "Reviewer Name", note = "Example"},
-  {date = "2025-02-02", author = "Author Name", editor = "Editor Name", note = "Addendum (example)"},
-  {date = "2025-02-03", note = "Errata (example)"},
+  {date = "2025-02-01", stage="seedling", author = "Author Name", reviewer = "Reviewer Name", note = "Example"},
+  {date = "2025-02-02", stage="budding", author = "Author Name", editor = "Editor Name", note = "Addendum (example)"},
+  {date = "2025-02-03", stage="evergreen", note = "Errata (example)"},
 ]
 toot = "https://infosec.exchange/@foxx/113979609651534969"
 +++
