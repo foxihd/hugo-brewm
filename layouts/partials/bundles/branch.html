@@ -43,10 +43,11 @@
     {{- $page := .page }}
     {{- $taxonomy := .taxonomy }}
     {{- $class := .class }}
+    {{- $tabindex := .tabindex }}
     {{- with $page.GetTerms $taxonomy }}
     <ul class="{{ $class }}" role="presentation">
         {{- range . }}
-            <li><a href="{{ .RelPermalink }}">{{ .Page.Title }}</a></li>
+            <li><a href="{{ .RelPermalink }}" {{ if eq $tabindex "-1" }}tabindex="-1"{{ end }}>{{ .Page.Title }}</a></li>
         {{- end }}
     </ul>
     {{- end }}
@@ -80,16 +81,17 @@
 
 {{- define "partials/hero.html" }}
     {{ "<!-- hero.html -->" | safeHTML }}
-    <div class="hero">
+    <section class="hero" aria-label="{{ if .IsHome }}{{ i18n "home" }}{{ else }}{{ .Page.Title }}{{ end }}">
         {{- $src := partial "page/cover.html" (dict "page" . ) }}
         {{- $alt := or .Params.Alt .Params.coverAlt .Params.imagesAlt }}
         {{- $networkGraph := .Params.NetworkGraph }}
         {{- if $src }}
-        <div class="hero__image {{ if not .Params.keepAspectRatio }} auto {{ end }}">
+        <picture class="hero__image {{ if not .Params.keepAspectRatio }} auto {{ end }}">
             <img src="{{ $src }}" alt="{{ with $alt }}{{ . }}{{ end }}"/>
-        </div>
+        </picture>
         {{- else if $networkGraph }}
             <div id="network-graph" 
+                aria-label="{{ i18n "networkGraph"}}"
                 data-title="{{ i18n "networkGraph"}}"
                 data-source="{{ absLangURL "index.json" }}" 
                 style="height: 480px;">
@@ -101,7 +103,7 @@
             {{- /*
 
                 author page hero extras  */}}
-            {{- if and (eq .Kind "term")  (eq .Data.Singular "author") }}
+            {{- if and (eq .Kind "term") (eq .Data.Singular "author") }}
                 {{- $authorName := .Title }}
                 {{- $co := or site.Params.Author.coauthor site.Params.Author.collabolator }}
                 {{- range $co }}
@@ -116,7 +118,7 @@
                 {{ partial "menu.html" (dict "menuID" $author "open" "open" "page" .)}}
             {{- end }}
         </div>
-    </div>
+    </section>
 {{ end }}
 
 {{- define "partials/list/sections.html" -}}

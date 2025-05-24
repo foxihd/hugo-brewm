@@ -34,7 +34,7 @@
                             {{- with $author }}<span>{{ . }} </span>{{ end }}
                             {{- with $date }}<div><time datetime="{{ . }}">{{ . | truncate 19 "" }}</time></div>{{ end }}
                         </div>
-                        <a href="{{ .link }}"><h1>{{ $title }}</h1></a>
+                        <a href="{{ .link }}" tabindex="-1"><h1>{{ $title }}</h1></a>
                     </hgroup>
                     <a class="underline" href="{{ .link }}" aria-label="{{ .title }}"></a>
                     {{ $hasCover :=  or (eq $type "image/jpeg") .coverImage }}

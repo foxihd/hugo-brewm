@@ -95,9 +95,9 @@
         {{- if ne .Kind "taxonomy" }}
             {{- $changeFreq := or .Params.Sitemap.ChangeFreq .Sitemap.ChangeFreq | lower }}
             {{- $active := eq $changeFreq (or "always" "hourly" "daily" "weekly") }}    
-            <section id="list-posts" class="pagewidth">
+            <section id="list-posts" class="pagewidth" {{ if not .IsHome }} aria-labelledby="list-post-heading"{{ end }}>
                 <header {{ with .Data.Singular }}id="{{ . }}"{{ end }} class="section-title">
-                    <strong>
+                    <strong id="list-post-heading">
                         {{- if .IsHome }}
                             {{- if $firstPage }}
                                 {{ i18n "recent" $paginator.NumberOfElements }}
@@ -129,7 +129,7 @@
                 {{- if $liViewCondition }}
                     {{ template "li" . }}
                 {{- else }}
-                    <div role="feed" aria-busy="false">
+                    <div role="feed" aria-busy="false" aria-labelledby="list-post-heading">
                     {{- range $index, $page := $paginator.Pages }}
                         {{- $counter := add $index 1 }}
                         {{- $author := default site.Params.Author.name .Params.author }}
@@ -188,7 +188,7 @@
             <div role="listitem" aria-labelledby="{{ print "y" $year "-" $month }}">
                 <details aria-expanded="true" class="list-month" open>
                     <summary class="has-post section-title" id="{{ print "y" $year "-" $month }}"
-                        role="heading" aria-level="2" aria-description="{{ $postCounter }}">
+                        role="heading" aria-level="2" aria-label="{{- $month }}" aria-description="{{ $postCounter }}">
                         {{- $month }}
                     </summary>
                     {{- $pageGroup := .Pages }}
@@ -200,7 +200,7 @@
                         {{- range . }}
                         {{- $date := .Date.Format "2 Jan " }}
                         <li>
-                            <a class="has-pre" href="{{ .RelPermalink }}" aria-description="{{ $date }}">
+                            <a class="has-pre" href="{{ .RelPermalink }}" aria-label="{{.Title}}" aria-description="{{ $date }}">
                                 <span>{{.Title}}</span>
                             </a>
                         </li>
@@ -225,23 +225,23 @@
             <div>
                 <span>
                     {{- if .authors }}
-                        {{- if eq (len .authors) 1 }}
-                            {{- range .authors }}
-                                <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                            {{- if eq (len .authors) 1 }}
+                                {{- range .authors }}
+                                    <a href="{{ .RelPermalink }}" tabindex="-1">{{ .LinkTitle }}</a>
+                                {{- end }}
+                            {{- else }}
+                                {{ partial "terms.html" (dict "taxonomy" "author" "class" "delimiter" "tabindex" "-1" "page" .page) }}
                             {{- end }}
-                        {{- else }}
-                            {{ partial "terms.html" (dict "taxonomy" "author" "class" "delimiter" "page" .page) }}
-                        {{- end }}
                     {{- else }}
                         {{- with .author }}<span>{{ . }}</span>{{ end }}
                     {{- end }}
                     {{- if .page.Params.categories }}
                         <span>{{ i18n "in" | lower }}</span>
-                        {{- if eq (len .page.Params.categories) 1 }}
-                            {{ partial "terms.html" (dict "taxonomy" "categories" "class" "inline" "page" .page ) }}
-                        {{ else }}
-                            {{ partial "terms.html" (dict "taxonomy" "categories" "class" "delimiter" "page" .page ) }}
-                        {{- end }}
+                            {{- if eq (len .page.Params.categories) 1 }}
+                                {{ partial "terms.html" (dict "taxonomy" "categories" "class" "inline" "tabindex" "-1" "page" .page ) }}
+                            {{ else }}
+                                {{ partial "terms.html" (dict "taxonomy" "categories" "class" "delimiter" "tabindex" "-1" "page" .page ) }}
+                            {{- end }}
                     {{- end }}
                 </span>
                 <!-- hfill -->
@@ -251,7 +251,7 @@
                 <h1 id="{{ printf "title-%d" .counter }}">{{ .page.Title }}</h1>
             </a>
         </hgroup>
-        <a class="underline" href="{{ .page.RelPermalink }}" aria-label="{{ .page.Title }}"></a>
+        <a class="underline" href="{{ .page.RelPermalink }}" aria-label="{{ .page.Title }}" aria-describedby="{{ printf "desc-%d" .counter }}"></a>
         {{ $useFlowlines := site.Params.Feed.Flowlines }}
         <section {{ if or .hasCover $useFlowlines }}class="has-cover"{{ end }}>
             {{- if .hasCover }}
@@ -280,7 +280,7 @@
             </span>
             <!-- hfill -->
             {{- if .page.Params.tags }}
-                {{ partial "terms.html" (dict "taxonomy" "tags" "class" "rounded invert ldots" "page" .page) }}
+                    {{ partial "terms.html" (dict "taxonomy" "tags" "class" "rounded invert ldots" "tabindex" "-1" "page" .page) }}
             {{- else }}
                 <div class="baselineskip" role="presentation"></div>
             {{- end }}
@@ -290,15 +290,15 @@
 
 {{- define "no-content" -}}
     <div style="display: flex; height: var(--vbody);">
-        <div class="hero" style="margin: auto; width: var(--canonic);">
-            <div class="hero__image">
+        <section class="hero" style="margin: auto; width: var(--canonic);" aria-labelledby="noArticle">
+            <picture class="hero__image">
                 <img src="https://i.pinimg.com/736x/bf/34/76/bf3476c1569c5af162779ecbb4134c3a.jpg" alt="cat is unsure on what to do with his laptop">
-            </div>
+            </picture>
             <div class="hero__content">
-                <h1 style="font-size: var(--large);font-weight:500;">{{ i18n "noArticle" }}</h1>
+                <h1 id="noArticle" style="font-size: var(--large);font-weight:500;">{{ i18n "noArticle" }}</h1>
                 <p>{{ i18n "noArticlePost" }}</p>
             </div>
-        </div>
+        </section>
     </div>
 {{- end -}}
 
