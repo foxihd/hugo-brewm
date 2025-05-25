@@ -193,8 +193,6 @@ if (tootUri) {
             }
         }
 
-        console.log(getJson());
-
         try {
             const [tootResponse, contextResponse] = await Promise.all([
                 fetch(getJson()),
