@@ -17,7 +17,8 @@
                     {{- end }}
                     <li  {{ if $cover }}style="background-image:url({{ $src }});"{{ end }}>
                         <a href="{{ .Page.Permalink }}"
-                            aria-label="{{ i18n $taxonomy 1 }}:{{ .Page.Title }}"
+                            aria-label="{{ i18n $taxonomy 1 }}: {{ .Page.Title }}"
+                            aria-description="{{ printf "%d %s" .Count (i18n "posts" .Count) }}"
                             data-post-counter="{{ printf "%d" .Count }}"
                             >
                             <span>{{ .Page.Title }}</span>
