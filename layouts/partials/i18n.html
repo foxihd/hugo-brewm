@@ -13,23 +13,28 @@
             {{- $alt639  := index (split .Language.LanguageCode "-") 0 | upper }}
             {{- $alt3166 := index (split .Language.LanguageCode "-") 1 | lower }}
             {{- $name    := .Language.LanguageName }}
-            <a id="has-i18n" class="on-deck"
-                href="{{ .Permalink }}" title="{{ i18n "switchLangTo" }}{{ $name }}"
-                aria-label="{{ $name }}"
-                >
-                <img
-                    src="{{ printf "%s%s.svg" $flagSrc $alt3166 }}" alt=""
-                    width="64" height="48"
-                    aria-hidden="true"
+            <nav aria-label="{{ i18n "selectLang" }}">
+                <a id="has-i18n" class="on-deck"
+                    href="{{ .Permalink }}"
+                    aria-label="{{ i18n "switchLangTo" }}{{ $name }}"
+                    aria-description="{{ printf "%s %s" (i18n "currentLang") $.Language.LanguageName }}"
                     >
-                <span class="act iso639" aria-hidden="true">{{ $act639 }}</span>
-                <span class="alt iso639" aria-hidden="true">{{ $alt639 }}</span>
-                <span class="t t2">{{ $name }}</span>
-            </a>
+                    <img
+                        src="{{ printf "%s%s.svg" $flagSrc $alt3166 }}" alt=""
+                        width="64" height="48"
+                        aria-hidden="true"
+                        >
+                    <span class="act iso639" aria-hidden="true">{{ $act639 }}</span>
+                    <span class="alt iso639" aria-hidden="true">{{ $alt639 }}</span>
+                    <span class="t t2">{{ $name }}</span>
+                </a>
+            </nav>
         {{- end }}
     {{- else }}
         <details id="has-i18n" class="presentation js-details" name="on-deck">
-            <summary class="anchor on-deck" aria-label="{{ i18n "selectLang" }}">
+            <summary class="anchor on-deck" 
+                aria-label="{{ i18n "selectLang" }}" 
+                aria-description="{{ printf "%s %s" (i18n "currentLang") $.Language.LanguageName }}">
             {{ with $.Language }}
                 {{- $iso639  := index (split .LanguageCode "-") 0 | upper }}
                 {{- $iso3166 := index (split .LanguageCode "-") 1 | lower }}
@@ -72,24 +77,26 @@
     {{ "<!-- l10n.html -->" | safeHTML }}
     {{- $page := .page }}
     <details id="has-l10n" class="presentation">
-        <summary aria-label="{{ i18n "selectLang" }}">
+        <summary aria-label="{{ i18n "selectLang" }}" aria-description="{{ printf "%s %s" (i18n "currentLang") $page.Language.LanguageName }}">
             <span>{{ $page.Lang | upper }}</span>
         </summary>
-        <ul class="on-plank" role="presentation">
-        {{- range $page.Translations }}
-        {{- $iso3166 := index (split .Language.LanguageCode "-") 1 | lower }}
-            <li>
-                <a href="{{ .RelPermalink }}" aria-label="{{ printf "Change language to %s" .LinkTitle }}">
-                    <img
-                        src="{{ printf "https://raw.githubusercontent.com/lipis/flag-icons/c95b262e5ee2366cad4c5aecc4a5ad86220c9ab9/flags/4x3/%s.svg" $iso3166 }}" alt=""
-                        width="64" height="48"
-                        aria-hidden="true"
-                        loading="lazy"
-                        >
-                    <span>{{ .LinkTitle }}</span>
-                </a>
-            </li>
-        {{- end }}
-        </ul>
+        <nav aria-label="{{ i18n "selectLang" }}">
+            <ul class="on-plank" role="presentation">
+            {{- range $page.Translations }}
+            {{- $iso3166 := index (split .Language.LanguageCode "-") 1 | lower }}
+                <li>
+                    <a href="{{ .RelPermalink }}" aria-label="{{ printf "%s %s" (i18n "switchLangTo") .Language.LanguageName }}" aria-description="{{ .LinkTitle }}">
+                        <img
+                            src="{{ printf "https://raw.githubusercontent.com/lipis/flag-icons/c95b262e5ee2366cad4c5aecc4a5ad86220c9ab9/flags/4x3/%s.svg" $iso3166 }}" alt=""
+                            width="64" height="48"
+                            aria-hidden="true"
+                            loading="lazy"
+                            >
+                        <span>{{ .LinkTitle }}</span>
+                    </a>
+                </li>
+            {{- end }}
+            </ul>
+        </nav>
     </details>
 {{- end }}

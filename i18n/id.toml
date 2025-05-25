@@ -73,6 +73,8 @@
     other = "Bergabung dalam Diskusi"
 [cup]
     other = "Cangkir kopi"
+[currentLang]
+    other = "Bahasa sekarang adalah"
 [dark]
     other = "Gelap"
 [darkMode]

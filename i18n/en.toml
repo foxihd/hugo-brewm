@@ -77,6 +77,8 @@
 [cup]
     one = "Cup of coffee"
     other = "Cups of coffee"
+[currentLang]
+    other = "Current Language is"
 [dark]
     other = "Dark"
 [darkMode]
