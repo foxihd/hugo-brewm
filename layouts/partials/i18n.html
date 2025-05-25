@@ -13,10 +13,10 @@
             {{- $alt639  := index (split .Language.LanguageCode "-") 0 | upper }}
             {{- $alt3166 := index (split .Language.LanguageCode "-") 1 | lower }}
             {{- $name    := .Language.LanguageName }}
-            <nav aria-label="{{ i18n "selectLang" }}">
+            <nav id="bi18n" aria-label="{{ i18n "selectLang" }}">
                 <a id="has-i18n" class="on-deck"
                     href="{{ .Permalink }}"
-                    aria-label="{{ i18n "switchLangTo" }}{{ $name }}"
+                    aria-label="{{ printf "%s %s" (i18n "switchLangTo") $name }}"
                     aria-description="{{ printf "%s %s" (i18n "currentLang") $.Language.LanguageName }}"
                     >
                     <img

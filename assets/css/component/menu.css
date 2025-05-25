@@ -481,7 +481,8 @@ a#has-i18n:active > .alt {
         order: 3;
     }
 
-    #has-i18n {
+    #has-i18n,
+    #bi18n {
         order: 4;
         margin: auto 1ex 2rem;
     }
@@ -545,13 +546,14 @@ a#has-i18n:active > .alt {
 
     /* bilingual */
 
-    a#has-i18n {
-        margin: auto 1rem 1rem;
-    }
-
-    a#has-i18n::after {
-        margin: 0 auto 0 1.5ex;
-        content: attr(aria-label);
+    #bi18n .t {
+        display: block !important;
+        position: unset;
+        visibility: unset;
+        background: unset;
+        width: unset;
+        color: unset;
+        font: unset;
     }
 
     a#has-i18n > img {
