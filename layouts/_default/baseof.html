@@ -20,15 +20,8 @@
         {{ partialCached "main/footer.html" . }}
     </main>
     {{ partialCached "footer.html" . }}
-
     {{ block "post" . }}{{ end }}
     {{ "<!-- [background] baseof.html -->" | safeHTML }}
-    {{ partialCached "background.html" . }}
-</body>
-{{- end }}
-</html>
-
-{{- define "partials/background.html" -}}
     <div id="background-body"
         role="presentation" aria-hidden="true">
         <div class="grain" hidden></div>
@@ -41,4 +34,6 @@
             </div>
         </div>
     </div>
+</body>
 {{- end }}
+</html>
