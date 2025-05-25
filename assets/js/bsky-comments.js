@@ -200,7 +200,7 @@ if (atProto) {
             <article class="fediverse-comment bsky" style="margin-bottom: 1rem">
             <header class="author">
                 <img src="${comment.post.author.avatar}" width=58 height=48 alt="${comment.post.author.handle}" loading="lazy" />
-                <a class="has-aria-label" href="https://bsky.app/profile/${comment.post.author.handle}" rel="ugc" aria-label="@${comment.post.author.handle}">
+                <a class="has-aria-label" href="https://bsky.app/profile/${comment.post.author.handle}" rel="ugc" aria-label="@${comment.post.author.handle}" aria-description="${comment.post.author.displayName}">
                     <span>${comment.post.author.displayName}</span>
                 </a>
             </header>

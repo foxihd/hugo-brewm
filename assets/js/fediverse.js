@@ -134,7 +134,8 @@ if (tootUri) {
     const splitUrl = tootUri.split('/');
 
     const render_toot = (toots, toot) => {
-        toot.account.display_name = escapeHtml(toot.account.display_name);
+        const display_name = escapeHtml(toot.account.display_name);
+        toot.account.display_name = display_name;
         toot.account.emojis.forEach(emoji => {
             toot.account.display_name = toot.account.display_name.replace(
                 `:${emoji.shortcode}:`,
@@ -147,7 +148,7 @@ if (tootUri) {
             <article class="fediverse-comment mstd">
                 <header class="author">
                     <img src="${escapeHtml(toot.account.avatar_static)}" height=48 width=48 alt="${user_account(toot.account)}" loading="lazy"/>
-                    <a class="has-aria-label" href="${toot.account.url}" rel="nofollow" aria-label="${user_account(toot.account)}">
+                    <a class="has-aria-label" href="${toot.account.url}" rel="nofollow" aria-label="${user_account(toot.account)}" aria-description="${display_name}">
                         <span>${toot.account.display_name}</span>
                     </a>
                 </header>
@@ -191,6 +192,8 @@ if (tootUri) {
                 return 'https://' + splitUrl[2] + '/api/v1/statuses/' + splitUrl[4]
             }
         }
+
+        console.log(getJson());
 
         try {
             const [tootResponse, contextResponse] = await Promise.all([
