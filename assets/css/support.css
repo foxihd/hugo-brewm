@@ -4,10 +4,10 @@
     }
 }
 
-@supports (backdrop-filter: blur(0)) {
+/* @supports (backdrop-filter: blur(0)) {
     @media only screen and (max-width: 640px) {
         #top-nav-screen.screening {
             backdrop-filter: blur(2rem);
             background: none;
         }
-}
+} */
