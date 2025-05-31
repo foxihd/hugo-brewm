@@ -172,14 +172,14 @@ if (atProto) {
             if (embedType === "app.bsky.embed.external#view") {
                 const {uri, title, description} = post.embed.external;
                 if (uri.includes(".gif?")) {
-                    attachment = `<img src="${uri}" title="${title}" alt="${description}">`;
+                    attachment = `<img src="${uri}" title="${title}" alt="${description}" loading="lazy">`;
                 }
             } else if (embedType === "app.bsky.embed.images#view") {
                 const images = post.record.embed.images;
                 attachment = images.map(image => {
                     const thumb = ToBskyImgUrl(did, image.image.ref.$link, true);
                     const src = ToBskyImgUrl(did, image.image.ref.$link, false);
-                    return `<a href="${src}" target="_blank"><img src="${thumb}" alt="${image.alt}"></a>`;
+                    return `<a href="${src}" target="_blank"><img src="${thumb}" alt="${image.alt}" loading="lazy"></a>`;
                 }).join('');
             } else if (embedType === "app.bsky.embed.video#view") {
                 const video = post.record.embed.video;
