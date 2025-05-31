@@ -89,7 +89,7 @@ details[open] > summary > .menu-icon::before,
 
 hr.ldots::after,
 #to-top::before,
-#lightSwitch + label::before ,
+#lightSwitch + label::before,
 .hand,
 .pagination .rfill a::before,
 .carousel__viewport__slide:last-child > nav a::before,

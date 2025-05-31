@@ -165,27 +165,27 @@ label.range > output {
     margin: 0 0 0 1ex;
     border: none;
     border-left: var(--bound);
-    padding: 2.5em 0 0 1ex;
+    padding: 2em 0 0 1ex;
 }
 
 #setContrast legend {
     position: absolute;
-    top: 0.7em;
+    top: 0.5em;
 }
 
 #setContrast > div {
     display: flex;
-    border: var(--border);
     border-radius: calc(1rem + 2pt);
     box-shadow: var(--box-shadow-inset);
     background: #80808008;
     padding: 2pt;
+    gap: 2pt;
 }
 
 #setContrast label {
     --tst: 99ms;
     border-radius: 1rem;
-    padding: 3pt 7pt;
+    padding: 1pt 5pt;
     font-size: 0.84em !important;
 }
 
@@ -418,7 +418,8 @@ input:checked + #focusModeButton {
 /* sr user */
 
 body.sr-user,
-body.sr-user .rm {
+body.sr-user .rm,
+body.sr-user code {
     font-family: monospace;
 }
 
