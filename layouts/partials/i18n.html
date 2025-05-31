@@ -18,50 +18,35 @@
                     href="{{ .Permalink }}"
                     aria-label="{{ printf "%s %s" (i18n "switchLangTo") $name }}"
                     aria-description="{{ printf "%s %s" (i18n "currentLang") $.Language.LanguageName }}"
+                    style="--flag: url({{ printf "%s%s.svg" $flagSrc $alt3166 | safeCSS }})"
                     >
-                    <img
-                        src="{{ printf "%s%s.svg" $flagSrc $alt3166 }}" alt=""
-                        width="64" height="48"
-                        aria-hidden="true"
-                        >
-                    <span class="act iso639" aria-hidden="true">{{ $act639 }}</span>
-                    <span class="alt iso639" aria-hidden="true">{{ $alt639 }}</span>
-                    <span class="t t2">{{ $name }}</span>
+                    <span class="act iso639 sri" aria-hidden="true">{{ $act639 }}</span>
+                    <span class="alt iso639 sri" aria-hidden="true">{{ $alt639 }}</span>
+                    <span class="t t2 srt">{{ $name }}</span>
                 </a>
             </nav>
         {{- end }}
     {{- else }}
-        <details id="has-i18n" class="presentation js-details" name="on-deck">
-            <summary class="anchor on-deck" 
-                aria-label="{{ i18n "selectLang" }}" 
-                aria-description="{{ printf "%s %s" (i18n "currentLang") $.Language.LanguageName }}">
+        <details id="has-i18n" class="presentation js-details srm" name="on-deck">
             {{ with $.Language }}
-                {{- $iso639  := index (split .LanguageCode "-") 0 | upper }}
-                {{- $iso3166 := index (split .LanguageCode "-") 1 | lower }}
-                <img
-                    src="{{ printf "%s%s.svg" $flagSrc $iso3166 }}" alt=""
-                    width="64" height="48"
-                    loading="lazy"
-                    >
-                <span class="iso639" aria-hidden="true">{{ $iso639 }}</span>
-                <span class="languangeName">{{ .LanguageName }}</span>
+                <summary class="anchor on-deck" 
+                    aria-label="{{ i18n "selectLang" }}" 
+                    aria-description="{{ printf "%s %s" (i18n "currentLang") $.Language.LanguageName }}"
+                    style="--flag: url({{ printf "%s%s.svg" $flagSrc (index (split .LanguageCode "-") 1 | lower) | safeCSS }})">
+                    <span class="iso639">{{ index (split .LanguageCode "-") 0 | upper }}</span>
+                    <span class="languangeName">{{ .LanguageName }}</span>
+                </summary>
             {{ end }}
-            </summary>
 
             {{ "<!-- on hull -->" | safeHTML }}
             <nav id="i18n-menu" aria-label="{{ i18n "selectLang" }}">
                 <ul class="on-plank">
                     {{- range where $.Site.Home.AllTranslations "Lang" "ne" $.Lang }}
+                    {{- $flag := printf "%s%s.svg" $flagSrc (index (split .Language.LanguageCode "-") 1 | lower) }}
                     <li>
-                        {{- $iso3166 := index (split .Language.LanguageCode "-") 1 | lower }}
-                        <a href="{{ .Permalink }}" aria-label="{{ printf "Change language to %s" .Language.LanguageName }}">
-                            <img
-                                src="{{ printf "%s%s.svg" $flagSrc $iso3166 }}" alt=""
-                                width="64" height="48"
-                                aria-hidden="true"
-                                loading="lazy"
-                                >
-                            <span>{{ .Language.LanguageName }}</span>
+                        <a href="{{ .Permalink }}" aria-label="{{ printf "Change language to %s" .Language.LanguageName }}"
+                            style="--flag: url({{ $flag | safeCSS }})">
+                           {{ .Language.LanguageName }}
                         </a>
                     </li>
                     {{- end }}
@@ -83,16 +68,11 @@
         <nav aria-label="{{ i18n "selectLang" }}">
             <ul class="on-plank" role="presentation">
             {{- range $page.Translations }}
-            {{- $iso3166 := index (split .Language.LanguageCode "-") 1 | lower }}
+            {{- $flag := printf "https://raw.githubusercontent.com/lipis/flag-icons/c95b262e5ee2366cad4c5aecc4a5ad86220c9ab9/flags/4x3/%s.svg" (index (split .Language.LanguageCode "-") 1 | lower) }}
                 <li>
-                    <a href="{{ .RelPermalink }}" aria-label="{{ printf "%s %s" (i18n "switchLangTo") .Language.LanguageName }}" aria-description="{{ .LinkTitle }}">
-                        <img
-                            src="{{ printf "https://raw.githubusercontent.com/lipis/flag-icons/c95b262e5ee2366cad4c5aecc4a5ad86220c9ab9/flags/4x3/%s.svg" $iso3166 }}" alt=""
-                            width="64" height="48"
-                            aria-hidden="true"
-                            loading="lazy"
-                            >
-                        <span>{{ .LinkTitle }}</span>
+                    <a href="{{ .RelPermalink }}" aria-label="{{ printf "%s %s" (i18n "switchLangTo") .Language.LanguageName }}" aria-description="{{ .LinkTitle }}"
+                        style="--flag: url({{ $flag | safeCSS }})">
+                        {{ .LinkTitle }}
                     </a>
                 </li>
             {{- end }}

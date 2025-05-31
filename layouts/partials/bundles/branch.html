@@ -15,7 +15,7 @@
                     {{- if not $src}}
                         {{- $src = partial "flowlines.html" . }}
                     {{- end }}
-                    <li  {{ if $cover }}style="background-image:url({{ $src }});"{{ end }}>
+                    <li {{ if $cover }}class="srs" style="--img: url({{ $src }});"{{ end }}>
                         <a href="{{ .Page.Permalink }}"
                             aria-label="{{ i18n $taxonomy 1 }}: {{ .Page.Title }}"
                             aria-description="{{ printf "%d %s" .Count (i18n "posts" .Count) }}"

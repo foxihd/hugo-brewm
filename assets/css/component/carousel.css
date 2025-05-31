@@ -45,14 +45,14 @@ ul.carousel__viewport > li,
     flex-wrap: wrap;
     align-items: center;
     width: 100%;
+    scroll-snap-align: start;
 }
 
 ul.carousel__viewport > li {
     position: relative;
     margin: 1ex;
     border-radius: 1ex;
-    background-position: center;
-    background-size: cover;
+	background: var(--img) center/cover;
     width: 16rem;
     height: 12.8rem;
 }

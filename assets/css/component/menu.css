@@ -65,16 +65,18 @@ body > header > nav {
     font-family: 'base-ui';
 }
 
-.keydown #has-search > summary,
-.keydown .menu-icon::before {
-    border: var(--border);
-    border-radius: 8pt;
-    padding: 8pt 0;
-    box-shadow: var(--box-shadow-focus);
+#has-more-menu > summary {
+	width: 43pt;
 }
 
-#has-more-menu > summary {
-    width: 43pt;
+#has-i18n > summary::before,
+#has-i18n a::before,
+#has-l10n a::before {
+	background: var(--flag) center/cover;
+	content: '';
+	width: 1em;
+	height: 0.75em;
+	border-radius: 2pt;
 }
 
 #has-a11y[open] > summary .icon::before,
@@ -329,13 +331,6 @@ a#has-i18n:active > .alt {
     gap: 1ex;
 }
 
-#has-l10n img,
-#has-i18n img {
-    border-radius: 2pt;
-    width: auto;
-    height: 8pt;
-    object-fit: cover;
-}
 
 #has-l10n .on-plank {
     position: absolute;
@@ -556,17 +551,7 @@ a#has-i18n:active > .alt {
         font: unset;
     }
 
-    a#has-i18n > img {
-        display: initial !important;
-        margin-left: 1ex;
-    }
-
     /* multilingual */
-
-    #has-i18n img {
-        height: 12pt;
-        margin: auto 0;
-    }
 
     #i18n-menu {
         margin-top: 1ex;
