@@ -11,7 +11,7 @@
             {{- $label := or .Name .Pre .Identifier }}
             <li><a href="{{ .URL }}" aria-label="{{ $label }}">
                 {{- with .Pre }}        
-                    <i class="icon {{ . }}" aria-hidden="true"></i>
+                    <i class="icon">{{ . }}</i>
                     <span class="t" role="tooltip">{{ $label }}</span>
                 {{- end }}
                 </a>
@@ -21,30 +21,30 @@
     </nav>
     {{- end }}
 {{- else if index site.Menus $menuID }}
-<details id="{{ printf "has-%s-menu" $menuID }}" {{ if $more }}class="presentation js-details" name="on-deck"{{ else }}class="presentation"{{ end }} {{ $open | safeHTMLAttr -}}>
-    <summary {{ if $more }} accesskey="=" class="on-deck" {{ else }} class="hide" {{ end }} aria-label="{{ i18n $menuID }}">
-        {{ if $more -}}
-            <span class="t t2">{{ i18n $menuID }}</span>
-            <span class="menu-icon" role="presentation"></span>
-        {{- else -}}
-            <span>{{ i18n $menuID }}</span>
-        {{- end }}
-    </summary>
-    {{- with index site.Menus $menuID }}
-        {{ if $more }}{{ "<!-- on hull -->" | safeHTML }}{{ end }}
-        <nav id="{{ printf "%s-menu" $menuID }}" aria-label="{{ i18n $menuID }}">
-            {{- $n := 1 }}
-            {{- $no := printf "l%d" $n }}
-            {{- $hasChildFree := partial "menu/hasChildFree.html" (dict "menuEntries" .) }}
-            <ul class="{{ $no }} {{ if $more }} on-plank {{ end }} {{ if $hasChildFree }} has-childfree {{ end }}" role="presentation" tabindex="-1" >
-                {{ partial "inline/menu/walk.html" (dict "page" $page "menuID" $menuID "n" $n "menuEntries" .) }}
-            </ul>
-            {{- if $more }}
-            <div class="screening js-cgpn" role="presentation" aria-hidden="true"></div>
+    <details id="{{ printf "has-%s-menu" $menuID }}" {{ if $more }}class="presentation js-details" name="on-deck"{{ else }}class="presentation"{{ end }} {{ $open | safeHTMLAttr -}}>
+        <summary {{ if $more }} accesskey="=" class="on-deck srm" {{ else }} class="hide" {{ end }} aria-label="{{ i18n $menuID }}">
+            {{ if $more -}}
+                <span class="t t2 srt">{{ i18n $menuID }}</span>
+                <span class="menu-icon sri" role="presentation"></span>
+            {{- else -}}
+                <span>{{ i18n $menuID }}</span>
             {{- end }}
-        </nav>
-    {{- end }}
-</details>
+        </summary>
+        {{- with index site.Menus $menuID }}
+            {{ if $more }}{{ "<!-- on hull -->" | safeHTML }}{{ end }}
+            <nav id="{{ printf "%s-menu" $menuID }}" aria-label="{{ i18n $menuID }}">
+                {{- $n := 1 }}
+                {{- $no := printf "l%d" $n }}
+                {{- $hasChildFree := partial "menu/hasChildFree.html" (dict "menuEntries" .) }}
+                <ul class="{{ $no }} {{ if $more }} on-plank {{ end }} {{ if $hasChildFree }} has-childfree {{ end }}" role="presentation" tabindex="-1" >
+                    {{ partial "inline/menu/walk.html" (dict "page" $page "menuID" $menuID "n" $n "menuEntries" .) }}
+                </ul>
+                {{- if $more }}
+                <div class="screening js-cgpn" role="presentation" aria-hidden="true"></div>
+                {{- end }}
+            </nav>
+        {{- end }}
+    </details>
 {{- end }}
 
 {{- /*---------------------- end of menu.html ----------------------*/}}
@@ -113,15 +113,15 @@
         >
         {{ if not .name }}
             {{- $tooltip := .identifier }}
-            <span class="t" role="tooltip">{{ title $tooltip }}</span>
+            <span class="t srt" role="tooltip">{{ title $tooltip }}</span>
         {{- end }}
         {{- if and .icon (not .desc) }}
-            <i class="icon {{ .icon }}" aria-hidden="true"></i>
+            <i class="icon sri">{{ .icon }}</i>
         {{- end }}
         {{- if .name }}
             <span>
                 {{- if and .icon .desc }}
-                    <i class="icon {{ .icon }}" aria-hidden="true"></i>
+                    <i class="icon sri" aria-hidden="true">{{ .icon }}</i>
                 {{- end }}
                 {{ .name -}}
             </span>
@@ -135,11 +135,11 @@
         {{- if eq .menuID "more" }} open {{ else }} {{ .open | safeHTMLAttr }} {{ end }}>
         <summary class="anchor {{ if .deck }} on-deck {{ end }}">
             {{- if and .icon (not .desc) }}
-                <i class="icon {{ .icon }}" aria-hidden="true"></i>
+                <i class="icon sri">{{ .icon }}</i>
             {{- end }}
             <span {{ with .desc }} class="has-aria-label" aria-label="{{ . }}" {{ end }}>
                 {{- if and .icon .desc }}
-                    <i class="icon {{ .icon }}" aria-hidden="true"></i>
+                    <i class="icon sri" aria-hidden="true">{{ .icon }}</i>
                 {{- end }}
                 {{- .name -}}
             </span>
@@ -150,7 +150,7 @@
                 {{- if eq $key "href" }}
                 <li class="parent-anchor">
                     <a {{- printf " %s=%s" $key $val | safeHTMLAttr }} aria-label="{{ i18n "seeAll" }}:{{ $.name }}">
-                        {{ with $.icon }}<i class="icon {{- . }}" aria-hidden="true"></i>{{ end }}
+                        {{ with $.icon }}<i class="icon sri" aria-hidden="true">{{ . }}</i>{{ end }}
                         <span aria-hidden="true"> {{ $.name }}</span>
                     </a>
                 </li>

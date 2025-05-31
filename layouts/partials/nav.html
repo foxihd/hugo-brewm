@@ -14,7 +14,7 @@
         | safeHTML }}
     {{- else }}
         <nav aria-labelledby="{{ $navID }}">
-            <ul role="presentation" class="{{ $navID }}">
+            <ul role="presentation" class="{{ $navID }} {{if eq $navID "share" }}srm{{ end }}">
                 {{- if eq $navID "breadcrumb" }}
                     {{ partial "nav/breadcrumb.html" ( dict "page" $page ) }}
                 {{- else if eq $navID "pagination"}}
@@ -93,20 +93,20 @@
 
 {{- define "partials/nav/menu.html" -}}
     {{ "<!-- menu.html -->" | safeHTML }}
-    <menu role="presentation">
+    <menu class="srm">
         <li>
-            <a id="print-button" class="hide" href="javascript:window.print()" title="{{ i18n "print" }}" role="button" aria-label="{{ i18n "print" }}">
-                <span class="t" role="tooltip">{{ i18n "print" }}</span>
+            <a id="print-button" class="hide" href="javascript:window.print()" role="button" aria-label="{{ i18n "print" }}">
+                <span class="t srt" role="tooltip">{{ i18n "print" }}</span>
             </a>
         </li>
         <li>
-            <a id="navigatorShare" href="{{ if .IsPage }}#share{{ else }}javascript:navigator.share({title: document.title, url: window.location.href}){{ end }}" title="{{ i18n "share" }}" role="button" aria-label="{{ i18n "share" }}">
-                <span class="t" role="tooltip">{{ i18n "share" }}</span>
+            <a id="navigatorShare" href="{{ if .IsPage }}#share{{ else }}javascript:navigator.share({title: document.title, url: window.location.href}){{ end }}" role="button" aria-label="{{ i18n "share" }}">
+                <span class="t srt" role="tooltip">{{ i18n "share" }}</span>
             </a>
         </li>
         <li>
-            <a id="copyPermalink" {{ if ne hugo.Environment "development" }}class="hide"{{ end }} href="javascript:navigator.clipboard.writeText(window.location.href)" title="{{ i18n "copy" }}" role="button" aria-label="{{ i18n "copy" }}">
-                <span id="copy" class="t" role="tooltip">{{ i18n "copy" }}</span>
+            <a id="copyPermalink" {{ if ne hugo.Environment "development" }}class="hide"{{ end }} href="javascript:navigator.clipboard.writeText(window.location.href)" role="button" aria-label="{{ i18n "copy" }}">
+                <span id="copy" class="t srt" role="tooltip">{{ i18n "copy" }}</span>
                 <span id="isCopying" style="display: none;">{{ i18n "copying" }}</span>
                 <span id="copyText" style="display: none;">{{ i18n "copy" }}</span>
             </a>
@@ -154,8 +154,8 @@
         <input id="mastodonText" type="hidden" name="text" value="{{ $page.Title }} {{ $page.Permalink }}" disabled>
         <input id="mastodonInstance" type="url" class="ldots form__input" placeholder="Enter Mastodon instance (https://www.example.com)" aria-label="Mastodon instance URL">
         <button class="form__button" type="submit" aria-label="{{ i18n "shareOn" }} Mastodon">
-            <i class="icon mastodon" aria-hidden="true"></i>
-            <span class="t" role="tooltip">{{ i18n "shareOn" }} Mastodon</span>
+            <i class="icon mastodon sri" aria-hidden="true"></i>
+            <span class="t srt" role="tooltip">{{ i18n "shareOn" }} Mastodon</span>
         </button>
     </form>
 {{- end }}
@@ -169,14 +169,14 @@
     </li>
     <li>
         <a href="mailto:?subject={{ $page.Title | htmlEscape }}&body={{ $page.Permalink }}" role="button" aria-label="{{ i18n "shareOn" }} {{ i18n "email"}}">
-            <i class="email" aria-hidden="true"></i>
-            <span class="t" role="tooltip">{{ i18n "shareOn" }} {{ i18n "email" }}</span>
+            <i class="email sri" aria-hidden="true"></i>
+            <span class="t srt" role="tooltip">{{ i18n "shareOn" }} {{ i18n "email" }}</span>
         </a>
     </li>
     <li>
         <a href="whatsapp://send?text={{ $page.Title | htmlEscape }}%20{{ $page.Permalink }}" role="button" aria-label="{{ i18n "shareOn" }} Whatsapp">
-            <i class="whatsapp" aria-hidden="true"></i>
-            <span class="t" role="tooltip">{{ i18n "shareOn" }} Whatsapp</span>
+            <i class="whatsapp sri" aria-hidden="true"></i>
+            <span class="t srt" role="tooltip">{{ i18n "shareOn" }} Whatsapp</span>
         </a>
     </li>
     {{- $socialLinks := slice
@@ -196,8 +196,8 @@
     <li>
         <a {{ $shareAttr }} href="{{ .url }}" role="button"
             aria-label="{{ i18n "shareOn" }} {{ title .platform }} {{ i18n "inNewTab" }}">
-            <i class="{{ .platform }}" aria-hidden="true"></i>
-            <span class="t" role="tooltip">{{ i18n "shareOn" }} {{ title .platform }}</span>
+            <i class="{{ .platform }} sri" aria-hidden="true"></i>
+            <span class="t srt" role="tooltip">{{ i18n "shareOn" }} {{ title .platform }}</span>
         </a>
     </li>
     {{- end }}

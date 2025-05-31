@@ -5,10 +5,11 @@
     </div>
     <div id="focusMode"></div>
     {{ partialCached "a11y.html" . }}
-    <div id="useBionRead"></div>
+    <div id="useBionRead" class="sri"></div>
     {{ "<!-- [top] bypass block -->" | safeHTML }}
     <nav aria-label="{{ i18n "bypass" }}">
-        <a id="to-top" href="#top" title="{{ i18n "toTop" }}" accesskey="c" aria-keyshortcuts="c" aria-label="{{ i18n "toTop" }}">
+        <a id="to-top" class="srm" href="#top" title="{{ i18n "toTop" }}" accesskey="c" aria-keyshortcuts="c" aria-label="{{ i18n "toTop" }}">
+            <span class="t srt">{{ i18n "toTop" }}</span>
             <kbd class="key" aria-hidden="true">c</kbd>
         </a>
     </nav>

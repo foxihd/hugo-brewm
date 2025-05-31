@@ -255,11 +255,11 @@
                 <!-- hfill -->
                 {{ partial "page/timestamp.html" .page }}
             </div>
-            <a href="{{ .page.RelPermalink }}" tabindex="-1">
+            <a href="{{ .page.RelPermalink }}" class="sr0" tabindex="-1" aria-describedby="{{ printf "desc-%d" .counter }}">
                 <h1 id="{{ printf "title-%d" .counter }}">{{ .page.Title }}</h1>
             </a>
         </hgroup>
-        <a class="underline" href="{{ .page.RelPermalink }}" aria-label="{{ .page.Title }}" aria-describedby="{{ printf "desc-%d" .counter }}"></a>
+        <a class="underline sri" href="{{ .page.RelPermalink }}" aria-label="{{ .page.Title }}" aria-describedby="{{ printf "desc-%d" .counter }}"></a>
         {{ $useFlowlines := site.Params.Feed.Flowlines }}
         <section {{ if or .hasCover $useFlowlines }}class="has-cover"{{ end }}>
             {{- if .hasCover }}

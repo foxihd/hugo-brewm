@@ -82,7 +82,7 @@
 
 {{- define "partials/hero.html" }}
     {{ "<!-- hero.html -->" | safeHTML }}
-    <section class="hero" aria-label="{{ if .IsHome }}{{ i18n "home" }}{{ else }}{{ .Page.Title }}{{ end }}">
+    <section class="hero" aria-label="{{ if .IsHome }}{{ i18n "home" }}{{ else }}{{ .Page.Title }}{{ end }}" tabindex="0">
         {{- $src := partial "page/cover.html" (dict "page" . ) }}
         {{- $alt := or .Params.Alt .Params.coverAlt .Params.imagesAlt }}
         {{- $networkGraph := .Params.NetworkGraph }}
