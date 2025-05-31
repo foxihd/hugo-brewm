@@ -74,7 +74,7 @@
                             {{ $flair := .Params.flair }}
                             {{- if $flair }}
                                 {{- $displayPicture := partial "page/cover.html" (dict "page" .) }}
-                                <a id="avatar" href="{{ .Permalink }}" aria-label="{{ .LinkTitle }}">
+                                <a id="avatar" class="sri" href="{{ .Permalink }}" aria-label="{{ .LinkTitle }}">
                                     <img src="{{ $displayPicture }}" alt="{{ .LinkTitle }}"/>
                                 </a>
                             {{- end }}
