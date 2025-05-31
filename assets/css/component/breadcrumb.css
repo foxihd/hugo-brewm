@@ -99,11 +99,6 @@ ul.breadcrumb {
     scrollbar-width: none;
 }
 
-header > menu a {
-    display: inline-flex;
-    position: relative;
-}
-
 ul.breadcrumb > li:last-child a {
     -webkit-user-select: none;
      -khtml-user-select: none;
