@@ -62,7 +62,9 @@
             {{/*
 
                 action menu  */}}
-            {{ partial "nav/menu.html" . }}
+            {{- if not (or site.Params.BearMode site.Params.ZenMode) }}
+                {{ partial "nav/menu.html" . }}
+            {{- end }}
             {{/*
 
                 breadcrumb */}}

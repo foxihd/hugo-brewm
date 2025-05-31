@@ -115,6 +115,7 @@
         {{- end }}
     </article>
     <hr class="hide" style="margin: 1in 0;">
+    {{- if not (or site.Params.BearMode site.Params.ZenMode) }}
     <div id="contentinfo" class="pagewidth" role="contentinfo" data-pagefind-ignore="all">
         {{- if $isPost }}
             {{- if or .Params.related site.Params.posts.related }}
@@ -132,6 +133,7 @@
             {{ partial "nav.html" (dict "navID" "share" "page" .) }}
         {{- end }}
     </div>
+    {{- end }}
     {{ if not site.Params.comments.disabled -}}
         {{- $toot := or .Params.toot  .Params.mstd .Params.mastodon }}
         {{- $bsky := or .Params.skeet .Params.bsky .Params.bluesky }}
