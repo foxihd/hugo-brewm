@@ -78,9 +78,9 @@ ul.carousel__viewport > li:focus-within {
 
 ul.carousel__viewport > li > a > span {
     position: relative;
-    border-radius: 0 0 1ex 0;
+    border-radius: 0 1ex 1ex 0;
     background-color: var(--bg);
-    padding: 0.7ex 2ex;
+    padding: 0.7ex 1ex;
     max-width: 12.8rem;
     -webkit-box-decoration-break: clone;
             box-decoration-break: clone;
