@@ -76,7 +76,15 @@
                     <nav aria-label="{{ i18n "discover" }}">
                         {{ partial "taxonomies.html" (dict "taxonomy" "tags" "class" "rounded has-hash" "limit" 16) }}
                     </nav>
-                    <a class="underline" href="{{ "/tags/" | relLangURL }}">{{- i18n "seeMore" }}</a>
+                    <a class="underline" href="{{ "/tags/" | relLangURL }}">{{ i18n "seeMore" }}</a>
+                    {{- if and .Params.NetworkGraphAside (not .Params.NetworkGraph) }}
+                        <div id="network-graph" 
+                            data-title="{{ i18n "networkGraph"}}"
+                            data-source="{{ absLangURL "index.json" }}" 
+                            style="height: 360px">
+                            {{ partial "head/js/network-graph.html" . }}
+                        </div>
+                    {{- end }}
                 </aside>
             {{- else if or (eq .Data.Singular "tag") .IsSection }}
                 <aside id="list-tags">
