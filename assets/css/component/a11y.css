@@ -364,6 +364,7 @@ input + label > span {
 }
 
 #noLocalStorage {
+    order: 7;
     margin: auto;
     border-top: var(--bound);
     padding-top: 1rem;
