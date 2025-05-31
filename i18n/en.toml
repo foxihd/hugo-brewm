@@ -170,6 +170,10 @@
     other = "On"
 [OpenDyslexic]
     other = "Use OpenDyslexic Font"
+[optimizeSR]
+    other = "Screen Reader Optimization"
+[optimizeSRDesc]
+    other = "Optimize display and resources for screen reader users who navigate with a pointer device."
 [pages]
     one = "Page"
     other = "Pages"

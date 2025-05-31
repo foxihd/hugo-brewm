@@ -163,6 +163,10 @@
     other = "Pada"
 [OpenDyslexic]
     other = "Gunakan Font OpenDyslexic"
+[optimizeSR]
+    other = "Optimasi Pembaca Layar"
+[optimizeSRDesc]
+    other = "Optimalkan tampilan dan sumber daya untuk pengguna pembaca layar yang bernavigasi dengan perangkat pointer."
 [pages]
     one = "Halaman"
     other = "Halaman"

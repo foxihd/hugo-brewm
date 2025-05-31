@@ -14,7 +14,7 @@
 #background-header,
 #background-body,
 #a11y,
-#lightSwitchIndicator,
+#lightSwitch + label::after,
 #setContrast,
 #colorPalette,
 ul.carousel__viewport > li > a > span::before,
