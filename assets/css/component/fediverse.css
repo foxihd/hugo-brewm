@@ -1,11 +1,27 @@
-/* this style is used inline in fediverse.js */
-
 #comments noscript {
     margin: var(--medskip) 0;
 }
 
 #discussion-starter {
     margin-bottom: var(--medskip);
+}
+
+#mastodon-stats {
+    margin-left: auto;
+}
+
+#mastodon-comments,
+#bsky-comments,
+#fediverse-comments {
+    padding: 0;
+    list-style: none;
+    width: var(--golden-ratio);
+}
+
+#comments li,
+#comments li > ul {
+    margin-top: 1rem;
+    list-style: none;
 }
 
 #discussion-starter > footer {
@@ -17,11 +33,9 @@
 
 .fediverse-comment {
     margin: 1rem 0 1rem calc(var(--mul) * var(--indent));
-    border: 1pt solid #fff4;
-    border-left: 2pt solid var(--ac);
+    border-left: 3pt solid var(--ac);
     background: #80808008;
     padding: 1rem 1rem 1ex;
-    box-shadow: 0 0.5pt 1pt 0 var(--g18s);
     overflow: auto;
 }
 
@@ -33,7 +47,7 @@
     --ac: #563acc;
 }
 
-.fediverse-comment > .author > img{
+.fediverse-comment > .author > img {
     margin-right: 12pt;
 }
 
@@ -53,7 +67,6 @@
     align-items: center;
     margin-top: 1rem;
     margin-left: 3.5rem;
-    line-height: 1.272;
     white-space: nowrap;
 }
 
@@ -63,7 +76,8 @@
     gap: 5pt;
 }
 
-.attachments {
+.attachments,
+#comments > summary {
     display: flex;
     overflow: auto;
 }
@@ -133,8 +147,8 @@ a.favourites.active {
         right: 0;
     }
 
-    #discussion-starter,
     .fediverse-comment .stat {
         display: none !important;
     }
+
 }

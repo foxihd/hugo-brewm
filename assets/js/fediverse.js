@@ -33,6 +33,7 @@ const cmtSty = document.createElement('style');
 cmtSty.textContent = `
     #comments noscript {margin: var(--medskip) 0}
     #discussion-starter {margin-bottom: var(--medskip)}
+    #mastodon-stats {margin-left: auto}
     #mastodon-comments, #bsky-comments, #fediverse-comments {padding: 0;list-style: none;width: var(--golden-ratio)}
     #comments li, #comments li > ul {margin-top:1rem;list-style:none;}
     #discussion-starter > footer {display: flex; align-items: center; justify-content: space-between; margin-top: 1em}
@@ -44,7 +45,7 @@ cmtSty.textContent = `
     .fediverse-comment .par a {max-width: 100%; vertical-align: bottom; white-space: break-spaces}
     .fediverse-comment > footer {display: flex; align-items: center; margin-top: 1rem; margin-left: 3.5rem; white-space: nowrap}
     .fediverse-comment > footer .stat {display: inline-flex; flex-shrink: 0; gap: 5pt}
-    .attachments {display: flex;overflow: auto}
+    .attachments, #comments > summary {display: flex;overflow: auto}
     .attachments > * {flex-shrink: 0; width: 100%; height: auto}
     .attachments img {width: 100%; height: auto}
     .stat > * {display: inline-flex; align-items: center; padding: 2pt; color: var(--mid); gap: 2pt}
