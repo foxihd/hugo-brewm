@@ -24,7 +24,7 @@
     {{- $logoType := site.Params.logo.logoType }}
     {{- $siteTitle := or site.Title site.Params.Title }}
     {{- if or $logoType $logoMark }}
-        <a id="logo" href="{{ absLangURL "" }}" aria-label="{{ $siteTitle }}">
+        <a id="logo" href="{{ absLangURL "" }}" aria-label="{{ $siteTitle }}" aria-description="{{ i18n "home" }}">
             {{- with site.Params.logo.logoMarkDark }}
                 <img id="logomark--dark" src="{{ . }}" alt="{{ $siteTitle }}" />
             {{- end }}
