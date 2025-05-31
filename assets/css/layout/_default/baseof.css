@@ -24,9 +24,8 @@
     --g18s: #80808022;
     --bound: 1pt dotted var(--g18);
     --border: 1pt solid var(--g18s);
-    --box-shadow-hover: 0 1px 0.5px var(--g18);
-    --box-shadow-focus: 0 0.5px 1px var(--g18);
-    --box-shadow-active: 0 0.5px 0.5px var(--mid);
+    --box-shadow: 0 1px 0.5px var(--g18);
+    --box-shadow-inset: inset 0 1px 5px #0001, 0 1px 0 #fff5, 0 -1px 0 #0005;
     font-size: calc(var(--fontScale) * 10pt);
 }
 

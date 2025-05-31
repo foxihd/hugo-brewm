@@ -67,11 +67,11 @@ kbd {
     border-radius: 0.7ex;
     padding: 0.3ex 1ex;
     font-size: var(--footnotesize);
-    box-shadow: var(--box-shadow-focus);
+    box-shadow: var(--box-shadow);
 }
 
 kbd:hover {
-    box-shadow: var(--box-shadow-hover);
+    box-shadow: var(--box-shadow-inset);
 }
 
 kbd:has(kbd) {

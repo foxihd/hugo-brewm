@@ -77,7 +77,7 @@ ul.rounded a {
 
 ul.rounded a:hover {
     border-color: #80808022;
-    box-shadow: var(--box-shadow-active);
+    box-shadow: var(--box-shadow-inset);
     background: #80808016;
 }
 
@@ -90,6 +90,11 @@ ul.invert a {
 
 ul.invert a:visited {
     color: var(--bg);
+}
+
+ul.invert a:hover {
+    background: var(--g18s) !important;
+    color: var(--fg) !important;
 }
 
 ul.has-hash a {
