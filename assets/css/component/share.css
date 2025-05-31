@@ -63,9 +63,11 @@
     text-align: center;
 }
 
+header > menu a,
 #has-share a {
     display: inline-flex;
     position: relative;
+    align-items: center;
 }
 
 #has-share i {
