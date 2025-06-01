@@ -9,8 +9,8 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 > [!NOTE]
 > It took about 2 years to make this work up to this point. I enjoy every milestone this work has passes, every check boxes it ticked on my notes, and every sip on my brew.  
 >  
-> As for now, this work probably won't be getting any more active development. I can't spent too much time for perfectionism on this work.  
-> Nonetheless, it still mantained in my free time.  
+> As for now, this work entering slow development stage. Yet, There's a lot of things that remain undocumented. Nonetheless, it still mantained in my spare time.  
+> Please, Feel free to contribute and keep in touch!  
 >
 > Keep Growing!  
 > 🌱🌱🌱
@@ -230,7 +230,10 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
     coffeeStat = true
     ## Default social card image, recommended resolution: 1200 x 630px
     # images = "example.com/img/social-share.jpg" 
-
+    ## Do not block AI user agent for robot.txt
+    AllowAIRobots = false
+    ## or BearMode--Minimize clutter for small site; Disable breadcrumbs menu, share button, related posts, colophon and redaction history.
+    ZenMode = false
 
     ## Author information
     [params.author]
@@ -322,14 +325,14 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         justifying = false
         ## Disable paragraph indentation
         noIndent = false
+        ## Use sans-serif fonts as default
+        sfdefault = false
         ## Show colophon section (including QR code)
         colophon = true
         ## disable redaction history
         disableHistory = false
         ## SHow related content
         related = true
-        ## Use sans-serif fonts as default
-        sfdefault = false
         ## Show share buttons
         share = true
 

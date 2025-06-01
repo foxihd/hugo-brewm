@@ -48,8 +48,6 @@ enableRobotsTXT = true
     [markup.highlight]
         ## Enable code fence highlighting
         codeFences = true
-        ## Lines to highlight
-        hl_Lines = ""
         ## Starting line number
         lineNoStart = 1
         ## Show line numbers
@@ -113,6 +111,12 @@ enableRobotsTXT = true
     extMeta = true
     ## Enable coffee metric
     coffeeStat = true
+    ## Default social card image, recommended resolution: 1200 x 630px
+    # images = "example.com/img/social-share.jpg" 
+    ## Do not block AI user agent for robot.txt
+    AllowAIRobots = false
+    ## or BearMode--Minimize clutter for small site; Disable breadcrumbs menu, share button, related posts, colophon and redaction history.
+    ZenMode = false
 
     ## Author information
     [params.author]
@@ -177,6 +181,8 @@ enableRobotsTXT = true
         justifying = false
         ## Disable paragraph indentation
         noIndent = false
+        ## Use sans-serif fonts as default
+        sfdefault = false
         ## Show colophon section (including QR code)
         colophon = true
         ## disable redaction history
