@@ -414,10 +414,10 @@ input:checked + #focusModeButton {
 
 /* sr user */
 
-body.sr-user,
-body.sr-user .rm,
-body.sr-user code {
-    font-family: monospace;
+body.sr-user {
+    --rm: monospace;
+    --sf: monospace;
+    --tt: monospace;
 }
 
 menu.srm--a a::before {
