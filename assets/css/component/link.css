@@ -66,7 +66,6 @@ ul.rounded li {
 
 ul.rounded a {
     display: inline-flex;
-    opacity: 0.86;
     border: var(--border);
     border-radius: 2rem;
     background: #80808008;
@@ -76,14 +75,10 @@ ul.rounded a {
 }
 
 ul.rounded a:hover {
-    border-color: #80808022;
-    box-shadow: var(--box-shadow-inset);
-    background: #80808016;
+    border: 1pt solid var(--fg);
 }
 
 ul.invert a {
-    opacity: 0.86;
-    border: unset;
     background: var(--fg) !important;
     color: var(--bg) !important;
 }
@@ -93,7 +88,7 @@ ul.invert a:visited {
 }
 
 ul.invert a:hover {
-    background: var(--g18s) !important;
+    background: var(--bg) !important;
     color: var(--fg) !important;
 }
 

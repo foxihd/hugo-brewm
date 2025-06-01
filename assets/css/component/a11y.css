@@ -175,9 +175,6 @@ label.range > output {
 
 #setContrast > div {
     display: flex;
-    border-radius: calc(1rem + 2pt);
-    box-shadow: var(--box-shadow-inset);
-    background: #80808008;
     padding: 2pt;
     gap: 2pt;
 }
