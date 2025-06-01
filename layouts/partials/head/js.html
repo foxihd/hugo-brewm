@@ -5,8 +5,12 @@
     (resources.Get "js/bionread.js")
 }}
 
-{{- if site.Params.posts.colophon }}
-    {{- $js_files = $js_files | append (resources.Get "js/qrcode.js") }}
+{{ $zen := or site.Params.BearMode site.Params.ZenMode }}
+{{- if not $zen }}
+    {{- $js_files = $js_files | append (resources.Get "js/extras.js") }}
+    {{- if site.Params.posts.colophon }}
+        {{- $js_files = $js_files | append (resources.Get "js/qrcode.js") }}
+    {{- end }}
 {{- end }}
 
 {{- $hugo_brewm := $js_files | resources.Concat "js/hugo-brewm.js" | minify }}

@@ -304,3 +304,60 @@ ul.delimiter li:last-child:before {
 ul.delimiter li:last-child:after {
     content: '.';
 }
+
+figure img,
+figure svg {
+    width: var(--golden-ratio);
+    height: auto;
+    object-fit: cover;
+}
+
+figure .marginpar {
+    left: unset;
+}
+
+figure.fullwidth {
+    clear: both;
+}
+
+figure.fullwidth img {
+    width: 100%;
+}
+
+#doc-author,
+#doc-author a,
+.epigraph,
+blockquote cite {
+    color: var(--fg);
+    font-style: italic;
+}
+
+#TableOfContents,
+.letterine {
+    text-transform: lowercase;
+    letter-spacing: 0.1em;
+    font-variant: small-caps;
+    -webkit-font-feature-settings: 'smcp' 1;
+       -moz-font-feature-settings: 'smcp' 1;
+            font-feature-settings: 'smcp' 1;
+}
+
+.letterine::before {
+    display: block;
+    border-bottom: 2pt solid var(--ac);
+    content: '';
+}
+
+.letterine > i {
+    /*  <span class='letterine'><i>e</i>xample</span>
+        inconsistence result across browsers
+        */
+    position: relative;
+    top: -0.2rem;
+    float: left;
+    background: var(--bg);
+    padding-right: .1em;
+    line-height: 0.5;
+    color: var(--ac);
+    font-size: 6em;
+}

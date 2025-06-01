@@ -213,7 +213,7 @@ body.focus #dwclock {
     font-size: var(--large);
 }
 
-#menu-footer a .t{
+#menu-footer a .t {
     --tsf: translate(-3em);
 }
 
@@ -252,6 +252,10 @@ hr {
     #main-footer .pagewidth {
         padding-right: calc(var(--void) / 2);
         padding-left: calc(var(--void) / 2);
+    }
+
+    .katex-display {
+        overflow-x: auto;
     }
 
 }
