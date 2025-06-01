@@ -20,20 +20,18 @@
                 <div id="comments-error" role="alert">{{ i18n "noScript" }} {{ i18n "noComment" }}</div>
             </noscript>
         </div>
-        <footer>
-            <div>
-                {{- $cta := cond $toot $toot $bsky }}
-                <a id="join-discussion" href="{{ $cta }}" rel="nofollow" aria-label="{{ i18n "ctaComments" }}">
-                    <i class="icon {{ if $toot }}mastodon{{ else }}bluesky{{ end }}" style="padding-right: 3pt;"></i><span>{{ i18n "ctaComments" }}</span>
+        <nav aria-label="{{ i18n "ctaComments" }}">
+            {{- $cta := cond $toot $toot $bsky }}
+            <a id="join-discussion" href="{{ $cta }}" rel="nofollow" aria-label="{{ i18n "ctaComments" }}">
+                <i class="icon {{ if $toot }}mastodon{{ else }}bluesky{{ end }}" style="padding-right: 3pt;"></i><span>{{ i18n "ctaComments" }}</span>
+            </a>
+            {{- if and $toot $bsky }}
+                <a id="join-discussion-bluesky" href="{{ $bsky }}" rel="nofollow" aria-label="{{ i18n "fediverseBluesky" }}">
+                    <i class="icon bluesky"></i>
+                    <span class="t">{{ i18n "fediverseBluesky" }}</span>
                 </a>
-                {{- if and $toot $bsky }}
-                    <a id="join-discussion-bluesky" href="{{ $bsky }}" rel="nofollow" aria-label="{{ i18n "fediverseBluesky" }}">
-                        <i class="icon bluesky"></i>
-                        <span class="t">{{ i18n "fediverseBluesky" }}</span>
-                    </a>
-                {{- end }}
-            </div>
-        </footer>
+            {{- end }}
+        </nav>
     </article>
 
     {{ with $toot }}

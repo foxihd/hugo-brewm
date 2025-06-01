@@ -36,7 +36,6 @@ cmtSty.textContent = `
     #mastodon-stats {margin-left: auto}
     #mastodon-comments, #bsky-comments, #fediverse-comments {padding: 0;list-style: none;width: var(--golden-ratio)}
     #comments li, #comments li > ul {margin-top:1rem;list-style:none;}
-    #discussion-starter > footer {display: flex; align-items: center; justify-content: space-between; margin-top: 1em}
     .fediverse-comment {margin: 1rem 0 1rem calc(var(--mul) * var(--indent)); border-left: 3pt solid var(--ac); background: #80808008; padding: 1rem 1rem 1ex; overflow: auto}
     .fediverse-comment.bsky {--ac: #1185fe}
     .fediverse-comment.mstd {--ac: #563acc}

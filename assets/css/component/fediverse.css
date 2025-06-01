@@ -24,13 +24,6 @@
     list-style: none;
 }
 
-#discussion-starter > footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 1em;
-}
-
 .fediverse-comment {
     margin: 1rem 0 1rem calc(var(--mul) * var(--indent));
     border-left: 3pt solid var(--ac);
