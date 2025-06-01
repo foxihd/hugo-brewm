@@ -1,5 +1,21 @@
-User-agent: *
-{{- range where (where .Pages ".Params.Headless" "eq" true ) "Sitemap.Disable" "eq" true }}
-Disallow: {{ .RelPermalink }}
-{{- end }}
 Sitemap: {{ "sitemap.xml" | absURL }}
+User-agent: *
+{{- $DisallowPagesForThisUA :=  where .Data.Pages "Sitemap.Disable" "eq" true }}
+{{- with $DisallowPagesForThisUA -}}
+    {{- range . -}}
+        Disallow: {{ .RelPermalink }}
+    {{- end }}
+{{- else }}
+Disallow:
+{{ end }}
+
+{{- if not site.Params.AllowAIRobots }}
+{{ $DisallowAllPagesForThisUA := "https://raw.githubusercontent.com/ai-robots-txt/ai.robots.txt/main/robots.json" -}}
+{{- with resources.GetRemote $DisallowAllPagesForThisUA -}}
+    {{- $data := unmarshal .Content -}}
+    {{- range $index, $_ := $data }}
+      {{- printf "User-agent: %s\n" $index }}
+    {{- end }}
+    {{- printf "Disallow: /\n" }}
+{{- end -}}
+{{- end }}
