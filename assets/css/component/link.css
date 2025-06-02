@@ -3,18 +3,6 @@ a {
     color: var(--ac);
 }
 
-#bionReadSwitch + label,
-#join-discussion,
-#saveButton,
-#share {
-    border-radius: 2em;
-    background: var(--fg);
-    padding: 6pt 12pt;
-    color: var(--bg);
-    font-weight: 700;
-    text-align: center;
-}
-
 #has-a11y-summary,
 a.underline {
     border: 2pt solid transparent;

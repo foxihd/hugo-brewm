@@ -258,6 +258,7 @@ details.presentation > summary {
 
 label:hover .t,
 label:focus .t,
+button:hover > .t,
 button:focus > .t,
 .icon:hover + .t,
 a:hover .t,

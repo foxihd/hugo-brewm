@@ -293,7 +293,6 @@ input.toggle:checked + label::before {
     flex-direction: column;
     align-items: center;
     border: unset;
-    padding: 1ex;
 }
 
 #a11y-menu > .has-aria-label {
@@ -428,6 +427,14 @@ menu.srm--a .srt,
 .share.srm--a .srt {
     padding: 1ex;
     margin: 2pt;
+}
+
+.srm--a + #back::before {
+    content: unset;
+}
+
+menu.srm--a + #back .srt {
+    padding: 5pt;
 }
 
 #has-search > summary.srm--a,

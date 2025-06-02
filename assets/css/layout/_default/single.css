@@ -234,13 +234,7 @@ header time {
 }
 
 #join-discussion-bluesky {
-    position: relative;
     margin-right: 5pt;
     border-right: var(--border);
-    padding: 5pt;
     color: #1185fe;
-}
-
-#join-discussion-bluesky > .t {
-    --tsf: translate(-5em);
 }

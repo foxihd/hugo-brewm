@@ -23,8 +23,6 @@ a.reblogs.active,
     opacity: 0.86;
 }
 
-main > header > menu > li > a:hover,
-main > header > menu > li > a:focus,
 .feed-item:hover .par,
 .feed-item:focus .par,
 ul.invert a:hover,

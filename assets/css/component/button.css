@@ -1,0 +1,36 @@
+#bionReadSwitch + label,
+#join-discussion,
+#saveButton,
+#share {
+    border-radius: 2em;
+    background: var(--fg);
+    padding: 1ex 12pt;
+    text-align: center;
+    color: var(--bg);
+    font-weight: 700;
+}
+
+menu button {
+    border: unset;
+    background: unset;
+    padding: 1ex;
+    color: inherit;
+}
+
+header menu button,
+#join-discussion-bluesky,
+#menu-footer a {
+    display: inline-block;
+    position: relative;
+    padding: 5pt 0;
+    width: 2.25em;
+    text-align: center;
+    font-size: var(--normalsize);
+}
+
+
+menu button .t,
+#menu-footer a .t,
+#join-discussion-bluesky > .t {
+    --tsf: translate(-4.65em);
+}

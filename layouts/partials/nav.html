@@ -95,34 +95,34 @@
     {{ "<!-- menu.html -->" | safeHTML }}
     <menu class="srm">
         <li>
-            <a id="print-button" class="hide" href="javascript:window.print()" role="button" aria-label="{{ i18n "print" }}">
+            <button id="print-button" class="hide" onclick="window.print()" aria-label="{{ i18n "print" }}">
                 <span class="t srt" role="tooltip">{{ i18n "print" }}</span>
-            </a>
+            </button>
         </li>
         <li>
-            <a id="navigatorShare" href="{{ if .IsPage }}#share{{ else }}javascript:navigator.share({title: document.title, url: window.location.href}){{ end }}" role="button" aria-label="{{ i18n "share" }}">
+            <button id="navigatorShare" onclick="{{ if .IsPage }}localion.href='#share'{{ else }}navigator.share({title: document.title, url: window.location.href}){{ end }}" aria-label="{{ i18n "share" }}">
                 <span class="t srt" role="tooltip">{{ i18n "share" }}</span>
-            </a>
+            </button>
         </li>
         <li>
-            <a id="copyPermalink" {{ if ne hugo.Environment "development" }}class="hide"{{ end }} href="javascript:navigator.clipboard.writeText(window.location.href)" role="button" aria-label="{{ i18n "copy" }}">
+            <button id="copyPermalink" {{ if ne hugo.Environment "development" }}class="hide"{{ end }} onclick="navigator.clipboard.writeText(window.location.href)" aria-label="{{ i18n "copy" }}">
                 <span id="copy" class="t srt" role="tooltip">{{ i18n "copy" }}</span>
                 <span id="isCopying" style="display: none;">{{ i18n "copying" }}</span>
                 <span id="copyText" style="display: none;">{{ i18n "copy" }}</span>
-            </a>
+            </button>
         </li>
         {{- if and (eq .Kind "term" ) (eq .Data.Plural "series") -}}
             {{- with .OutputFormats.Get "rss" }}
                 <li>
-                    <a id="rss-button" href="{{ .Permalink }}" title="{{ i18n "followRSS" }}" role="button" aria-label="{{ i18n "followRSS" }}">
+                    <button id="rss-button" onclick="window.open({{ .Permalink }}, '_blank')" title="{{ i18n "followRSS" }}" aria-label="{{ i18n "followRSS" }}">
                         <span class="t" role="tooltip">{{ i18n "followRSS" }}</span>
-                    </a>
+                    </button>
                 </li>
             {{- end }}
         {{- end }}
     </menu>
-    <button id="back" class="hide" type="button" onclick="history.back();" aria-label="{{ i18n "back" }}">
-        <span class="t" role="tooltip">{{ i18n "back" }}</span>
+    <button id="back" class="hide srm" type="button" onclick="history.back();" aria-label="{{ i18n "back" }}">
+        <span class="t srt" role="tooltip">{{ i18n "back" }}</span>
     </button>
 {{- end }}
 

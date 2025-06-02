@@ -63,11 +63,6 @@ ul.breadcrumb > li {
     display: inline;
 }
 
-main > header > menu > li > a {
-    opacity: 0.86;
-    color: var(--fg) !important;
-}
-
 .pagination .rfill a::before,
 .carousel__viewport__slide:last-child > nav a::before,
 #back::before {
