@@ -235,6 +235,11 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
     ## or BearMode--Minimize clutter for small site; Disable breadcrumbs menu, share button, related posts, colophon and redaction history.
     ZenMode = false
 
+    ## At the moment, analytics can be added manually by creating a custom template at `mysite/layouts/partials/analytics.html`
+    [params.analytics]
+        ## Choose where to append analytics script: use 'head' to place within <head> tags, or 'body' to place before closing </body> tag.    
+        append = 'body'
+
     ## Author information
     [params.author]
         ## site author's name

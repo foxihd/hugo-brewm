@@ -5,6 +5,9 @@
 <head>
     {{ partial "head.html" . }}
     {{ block "head" . }}{{ end }}
+    {{- if eq (lower site.Params.analytics.append) "head" -}}
+        {{ partialCached "analytics.html" . }}
+    {{- end }}
 </head>
 {{- if not (or .Params.headless .Params.target .Params.alias) }}
 <body {{ with .Params.Type }} id="{{ . }}" {{ end -}}>
@@ -34,6 +37,8 @@
             </div>
         </div>
     </div>
-</body>
+    {{- if eq (lower site.Params.analytics.append) "body" -}}
+        {{ partialCached "analytics.html" . }}
+    {{- end }}
 {{- end }}
 </html>
