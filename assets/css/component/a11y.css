@@ -433,8 +433,8 @@ menu.srm--a .srt,
     content: unset;
 }
 
-menu.srm--a + #back .srt {
-    padding: 5pt;
+menu.srm--a + #back {
+    padding: 6pt;
 }
 
 #has-search > summary.srm--a,
@@ -448,6 +448,7 @@ menu.srm--a + #back .srt {
     display: none;
 }
 
+menu.srm--a a,
 #to-top.srm--a {
     width: unset;
     font-size: 1rem;

@@ -4,19 +4,57 @@ main > header.pagewidth {
     height: 2.5rem;
 }
 
-#back {
-    display: inline-flex;
-    float: left;
-    border: none;
-    background: none;
-    padding: 5pt 0;
+main > header > menu {
+    float: right;
+    visibility: hidden;
+    margin: 0 0 0 auto;
+    padding: 0;
+}
+
+main#term > header > menu,
+main#page > header > menu {
+    visibility: visible;
+}
+
+#back,
+menu button,
+menu a {
+    border: unset;
+    background: unset;
+    padding: 1ex;
     color: inherit;
 }
 
 #back::before,
-header > menu a::before {
-    padding: 3pt 7pt;
-    font-size: var(--large);
+header menu button,
+header menu a,
+#join-discussion-bluesky,
+#menu-footer a {
+    display: inline-block;
+    position: relative;
+    padding: 5pt 0;
+    width: 2.25em;
+    text-align: center;
+    font-size: var(--normalsize);
+}
+
+#bionReadSwitch + label,
+#join-discussion,
+#saveButton,
+#share {
+    border-radius: 2em;
+    background: var(--fg);
+    padding: 1ex 12pt;
+    text-align: center;
+    color: var(--bg);
+    font-weight: 700;
+}
+
+menu button .t,
+menu a .t,
+#menu-footer a .t,
+#join-discussion-bluesky > .t {
+    --tsf: translate(-4.65em);
 }
 
 #rss-button::before {
@@ -39,28 +77,16 @@ header > menu a::before {
     content: '\e905';
 }
 
-main > header > menu {
-    float: right;
-    visibility: hidden;
-    margin: 0 0 0 auto;
-    padding: 0;
-    list-style: none;
-    font-size: 1.1rem;
-}
-
-main#term > header > menu,
-main#page > header > menu {
-    visibility: visible;
-}
-
 label .t::after,
 main#term #print-button {
     visibility: hidden;
 }
 
-main > header > menu > li,
-ul.breadcrumb > li {
-    display: inline;
+#back {
+    position: relative;
+    top: 3pt;
+    float: left;
+    padding: 0;
 }
 
 .pagination .rfill a::before,
@@ -71,8 +97,9 @@ ul.breadcrumb > li {
     content: '\e902';
 }
 
-#has-breadcrumb {
-    padding-left: 0.5ex;
+main > header > menu > li,
+ul.breadcrumb > li {
+    display: inline;
 }
 
 #has-breadcrumb a {
