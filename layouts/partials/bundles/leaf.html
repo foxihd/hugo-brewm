@@ -230,7 +230,7 @@
 {{- define "partials/post/contribute.html" -}}
     {{- if index site.Menus "contrib" }}
     <div id="contribute" tabindex="0">
-        {{ $authorCount := or site.Taxonomies.author (.GetTerms "author") | len }}
+        {{ $authorCount := or site.Taxonomies.authors (.GetTerms "authors") site.Taxonomies.author (.GetTerms "author") | len }}
         <strong class="section-title">{{ i18n "contribAskReader" }}</strong>
         <br>
         <span>

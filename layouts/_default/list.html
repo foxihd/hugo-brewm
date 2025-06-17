@@ -141,7 +141,7 @@
                     {{- range $index, $page := $paginator.Pages }}
                         {{- $counter := add $index 1 }}
                         {{- $author := default site.Params.Author.name .Params.author }}
-                        {{- $authors := .GetTerms "author" }}
+                        {{- $authors := or (.GetTerms "authors") (.GetTerms "author") }}
                         {{- $categories := .GetTerms "categories" }}
                         {{- $stage := .GetTerms "stage" }}
                         {{- $desc := or .Params.Subtitle .Params.Description .Description .Summary }}

@@ -185,7 +185,8 @@
                 "name": "{{ . }}"
             },
             {{- end }}
-            {{- with .page.GetTerms "author"  }}
+            {{- $authors := or (.page.GetTerms "authors") (.page.GetTerms "author") }}
+            {{- with $authors }}
                 {{ range . }}
                     "author": {
                             "@type": "Person",
