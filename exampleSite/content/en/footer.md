@@ -7,11 +7,10 @@ params:
     target: 'https://github.com/foxihd/hugo-brewm'
 ---
 
-<strong class="section-title">Author <i class="icon copyleft"></i> 2025</strong>
-
+**Author <i class="icon">copyleft</i> 2025**
 Some rights reserved.
 
 <br>
-<strong class="section-title">Impressum</strong>
 
+**Impressum**
 Lorem ipsum dolor sit amet.

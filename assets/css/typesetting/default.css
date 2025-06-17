@@ -186,6 +186,8 @@ tbody tr:nth-child(2n) {
 .carousel__viewport h3,
 .hero__content h1,
 #share > span,
+#main-footer strong,
+#main-footer b,
 #menu-footer::before,
 .section-title,
 .textssc {

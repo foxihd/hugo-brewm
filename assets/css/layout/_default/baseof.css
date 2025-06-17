@@ -168,23 +168,32 @@ body.focus #dwclock {
     width: var(--golden-ratio);
 }
 
+#main-footer {
+    font-size: var(--small);
+}
+
 #main-footer .pagewidth {
     padding: 0 calc(var(--void) - 1ex - 1rem);
     margin: 1ex 1ex 2ex;
 }
-
-#top,
 #main-footer .column > *,
 #main-footer .column__item {
-    /* margin: 1ex 0; */
     border: 0.1pt solid transparent;
 }
 
+#main-footer strong,
+#main-footer b,
 #main-footer .section-title,
 #menu-footer::before {
     display: block;
     margin: 1ex 0 0;
-    font-size: var(--small);
+    font-size: inherit;
+}
+
+#main-footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 #main-footer-primary,
@@ -194,7 +203,6 @@ body.focus #dwclock {
 
 #main-footer p {
     margin: 0;
-    font-size: var(--small);
 }
 
 #menu-footer:first-child {
