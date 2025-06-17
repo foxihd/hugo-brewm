@@ -72,11 +72,11 @@ body > header > nav {
 #has-i18n > summary::before,
 #has-i18n a::before,
 #has-l10n a::before {
-	background: var(--flag) center/cover;
-	content: '';
-	width: 1em;
-	height: 0.75em;
-	border-radius: 2pt;
+    background: var(--flag) center/cover;
+    content: '';
+    width: 1em;
+    height: 0.75em;
+    border-radius: 2pt;
 }
 
 #has-a11y[open] > summary .icon::before,
@@ -164,7 +164,7 @@ details[open] .on-plank,
 #main-menu .on-plank {
     position: fixed;
     top: calc(var(--vhead) + 1rem);
-    max-width: 20rem;
+    max-width: 20em;
     translate: -1.414ex;
 }
 
@@ -549,6 +549,15 @@ a#has-i18n:active > .alt {
         width: unset;
         color: unset;
         font: unset;
+    }
+
+    a#has-i18n::before {
+        margin: auto 0;
+        border-radius: 2pt;
+        background: var(--flag) center/cover;
+        width: 1em;
+        height: 0.75em;
+        content: '';
     }
 
     /* multilingual */
