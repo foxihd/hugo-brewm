@@ -24,17 +24,20 @@ Learn how to configure menus in the Hugo Brewm theme using either `config.toml` 
 - `pre`: Icon placement
 - `post`: Description for the link
 - `parent`: Parent menu item reference
+- `params.target`: Set menu item link target
 
 ## Adding Icons
 
 Add icons to your menu items with the `pre` parameter.
 
-```toml
+```toml {hl_lines=["5"]}
 [[menu.main]]
     identifier = "github"
     name = "GitHub"
     url = "https://github.com/"
     pre = "github"
+    [[menu.main.params]]
+        target = "_blank"
 ```
 
 Here are all the supported list icons and their corresponding names that can be used when configuring your menu items:
