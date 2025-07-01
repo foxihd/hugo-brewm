@@ -127,7 +127,7 @@ if (atProto) {
         const textEncoder = new TextEncoder();
         const utf8Decoder = new TextDecoder();
         const utf8Text = new Uint8Array(record.text.length * 3);
-        textEncoder.encodeInto(record.text, utf8Text);
+        textEncoder.encodeInto(record.text.replace(/\n/g, "<br />"), utf8Text);
 
         var charIdx = 0;
         for (const facetIdx in record.facets) {
