@@ -86,7 +86,7 @@ if (tootUri) {
     };
 
     const renderStat = (toot) => `
-        <a class="replies ${toot_active(toot, 'replies')}" href="${toot.url}" rel="nofollow" aria-label="${i18nReplies}">
+        <a class="replies ${toot_active(toot, 'replies')}" href="${toot.url}" rel="ugc nofollow" aria-label="${i18nReplies}">
             <span>${toot_count(toot, 'replies')}</span>
         </a>
         <a class="reblogs ${toot_active(toot, 'reblogs')}" href="${toot.url}/reblogs" rel="nofollow" aria-label="${i18nReblogs}">
@@ -155,7 +155,7 @@ if (tootUri) {
                 <div class="content">${renderContent(toot)}</div>
                 <footer>
                     <div class="stat">${renderStat(toot)}</div>
-                    <a class="date" href="${toot.url}" rel="nofollow">
+                    <a class="date" href="${toot.url}" rel="ugc nofollow">
                         <time datetime="${toISOString(toot.created_at)}">${toot.edited_at ? "*" : ""}${formatDate(toot.created_at)}</time>
                     </a>
                 </footer>

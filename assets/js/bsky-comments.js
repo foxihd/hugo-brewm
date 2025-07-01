@@ -210,7 +210,7 @@ if (atProto) {
             </div>
             <footer>
                 <div class="stat">
-                <a class="replies ${comment.post.replyCount > 0 ? 'active' : ''}" href="${ToBskyUrl(comment.post.uri)}" rel="nofollow"  aria-label="${i18nReplies}">
+                <a class="replies ${comment.post.replyCount > 0 ? 'active' : ''}" href="${ToBskyUrl(comment.post.uri)}" rel="ugc nofollow"  aria-label="${i18nReplies}">
                     <span>${comment.post.replyCount > 0 ? comment.post.replyCount : ''}</span>
                 </a>
                 <a class="reblogs ${comment.post.repostCount > 0 ? 'active' : ''}" href="${ToBskyUrl(comment.post.uri)}/reposted-by" rel="nofollow" aria-label="${i18nReblogs}">
@@ -220,7 +220,7 @@ if (atProto) {
                     <span>${comment.post.likeCount > 0 ? comment.post.likeCount : ''}</span>
                 </a>
                 </div>
-                <a class="date" href="${ToBskyUrl(comment.post.uri)}" rel="nofollow"><time datetime="${toISOString(replyDate)}">${formatDate(replyDate)}</time></a>
+                <a class="date" href="${ToBskyUrl(comment.post.uri)}" rel="ugc nofollow"><time datetime="${toISOString(replyDate)}">${formatDate(replyDate)}</time></a>
             </footer>
             </article>
             <ul class="rep"></ul>
