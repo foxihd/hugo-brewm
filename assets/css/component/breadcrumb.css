@@ -1,6 +1,5 @@
 main > header.pagewidth {
     margin-top: var(--medskip);
-    padding-left: calc(var(--void) - 0.5ex - 4pt);
     height: 2.5rem;
 }
 
@@ -36,6 +35,10 @@ header menu a,
     width: 2.25em;
     text-align: center;
     font-size: var(--normalsize);
+}
+
+#back::before {
+    width: 2rem;
 }
 
 #bionReadSwitch + label,
