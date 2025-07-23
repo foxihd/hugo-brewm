@@ -97,10 +97,6 @@ hr.ldots {
 
 @media only screen and (max-width: 640px) {
 
-    #main-footer > .pagewidth {
-        padding: 0 calc(var(--void) / 2);
-    }
-
     body > main#home > aside#list-tags,
     #home #list-posts {
         margin: var(--bigskip) auto;
