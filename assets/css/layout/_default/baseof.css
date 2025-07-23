@@ -91,6 +91,7 @@ body {
 body {
     max-width: unset !important;
     padding: unset !important;
+    min-height: var(--vbody);
 }
 
 body > header {
@@ -101,11 +102,6 @@ body > header {
     justify-content: space-between;
     height: var(--vhead);
 }
-
-/* no-article glitch (less on priority)*/
-/* body > main {
-    min-height: 114vh;
-} */
 
 .marginpar,
 body > main > aside {
@@ -142,10 +138,9 @@ body > footer {
 
 #main-footer {
     position: relative;
-    margin: 1in 1ex 1rem;
-    border-top: var(--border);
-    padding-bottom: 1ex;
-    width: calc(100% - 2ex);
+    margin: 1in 1em 1em;
+    padding: 1rem;
+    width: calc(100% - 2em);
     font-size: var(--small);
 }
 
@@ -154,12 +149,7 @@ body > footer {
 }
 
 #main-footer .pagewidth {
-    padding: 0 calc(var(--void) - 1ex - 1rem);
-    margin: 1ex;
-}
-#main-footer .column > *,
-#main-footer .column__item {
-    border: 0.1pt solid transparent;
+    padding: 0 calc(var(--void) - 1ex - 2rem);
 }
 
 #main-footer strong,
@@ -167,7 +157,7 @@ body > footer {
 #main-footer .section-title,
 #menu-footer::before {
     display: block;
-    margin: 1ex 0 0;
+    margin: 0;
     font-size: inherit;
 }
 
@@ -179,6 +169,7 @@ body > footer {
 
 #main-footer-primary,
 #main-footer-secondary > *  {
+    border: 0.1pt solid transparent;
     break-inside: avoid-column;
 }
 
@@ -216,11 +207,6 @@ body > footer {
         --marginparwidth: 100% !important;
         --canonic: 86%;
         --golden-ratio: 100%;
-    }
-
-    #main-footer .pagewidth {
-        padding-right: calc(var(--void) / 2);
-        padding-left: calc(var(--void) / 2);
     }
 
     .katex-display {

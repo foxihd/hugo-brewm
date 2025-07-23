@@ -27,10 +27,15 @@
 
 .column > *,
 .column__item {
-    margin-bottom: 1.618rem;
     break-after: auto;
     break-before: auto;
     break-inside: avoid;
+}
+
+div + #menu-footer,
+.column > div + div,
+.column__item + .column__item {
+    margin-top: 1.618rem;
 }
 
 .column img {

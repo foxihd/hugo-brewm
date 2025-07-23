@@ -142,9 +142,7 @@ details[open] .on-plank,
 
 hgroup,
 hgroup > h1,
-figure,
-#main-footer-secondary,
-#menu-footer {
+figure {
     margin: 0;
 }
 
