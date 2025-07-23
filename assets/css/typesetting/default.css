@@ -57,6 +57,11 @@ blockquote footer {
     text-align: end;
 }
 
+hr {
+    border-top: var(--border);
+    border-width: 1pt 0 0 0;
+}
+
 kbd {
     /* border: 1pt solid var(--mid); */
     -webkit-transition: 0.2s;

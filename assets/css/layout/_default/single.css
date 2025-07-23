@@ -238,3 +238,8 @@ header time {
     border-right: var(--border);
     color: #1185fe;
 }
+
+#comments > *,
+.giscus {
+    width: var(--golden-ratio);
+}
