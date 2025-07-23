@@ -297,13 +297,13 @@
 {{- end -}}
 
 {{- define "no-content" -}}
-    <div style="display: flex; height: var(--vbody);">
+    <div style="display:flex;height:var(--vbody);width:100%;">
         <section class="hero" style="margin: auto; width: var(--canonic);" aria-labelledby="noArticle">
             <picture class="hero__image">
                 <img src="https://i.pinimg.com/736x/bf/34/76/bf3476c1569c5af162779ecbb4134c3a.jpg" alt="cat is unsure on what to do with his laptop">
             </picture>
             <div class="hero__content">
-                <h1 id="noArticle" style="font-size: var(--large);font-weight:500;">{{ i18n "noArticle" }}</h1>
+                <h1 id="noArticle" style="font-size:var(--large);font-weight:500;">{{ i18n "noArticle" }}</h1>
                 <p>{{ i18n "noArticlePost" }}</p>
             </div>
         </section>

@@ -102,9 +102,10 @@ body > header {
     height: var(--vhead);
 }
 
-body > main {
+/* no-article glitch (less on priority)*/
+/* body > main {
     min-height: 114vh;
-}
+} */
 
 .marginpar,
 body > main > aside {
