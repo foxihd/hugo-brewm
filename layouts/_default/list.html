@@ -133,7 +133,7 @@
                 {{- /*
 
                     list post */}}
-                {{- $liViewCondition := or (and $active (not .IsHome)) (and (eq .Kind "term") (eq .Data.Plural "series") ) }}
+                {{- $liViewCondition := or $active (and (eq .Kind "term") (eq .Data.Plural "series") ) }}
                 {{- if $liViewCondition }}
                     {{ template "li" . }}
                 {{- else }}
@@ -176,8 +176,12 @@
 {{- end -}}
 
 {{- define "li" -}}
-    {{- $descending := and (eq $.Kind "term") (eq $.Data.Plural "series")}}
-    {{- $yearGroup := .Data.Pages.GroupByDate "2006" }}
+    {{- $descending := and (eq $.Kind "term") (eq $.Data.Plural "series") }}
+    {{- $pages := .Data.Pages }}
+    {{- if .IsHome }}
+        {{- $pages =  where site.RegularPages "Type" (or "post" "articles") }}
+    {{- end }}
+    {{- $yearGroup := $pages.GroupByDate "2006" }}
     {{- if $descending }}
         {{- $yearGroup = $yearGroup.Reverse }}
     {{- end }}

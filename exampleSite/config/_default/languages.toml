@@ -27,6 +27,8 @@
         flowlines = false
     [id.params.home]
         disableListing = true
+    [id.sitemap]
+        changeFreq = 'always' ## Change posts listings layout
 
 [it]
     contentDir = 'content/it'

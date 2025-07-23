@@ -100,6 +100,10 @@ hr.ldots::after {
     list-style: none;
 }
 
+.list-month > summary::after {
+    margin-left: 1ex;
+}
+
 .list-day a {
     display: block;
     margin: 1ex 1rem;
