@@ -1,5 +1,24 @@
 /* this style is used inline in accessibility.js */
 
+/*  focus mode */
+
+body.focus > header,
+body.focus > main > header,
+body.focus #contentinfo,
+body.focus #discussion-starter,
+body.focus #main-footer,
+body.focus #background-footer {
+    display:none;
+}
+
+body.focus > footer {
+    position: unset;
+}
+
+body.focus #dwclock {
+    opacity: 0.1;
+}
+
 /* a11y button */
 #has-a11y {
     margin-right: auto;
