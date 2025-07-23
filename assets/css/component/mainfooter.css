@@ -1,0 +1,11 @@
+/* main footer bar */
+
+#main-footer {
+    border-radius: 1ex;
+    background: #000;
+    color: #fff;
+}
+
+#main-footer a {
+    color: #fff;
+}

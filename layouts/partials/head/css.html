@@ -88,6 +88,10 @@
     {{- $extrasSty = $extrasSty | append $search }}
 {{- end }}
 
+{{- if not site.Params.DisableFootBar }}
+    {{- $bbar := resources.Get "css/component/mainfooter.css" }}
+    {{- $extrasSty = $extrasSty | append $bbar }}
+{{- end }}
 
 {{ $zen := or site.Params.BearMode site.Params.ZenMode }}
 {{- if not $zen }}

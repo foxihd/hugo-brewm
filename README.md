@@ -234,6 +234,8 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
     AllowAIRobots = false
     ## or BearMode--Minimize clutter for small site; Disable breadcrumbs menu, share button, related posts, colophon and redaction history.
     ZenMode = false
+    ## Disable Black background on main-footer
+    DisableFootBar = false
 
     ## At the moment, analytics can be added manually by creating a custom template at `mysite/layouts/partials/analytics.html`
     [params.analytics]

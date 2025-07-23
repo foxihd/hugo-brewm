@@ -116,16 +116,6 @@ body > main > aside {
     width: var(--marginparwidth);
 }
 
-body > main > #main-footer {
-    position: relative;
-    margin: var(--bigskip) 1ex 1rem;
-    border: var(--border);
-    border-radius: 1ex;
-    background: #000;
-    width: calc(100% - 2ex);
-    color: #fff;
-}
-
 body > footer {
     display: flex !important;
     position: -webkit-sticky;
@@ -138,23 +128,6 @@ body > footer {
     font-size: var(--small);
 }
 
-body.focus > header,
-body.focus > main > header,
-body.focus #contentinfo,
-body.focus #discussion-starter,
-body.focus #main-footer,
-body.focus #background-footer {
-    display:none;
-}
-
-body.focus > footer {
-    position: unset;
-}
-
-body.focus #dwclock {
-    opacity: 0.1;
-}
-
 #top,
 .pagewidth {
     padding-right: var(--void);
@@ -163,19 +136,26 @@ body.focus #dwclock {
     max-width: var(--max-width); */
 }
 
-#comments > *,
-.giscus,
 .textwidth {
     width: var(--golden-ratio);
 }
 
 #main-footer {
+    position: relative;
+    margin: 1in 1ex 1rem;
+    border-top: var(--border);
+    padding-bottom: 1ex;
+    width: calc(100% - 2ex);
     font-size: var(--small);
+}
+
+#main-footer a {
+    color: var(--ink);
 }
 
 #main-footer .pagewidth {
     padding: 0 calc(var(--void) - 1ex - 1rem);
-    margin: 1ex 1ex 2ex;
+    margin: 1ex;
 }
 #main-footer .column > *,
 #main-footer .column__item {
@@ -207,17 +187,8 @@ body.focus #dwclock {
 }
 
 #menu-footer:first-child {
-    margin-top: 1rem;
+    column-span: all;
     text-align: center;
-}
-
-#main-footer a {
-    color: #fff;
-}
-
-hr {
-    border-top: var(--border);
-    border-width: 1pt 0 0 0;
 }
 
 @media only screen and (min-width: 1440px) {
