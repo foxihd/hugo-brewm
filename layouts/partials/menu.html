@@ -72,6 +72,10 @@
         {{- $name := .Name }}
         {{- $class := .Params.class }}
         {{- $target := .Params.target }}
+        {{- $link := false }}
+        {{- if or .URL .PageRef }}
+            {{- $link = true }}
+        {{- end }}
         {{- $attrs := dict "href" .URL }}
         {{- if $page.IsMenuCurrent .Menu . }}
             {{- $attrs = merge $attrs (dict "aria-current" "page") }}
@@ -96,7 +100,7 @@
         {{- $identifier := .Identifier }}
         <li role="presentation" {{ with $class }}class="{{ . }}"{{ end }}>
             {{- if .Children }}
-                {{- template "menuItemWithChildren" dict "item" . "attrs" $attrs "icon" $icon "name" $name "desc" $desc "deck" $deck "menuID" $menuID "open" $open "l" $l "n" $n "page" $page }}
+                {{- template "menuItemWithChildren" dict "item" . "attrs" $attrs "link" $link "icon" $icon "name" $name "desc" $desc "deck" $deck "menuID" $menuID "open" $open "l" $l "n" $n "page" $page }}
             {{- else }}
                 {{- template "menuItem" dict "attrs" $attrs "name" $name "desc" $desc "icon" $icon "identifier" $identifier }}
             {{- end }}
@@ -150,15 +154,16 @@
         </summary>
         <ul class="{{ .l }} {{ if .deck }} on-plank {{ end }}" role="presentation">
             {{ partial "inline/menu/walk.html" (dict "page" .page "n" .n "menuEntries" .item.Children) }}
-            {{- range $key, $val := .attrs }}
-                {{- if eq $key "href" }}
+            {{- if .link }}
                 <li class="parent-anchor">
-                    <a {{- printf " %s=%s" $key $val | safeHTMLAttr }} aria-label="{{ i18n "seeAll" }}:{{ $.name }}">
+                    <a  {{- range $key, $val := .attrs }}
+                            {{- printf " %s=%s" $key $val | safeHTMLAttr }} 
+                        {{- end }}
+                        aria-label="{{ i18n "seeAll" }}:{{ $.name }}">
                         {{ with $.icon }}<i class="icon sri" aria-hidden="true">{{ . }}</i>{{ end }}
                         <span aria-hidden="true"> {{ $.name }}</span>
                     </a>
                 </li>
-                {{- end }}
             {{- end }}
         </ul>
         {{- if .deck -}}
