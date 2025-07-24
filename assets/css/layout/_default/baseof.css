@@ -139,7 +139,7 @@ body > footer {
 #main-footer {
     position: relative;
     margin: 1in 1em 1em;
-    padding: 1rem;
+    padding: 1.618rem;
     width: calc(100% - 2em);
     font-size: var(--small);
 }
@@ -149,7 +149,7 @@ body > footer {
 }
 
 #main-footer .pagewidth {
-    padding: 0 calc(var(--void) - 1ex - 2rem);
+    padding: 0 calc(var(--void) - 1em - 1.618rem);
 }
 
 #main-footer strong,
