@@ -1,6 +1,7 @@
 #contentinfo {
     display: grid;
     grid-template-columns: 6fr 4fr;
+    font-size: var(--small);
     gap: var(--medskip);
 }
 
@@ -26,7 +27,6 @@
     padding: 1.4rem 1.4rem 1rem;
     height: fit-content;
     line-height: 1.618;
-    font-size: var(--small);
 }
 
 #contrib-menu li {

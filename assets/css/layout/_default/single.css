@@ -50,7 +50,8 @@
 }
 
 #main-article [role=doc-credit],
-#main-article [role=doc-colophon] {
+#main-article [role=doc-colophon],
+#join-discussion {
     font-size: var(--small);
 }
 
@@ -222,10 +223,6 @@ header time {
     display: flex;
     justify-content: end;
     flex-direction: row-reverse;
-}
-
-#join-discussion {
-    font-size: var(--small);
 }
 
 #join-discussion:hover,
