@@ -77,6 +77,11 @@
     content: '>';
 }
 
+#related a {
+    position: relative;
+    top: 0.25ex;
+}
+
 #has-timeline {
     grid-column-start: 2;
     grid-row-start: 1;

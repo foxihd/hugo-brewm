@@ -2,13 +2,13 @@ a.replies.active,
 a.reblogs.active,
 #has-author-name-menu a:hover,
 #has-author-name-menu a:focus,
-#related a:hover,
-#related a:focus {
+#contentinfo a:hover,
+#contentinfo a:focus {
     color: var(--ac);
 }
 
 .feed-item > hgroup > div a,
-#related a {
+#contentinfo a {
     color: var(--fg);
 }
 
