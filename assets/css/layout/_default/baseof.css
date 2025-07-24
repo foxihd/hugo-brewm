@@ -152,9 +152,7 @@ body > footer {
 #main-footer b,
 #main-footer .section-title,
 #menu-footer::before {
-    display: block;
-    margin: 0;
-    font-size: inherit;
+    padding-bottom: 1ex;
 }
 
 #main-footer ul {
