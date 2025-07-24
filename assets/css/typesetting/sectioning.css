@@ -20,30 +20,21 @@ h1 {
     margin: var(--bigskip) 0 var(--smallskip);
     text-transform: capitalize;
     font-size: var(--huge);
-    counter-reset: section;
-}
-
-article > section {
-    counter-reset: section;
 }
 
 h2 {
     font-size: var(--LARGE);
-    counter-reset: subsection;
 }
 
 h3 {
     font-size: var(--Large);
-    counter-reset: subsubsection;
 }
 
 h4 {
     font-size: var(--large);
-    counter-reset: paragraph;
 }
 
 h5 {
-    counter-reset: subparagraph;
     margin: var(--smallskip) 0 0;
 }
 
@@ -68,54 +59,57 @@ h6 {
 
 /* section labeling */
 
-/* h1::before {
-    counter-increment: chapter;
-}
-
-h2::before {
-    counter-increment: section;
-}
-
-h3::before {
-    counter-increment: subsection;
-}
-
-h4::before {
-    counter-increment: subsubsection;
-}
-
-h5::before {
-    counter-increment: paragraph;
-}
-
-h6::before {
-    counter-increment: subparagraph;
-}
-
 #content.secnum {
-    counter-reset: chapter;
+    counter-reset: section;
 }
 
-#content.secnum h1::before {
-    content: counter(chapter);
+#content.secnum h2,
+#content.secnum h3,
+#content.secnum h4 {
+    font-style: normal;
+}
+
+#content.secnum h2::before,
+#content.secnum h3::before,
+#content.secnum h4::before {
+    opacity: 0.86;
 }
 
 #content.secnum h2::before {
+    counter-increment: section;
     content: counter(section) '. ';
 }
 
+#content.secnum h2 {
+    counter-reset: subsection;
+}
+
 #content.secnum h3::before {
-    content: counter(subsection)'. ';
+    counter-increment: subsection;
+    content:  counter(section) '.' counter(subsection)'. ';
+}
+
+#content.secnum h3 {
+    counter-reset: subsubsection;
 }
 
 #content.secnum h4::before {
-    content: counter(subsubsection)'. ';
+    counter-increment: subsubsection;
+    content: counter(section) '.' counter(subsection) '.' counter(subsubsection)'. ';
+}
+
+/* #content.secnum h4 {
+    counter-reset: paragraph;
 }
 
 #content.secnum h5::before {
-    content: counter(paragraph);
+    counter-increment: paragraph;
+}
+
+#content.secnum h5 {
+    counter-reset: subparagraph;
 }
 
 #content.secnum h6::before {
-    content: counter(subparagraph);
+    counter-increment: subparagraph;
 } */

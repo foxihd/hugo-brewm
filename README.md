@@ -342,6 +342,8 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         related = true
         ## Show share buttons
         share = true
+        ## enable section numbering
+        secnum = false
 
     ## Search configuration
     [params.search]
