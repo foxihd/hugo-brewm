@@ -22,6 +22,7 @@
     {{- $unif := site.Params.unifiedFooter }}
     {{- $menu := site.Menus.footer }}
     {{- $iterateEntry := where .Site.RegularPages "Type" "footer" }}
+    {{- if or $stat $unif $menu }}
     <hr class="hide">
     <footer id="main-footer">
         {{- with $iterateEntry -}}
@@ -73,4 +74,5 @@
             </div>
         {{- end }}
     </footer>
+    {{- end }}
 {{- end }}
