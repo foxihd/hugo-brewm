@@ -1,7 +1,7 @@
 @media print {
 
     :root {
-        font-size: 10pt;
+        font-size: calc(10pt / 1.272 * var(--fontScale)) ;
     }
 
     @page {

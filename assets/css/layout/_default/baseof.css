@@ -15,7 +15,7 @@
     --golden-ratio: 61.803398%;
     --canonic: 70.710678%;
     --max-width: 1024px;
-    --void: calc((100vw - var(--canonic) - 1rem) / 2);
+    --void: calc((29.289322vw - 1rem) / 2); /* 100vw - 70.710678vw */
     --vhead: 4.2rem;
     --vfoot: 3.33rem;
     --vbody: calc(100vh - var(--vhead) - var(--vfoot));
@@ -195,7 +195,7 @@ body > footer {
 @media only screen and (max-width: 960px) {
 
     :root {
-        --void: calc((100vw - var(--canonic) - var(--vfoot) - var(--vhead)) / 2);
+        --void: calc(29.289322vw - var(--vfoot) - var(--vhead)) / 2);
     }
 
 }
