@@ -48,17 +48,17 @@
                             {{ .Content }}
                         </div>
                     {{- end }}
-                    {{- if $stat }}
-                        {{- $coffeeStat := partialCached "coffeeStat.html" . }}
-                        {{- with $coffeeStat }}
-                        <div id="coffee-counter">
-                            <strong class="section-title">{{ i18n "coffeeStat" }}</strong>
-                            <p>{{ i18n "coffeeCount" }}{{ printf "%d %s" . (i18n "cup" . | lower) }}{{ i18n "coffeeCountPost" }}</p>
-                        </div>
-                    {{- end }}
-                    {{- end }}                    
                     {{ partial "menu.html" ( dict "page" $page "menuID" "footer") }}
                 </div>
+            </div>
+            {{- if $stat }}
+                {{- $coffeeStat := partialCached "coffeeStat.html" . }}
+                {{- with $coffeeStat }}
+                <div id="coffee-counter">
+                    <p>{{ i18n "coffeeCount" }}{{ printf "%d %s" . (i18n "cup" . | lower) }}{{ i18n "coffeeCountPost" }}</p>
+                </div>
+                {{- end }}                    
+            {{- end }}
             </div>
         </footer>
     {{- end }}

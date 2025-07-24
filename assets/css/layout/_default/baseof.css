@@ -182,6 +182,17 @@ body > footer {
     text-align: center;
 }
 
+#coffee-counter {
+    margin-top: 1.618rem;
+    border-radius: 2rem;
+    box-shadow: var(--box-shadow-inset);
+    background: #fff;
+    padding: 1ex calc(var(--void) - 1em - 1.618rem);
+    text-align: center;
+    color: #000;
+    font-size: var(--footnotesize);
+}
+
 @media only screen and (min-width: 1440px) {
 
     :root {
