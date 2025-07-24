@@ -97,7 +97,7 @@
 {{- if not $zen }}
     {{- $clock := resources.Get "css/component/clock.css" }}
     {{- $contentinfo := resources.Get "css/component/contentinfo.css" }}
-    {{- $extrasSty = $extrasSty | append $contentinfo }}
+    {{- $extrasSty = $extrasSty | append $contentinfo $clock }}
     {{- if site.Params.posts.share }}
         {{- $share := resources.Get "css/component/share.css" }}
         {{- $extrasSty = $extrasSty | append $share }}
