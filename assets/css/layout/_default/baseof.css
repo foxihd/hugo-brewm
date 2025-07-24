@@ -148,7 +148,7 @@ body > footer {
     color: var(--ink);
 }
 
-#main-footer .pagewidth {
+#main-footer > div {
     padding: 0 calc(var(--void) - 1em - 1.618rem);
 }
 
@@ -187,10 +187,16 @@ body > footer {
     border-radius: 2rem;
     box-shadow: var(--box-shadow-inset);
     background: #fff;
-    padding: 1ex calc(var(--void) - 1em - 1.618rem);
     text-align: center;
     color: #000;
     font-size: var(--footnotesize);
+}
+
+#coffee-counter p {
+    text-overflow: ellipsis;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 1ex 1em;
 }
 
 @media only screen and (min-width: 1440px) {
