@@ -236,6 +236,8 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
     ZenMode = false
     ## Disable Black background on main-footer
     DisableFootBar = false
+    ## Merge site license, footer menu and coffee stat
+    unifiedFooter = true
 
     ## At the moment, analytics can be added manually by creating a custom template at `mysite/layouts/partials/analytics.html`
     [params.analytics]

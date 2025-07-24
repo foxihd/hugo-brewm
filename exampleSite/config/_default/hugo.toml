@@ -117,6 +117,10 @@ enableRobotsTXT = true
     AllowAIRobots = false
     ## or BearMode--Minimize clutter for small site; Disable breadcrumbs menu, share button, related posts, colophon and redaction history.
     ZenMode = false
+    ## Disable Black background on main-footer
+    DisableFootBar = false
+    ## Merge site license, footer menu and coffee stat
+    unifiedFooter = true
 
     ## Author information
     [params.author]

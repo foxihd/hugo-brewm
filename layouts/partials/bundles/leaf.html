@@ -147,8 +147,8 @@
             <div id="qr" role="img" aria-label="QR code"></div>
             <div class="verbose">
                 <div class="has-aria-label-top" aria-label="{{ .Title }}"><span>{{- .Permalink }}</span></div>
-                {{- $copyright := or site.Copyright site.Params.copyright }}
-                {{- if $copyright -}}
+                {{- $copyright := or site.Copyright site.Params.copyright site.Params.license }}
+                {{- if and (not site.Params.unifiedFooter) $copyright -}}
                     <div><span>{{ markdownify $copyright }}</span></div>
                 {{- end }}
                 <div><span>{{ i18n "buildTime" }}: </span><time datetime="{{ now.Format "2006-01-02T15:04:05-07:00" }}">{{ now.Format "2006-01-02 15:04" }}</time></div>

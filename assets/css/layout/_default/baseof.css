@@ -185,18 +185,22 @@ body > footer {
     text-align: center;
 }
 
+#license + #menu-footer::before,
 #menu-footer a::after {
     content: unset !important;
 }
 
-#coffee-counter {
-    margin-top: 1.618rem;
+div + #unified-footer {
     border-top: var(--bound);
+}
+
+#unified-footer {
+    margin-top: 1.618rem;
     padding-top: 1.618rem !important;
     text-align: center;
 }
 
-#coffee-counter p {
+#unified-footer p {
     padding: 1ex 1em;
     font-size: var(--footnotesize);
 }
