@@ -21,7 +21,7 @@
         pagerSize = 12
         path = 'laman'
     [id.params]
-        coffeeStat = false
+        copyright = 'Penyusun <i class="icon copyleft"></i> 2025'
 
     [id.params.feed]
         flowlines = false
