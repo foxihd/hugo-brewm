@@ -37,7 +37,7 @@
                         {{ .Content }}
                     </div>
                 {{- end }}
-                <div id="main-footer-secondary" {{ if or $menu (index . 2) }} class="column" style="--col: 15rem"{{ end }}>
+                <div id="main-footer-secondary" {{ if or $menu (index . 2) }} class="column" style="--col: 10rem"{{ end }}>
                     {{- range after 1 . -}}
                         {{- $counter := add 1 $counter }}
                         <div
