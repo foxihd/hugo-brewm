@@ -200,9 +200,8 @@ tbody tr:nth-child(2n) {
     text-transform: uppercase;
     letter-spacing: 2pt;
     font-weight: 700;
-    font-variant: small-caps;
+    font-variant: all-small-caps;
     font-style: normal;
-    /* font-variant-caps: all-small-caps; */
 }
 
 .section-title {
