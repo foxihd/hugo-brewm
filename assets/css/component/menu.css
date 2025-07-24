@@ -181,8 +181,7 @@ details[open] .on-plank,
 #top-nav a,
 .anchor {
     display: flex;
-    border: 2pt solid transparent;
-    border-width: 0 0 2pt 0;
+    border-bottom: 2pt solid transparent;
     padding: 1ex;
     width: 100%;
     color: var(--fg);
@@ -198,6 +197,8 @@ summary.anchor .has-aria-label::after {
     font-weight: normal;
 }
 
+#main-footer a:hover,
+#main-footer a:focus,
 #has-l10n a:hover,
 #has-l10n a:focus,
 #top-nav a:hover,
@@ -341,6 +342,7 @@ a#has-i18n:active > .alt {
     width: auto;
 }
 
+#main-footer a::after,
 .parent-anchor a::after,
 #i18n-menu a::after,
 #content a::after {

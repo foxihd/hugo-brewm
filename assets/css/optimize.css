@@ -1,5 +1,3 @@
-#menu-footer a:hover,
-#menu-footer a:focus,
 a.replies.active,
 a.reblogs.active,
 #has-author-name-menu a:hover,
@@ -67,6 +65,7 @@ details[open] > .anchor:after,
 details[open] .on-plank,
 .l1 details[open] > ul,
 .marginpar-ctrl:checked + label + .marginpar,
+#main-footer a,
 #has-l10n a:hover,
 #has-l10n a:focus,
 #top-nav a:hover,
@@ -85,6 +84,7 @@ details[open] > summary > .menu-icon::before,
             animation: var(--anm);
 }
 
+#main-footer a::after,
 hr.ldots::after,
 #to-top::before,
 #lightSwitch + label::before,
@@ -92,10 +92,8 @@ hr.ldots::after,
 .pagination .rfill a::before,
 .carousel__viewport__slide:last-child > nav a::before,
 #back::before,
-.feed-item:hover,
-.feed-item:focus-within,
-ul.carousel__viewport > li:hover,
-ul.carousel__viewport > li:focus-within,
+.feed-item,
+ul.carousel__viewport > li,
 .pagination .lfill a::after,
 #list-tags .underline::after,
 .carousel__viewport__slide:first-child > nav a::after,
@@ -116,7 +114,7 @@ input.toggle + label::after,
 #setContrast label,
 .marginpar-ctrl + label::before,
 .anchor:after,
-#has-share i:hover {
+#has-share i {
     -webkit-transition: var(--tst);
        -moz-transition: var(--tst);
          -o-transition: var(--tst);

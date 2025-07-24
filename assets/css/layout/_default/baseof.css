@@ -144,10 +144,6 @@ body > footer {
     font-size: var(--small);
 }
 
-#main-footer a {
-    color: var(--ink);
-}
-
 #main-footer > div {
     padding: 0 calc(var(--void) - 1em - 1.618rem);
 }
@@ -167,6 +163,13 @@ body > footer {
     padding: 0;
 }
 
+#main-footer a {
+    display: inline-block;
+    margin: 1pt 0;
+    border-bottom: 1pt solid transparent;
+    padding: 2pt 0;
+}
+
 #main-footer-primary,
 #main-footer-secondary > *  {
     border: 0.1pt solid transparent;
@@ -182,21 +185,20 @@ body > footer {
     text-align: center;
 }
 
+#menu-footer a::after {
+    content: unset !important;
+}
+
 #coffee-counter {
     margin-top: 1.618rem;
-    border-radius: 2rem;
-    box-shadow: var(--box-shadow-inset);
-    background: #fff;
+    border-top: var(--bound);
+    padding-top: 1.618rem !important;
     text-align: center;
-    color: #000;
-    font-size: var(--footnotesize);
 }
 
 #coffee-counter p {
-    text-overflow: ellipsis;
-    overflow-x: auto;
-    white-space: nowrap;
     padding: 1ex 1em;
+    font-size: var(--footnotesize);
 }
 
 @media only screen and (min-width: 1440px) {
