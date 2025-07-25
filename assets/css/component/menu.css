@@ -180,7 +180,6 @@ details[open] .on-plank,
 #has-l10n a,
 #top-nav a,
 .anchor {
-    --anm: none;
     display: flex;
     padding: 1ex;
     width: 100%;
