@@ -179,7 +179,7 @@
 .icon.wikipedia:before {content: '\e965';}
 .icon.wordpress:before {content: '\e966';}
 .icon.write-dot-as:before {content: '\e967';}
-.icon.x:before {content: '\e968';}
+.icon.x:before {content: 'x';}
 #has-share .xing:before,
 .icon.xing:before {content: '\e969';}
 .icon.xmpp:before {content: '\e96a';}
