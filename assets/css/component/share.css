@@ -67,6 +67,7 @@
     display: inline-flex;
     position: relative;
     align-items: center;
+    border: none;
 }
 
 #has-share i {

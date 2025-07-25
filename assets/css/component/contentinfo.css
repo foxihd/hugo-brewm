@@ -35,11 +35,19 @@
 
 #contrib-menu a {
     display: inline-block;
+    border: none;
     border-radius: 1ex;
     background: var(--ac);
     padding: 4pt 9pt 3pt 7pt;
     width: 100%;
     text-align: center;
+    color: var(--bg);
+}
+
+#contrib-menu a:hover,
+#contrib-menu a:focus {
+    --anm: none;
+    opacity: 0.86;
     color: var(--bg);
 }
 

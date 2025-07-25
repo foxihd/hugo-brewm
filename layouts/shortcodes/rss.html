@@ -36,7 +36,7 @@
                         </div>
                         <a href="{{ .link }}" tabindex="-1"><h1>{{ $title }}</h1></a>
                     </hgroup>
-                    <a class="underline" href="{{ .link }}" aria-label="{{ .title }}"></a>
+                    <a href="{{ .link }}" aria-label="{{ .title }}"></a>
                     {{ $hasCover :=  or (eq $type "image/jpeg") .coverImage }}
                     <section {{ if $hasCover }}class="has-cover"{{ end }}>
                         {{- if $hasCover }}

@@ -76,7 +76,7 @@
                     <nav aria-label="{{ i18n "discover" }}">
                         {{ partial "taxonomies.html" (dict "taxonomy" "tags" "class" "rounded has-hash" "limit" 16) }}
                     </nav>
-                    <a class="underline" href="{{ "/tags/" | relLangURL }}">{{ i18n "seeMore" }}</a>
+                    <a class="tr" href="{{ "/tags/" | relLangURL }}">{{ i18n "seeMore" }}</a>
                     {{- if and .Params.NetworkGraphAside (not .Params.NetworkGraph) }}
                         <div id="network-graph" 
                             data-title="{{ i18n "networkGraph"}}"
@@ -263,7 +263,7 @@
                 <h1 id="{{ printf "title-%d" .counter }}">{{ .page.Title }}</h1>
             </a>
         </hgroup>
-        <a class="underline sri" href="{{ .page.RelPermalink }}" aria-label="{{ .page.Title }}" aria-describedby="{{ printf "desc-%d" .counter }}"></a>
+        <a class="sri" href="{{ .page.RelPermalink }}" aria-label="{{ .page.Title }}" aria-describedby="{{ printf "desc-%d" .counter }}"></a>
         {{ $useFlowlines := site.Params.Feed.Flowlines }}
         <section {{ if or .hasCover $useFlowlines }}class="has-cover"{{ end }}>
             {{- if .hasCover }}

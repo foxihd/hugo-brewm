@@ -52,7 +52,7 @@ ul.carousel__viewport > li {
     position: relative;
     margin: 1ex;
     border-radius: 1ex;
-	background: var(--img) center/cover;
+    background: var(--img) center/cover;
     width: 16rem;
     height: 12.8rem;
 }
@@ -68,6 +68,7 @@ ul.carousel__viewport > li > a {
     color: var(--fg);
     font-size: var(--small);
     font-weight: bold;
+    border: none;
 }
 
 ul.carousel__viewport > li:hover,
@@ -107,7 +108,7 @@ ul.carousel__viewport > li > a > span::after {
     right: -0.9ex;
 }
 
-#list-tags .underline,
+.tr,
 .carousel__viewport__slide > nav a {
     display: inline-flex;
     padding: 1ex 1rem;
@@ -116,7 +117,7 @@ ul.carousel__viewport > li > a > span::after {
 
 
 .pagination .lfill a::after,
-#list-tags .underline::after,
+.tr::after,
 .carousel__viewport__slide:first-child > nav a::after {
     /* -> */
     --tsf: rotate(90deg);
@@ -135,13 +136,11 @@ ul.carousel__viewport > li > a > span::after {
     margin: 1rem 0;
 }
 
-#list-series ul.carousel__viewport,
-#list-categories ul.carousel__viewport,
-#list-author ul.carousel__viewport {
+#list-taxonomy ul.carousel__viewport {
     scrollbar-width: thin;
 }
 
-#list-categories a:hover::after {
+#list-taxonomy ul.carousel__viewport a:hover::after {
     position: absolute;
     right: 1ex;
     bottom: 1ex;

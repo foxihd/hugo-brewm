@@ -159,12 +159,11 @@ body > footer {
     list-style: none;
     margin: 0;
     padding: 0;
+    line-height: 2;
 }
 
 #main-footer a {
-    display: inline-block;
     margin: 1pt 0;
-    border-bottom: 1pt solid transparent;
     padding: 2pt 0;
 }
 

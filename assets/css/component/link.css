@@ -1,12 +1,72 @@
-a {
-    text-decoration: none;
-    color: var(--ac);
+@-webkit-keyframes underline {
+    from {
+        border-image: linear-gradient(to right, transparent, transparent) 1;
+    }
+
+    50% {
+        border-image: linear-gradient(to right, var(--ac), transparent) 1;
+    }
+
+    to {
+        border-image: linear-gradient(to right, var(--ac), var(--ac)) 1;
+    }
 }
 
-#has-a11y-summary,
-a.underline {
-    border: 2pt solid transparent;
-    border-width: 0 0 2pt 0;
+@-moz-keyframes underline {
+    from {
+        border-image: linear-gradient(to right, transparent, transparent) 1;
+    }
+
+    50% {
+        border-image: linear-gradient(to right, var(--ac), transparent) 1;
+    }
+
+    to {
+        border-image: linear-gradient(to right, var(--ac), var(--ac)) 1;
+    }
+}
+
+@keyframes underline {
+    from {
+        border-image: linear-gradient(to right, transparent, transparent) 1;
+    }
+
+    50% {
+        border-image: linear-gradient(to right, var(--ac), transparent) 1;
+    }
+
+    to {
+        border-image: linear-gradient(to right, var(--ac), var(--ac)) 1;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+a,
+.anchor,
+.list-day a span,
+#has-l10n summary,
+#has-a11y-summary {
+    --anm: none;
+    border-bottom: 2pt solid transparent;
+}
+
+a:hover,
+a:focus,
+.anchor:hover,
+.anchor:focus,
+.list-day a:hover span,
+.list-day a:focus span,
+#has-l10n summary:hover,
+#has-l10n summary:focus,
+#has-l10n[open] summary,
+#has-a11y-summary:hover,
+#has-a11y-summary:focus,
+#has-a11y[open] #has-a11y-summary {
+    --anm: underline 127ms;
+    border-color: var(--ac);
 }
 
 a.cta {
@@ -27,32 +87,19 @@ a.cta.s {
 
 a.cta:hover,
 a.cta:focus {
+    --anm: none;
     outline: 2pt solid var(--fg);
     border-color: var(--bg);
     background: var(--fg);
     color: var(--bg);
 }
 
-#to-top:focus,
-#has-a11y-summary:hover,
-#has-a11y-summary:focus,
-#has-a11y[open] #has-a11y-summary,
-a.underline:hover,
-a.underline:focus {
-    --anm: underline 127ms ease-in;
-    border-color: var(--ac);
-    -webkit-animation: var(--anm);
-       -moz-animation: var(--anm);
-         -o-animation: var(--anm);
-            animation: var(--anm);
-}
-
-ul.rounded li {
+.rounded li {
     margin: 0.5ex;
     display: inline-block;
 }
 
-ul.rounded a {
+.rounded a {
     display: inline-flex;
     border: var(--border);
     border-radius: 2rem;
@@ -62,32 +109,41 @@ ul.rounded a {
     gap: 1pt;
 }
 
-ul.rounded a:hover {
+.rounded a:hover,
+.rounded a:focus {
+    --anm: none;
     border: 1pt solid var(--fg);
 }
 
-ul.invert a {
+.invert a {
     background: var(--fg) !important;
     color: var(--bg) !important;
 }
 
-ul.invert a:visited {
+.invert a:visited {
     color: var(--bg);
 }
 
-ul.invert a:hover {
+.invert a:hover,
+.invert a:focus {
+    --anm: none;
     background: var(--bg) !important;
     color: var(--fg) !important;
 }
 
-ul.has-hash a {
+.has-hash a {
     text-transform: uppercase;
     letter-spacing: 0.1rem;
     font-size: var(--footnotesize);
 }
 
-#term .section-title > .tag::before,
-ul.has-hash a::before {
+.has-hash a:hover,
+.has-hash a:focus {
+    --anm: none;
+}
+
+#term .section-title .tag::before,
+.has-hash a::before {
     content: '#';
 }
 

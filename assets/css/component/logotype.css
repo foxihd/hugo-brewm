@@ -22,6 +22,7 @@
     align-items: center;
     justify-content: center;
     margin: 5pt 0;
+    border: none;
     max-width: calc(100% - 5rem);
     height: var(--h);
 }
@@ -42,7 +43,7 @@
 }
 
 #logo:focus #logotype__text {
-    --anm: unset;
+    --anm: none;
     outline-color: var(--off);
     stroke: none;
 }

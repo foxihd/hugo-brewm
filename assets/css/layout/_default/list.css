@@ -63,7 +63,7 @@ hr.ldots::after {
 }
 
 .carousel + .carousel {
-	margin-top: 2rem;
+    margin-top: 2rem;
 }
 
 #has-pagination {
@@ -107,6 +107,7 @@ hr.ldots::after {
 .list-day a {
     display: block;
     margin: 1ex 1rem;
+    border: none;
     padding: 1ex 0;
     width: 100%;
     font-size: var(--normalsize);

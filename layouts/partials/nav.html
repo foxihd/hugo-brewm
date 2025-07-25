@@ -123,14 +123,14 @@
     {{- $page := .page }}
     {{- if $page.Paginator.HasPrev }}
     <li class="rfill">
-        <a class="underline" href="{{ $page.Paginator.Prev.URL }}" rel="prev">
+        <a href="{{ $page.Paginator.Prev.URL }}" rel="prev">
             <span>{{- i18n "prev" }}</span>
         </a>
     </li>
     {{- end }}
     {{- if $page.Paginator.HasNext }}
     <li class="lfill">
-        <a class="underline" href="{{ $page.Paginator.Next.URL }}" rel="next">
+        <a href="{{ $page.Paginator.Next.URL }}" rel="next">
             <span>{{- i18n "next" }}</span>
         </a>
     </li>

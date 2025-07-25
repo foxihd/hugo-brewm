@@ -66,7 +66,7 @@ body > header > nav {
 }
 
 #has-more-menu > summary {
-	width: 43pt;
+    width: 43pt;
 }
 
 #has-i18n > summary::before,
@@ -180,8 +180,8 @@ details[open] .on-plank,
 #has-l10n a,
 #top-nav a,
 .anchor {
+    --anm: none;
     display: flex;
-    border-bottom: 2pt solid transparent;
     padding: 1ex;
     width: 100%;
     color: var(--fg);
@@ -195,47 +195,6 @@ summary.anchor .has-aria-label::after {
     color: var(--mid);
     font-size: 0.9em;
     font-weight: normal;
-}
-
-#main-footer a:hover,
-#main-footer a:focus,
-#has-l10n a:hover,
-#has-l10n a:focus,
-#top-nav a:hover,
-#top-nav a:focus,
-.anchor:hover,
-.anchor:focus {
-    --anm: underline 127ms ease-in;
-    color: var(--ac);
-    border-color: var(--ac);
-}
-
-@-webkit-keyframes underline {
-    from {
-        border-image: linear-gradient(to right, var(--ac), transparent 100%) 1;
-    }
-
-    50% {
-        border-image: linear-gradient(to right, var(--ac), transparent 50%) 1;
-    }
-
-    to {
-        border-image: linear-gradient(to right, var(--ac), transparent 0%) 1;
-    }
-}
-
-@keyframes underline {
-    from {
-        border-image: linear-gradient(to right, transparent, transparent) 1;
-    }
-
-    50% {
-        border-image: linear-gradient(to right, var(--ac), transparent) 1;
-    }
-
-    to {
-        border-image: linear-gradient(to right, var(--ac), var(--ac)) 1;
-    }
 }
 
 .marginpar-ctrl + label::before,

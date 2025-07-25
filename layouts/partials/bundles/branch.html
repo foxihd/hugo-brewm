@@ -219,7 +219,7 @@
                                 {{- range $navIndex, $navSlide := $slides }}
                                     {{- if ne $slideNum (add $navIndex 1) }}
                                     {{ $rel := cond (eq $navIndex 1) "next" "prev" }}
-                                        <a href="#slide-{{ add $navIndex 1 }}" rel="{{ $rel }}" class="underline" role="button" aria-controls="slide-{{ add $navIndex 1 }}">
+                                        <a href="#slide-{{ add $navIndex 1 }}" rel="{{ $rel }}" role="button" aria-controls="slide-{{ add $navIndex 1 }}">
                                             <span>{{ .Title }}</span>
                                         </a>
                                     {{- end }}
