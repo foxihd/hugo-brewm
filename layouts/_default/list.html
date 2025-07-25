@@ -292,7 +292,7 @@
             </span>
             <!-- hfill -->
             {{- if .page.Params.tags }}
-                    {{ partial "terms.html" (dict "taxonomy" "tags" "class" "rounded invert ldots" "tabindex" "-1" "page" .page) }}
+                    {{ partial "terms.html" (dict "taxonomy" "tags" "class" "rounded invert" "tabindex" "-1" "page" .page) }}
             {{- else }}
                 <div class="baselineskip" role="presentation"></div>
             {{- end }}
