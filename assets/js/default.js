@@ -64,7 +64,7 @@ collapseGrandParentNode.forEach(element => {
 });
 
 if (window.innerWidth > 640) {
-    // Details element handler for firefox based browsers which do not respect the same name attribute
+    // Accordion details element handler for legacy browsers that ignore name attribute for
     detailsElements.forEach(detail => {
         const handler = (e) => {
             const name = detail.getAttribute('name');

@@ -169,13 +169,14 @@
     {{- $dateModified := cond (lt $minVersion 87) (.Lastmod.Format ( i18n "date_long" )) (.Lastmod | time.Format ":date_long") }}
     {{- $dateOnly := "2006-01-02" }}
     {{- $hasMod := ne (.PublishDate.Format $dateOnly) (.Lastmod.Format  $dateOnly) }}
-    {{- if or .Params.History $hasMod }}
+    {{- $details := .Params.History }}
+    {{- if or $details $hasMod }}
         {{- $author := .Params.author | default site.Params.Author.Name }}
-        <div id="has-timeline">
+        <div id="has-timeline" {{ if $details }}class="has-details"{{ end }}>
             <strong class="section-title">{{ i18n "redactionHistory" }}</strong>
             <ol aria-label="{{ i18n "redactionHistory" }}">
-            {{- if .Params.History }}
-                {{- range sort .Params.History "date" "asc" }}
+            {{- if $details }}
+                {{- range sort $details "date" "asc" }}
                     <li>
                         <details class="presentation js-details" name="redaction-history">
                             <summary>

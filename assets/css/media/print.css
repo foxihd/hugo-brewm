@@ -31,6 +31,7 @@
     #unified-footer,
     #menu-footer,
     #has-timeline ol li::before,
+    .has-details .emoji--stage,
     #discussion-starter,
     .giscus {
         display: none;
@@ -60,11 +61,16 @@
         color: var(--fg);
     }
 
+    #main-footer a {
+        color: var(--fg);
+    }
+
     #main-article,
     body h1:first-of-type {
         margin-top: 0;
     }
 
+    #comments > summary,
     h1,
     h2,
     h3,
@@ -99,7 +105,8 @@
         word-wrap: break-word;
     }
 
-    article #content a::after {
+    #main-footer a::after,
+    #content a::after {
         --tsf: unset;
         -webkit-transform: var(--tsf);
            -moz-transform: var(--tsf);
@@ -125,20 +132,42 @@
     }
 
     #contentinfo {
+        display: flex;
+    }
+
+    #colophon {
+        width: 38%;
+    }
+
+    #colophon > div {
         display: block;
     }
 
+    #qr {
+        float: right;
+        padding: 0;
+        height: 96px;
+    }
+
     #has-timeline {
-        padding-left: calc(96px + 1rem);
-        font: 1rem/2rem monospace;
+        flex: 1;
+    }
+
+    .has-details ol {
+        column-width: 1in;
+    }
+
+    .has-details time {
+        font-weight: 700;
+        padding-top: 1ex;
     }
 
     #has-timeline ol,
-    #has-timeline ol li {
+    #has-timeline li {
         margin: 0;
-        padding: 0;
         border: none;
         list-style: inherit;
+        break-inside: avoid;
     }
 
 }

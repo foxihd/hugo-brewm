@@ -88,26 +88,24 @@ if (isDaytime) {
     clockInterval = setInterval(updateClock, 10000);
 }
 
-// Overwrite browser search bar (canceled)
-// addEvent(document, 'keydown', function(e) {
-//     if (e.ctrlKey && e.key === 'k') {
-//         e.preventDefault();
-//         getElement('has-search')?.setAttribute('open', 'open');
-//         const searchInput = document.querySelector('.pagefind-ui__search-input');
-//         searchInput?.focus();
-//     }
-// });
-
-// clashes with details handler on firefox, need workaround
-addEvent(window, 'beforeprint', function() {
+// expand redaction history on print
+function expandRH() {
     getElements('[name="redaction-history"]')?.forEach(e => {
+        e.removeAttribute('name');
+        e.removeAttribute('class');
         e.setAttribute('open', 'open');
     });
-});
+}
+
+if (window.matchMedia("print").matches) {
+    expandRH();
+} else {
+    addEvent(window, 'beforeprint', expandRH);
+}
 
 // copying
 const copyPermalink = getElement('copyPermalink');
-addEvent(copyPermalink, 'click', function() {
+addEvent(copyPermalink, 'click', () => {
     getElement('copy').innerText = getElement('isCopying').innerText;
     setTimeout(() => getElement('copy').innerText = getElement('copyText').innerText, 2000 )
 });
