@@ -318,8 +318,9 @@ a#has-i18n:active > .alt {
 }
 
 .hero nav a {
-    color: var(--fg);
+    display: inline-block;
     position: relative;
+    color: var(--fg);
 }
 
 .hero nav .t {
@@ -444,7 +445,7 @@ a#has-i18n:active > .alt {
 
     /* redefine deck element */
 
-    #top-nav > nav  .on-deck {
+    #top-nav > nav .on-deck {
         justify-content: unset;
         height: unset;
     }
@@ -491,7 +492,8 @@ a#has-i18n:active > .alt {
         border-radius: 1ex;
     }
 
-    #has-more-menu[open] {
+    #has-more-menu[open],
+    #author-name-menu {
         border: none;
     }
 
