@@ -68,7 +68,6 @@
     (resources.Get "css/component/hero.css") 
     (resources.Get "css/layout/_default/single.css")
     (resources.Get "css/component/marginpar.css")
-    (resources.Get "css/media/print.css")
     (resources.Get "css/optimize.css")
     (resources.Get "css/support.css")
 }}
@@ -80,8 +79,7 @@
     {{- $baseFonts = $baseFonts | append $roman $sans $teletype }}
 {{- end }}
 
-{{- $custom := resources.Get "css/custom.css" }}
-{{- $extrasSty := slice $custom }}
+{{- $extrasSty := slice }}
 
 {{- $search := resources.Get "css/component/search.css" }}
 {{- if site.Params.search.enable }}
@@ -104,7 +102,10 @@
     {{- end }}
 {{- end }}
 
-{{- $hugo_brewm := ($baseFonts | append ($baseSty | append $extrasSty)) | resources.Concat "css/hugo-brewm.css" | minify }}
+{{- $print := resources.Get "css/media/print.css" }}
+{{- $custom := resources.Get "css/custom.css" }}
+{{- $order := $baseFonts | append $baseSty | append $extrasSty | append $print $custom }}
+{{- $hugo_brewm := $order | resources.Concat "css/hugo-brewm.css" | minify }}
 
 {{- if eq hugo.Environment "development" }}
     <link rel="stylesheet" href="{{ $hugo_brewm.Permalink }}">
