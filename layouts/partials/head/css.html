@@ -139,7 +139,7 @@
 
 {{- define "partials/head/css/verbatim.html" }}
     {{ "<!-- css/verbatim.html -->" | safeHTML }}
-    {{- $verbatimSty := resources.Get "css/typesetting/verbatim.css" | minify }}
+    {{- $verbatimSty := resources.Get "css/verbatim.css" | minify }}
     {{- if eq hugo.Environment "development" }}
         <link href="{{ $verbatimSty.Permalink }}" rel="stylesheet" type="text/css">
     {{- else }}
