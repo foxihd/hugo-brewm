@@ -17,8 +17,8 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 
 ## Feature Highlights
 
-- **Reader-first**: Prioritizes speed, privacy, readability and accessibility with personalized  settings for colors, fonts, BionRead and focus mode (It's Tracker Free!).
-- **Inclusive**: Graceful degradation design[^1] oriented with improved semantic HTML structure & WAI-ARIA attribute, printer-friendly plain vanilla website that remains fully functional even when JavaScript is disabled!
+- **Reader-first**: Prioritizes speed[^1], privacy, readability and accessibility with personalized  settings for colors, fonts, BionRead and focus mode (It's Tracker Free!).
+- **Inclusive**: Graceful degradation design[^2] oriented with improved semantic HTML structure & WAI-ARIA attribute, printer-friendly plain vanilla website that remains fully functional even when JavaScript is disabled!
 - **Scalable**: Start small and grow into a thriving digital garden; with multi-author support, multilingual capabilities and content organization through taxonomy. Features include optional Pagefind search integration, RSS feed syndication (site-wide and series-specific), external feed embed over RSS, and social engagement via Giscus, Mastodon and Bluesky comments.
 - **Frameworkless**: Lower maintenance & carbon footprint by lesser resource usage. Hugo-brewm's combined JavaScript and stylesheet assets (excluding optional external libraries like MathJax, Katex or PageFind) totaling under 110KB and compressed to less than 30KB when Gzipped!
 
@@ -28,16 +28,6 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
     | hugo-brewm.min.js  | ~29KiB | ~10KiB | Compiled site-wide javascript, could be less  |
     | fediverse.min.js   | ~14KiB |  ~5KiB | Mastodon & Bluesky comments, load if required |
     | verbatim.min.css   |  ~5KiB |  ~2KiB | Code block stylesheet, load if required       |
-
-
-Love the performance metrics?  
-We've got good news for you!
-Here are performance benchmarks from the exampleSite that deployed [under a minute](https://github.com/foxihd/hugo-brewm/actions) on GitHub Pages:
-- [Websitecarbon.com](https://www.websitecarbon.com/website/foxihd-github-io-hugo-brewm-en/)
-- [PageSpeed Insights](https://pagespeed.web.dev/analysis/https-foxihd-github-io-hugo-brewm-en/ou12d3eemt?form_factor=desktop)
-- [Lighthouse Metrics](https://lighthouse-metrics.com/lighthouse/checks/c3e50367-ec53-4027-81ad-ab95a64b1c1c)
-
-> Note that actual speeds may vary depending on content and configuration, and policy of your hosting provider. For optimal performance, consider self-hosting fonts and implementing longer cache expiration policy for assets.
 
 ## Translation
 
@@ -68,7 +58,7 @@ git submodule add https://github.com/foxihd/hugo-brewm themes/hugo-brewm
 echo 'theme = "hugo-brewm"' >> config.toml
 ```
 
-### Preview & Serving Changes
+### Preview Builds and Serves the Site
 
 1. Change to your site directory.
 
@@ -89,15 +79,19 @@ hugo serve --minify --port=8080 --bind=0.0.0.0 --baseURL=http://192.168.0.1
 ```
 
 > [!IMPORTANT]  
-> Please minify the output with `--minify` options, otherwise some element will having extra spaces.
+> Please use the `--minify` options to strip white spaces; otherwise, some elements will have additional spaces.
 
-4. If you have PageFind enable, please index your site:
+4. With Hugo running, you can now live configure your site and begin writing articles. Some templates might persist until you clear the build cache, please stop the running hugo server (`ctrl + c`) and before you rebuild, run:
+
+```sh
+hugo mod clean
+```
+
+5. If you have PageFind enable on configuration, please index your site with Node:
 
 ```sh
 npx pagefind --site "public"
 ```
-
-5. With Hugo running, you can now configure your site and begin writing articles.
 
 ### Updating Theme
 
@@ -256,7 +250,7 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
     AllowAIRobots = false
     ## or BearMode--Minimize clutter for small site; Disable breadcrumbs menu, share button, related posts, colophon and redaction history.
     ZenMode = false
-    ## Disable Black background on main-footer
+    ## Disable black background on main-footer
     DisableFootBar = false
     ## Merge site license, footer menu and coffee stat
     unifiedFooter = true
@@ -456,4 +450,8 @@ This project could not be made, without a lot efforts of — thank to:
 
 This theme is released under the MIT License.
 
-[^1]: This theme is intended for browsers from 2016 or later and does not support Internet Explorer.
+
+[^1]: Note that actual speeds may vary depending on content and configuration, user devices and policy of your hosting provider. Here are some benchmarks from the exampleSite that deployed [under a minute](https://github.com/foxihd/hugo-brewm/actions) on GitHub Pages; [Websitecarbon.com](https://www.websitecarbon.com/website/foxihd-github-io-hugo-brewm-en/) & [Lighthouse Metrics](https://lighthouse-metrics.com/lighthouse/checks/c3e50367-ec53-4027-81ad-ab95a64b1c1c).
+
+
+[^2]: This theme is intended for browsers from 2016 or later and does not support Internet Explorer.
