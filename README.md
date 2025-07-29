@@ -17,8 +17,8 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 
 ## Feature Highlights
 
-- **Reader-first**: Prioritizes speed[^1], privacy, readability and accessibility with personalized  settings for colors, fonts, BionRead and focus mode (It's Tracker Free!).
-- **Inclusive**: Graceful degradation design[^2] oriented with improved semantic HTML structure & WAI-ARIA attribute, printer-friendly plain vanilla website that remains fully functional even when JavaScript is disabled!
+- **Reader-first**: Prioritizes speed[^1], privacy[^2], readability and accessibility with personalized  settings for colors, fonts, BionRead and focus mode (It's Tracker Free!).
+- **Inclusive**: Graceful degradation design[^3] oriented with improved semantic HTML structure & WAI-ARIA attribute, printer-friendly plain vanilla website that remains fully functional even when JavaScript is disabled!
 - **Scalable**: Start small and grow into a thriving digital garden; with multi-author support, multilingual capabilities and content organization through taxonomy. Features include optional Pagefind search integration, RSS feed syndication (site-wide and series-specific), external feed embed over RSS, and social engagement via Giscus, Mastodon and Bluesky comments.
 - **Frameworkless**: Lower maintenance & carbon footprint by lesser resource usage. Hugo-brewm's combined JavaScript and stylesheet assets (excluding optional external libraries like MathJax, Katex or PageFind) totaling under 110KB and compressed to less than 30KB when Gzipped!
 
@@ -454,4 +454,6 @@ This theme is released under the MIT License.
 [^1]: Note that actual speeds may vary depending on content and configuration, user devices and policy of your hosting provider. Here are some benchmarks from the exampleSite that deployed [under a minute](https://github.com/foxihd/hugo-brewm/actions) on GitHub Pages; [Websitecarbon.com](https://www.websitecarbon.com/website/foxihd-github-io-hugo-brewm-en/) & [Lighthouse Metrics](https://lighthouse-metrics.com/lighthouse/checks/c3e50367-ec53-4027-81ad-ab95a64b1c1c).
 
 
-[^2]: This theme is intended for browsers from 2016 or later and does not support Internet Explorer.
+[^2]: This theme does not include a cookie consent banner or any pre-configured web analytics or advertisements. While comments from the fediverse can be viewed without cookies, Giscus, or custom web analytics & advertisements may need local storage to be enabled, which means a cookie consent banner is necessary.
+
+[^3]: This theme is intended for browsers from 2016 or later and does not support Internet Explorer.
