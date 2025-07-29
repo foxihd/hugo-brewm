@@ -171,7 +171,6 @@
     {{- $hasMod := ne (.PublishDate.Format $dateOnly) (.Lastmod.Format  $dateOnly) }}
     {{- $details := .Params.History }}
     {{- if or $details $hasMod }}
-        {{- $author := .Params.author | default site.Params.Author.Name }}
         <div id="has-timeline" {{ if $details }}class="has-details"{{ end }}>
             <strong class="section-title">{{ i18n "redactionHistory" }}</strong>
             <ol aria-label="{{ i18n "redactionHistory" }}">
@@ -195,8 +194,7 @@
                                 {{- end }}
                             </summary>
                             <div tabindex="0">
-                                {{- $writtenAuthor := .author | default $author }}
-                                {{- with $writtenAuthor }}
+                                {{- with .author }}
                                     <div class="has-aria-label-top" aria-label="{{ i18n "author" }}:">{{ . }}.</div>
                                 {{- end }}
                                 {{- with .editor }}
