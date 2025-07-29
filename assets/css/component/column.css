@@ -47,6 +47,11 @@ div + #menu-footer,
     --col: 13rem;
 }
 
+.column.pin > * {
+    margin-bottom: 1em;
+    font-size: var(--small);
+}
+
 .has-quote {
     display: flex;
     flex-direction: column-reverse;
@@ -60,11 +65,6 @@ div + #menu-footer,
 .has-quote > div {
     margin-left: auto;
 }
-
-.has-quote > img {
-    margin: 1ex 0;
-}
-
 
 @media screen and (min-width: 2560px) {
 
