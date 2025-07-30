@@ -73,17 +73,21 @@ if (atProto) {
             const data = await response.json();
 
             if (typeof data.thread.replies != "undefined" && data.thread.replies.length > 0) {
+                const dpBsky = 
+                    typeof DOMPurify !== "undefined"
+                        ? DOMPurify.sanitize(renderComments(data.thread), {RETURN_DOM_FRAGMENT: true})
+                        : renderComments(data.thread);
                 if (fed) {
                     replies = replies + data.thread.post.replyCount;
                     reblogs = reblogs + data.thread.post.repostCount;
                     favourites = favourites + data.thread.post.likeCount;
-                    fed.appendChild(DOMPurify.sanitize(renderComments(data.thread), {RETURN_DOM_FRAGMENT: true}));
+                    fed.appendChild(dpBsky);
                 } else {
                     if (!mstdRoot) {
                         getElement('mastodon-content').innerHTML =  renderRichText(data.thread.post.record);
                         renderMainStat();
                     }
-                    bskyRoot.appendChild(DOMPurify.sanitize(renderComments(data.thread), {RETURN_DOM_FRAGMENT: true}));
+                    bskyRoot.appendChild(dpBsky);
                     bskyRoot.setAttribute('aria-busy', 'false');
                 }
             } else {

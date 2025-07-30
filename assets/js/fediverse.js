@@ -162,11 +162,15 @@ if (tootUri) {
             </article>
         </li>`;
 
+        const dpMstd =
+            typeof DOMPurify !== "undefined"
+                ? DOMPurify.sanitize(mastodonComment, {'RETURN_DOM_FRAGMENT': true})
+                : mastodonComment;
         if (toot.in_reply_to_id === splitUrl[4]) {
             if (fed) {
-                fed.appendChild(DOMPurify.sanitize(mastodonComment, {'RETURN_DOM_FRAGMENT': true}));
+                fed.appendChild(dpMstd);
             } else {
-                mstdRoot.appendChild(DOMPurify.sanitize(mastodonComment, {'RETURN_DOM_FRAGMENT': true}));
+                mstdRoot.appendChild(dpMstd);
             }
         } else {
             const parentToot = toots.find(t => t.id === toot.in_reply_to_id);
@@ -174,7 +178,7 @@ if (tootUri) {
                 const ul = document.createElement('ul');
                 getElement(toot.in_reply_to_id)
                     .appendChild(ul)
-                    .appendChild(DOMPurify.sanitize(mastodonComment, {'RETURN_DOM_FRAGMENT': true}));
+                    .appendChild(dpMstd);
             }
         }
 
