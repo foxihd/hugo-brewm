@@ -164,7 +164,7 @@ details[open] .on-plank,
 #main-menu .on-plank {
     position: fixed;
     top: calc(var(--vhead) + 1rem);
-    max-width: 20em;
+    max-width: 21rem;
     translate: -1.414ex;
 }
 
