@@ -64,6 +64,11 @@
             }
         };
         document.addEventListener('DOMContentLoaded', initPageFind);
+        // fix PageFind missing input label
+        const pFInput = document.querySelector('.pagefind-ui__search');
+        if (pFInput) {
+            pFInput.setAttribute('aria-label', pFInput.getAttribute('placeholder'));
+        }
     </script>
 {{- end }}
 
