@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-const bskyRoot = document.querySelector("#bsky-comments");
+const bskyRoot = getElement('bsky-comments');
 var bskyCommentsLoaded = false;
 
 function ToBskyUrl(uri) {
@@ -55,9 +55,9 @@ function renderMainStat() {
         <a class="favourites ${favourites > 0 ? "active" : "" }" href="${bskyRoot.dataset.uri}/liked-by" rel="nofollow" aria-label="${i18nFavourites}"><span>${favourites > 0 ? favourites : "" }</span></a>`;
 }
 
-const atProto = ToAtProtoUri(bskyRoot.dataset.uri);
+if (bskyRoot) {
+    const atProto = ToAtProtoUri(bskyRoot.dataset.uri);
 
-if (atProto) {
     const loadBskyComments = async () => {
         if (bskyCommentsLoaded) return;
 
