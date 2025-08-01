@@ -59,16 +59,16 @@
                         placeholder: "{{ i18n "search" }}"
                     }
                 });
+                // fix PageFind missing input label
+                const pFInput = document.querySelector('.pagefind-ui__search-input');
+                if (pFInput) {
+                    pFInput.setAttribute('aria-label', pFInput.getAttribute('placeholder'));
+                }
                 pageFindInitialized = true;
                 document.removeEventListener('DOMContentLoaded', initPageFind);
             }
         };
         document.addEventListener('DOMContentLoaded', initPageFind);
-        // fix PageFind missing input label
-        const pFInput = document.querySelector('.pagefind-ui__search');
-        if (pFInput) {
-            pFInput.setAttribute('aria-label', pFInput.getAttribute('placeholder'));
-        }
     </script>
 {{- end }}
 
