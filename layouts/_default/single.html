@@ -101,7 +101,7 @@
             {{ partial "nav.html" (dict "navID" "TableOfContents" "page" $) }}
         {{- end }}
         {{ partial "page/audio.html" . }}
-        <section aria-labelledby="Title" id="content" data-bionRead-safe {{- if or site.Params.posts.secnum .Params.secnum }} class="secnum"{{- end }}>
+        <section aria-labelledby="title" id="content" data-bionRead-safe {{- if or site.Params.posts.secnum .Params.secnum }} class="secnum"{{- end }}>
             {{- if or .Params.task site.Params.Post.enableCheckbox }}
                 {{ replace .Content "disabled=" "" | safeHTML }}
             {{- else }}
