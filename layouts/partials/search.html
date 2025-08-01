@@ -1,7 +1,7 @@
 {{ "<!-- search.html -->" | safeHTML }}
 <details id="has-search" class="presentation js-details" name="on-deck">
-    <summary class="on-deck srm" accesskey="q" aria-keyshortcuts="q">
-        <span class="t t2 srt">{{ i18n "search" }}</span>
+    <summary class="on-deck srm" accesskey="q" aria-labelledby="search-label" aria-keyshortcuts="q">
+        <span id="search-label" class="t t2 srt">{{ i18n "search" }}</span>
     </summary>
     {{ if site.Params.search.pagefind }}
         {{ partialCached "search/pagefind.html" . }}
