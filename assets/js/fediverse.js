@@ -31,35 +31,38 @@ const i18nNoComment = cmt.dataset.i18nNoComment;
 
 const cmtSty = document.createElement('style');
 cmtSty.textContent = `
-    #comments noscript {margin: var(--medskip) 0}
-    #discussion-starter {margin-bottom: var(--medskip)}
-    #mastodon-stats {margin-left: auto}
-    #mastodon-comments, #bsky-comments, #fediverse-comments {padding: 0;list-style: none;width: var(--golden-ratio)}
-    #comments li, #comments li > ul {margin-top:1rem;list-style:none;}
-    .fediverse-comment {margin: 1rem 0 1rem calc(var(--mul) * var(--indent)); border-left: 3pt solid var(--ac); background: #80808008; padding: 1rem 1rem 1ex; overflow: auto}
-    .fediverse-comment.bsky {--ac: #1185fe}
-    .fediverse-comment.mstd {--ac: #563acc}
-    .fediverse-comment > .author > img{margin-right: 12pt}
-    .fediverse-comment .content {margin-left: 4rem; line-height: calc(var(--baselineStretch) * 1.272)}
-    .fediverse-comment .par a {max-width: 100%; vertical-align: bottom; white-space: break-spaces}
-    .fediverse-comment > footer {display: flex; align-items: center; margin-top: 1rem; margin-left: 3.5rem; white-space: nowrap}
-    .fediverse-comment > footer .stat {display: inline-flex; flex-shrink: 0; gap: 5pt}
-    .attachments, #comments > summary {display: flex;overflow: auto}
-    .attachments > * {flex-shrink: 0; width: 100%; height: auto}
-    .attachments img {width: 100%; height: auto}
-    .stat > * {display: inline-flex; align-items: center; padding: 2pt; color: var(--mid); gap: 2pt}
-    .stat > *::before {vertical-align: text-top; font-family: 'base-ui'}
-    .stat > * > span {font-size: 0.8em}
-    a.replies.active, a.reblogs.active {color: var(--ac)}
-    a.favourites.active {color: var(--i3i)}
-    .fediverse-comment .date {margin-left: auto; padding-left: 1rem; color: var(--mid); font-size: calc(10pt * var(--fontScale))}
-    @media only screen and (max-width: 960px) {
-        .fediverse-comment .content, .fediverse-comment > footer {margin-left: 0}
+    #comments noscript {margin:var(--medskip) 0}
+    #discussion-starter {margin-bottom:var(--medskip)}
+    #mastodon-stats {margin-left:auto}
+    #mastodon-comments, #bsky-comments, #fediverse-comments {padding:0;list-style:none;width:var(--golden-ratio)}
+    #comments li, #comments li > ul {margin-top:1rem;list-style:none}
+    .fediverse-comment {margin:1rem 0 1rem calc(var(--mul) * var(--indent));border-left:3pt solid var(--ac);background:#80808008;padding:1rem 1rem 1ex;overflow:auto}
+    .fediverse-comment.bsky {--ac:#1185fe}
+    .fediverse-comment.mstd {--ac:#563acc}
+    .fediverse-comment > .author > img{margin-right:12pt}
+    .fediverse-comment .content {margin-left:4rem;line-height:calc(var(--baselineStretch) * 1.272)}
+    .fediverse-comment .par a {max-width:100%;vertical-align:bottom;white-space:break-spaces}
+    .fediverse-comment > footer {display:flex;align-items:center;margin-top:1rem;margin-left:3.5rem;white-space:nowrap}
+    .fediverse-comment > footer .stat {display:inline-flex;flex-shrink:0;gap:5pt}
+    .attachments, #comments > summary {display:flex;overflow:auto}
+    .attachments > * {flex-shrink:0;width:100%;height:auto}
+    .attachments img {width:100%;height:auto}
+    .stat > * {display:inline-flex;align-items:center;padding:2pt;color:var(--mid);gap:2pt}
+    .stat > *::before {vertical-align:text-top;font-family:'base-ui'}
+    .stat > * > span {font-size:0.8em}
+    a.replies.active, a.reblogs.active {color:var(--ac)}
+    a.favourites.active {color:var(--i3i)}
+    .fediverse-comment .date {margin-left:auto;padding-left:1rem;color:var(--mid);font-size:calc(10pt * var(--fontScale))}
+    .bluesky {display:inline-block}
+    #join-discussion:hover .blueksy, #join-discussion-bluesky:hover .bluesky {transform-origin:center center;animation:flutter 0.2s alternate infinite}
+    @keyframes flutter {from { transform:rotateY(0)}to { transform:rotateY(80deg)}}
+    @media only screen and (max-width:960px) {
+        .fediverse-comment .content, .fediverse-comment > footer {margin-left:0}
     }
     @media print {
-        .fediverse-comment {position: relative; background: none; padding-bottom: 0}
-        .fediverse-comment .date {position: absolute; top: 0; right: 0}
-        .fediverse-comment .stat {display: none !important}
+        .fediverse-comment {position:relative;background:none;padding-bottom:0}
+        .fediverse-comment .date {position:absolute;top:0;right:0}
+        .fediverse-comment .stat {display:none !important}
     }`;
 document.head.appendChild(cmtSty);
 var commentsLoaded = false;
