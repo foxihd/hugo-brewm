@@ -11,11 +11,11 @@ const tootUri = mstdRoot.dataset.uri;
 const respondToVisibility = (element, callback) => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.intersectionRatio > 0) {
+            if (entry.isIntersecting) {
                 callback();
             }
         });
-    }, { root: null });
+    });
 
     observer.observe(element);
 };
