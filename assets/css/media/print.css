@@ -78,8 +78,6 @@
     h5,
     h6,
     .section-title {
-        page-break-before: auto;
-        page-break-after: avoid;
         break-before: auto;
         break-after: avoid;
     }
@@ -92,7 +90,6 @@
     .marginnote,
     #comments article,
     article#feed-item {
-        page-break-inside: avoid;
         break-inside: avoid;
     }
 
@@ -133,6 +130,8 @@
 
     #contentinfo {
         display: flex;
+        break-before: auto;
+        break-inside: avoid;
     }
 
     #colophon {
