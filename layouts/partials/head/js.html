@@ -94,20 +94,6 @@
     </script>
 {{- end }}
 
-{{- define "partials/head/js/qrcode.html" -}}
-    {{ "<!-- qrcode.html -->" | safeHTML }}
-    {{ $qrcode := resources.Get "js/qrcode.js" | minify }}
-    {{ if eq hugo.Environment "development" }}
-        <script src="{{ $qrcode.Permalink }}" defer></script>
-    {{- else }}
-        {{- with $qrcode | fingerprint "sha384" -}}
-            <script src="{{ $qrcode.Permalink }}"
-                integrity="{{ .Data.Integrity }}" crossorigin="anonymous"
-                defer></script>
-        {{- end }}
-    {{- end }}
-{{- end }}
-
 {{- define "partials/head/js/network-graph.html" -}}
     <script src="https://d3js.org/d3.v7.min.js"></script>
     {{/*  
