@@ -231,9 +231,25 @@ header time {
 }
 
 #join-discussion-bluesky {
+    --anm: none;
     margin-right: 5pt;
     border-right: var(--border);
     color: #1185fe;
+}
+
+.bluesky {
+    display: inline-block;
+}
+
+#join-discussion:hover .blueksy,
+#join-discussion-bluesky:hover .bluesky {
+    transform-origin: center center;
+    animation: flutter 0.2s alternate infinite;
+}
+
+@keyframes flutter {
+    from { transform: rotateY(0); }
+    to { transform: rotateY(80deg); }
 }
 
 #comments > *,

@@ -41,7 +41,7 @@
 
 #share {
     float: left;
-    margin: 1pt 0;
+    margin: 5pt 0;
 }
 
 #has-share[open] #share {

@@ -45,6 +45,9 @@ header menu a,
 #join-discussion,
 #saveButton,
 #share {
+    display: flex;
+    align-items: center;
+    border: none;
     border-radius: 2em;
     background: var(--fg);
     padding: 1ex 12pt;
