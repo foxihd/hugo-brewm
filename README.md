@@ -6,15 +6,6 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 
 ![A11y Console](https://repository-images.githubusercontent.com/923527728/46a32a19-69ac-45b3-91a4-c4d299fb234b)
 
-> [!NOTE]
-> It took about 2 years to make this work up to this point.
-> As for now, this work entering slow development stage. Yet, There's a lot of things that remain undocumented. Nonetheless, it still mantained in my spare time.  
-> Please, Feel free to contribute and keep in touch!  
->
-> Keep Growing!  
-> 🌱🌱🌱
-
-
 ## Feature Highlights
 
 - **Reader-first**: Prioritizes speed[^1], privacy[^2], readability and accessibility with personalized  settings for colors, fonts, BionRead and focus mode (It's Tracker Free!).
@@ -22,14 +13,60 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 - **Scalable**: Start small and grow into a thriving digital garden; with multi-author support, multilingual capabilities and content organization through taxonomy. Features include optional Pagefind search integration, RSS feed syndication (site-wide and series-specific), external feed embed over RSS, and social engagement via Giscus, Mastodon and Bluesky comments.
 - **Frameworkless**: Lower maintenance & carbon footprint by lesser resource usage. Hugo-brewm's combined JavaScript and stylesheet assets (excluding optional external libraries like MathJax, Katex or PageFind) totaling under 110KB and compressed to less than 30KB when Gzipped!
 
-    | Assets Filename    |  Size  | Gziped | Note                                          |
-    | ------------------ | -----: | -----: | :-------------------------------------------: |
-    | hugo-brewm.min.css | ~59KiB | ~14KiB | Compiled site-wide stylesheet, could be less  |
-    | hugo-brewm.min.js  | ~29KiB | ~10KiB | Compiled site-wide javascript, could be less  |
-    | fediverse.min.js   | ~14KiB |  ~5KiB | Mastodon & Bluesky comments, load if required |
-    | verbatim.min.css   |  ~5KiB |  ~2KiB | Code block stylesheet, load if required       |
 
-## Translation
+  | Assets Filename    |    Size |  Gziped |                     Note                     |
+  | -------------------- | --------: | --------: | :---------------------------------------------: |
+  | hugo-brewm.min.css | ~58.8KB | ~13.7KB | Compiled site-wide stylesheet, could be less |
+  | hugo-brewm.min.js  | ~28.8KB |  ~9.3KB | Compiled site-wide javascript, could be less |
+  | fediverse.min.js   | ~13.1KB |  ~4.1KB | Mastodon & Bluesky comments, load if required |
+  | verbatim.min.css   |  ~4.4KB |  ~1.4KB |    Code block stylesheet, load if required    |
+
+## Acknowledgement
+
+> [!NOTE]
+> It's almost Evergreen!
+>
+> After about two years of development, this work are now entering slow development stage.
+> Please, Feel free to contribute and keep in touch!
+>
+> Keep Growing!
+> 🌱🌱🌱
+
+### 3rd Party Assets
+
+The 3rd party assets listed bellow may be required:
+
+
+| 3rd party assets |    Size |  Gziped |                     Note                     |
+| ------------------ | --------: | --------: | :--------------------------------------------: |
+| pagefind-ui.js   | ~76.5KB | ~21.0KB | Search function`site.Params.search.pagefind` |
+| purify.min       | ~21.7KB |  ~8.2KB | DOM sanitizer`site.Params.disableDOMPurify` |
+| katex.min.js     |  ~270KB | ~71.8KB |       KaTeX math engine`.Params.math`       |
+| katex.min.css    | ~22.8KB |  ~3.4KB |        KaTeX math style`.Params.math`        |
+| d3.v7.min.js     |  ~273KB | ~87.9KB | Render network graph`{{< network-graph >}}` |
+| tex-mml-chtml    | ~1.11MB |  ~249KB |     MathJax math engine`.Params.mathJax`     |
+| highlight.min.js |  ~117KB | ~38.5KB |       Code Highlighting`.Params.hljs`       |
+
+### Webfonts
+
+Webfonts listed bellow may be used, unless `site.Params.typeface.webSafe` is configured:
+
+
+| WebFonts (woff2)   | styles |   size |                      Note                      |
+| -------------------- | -------: | -------: | :-----------------------------------------------: |
+| base-ui            |      1 |  ~22KB |                Mandatory UI icon                |
+| Inconsolata        |      2 |  ~77KB | Load on verbatim, disable on websafe fonts mode |
+| OpenDyslexic       |      4 | ~427KB |      Mandatory, load on OpenDyslexic mode      |
+| OpenDyslexicMono   |      1 |  ~24KB |     Load on OpenDyslexic mode for verbatim     |
+| LexicaUltralegible |      4 | ~103KB |     default sans-serif, disable on websafe     |
+| Inter              |      4 | ~454KB |        set on`site.Params.typeface.sans`        |
+| Monserrat          |      4 | ~514KB |        set on`site.Params.typeface.sans`        |
+| Rosario            |      4 | ~150KB |        set on`site.Params.typeface.sans`        |
+| Cormorant          |      4 | ~516KB |     default roman/serif, disable on websafe     |
+| Crimson            |      4 | ~104KB |       set on`site.Params.typeface.roman`       |
+| EBGaramond         |      4 | ~846KB |       set on`site.Params.typeface.roman`       |
+
+### Translation
 
 We currently only support Indonesian and English.
 Please feel free to contribute to additional [translation](https://github.com/foxihd/hugo-brewm/blob/main/i18n/).
@@ -78,7 +115,7 @@ git submodule update --init --recursive
 hugo serve --minify --port=8080 --bind=0.0.0.0 --baseURL=http://192.168.0.1
 ```
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Please use the `--minify` options to strip white spaces; otherwise, some elements will have additional spaces.
 
 4. With Hugo running, you can now live configure your site and begin writing articles. Some templates might persist until you clear the build cache, please stop the running hugo server (`ctrl + c`) and before you rebuild, run:
@@ -245,7 +282,7 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
     ## Enable coffee metric
     coffeeStat = true
     ## Default social card image, recommended resolution: 1200 x 630px
-    # images = "example.com/img/social-share.jpg" 
+    # images = "example.com/img/social-share.jpg"
     ## Do not block AI user agent for robot.txt
     AllowAIRobots = false
     ## or BearMode--Minimize clutter for small site; Disable breadcrumbs menu, share button, related posts, colophon and redaction history.
@@ -257,7 +294,7 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
 
     ## At the moment, analytics can be added manually by creating a custom template at `mysite/layouts/partials/analytics.html`
     [params.analytics]
-        ## Choose where to append analytics script: use 'head' to place within <head> tags, or 'body' to place before closing </body> tag.    
+        ## Choose where to append analytics script: use 'head' to place within <head> tags, or 'body' to place before closing </body> tag.
         append = 'body'
 
     ## Author information
@@ -374,10 +411,10 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
 
     ## Extended Metadata and Social card configuration
     [params.socialCard]
-        ## Enable twitter and opengraph social cards (same as .params.extMeta)
+        ## Enable twitter and opengraph social cards (same as .Params.extMeta)
         enable = true
         ## Default social card image, same as .Params.images
-        # images = "img/social-share.jpg" 
+        # images = "img/social-share.jpg"
         ## Enable Twitter cards
         # twitter = true
         ## Twitter creator handle
@@ -402,7 +439,7 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         ## Use web safe fonts (will overide font selection below)
         webSafe = false
         ## Serif font selection: 'Cormorant' 'EB Garamond' and 'crimson' (default)
-        roman = 'crimson' 
+        roman = 'crimson'
         ## Sans-serif font selection: 'Inter' 'Montserrat' 'Rorasio' and 'Lexica Ultralegible' (default)
         sans = 'inter'
 
@@ -450,9 +487,7 @@ This project could not be made, without a lot efforts of — thank to:
 
 This theme is released under the MIT License.
 
-
 [^1]: Note that actual speeds may vary depending on content and configuration, user devices and policy of your hosting provider. Here are some benchmarks from the exampleSite that deployed [under a minute](https://github.com/foxihd/hugo-brewm/actions) on GitHub Pages; [Websitecarbon.com](https://www.websitecarbon.com/website/foxihd-github-io-hugo-brewm-en/) & [Lighthouse Metrics](https://lighthouse-metrics.com/lighthouse/checks/c3e50367-ec53-4027-81ad-ab95a64b1c1c).
-
 
 [^2]: This theme does not include a cookie consent banner or any pre-configured web analytics or advertisements. While comments from the fediverse can be viewed without cookies, Giscus, or custom web analytics & advertisements may need local storage to be enabled, which means a cookie consent banner is necessary.
 
