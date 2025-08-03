@@ -47,8 +47,10 @@
         <ul id="fediverse-comments" role="feed" aria-busy="false" aria-label="{{ i18n "comments" }}" ></ul>
     {{ end }}
 
-    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" referrerpolicy="no-referrer"
-        integrity="sha256-ieH6dkfLSVNw06mXrOQ4f10V2fTFrxI1LFPapACVYoc=" crossorigin="anonymous" defer></script>
+    {{- if not site.Params.disableDOMPurify }}
+        <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" referrerpolicy="no-referrer"
+            integrity="sha256-ieH6dkfLSVNw06mXrOQ4f10V2fTFrxI1LFPapACVYoc=" crossorigin="anonymous" defer></script>
+    {{- end }}
     {{ partialCached "fediverse/js.html" . }}    
 </details>
 
