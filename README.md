@@ -14,12 +14,12 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 - **Frameworkless**: Lower maintenance & carbon footprint by lesser resource usage. Hugo-brewm's combined JavaScript and stylesheet assets (excluding optional external libraries like MathJax, Katex or PageFind) totaling under 110KB and compressed to less than 30KB when Gzipped!
 
 
-  | Assets Filename    |    Size |  Gziped |                     Note                     |
-  | -------------------- | --------: | --------: | :---------------------------------------------: |
-  | hugo-brewm.min.css | ~58.8KB | ~13.7KB | Compiled site-wide stylesheet, could be less |
-  | hugo-brewm.min.js  | ~28.8KB |  ~9.3KB | Compiled site-wide javascript, could be less |
+  | Assets Filename    |    Size |  Gziped | Note                                          |
+  | ------------------ | ------: | ------: | :-------------------------------------------- |
+  | hugo-brewm.min.css | ~58.8KB | ~13.7KB | Compiled site-wide stylesheet, could be less  |
+  | hugo-brewm.min.js  | ~28.8KB |  ~9.3KB | Compiled site-wide javascript, could be less  |
   | fediverse.min.js   | ~13.1KB |  ~4.1KB | Mastodon & Bluesky comments, load if required |
-  | verbatim.min.css   |  ~4.4KB |  ~1.4KB |    Code block stylesheet, load if required    |
+  | verbatim.min.css   |  ~4.4KB |  ~1.4KB | Code block stylesheet, load if required       |
 
 ## Acknowledgement
 
@@ -29,7 +29,7 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 > After about two years of development, this work are now entering slow development stage.
 > Please, Feel free to contribute and keep in touch!
 >
-> Keep Growing!
+> Keep Growing!  
 > 🌱🌱🌱
 
 ### 3rd Party Assets
@@ -37,34 +37,34 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 The 3rd party assets listed bellow may be required:
 
 
-| 3rd party assets |    Size |  Gziped |                     Note                     |
-| ------------------ | --------: | --------: | :--------------------------------------------: |
-| pagefind-ui.js   | ~76.5KB | ~21.0KB | Search function`site.Params.search.pagefind` |
-| purify.min       | ~21.7KB |  ~8.2KB | DOM sanitizer`site.Params.disableDOMPurify` |
-| katex.min.js     |  ~270KB | ~71.8KB |       KaTeX math engine`.Params.math`       |
-| katex.min.css    | ~22.8KB |  ~3.4KB |        KaTeX math style`.Params.math`        |
-| d3.v7.min.js     |  ~273KB | ~87.9KB | Render network graph`{{< network-graph >}}` |
-| tex-mml-chtml    | ~1.11MB |  ~249KB |     MathJax math engine`.Params.mathJax`     |
-| highlight.min.js |  ~117KB | ~38.5KB |       Code Highlighting`.Params.hljs`       |
+| 3rd party assets   |    Size |  Gziped | Note                                          |
+| ------------------ | ------: | ------: | :-------------------------------------------- |
+| pagefind-ui.js     | ~76.5KB | ~21.0KB | Search function`site.Params.search.pagefind`  |
+| purify.min         | ~21.7KB |  ~8.2KB | DOM sanitizer`site.Params.disableDOMPurify`   |
+| katex.min.js       |  ~270KB | ~71.8KB | KaTeX math engine`.Params.math`               |
+| katex.min.css      | ~22.8KB |  ~3.4KB | KaTeX math style`.Params.math`                |
+| d3.v7.min.js       |  ~273KB | ~87.9KB | Render network graph`{{< network-graph >}}`   |
+| tex-mml-chtml      | ~1.11MB |  ~249KB | MathJax math engine`.Params.mathJax`          |
+| highlight.min.js   |  ~117KB | ~38.5KB | Code Highlighting`.Params.hljs`               |
 
 ### Webfonts
 
-Webfonts listed bellow may be used, unless `site.Params.typeface.webSafe` is configured:
+Webfonts listed bellow may be selected, unless `site.Params.typeface.webSafe` or `site.Params.posts.sfdefault` is configured:
 
 
-| WebFonts (woff2)   | styles |   size |                      Note                      |
-| -------------------- | -------: | -------: | :-----------------------------------------------: |
-| base-ui            |      1 |  ~22KB |                Mandatory UI icon                |
+| WebFonts (woff2)   | styles |   size | Note                                            |
+| ------------------ | -----: | -----: | :---------------------------------------------- |
+| base-ui            |      1 |  ~22KB | Mandatory UI icon                               |
 | Inconsolata        |      2 |  ~77KB | Load on verbatim, disable on websafe fonts mode |
-| OpenDyslexic       |      4 | ~427KB |      Mandatory, load on OpenDyslexic mode      |
-| OpenDyslexicMono   |      1 |  ~24KB |     Load on OpenDyslexic mode for verbatim     |
-| LexicaUltralegible |      4 | ~103KB |     default sans-serif, disable on websafe     |
-| Inter              |      4 | ~454KB |        set on`site.Params.typeface.sans`        |
-| Monserrat          |      4 | ~514KB |        set on`site.Params.typeface.sans`        |
-| Rosario            |      4 | ~150KB |        set on`site.Params.typeface.sans`        |
-| Cormorant          |      4 | ~516KB |     default roman/serif, disable on websafe     |
-| Crimson            |      4 | ~104KB |       set on`site.Params.typeface.roman`       |
-| EBGaramond         |      4 | ~846KB |       set on`site.Params.typeface.roman`       |
+| OpenDyslexic       |      4 | ~427KB | Mandatory, load on OpenDyslexic mode            |
+| OpenDyslexicMono   |      1 |  ~24KB | Load on OpenDyslexic mode for verbatim          |
+| LexicaUltralegible |      4 | ~103KB | default sans-serif, disable on websafe mode     |
+| Inter              |      4 | ~454KB | set on`site.Params.typeface.sans` = `Inter`     |
+| Monserrat          |      4 | ~514KB | set on`site.Params.typeface.sans` = `Monserrat` |
+| Rosario            |      4 | ~150KB | set on`site.Params.typeface.sans` = `Rosario`   |
+| EBGaramond         |      4 | ~864KB | default roman/serif, disable on websafe         |
+| Cormorant          |      4 | ~516KB | set on`site.Params.typeface.roman` = `Cormorant`|
+| Crimson            |      4 | ~104KB | set on`site.Params.typeface.roman` = `Crimson`  |
 
 ### Translation
 
