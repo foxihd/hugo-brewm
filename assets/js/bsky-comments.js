@@ -73,7 +73,7 @@ if (bskyRoot) {
             const data = await response.json();
 
             if (typeof data.thread.replies != "undefined" && data.thread.replies.length > 0) {
-                const dpBsky = 
+                const dpBsky =
                     typeof DOMPurify !== "undefined"
                         ? DOMPurify.sanitize(renderComments(data.thread), {RETURN_DOM_FRAGMENT: true})
                         : renderComments(data.thread);

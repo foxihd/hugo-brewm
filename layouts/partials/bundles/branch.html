@@ -91,10 +91,10 @@
             <img src="{{ $src }}" alt="{{ with $alt }}{{ . }}{{ end }}"/>
         </picture>
         {{- else if $networkGraph }}
-            <div id="network-graph" 
+            <div id="network-graph"
                 aria-label="{{ i18n "networkGraph"}}"
                 data-title="{{ i18n "networkGraph"}}"
-                data-source="{{ absLangURL "index.json" }}" 
+                data-source="{{ absLangURL "index.json" }}"
                 style="height: 480px;">
                 {{ partial "head/js/network-graph.html" . }}
             </div>

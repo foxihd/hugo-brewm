@@ -216,7 +216,7 @@ di `index[.lang].md` `_index[.lang].md` atau `filename[.lang].md`
 ```toml
 ---
 title: "Tentang Penulis"
-menus: 
+menus:
   main:
     indetifier: about-author
     parent: about

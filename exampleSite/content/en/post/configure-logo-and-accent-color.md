@@ -29,11 +29,11 @@ For example, in `exampleSite/assets/css/custom.css`:
     --fg-dark: #f9f9fb;  /* foreground color on dark mode, default contrast */
     --bg-dark: #111;       /* background color on dark mode, default contrast */
     --ac-dark: #fa0;       /* accent color on dark mode, default contrast */
-    
+
     /* less contrast */
     --ac-light-less: var(--ac-light);
     --fg-light-less: #13253d;
-    --bg-light-less: #e7e2e2; 
+    --bg-light-less: #e7e2e2;
     --midtone-less: #7d8490;
     --fg-dark-less: #e7e2e2;
     --bg-dark-less: #13253d;
@@ -65,7 +65,7 @@ Configure the logo in your site configuration:
 
 ```toml
 [params]
-    logoMark = 'https://example.com/logoMark.svg' 
+    logoMark = 'https://example.com/logoMark.svg'
     logoMarkDark = 'https://example.com/logoMarkDark.svg' #optional
 ```
 

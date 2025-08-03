@@ -10,7 +10,7 @@
         {{- range . }}
             {{- $label := or .Name .Pre .Identifier }}
             <li><a href="{{ .URL }}" aria-label="{{ $label }}">
-                {{- with .Pre }}        
+                {{- with .Pre }}
                     <i class="icon">{{ . }}</i>
                     <span class="t" role="tooltip">{{ $label }}</span>
                 {{- end }}
@@ -157,7 +157,7 @@
             {{- if .link }}
                 <li class="parent-anchor">
                     <a  {{- range $key, $val := .attrs }}
-                            {{- printf " %s=%s" $key $val | safeHTMLAttr }} 
+                            {{- printf " %s=%s" $key $val | safeHTMLAttr }}
                         {{- end }}
                         aria-label="{{ i18n "seeAll" }}:{{ $.name }}">
                         {{ with $.icon }}<i class="icon sri" aria-hidden="true">{{ . }}</i>{{ end }}

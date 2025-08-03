@@ -6,7 +6,7 @@
     data-i18n-err="{{ i18n "fediverseErr" }}"
     data-i18n-loading="{{ i18n "fediverseIsLoading" }}"
     data-i18n-replies="{{ i18n "fediverseReplies" }}"
-    data-i18n-reblogs="{{ i18n "fediverseReblogs" }}"            
+    data-i18n-reblogs="{{ i18n "fediverseReblogs" }}"
     data-i18n-favourites="{{ i18n "fediverseFavourites" }}"
     >
     <summary class="section-title" role="button" aria-expanded="true" aria-controls="mastodon-comments">
@@ -35,11 +35,11 @@
     </article>
 
     {{ with $toot }}
-        <ul id="mastodon-comments" role="feed" aria-busy="true" aria-label="{{ i18n "comments" }}" 
+        <ul id="mastodon-comments" role="feed" aria-busy="true" aria-label="{{ i18n "comments" }}"
             data-uri="{{ . }}"></ul>
     {{ end }}
     {{- with $bsky }}
-        <ul id="bsky-comments" role="feed" role="feed" aria-busy="true" aria-label="{{ i18n "comments" }}" 
+        <ul id="bsky-comments" role="feed" role="feed" aria-busy="true" aria-label="{{ i18n "comments" }}"
             data-uri="{{ . }}"></ul>
     {{- end }}
 
@@ -51,7 +51,7 @@
         <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" referrerpolicy="no-referrer"
             integrity="sha256-ieH6dkfLSVNw06mXrOQ4f10V2fTFrxI1LFPapACVYoc=" crossorigin="anonymous" defer></script>
     {{- end }}
-    {{ partialCached "fediverse/js.html" . }}    
+    {{ partialCached "fediverse/js.html" . }}
 </details>
 
 {{/*-------------------- end of mastodon.html ---------------------*/}}

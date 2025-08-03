@@ -2,16 +2,16 @@
     /* default contrast */
     --ac-light: #36c;
     --fg-light: #111;
-    --bg-light: #f9f9fb; 
+    --bg-light: #f9f9fb;
     --midtone: gray;
     --fg-dark: #f9f9fb;
     --bg-dark: #111;
     --ac-dark: #fa0;
-    
+
     /* less contrast */
     --ac-light-less: var(--ac-light);
     --fg-light-less: #13253d;
-    --bg-light-less: #e7e2e2; 
+    --bg-light-less: #e7e2e2;
     --midtone-less: #7d8490;
     --fg-dark-less: #e7e2e2;
     --bg-dark-less: #13253d;

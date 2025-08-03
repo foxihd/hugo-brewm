@@ -112,7 +112,7 @@ enableRobotsTXT = true
     ## Enable coffee metric
     coffeeStat = true
     ## Default social card image, recommended resolution: 1200 x 630px
-    # images = "example.com/img/social-share.jpg" 
+    # images = "example.com/img/social-share.jpg"
     ## Do not block AI user agent for robot.txt
     AllowAIRobots = false
     ## or BearMode--Minimize clutter for small site; Disable breadcrumbs menu, share button, related posts, colophon and redaction history.
@@ -169,7 +169,7 @@ enableRobotsTXT = true
         flowlines = true
         ## Limit number of flowlines
         flowlinesLimit = 21
-    
+
     ## Home page display settings
     [params.home]
         ## Enable slide carousel

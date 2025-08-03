@@ -222,7 +222,7 @@ in `index[.lang].md` `_index[.lang].md` or `filename[.lang].md`
 ```toml
 ---
 title: "About Author"
-menus: 
+menus:
   main:
     indetifier: about-author
     parent: about

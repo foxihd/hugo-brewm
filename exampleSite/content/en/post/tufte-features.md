@@ -11,7 +11,7 @@ categories = ["katex", "latex", "tufte-css"]
 +++
 
 This is a quick demonstration post.  It serves as an example of the features
-of this theme.  One of them is $ \LaTeX $ via [Katex](https://katex.org/). 
+of this theme.  One of them is $ \LaTeX $ via [Katex](https://katex.org/).
 {{< section "begin" >}}
 ## A Bit About Mathematics
 
@@ -46,14 +46,14 @@ For instance:
 
 <p>
 $$
-\begin{aligned}  
-  \mu(A) &= \iint_{I^2} \chi_A (x,y) \ d(x,y) 
-  = \int_I \left( \int_I  \chi_A (x,y) \ dx\right) dy 
-  = \int_I 0 \ dy= 0 \quad \text{and} \\  
-  \mu(A) &=\iint_{I^2}  \chi_A (x,y) \ d(x,y) 
-  = \int_I \left(  \int_I \chi_A (x,y) \ dy \right) dx 
+\begin{aligned}
+  \mu(A) &= \iint_{I^2} \chi_A (x,y) \ d(x,y)
+  = \int_I \left( \int_I  \chi_A (x,y) \ dx\right) dy
+  = \int_I 0 \ dy= 0 \quad \text{and} \\
+  \mu(A) &=\iint_{I^2}  \chi_A (x,y) \ d(x,y)
+  = \int_I \left(  \int_I \chi_A (x,y) \ dy \right) dx
   =\int_I dx = 1,
-\end{aligned} 
+\end{aligned}
 $$
 </p>
 <!-- See https://github.com/jgm/pandoc/issues/3953#issuecomment-334670625 -->
@@ -63,14 +63,14 @@ is produced from
 ```txt
 <p>
 $$
-\begin{aligned}  
-  \mu(A) &= \iint_{I^2} \chi_A (x,y) \ d(x,y) 
-  = \int_I \left( \int_I  \chi_A (x,y) \ dx\right) dy 
-  = \int_I 0 \ dy= 0 \quad \text{and} \\  
-  \mu(A) &=\iint_{I^2}  \chi_A (x,y) \ d(x,y) 
-  = \int_I \left(  \int_I \chi_A (x,y) \ dy \right) dx 
+\begin{aligned}
+  \mu(A) &= \iint_{I^2} \chi_A (x,y) \ d(x,y)
+  = \int_I \left( \int_I  \chi_A (x,y) \ dx\right) dy
+  = \int_I 0 \ dy= 0 \quad \text{and} \\
+  \mu(A) &=\iint_{I^2}  \chi_A (x,y) \ d(x,y)
+  = \int_I \left(  \int_I \chi_A (x,y) \ dy \right) dx
   =\int_I dx = 1,
-\end{aligned} 
+\end{aligned}
 $$
 </p>
 ```
@@ -110,7 +110,7 @@ func main() {
 }
 ```
 
-Here's an example without line numbers. 
+Here's an example without line numbers.
 ```go {hl_lines=["2-5"],linenostart=199}
 package main
 

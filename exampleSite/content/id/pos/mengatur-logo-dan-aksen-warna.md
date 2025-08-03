@@ -26,11 +26,11 @@ Sebagai contoh, di `exampleSite/assets/css/custom.css`:
     --fg-dark: #f9f9fb;  /* warna latar depan pada mode gelap, kontras default */
     --bg-dark: #111;       /* warna latar belakang pada mode gelap, kontras default */
     --ac-dark: #fa0;       /* warna aksen pada mode gelap, kontras default */
-    
+
     /* less contrast */
     --ac-light-less: var(--ac-light);
     --fg-light-less: #13253d;
-    --bg-light-less: #e7e2e2; 
+    --bg-light-less: #e7e2e2;
     --midtone-less: #7d8490;
     --fg-dark-less: #e7e2e2;
     --bg-dark-less: #13253d;
@@ -62,7 +62,7 @@ Atur logo(mark) di konfigurasi situs Anda:
 
 ```toml
 [params]
-    logoMark = 'https://example.com/logoMark.svg' 
+    logoMark = 'https://example.com/logoMark.svg'
     logoMarkDark = 'https://example.com/logoMarkDark.svg' #opsional
 ```
 

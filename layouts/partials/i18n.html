@@ -29,8 +29,8 @@
     {{- else }}
         <details id="has-i18n" class="presentation js-details srm" name="on-deck">
             {{ with $.Language }}
-                <summary class="anchor on-deck" 
-                    aria-label="{{ i18n "selectLang" }}" 
+                <summary class="anchor on-deck"
+                    aria-label="{{ i18n "selectLang" }}"
                     aria-description="{{ printf "%s %s" (i18n "currentLang") $.Language.LanguageName }}"
                     style="--flag: url({{ printf "%s%s.svg" $flagSrc (index (split .LanguageCode "-") 1 | lower) | safeCSS }})">
                     <span class="iso639">{{ index (split .LanguageCode "-") 0 | upper }}</span>

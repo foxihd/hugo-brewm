@@ -69,7 +69,7 @@
                     {{- $coffeeStat := partialCached "coffeeStat.html" . }}
                     {{- with $coffeeStat }}
                         <p id="coffee-counter">{{ i18n "coffeeCount" }}{{ printf "%d %s" . (i18n "cup" . | lower) }}{{ i18n "coffeeCountPost" }}</p>
-                    {{- end }}                    
+                    {{- end }}
                 {{- end }}
             </div>
         {{- end }}

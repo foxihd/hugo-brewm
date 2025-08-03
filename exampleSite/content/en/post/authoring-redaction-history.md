@@ -18,7 +18,7 @@ history = [
 toot = "https://infosec.exchange/@foxx/113979609651534969"
 +++
 
-The redaction history functionality enables you to track and communicate content modifications to readers. 
+The redaction history functionality enables you to track and communicate content modifications to readers.
 Within the post's front matter, you can specify details such as `editor`, `reviewer`, and include explanatory notes (`note`) about the changes made.
 This feature requires manual configuration in the post's front matter section.
 

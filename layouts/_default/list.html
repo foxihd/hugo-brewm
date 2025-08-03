@@ -78,9 +78,9 @@
                     </nav>
                     <a class="tr" href="{{ "/tags/" | relLangURL }}">{{ i18n "seeMore" }}</a>
                     {{- if and .Params.NetworkGraphAside (not .Params.NetworkGraph) }}
-                        <div id="network-graph" 
+                        <div id="network-graph"
                             data-title="{{ i18n "networkGraph"}}"
-                            data-source="{{ absLangURL "index.json" }}" 
+                            data-source="{{ absLangURL "index.json" }}"
                             style="height: 360px">
                             {{ partial "head/js/network-graph.html" . }}
                         </div>
@@ -102,7 +102,7 @@
             feed */}}
         {{- if ne .Kind "taxonomy" }}
             {{- $changeFreq := or .Params.Sitemap.ChangeFreq .Sitemap.ChangeFreq | lower }}
-            {{- $active := eq $changeFreq (or "always" "hourly" "daily" "weekly") }}    
+            {{- $active := eq $changeFreq (or "always" "hourly" "daily" "weekly") }}
             <section id="list-posts" class="pagewidth" {{ if not .IsHome }} aria-labelledby="list-post-heading"{{ end }}>
                 <header {{ with .Data.Singular }}id="{{ . }}"{{ end }} class="section-title">
                     <strong id="list-post-heading">
