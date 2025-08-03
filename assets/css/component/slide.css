@@ -111,7 +111,7 @@
     .carousel__viewport__slide > .carousel__nav {
         position: sticky;
         position: -webkit-sticky;
-        padding-right: 1ex;
+        padding-right: 2ex;
     }
 
     aside .carousel__viewport > div,

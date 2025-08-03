@@ -111,7 +111,7 @@ ul.carousel__viewport > li > a > span::after {
 .tr,
 .carousel__viewport__slide > nav a {
     display: inline-flex;
-    padding: 1ex 1rem;
+    padding: 1ex;
     gap: 1ex;
 }
 
