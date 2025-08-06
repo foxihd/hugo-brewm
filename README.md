@@ -1,6 +1,11 @@
-# Hugo Brewm
+# hugo-brewm
 
 > Fine-brewed Hugo theme made open.
+
+![Minimum Hugo Version: v.0.135.0](https://img.shields.io/static/v1?label=Hugo&message=&ge;%20v0.135.0&color=ca187d&logo=hugo)
+![GitHub Code Size: 320.9KiB](https://img.shields.io/github/languages/code-size/foxihd/hugo-brewm)
+![GitHub Repo Size: 878KiB](https://img.shields.io/github/repo-size/foxihd/hugo-brewm)
+![GitHub License: MIT](https://img.shields.io/github/license/foxihd/hugo-brewm)
 
 Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hugo-brewm/en/)
 
@@ -13,13 +18,14 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 - **Scalable**: Start small and grow into a thriving digital garden; with multi-author support, multilingual capabilities and content organization through taxonomy. Features include optional Pagefind search integration, RSS feed syndication (site-wide and series-specific), external feed embed over RSS, and social engagement via Giscus, Mastodon and Bluesky comments.
 - **Frameworkless**: Lower maintenance & carbon footprint by lesser resource usage. Hugo-brewm's combined JavaScript and stylesheet assets (excluding optional external libraries like MathJax, Katex or PageFind) totaling under 110KB and compressed to less than 30KB when Gzipped!
 
+    > All web assets listed below may be fetched once until the cache is purged or expired.
 
-  | Assets Filename    |    Size |  Gziped | Note                                          |
-  | ------------------ | ------: | ------: | :-------------------------------------------- |
-  | hugo-brewm.min.css | ~58.8KB | ~13.7KB | Compiled site-wide stylesheet, could be less  |
-  | hugo-brewm.min.js  | ~28.8KB |  ~9.3KB | Compiled site-wide javascript, could be less  |
-  | fediverse.min.js   | ~13.1KB |  ~4.1KB | Mastodon & Bluesky comments, load if required |
-  | verbatim.min.css   |  ~4.4KB |  ~1.4KB | Code block stylesheet, load if required       |
+    | Assets Filename    |    Size | Gzipped | Note                                          |
+    | ------------------ | ------: | ------: | :-------------------------------------------- |
+    | hugo-brewm.min.css | ~58.8KB | ~13.7KB | Compiled site-wide stylesheet, could be less  |
+    | hugo-brewm.min.js  | ~28.8KB |  ~9.3KB | Compiled site-wide javascript, could be less  |
+    | fediverse.min.js   | ~13.1KB |  ~4.1KB | Mastodon & Bluesky comments, load if required |
+    | verbatim.min.css   |  ~4.4KB |  ~1.4KB | Code block stylesheet, load if required       |
 
 ## Acknowledgement
 
@@ -32,44 +38,47 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 > Keep Growing!  
 > 🌱🌱🌱
 
+### Translation
+
+We currently support:
+- 🇬🇧 English
+- 🇮🇩 Indonesian
+
+Please feel free to contribute to additional [translation](https://github.com/foxihd/hugo-brewm/blob/main/i18n/).
+
 ### 3rd Party Assets
 
 The 3rd party assets listed bellow may be required:
 
 
-| 3rd party assets   |    Size |  Gziped | Note                                          |
+| 3rd Party Assets   |    Size |  Gzipped | Note                                         |
 | ------------------ | ------: | ------: | :-------------------------------------------- |
 | pagefind-ui.js     | ~76.5KB | ~21.0KB | Search function`site.Params.search.pagefind`  |
 | purify.min         | ~21.7KB |  ~8.2KB | DOM sanitizer`site.Params.disableDOMPurify`   |
 | katex.min.js       |  ~270KB | ~71.8KB | KaTeX math engine`.Params.math`               |
 | katex.min.css      | ~22.8KB |  ~3.4KB | KaTeX math style`.Params.math`                |
 | d3.v7.min.js       |  ~273KB | ~87.9KB | Render network graph`{{< network-graph >}}`   |
-| tex-mml-chtml      | ~1.11MB |  ~249KB | MathJax math engine`.Params.mathJax`          |
+| tex-mml-chtml.js   | ~1.11MB |  ~249KB | MathJax math engine`.Params.mathJax`          |
 | highlight.min.js   |  ~117KB | ~38.5KB | Code Highlighting`.Params.hljs`               |
 
-### Webfonts
+### Web Fonts
 
-Webfonts listed bellow may be selected, unless `site.Params.typeface.webSafe` or `site.Params.posts.sfdefault` is configured:
+Web fonts listed bellow may be selected, unless `site.Params.typeface.webSafe` or `site.Params.posts.sfdefault` is configured:
 
 
-| WebFonts (woff2)   | styles |   size | Note                                            |
-| ------------------ | -----: | -----: | :---------------------------------------------- |
-| base-ui            |      1 |  ~22KB | Mandatory UI icon                               |
-| Inconsolata        |      2 |  ~77KB | Load on verbatim, disable on websafe fonts mode |
-| OpenDyslexic       |      4 | ~427KB | Mandatory, load on OpenDyslexic mode            |
-| OpenDyslexicMono   |      1 |  ~24KB | Load on OpenDyslexic mode for verbatim          |
-| LexicaUltralegible |      4 | ~103KB | default sans-serif, disable on websafe mode     |
-| Inter              |      4 | ~454KB | set on`site.Params.typeface.sans` = `Inter`     |
-| Monserrat          |      4 | ~514KB | set on`site.Params.typeface.sans` = `Monserrat` |
-| Rosario            |      4 | ~150KB | set on`site.Params.typeface.sans` = `Rosario`   |
-| EBGaramond         |      4 | ~864KB | default roman/serif, disable on websafe         |
-| Cormorant          |      4 | ~516KB | set on`site.Params.typeface.roman` = `Cormorant`|
-| Crimson            |      4 | ~104KB | set on`site.Params.typeface.roman` = `Crimson`  |
-
-### Translation
-
-We currently only support Indonesian and English.
-Please feel free to contribute to additional [translation](https://github.com/foxihd/hugo-brewm/blob/main/i18n/).
+| Web Fonts (woff2)  | Styles |   Size | Note                                            |
+| ------------------ | :----: | -----: | :---------------------------------------------- |
+| base-ui            |    1   |  ~22KB | Mandatory UI icon                               |
+| Inconsolata        |    2   |  ~77KB | Load on verbatim, disable on websafe fonts mode |
+| OpenDyslexic       |    4   | ~427KB | Mandatory, load on OpenDyslexic mode            |
+| OpenDyslexic Mono  |    1   |  ~24KB | Load on OpenDyslexic mode for verbatim          |
+| LexicaUltralegible |    4   | ~103KB | default sans-serif, disable on websafe mode     |
+| Inter              |    4   | ~454KB | set on`site.Params.typeface.sans` = `Inter`     |
+| Monserrat          |    4   | ~514KB | set on`site.Params.typeface.sans` = `Monserrat` |
+| Rosario            |    4   | ~150KB | set on`site.Params.typeface.sans` = `Rosario`   |
+| EBGaramond         |    4   | ~864KB | default roman/serif, disable on websafe         |
+| Cormorant          |    4   | ~516KB | set on`site.Params.typeface.roman` = `Cormorant`|
+| Crimson            |    4   | ~104KB | set on`site.Params.typeface.roman` = `Crimson`  |
 
 ## Getting Started: Blog with Hugo and hugo-brewm
 
