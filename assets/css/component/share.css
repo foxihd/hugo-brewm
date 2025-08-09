@@ -32,11 +32,12 @@
 
 #has-share {
     margin:var(--vskip);
-    padding-bottom: 2pt;
+    padding-bottom: 2pt; 
 }
 
 #has-share[open] {
-    padding-bottom: 0;
+    /* strut */
+    padding: 0;
 }
 
 #share {
@@ -46,7 +47,6 @@
 
 #has-share[open] #share {
     background: unset;
-    padding-left: 0;
     color: unset;
 }
 
@@ -134,10 +134,6 @@
 
     #share {
         float: unset;
-    }
-
-    #has-share[open] #share {
-        padding-left: 16.18pt;
     }
 
     #has-mastodon.active {

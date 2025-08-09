@@ -3,8 +3,8 @@
 > Fine-brewed Hugo theme made open.
 
 ![Minimum Hugo Version: v.0.135.0](https://img.shields.io/static/v1?label=Hugo&message=&ge;%20v0.135.0&color=ca187d&logo=hugo)
-![GitHub Code Size: 320.9KiB](https://img.shields.io/github/languages/code-size/foxihd/hugo-brewm)
-![GitHub Repo Size: 878KiB](https://img.shields.io/github/repo-size/foxihd/hugo-brewm)
+![GitHub Code Size](https://img.shields.io/github/languages/code-size/foxihd/hugo-brewm)
+![GitHub Repo Size](https://img.shields.io/github/repo-size/foxihd/hugo-brewm)
 ![GitHub License: MIT](https://img.shields.io/github/license/foxihd/hugo-brewm)
 
 Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hugo-brewm/en/)
