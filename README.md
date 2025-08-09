@@ -219,6 +219,32 @@ To customize the theme's templates, create files with matching names in your sit
             └── ...
 ```
 
+### Host Web Fonts on Local Server
+
+At the moment hugo-brewm use web fonts hosted on GitHub with short cache expiration policy (about ~5min),
+for optimal performance you can host the web fonts on your server with following steps:
+
+1. Change to your site directory
+
+```sh
+cd mysite
+```
+
+2. Download fonts URIs to site fonts directory with `wget -i fonts.uri.txt`,
+the command bellow will download all available fonts (Please discard unused fonts on the URI list):
+
+```sh
+wget -i /themes/hugo-brewm/static/css/fonts/fonts.uri.txt -P /static/css/fonts/
+```
+
+3. Configure `site.Params.typeface.localHost` on `hugo.toml`/`config.toml` to choose local directory during CSS compilation.
+
+```toml
+[params]
+    [params.typeface]
+        localHost = true
+```
+
 ### Deploy on GitHub Pages
 
 To deploy your Hugo site with PageFind on GitHub Pages, copy the workflow file from [./themes/hugo-brewm/github/workflows/hugo.yml](https://github.com/foxihd/hugo-brewm/blob/main/.github/workflows/hugo.yml) to your repository's workflow directory and start the GitHub Action.
@@ -451,7 +477,8 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         roman = 'crimson'
         ## Sans-serif font selection: 'Inter' 'Montserrat' 'Rorasio' and 'Lexica Ultralegible' (default)
         sans = 'inter'
-
+        ## Host fonts on local host instead of GitHub
+        localHost = true
 ```
 
 ## Support
