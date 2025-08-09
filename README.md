@@ -245,6 +245,30 @@ wget -i /themes/hugo-brewm/static/css/fonts/fonts.uri.txt -P /static/css/fonts/
         localHost = true
 ```
 
+### Override Flowlines Directory
+
+When `site.Params.Feed.Flowlines` is set, flowlines will fill the missing articles cover on the feed view.
+You can override this random flowlines to picture of abstract, mesh or anything you like with:
+
+```toml
+[params]
+    [params.feed]
+        OverrideFlowlinesDir = 'https://example.com/i-prefer/random-cat-directory/'
+        FlowlinesLimit = 50
+        flowlinesExt = 'jpg'
+```
+
+You need to name the illustration numerically starting from the number 1 to the value of `site.Params.Feed.FlowlinesLimit`.
+
+```
+random-cat-directory/
+    ├── 1.jpg
+    ├── 2.jpg
+    ├── 3.jpg
+    └── ...
+```
+
+
 ### Deploy on GitHub Pages
 
 To deploy your Hugo site with PageFind on GitHub Pages, copy the workflow file from [./themes/hugo-brewm/github/workflows/hugo.yml](https://github.com/foxihd/hugo-brewm/blob/main/.github/workflows/hugo.yml) to your repository's workflow directory and start the GitHub Action.
@@ -372,6 +396,10 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         flowlines = true
         ## Limit number of flowlines with maximum 42
         flowlinesLimit = 21
+        ## Overide Flowlines illustration
+        OverrideFlowlinesDir = 'https://raw.githubusercontent.com/foxihd/hugo-et-hd/master/static/svg/flowlines/'
+        ## Illustration extension on overiding flowlines
+        flowlinesExt = 'svg'
 
     ## Giscus configuration
     [params.giscus]

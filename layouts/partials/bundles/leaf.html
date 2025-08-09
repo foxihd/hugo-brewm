@@ -54,9 +54,14 @@
 
 {{- define "partials/flowlines.html" -}}
     {{ "<!-- flowlines -->" | safeHTML }}
-    {{- $flowlinesCount := site.Params.Feed.FlowlinesLimit | default 42 }}
-    {{- $flowlinesDir := "https://raw.githubusercontent.com/foxihd/hugo-et-hd/master/static/svg/flowlines/" }}
-    {{- $src := printf "%s%d.svg" $flowlinesDir (index (seq $flowlinesCount | shuffle) 1) }}
+    {{- $num := site.Params.Feed.FlowlinesLimit | default 42 }}
+    {{- $dir := "https://raw.githubusercontent.com/foxihd/hugo-et-hd/master/static/svg/flowlines/" }}
+    {{- $ext := "svg" }}
+    {{- if and site.Params.feed.overrideFlowlinesDir site.Params.feed.flowlinesExt }}
+        {{- $dir = site.Params.feed.overrideFlowlinesDir }}
+        {{- $ext = site.Params.feed.flowlinesExt }}
+    {{- end }}
+    {{- $src := printf "%s%d.%s" $dir (index (seq $num | shuffle) 1) $ext }}
     {{- return $src }}
 {{- end }}
 
