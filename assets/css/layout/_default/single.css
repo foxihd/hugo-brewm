@@ -237,6 +237,7 @@ header time {
     color: #1185fe;
 }
 
+#main-article blockquote,
 #comments > *,
 .giscus {
     width: var(--golden-ratio);

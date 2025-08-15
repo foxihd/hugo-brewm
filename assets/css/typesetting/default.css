@@ -41,7 +41,6 @@ p * {
 blockquote {
     margin: 0;
     padding: 1pt var(--indent);
-    width: var(--golden-ratio);
 }
 
 blockquote blockquote {
