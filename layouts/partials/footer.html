@@ -43,7 +43,7 @@
                         {{- $counter := add 1 $counter }}
                         <div
                             {{- if .Params.Span }} class="column__span" {{ end }}
-                            {{- if .Title }}aria-labelledby="footer-{{ $counter }}"{{ end }}>
+                            {{- if .Title }} aria-labelledby="footer-{{ $counter }}"{{ end }}>
                             {{- with .Title -}}
                                 <strong id="footer-{{ $counter }}" class="section-title">{{ . }}</strong>
                             {{- end }}
