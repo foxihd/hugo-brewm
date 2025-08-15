@@ -17,7 +17,7 @@
 </head>
 <body id="page404">
     {{ partial "header.html" . }}
-    <main class="pagewidth" style="display: flex; flex-direction: column;">
+    <main class="pagewidth" style="display: flex; flex-direction: column; min-height: var(--vbody);">
         <div class="textwidth" style="margin:auto;">
             <h1 class="has-aria-label" aria-label="{{ i18n "404PageNotFound" }}">404</h1>
             <p role="alert">{{ i18n "404Alert" }} <a href="/" class="loading">{{ i18n "404ReturnHome" }}</a></p>
