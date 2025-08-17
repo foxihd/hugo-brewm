@@ -237,7 +237,10 @@ header time {
     color: #1185fe;
 }
 
-#main-article blockquote,
+#content > blockquote,
+.epigraph > blockquote,
+#content > ul,
+#content > ol,
 #comments > *,
 .giscus {
     width: var(--golden-ratio);
