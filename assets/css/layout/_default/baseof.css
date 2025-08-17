@@ -75,23 +75,16 @@ html {
 }
 
 body {
-    margin: 0 !important;
-    padding: unset !important;
-    line-height: calc(var(--baselineStretch) * 1.414);
-    color: var(--fg);
-    font-family: var(--sf), sans-serif;
-    font-size: var(--normalsize);
     --y6a: #af7c9d; --w8u: #628618; --s8i: #ed7495; --n8e: #6c80b3;
     --m4i: #355240; --y4i: #921823; --f8a: #7972b6; --s4n: #018ace;
     --d3u: #654b3c; --r6a: #534b1a; --y4a: #13355b; --k8i: #ee850f;
     --y6i: #00728c; --o5a: #8d2f4a; --c3u: #5b516a; --s5o: #365b75;
     --s5e: #493280; --y7i: #00b1dd; --i3i: #e9142a; --t9u: #014d1f;
-}
-
-body {
-    max-width: unset !important;
-    padding: unset !important;
     min-height: var(--vbody);
+    line-height: calc(var(--baselineStretch) * 1.414);
+    color: var(--fg);
+    font-family: var(--sf), sans-serif;
+    font-size: var(--normalsize);
 }
 
 body > header {
@@ -200,6 +193,17 @@ div + #unified-footer {
 #unified-footer p {
     padding: 1ex 1em;
     font-size: var(--footnotesize);
+}
+
+@media screen {
+
+    body {
+        /* exit graceful degradation mode inline css */
+        margin: 0 !important;
+        padding: unset !important;
+        max-width: unset !important;
+    }
+
 }
 
 @media only screen and (min-width: 1440px) {
