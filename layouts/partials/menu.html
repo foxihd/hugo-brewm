@@ -71,10 +71,9 @@
     {{ range .menuEntries -}}
         {{- $name := .Name }}
         {{- $class := .Params.class }}
-        {{- $target := .Params.target }}
-        {{- $link := false }}
+        {{- $hasDestination := false }}
         {{- if or .URL .PageRef }}
-            {{- $link = true }}
+            {{- $hasDestination = true }}
         {{- end }}
         {{- $attrs := dict "href" .URL }}
         {{- if $page.IsMenuCurrent .Menu . }}
@@ -94,13 +93,14 @@
                 {{- $attrs = merge $attrs (dict "title" . "aria-label" .) }}
             {{- end }}
         {{- end }}
-        {{- with $target }}
-            {{- $attrs = merge $attrs (dict "target" . ) }}
+        {{- $u := urls.Parse .URL -}}
+        {{- if $u.IsAbs }}
+            {{- $attrs = merge $attrs (dict "target" "_blank" "rel" "external noopener noreferrer nofollow" ) }}
         {{- end }}
         {{- $identifier := .Identifier }}
         <li role="presentation" {{ with $class }}class="{{ . }}"{{ end }}>
             {{- if .Children }}
-                {{- template "menuItemWithChildren" dict "item" . "attrs" $attrs "link" $link "icon" $icon "name" $name "desc" $desc "deck" $deck "menuID" $menuID "open" $open "l" $l "n" $n "page" $page }}
+                {{- template "menuItemWithChildren" dict "item" . "attrs" $attrs "link" $hasDestination "icon" $icon "name" $name "desc" $desc "deck" $deck "menuID" $menuID "open" $open "l" $l "n" $n "page" $page }}
             {{- else }}
                 {{- template "menuItem" dict "attrs" $attrs "name" $name "desc" $desc "icon" $icon "identifier" $identifier }}
             {{- end }}
@@ -138,8 +138,8 @@
 {{- end }}
 
 {{- define "menuItemWithChildren" }}
-    <details class="presentation js-details" aria-expanded="true"
-        {{ if .deck }}name="on-deck"{{ end }}
+    <details class="presentation js-details"
+        {{- if .deck }} name="on-deck"{{ end }}
         {{- if eq .menuID "more" }} open {{ else }} {{ .open | safeHTMLAttr }} {{ end }}>
         <summary class="anchor {{ if .deck }} on-deck {{ end }}">
             {{- if and .icon (not .desc) }}
@@ -154,7 +154,7 @@
         </summary>
         <ul class="{{ .l }} {{ if .deck }} on-plank {{ end }}" role="presentation">
             {{ partial "inline/menu/walk.html" (dict "page" .page "n" .n "menuEntries" .item.Children) }}
-            {{- if .link }}
+            {{- if .hasDestination }}
                 <li class="parent-anchor">
                     <a  {{- range $key, $val := .attrs }}
                             {{- printf " %s=%s" $key $val | safeHTMLAttr }}
