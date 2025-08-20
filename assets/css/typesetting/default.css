@@ -94,6 +94,24 @@ kbd:has(kbd) {
     font-weight: unset;
 }
 
+mark {
+    position: relative;
+}
+
+mark::before {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: -3pt;
+    bottom: 0;
+    left: -3pt;
+    z-index: -1;
+    background: yellow;
+    content: '';
+    /* inset is simpler but lesser browser support */
+    /* inset: 0 -2pt;  */
+}
+
 code {
     border-radius: 0.25em;
     background: var(--g18s);
