@@ -86,7 +86,7 @@
     color: var(--fg);
 }
 
-@media only screen and (max-width: 960px) {
+@media (max-width: 960px) {
 
     aside.carousel {
         width: unset;
@@ -94,7 +94,7 @@
 
 }
 
-@media only screen and (max-width: 640px) {
+@media (max-width: 640px) {
 
     .carousel__nav {
         right: 0;

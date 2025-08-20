@@ -144,7 +144,7 @@ ul.pagination {
     gap: 1ex;
 }
 
-@media only screen and (max-width: 640px) {
+@media (max-width: 640px) {
 
     .feed-item {
         width: unset;
@@ -161,7 +161,7 @@ ul.pagination {
 
 }
 
-@media only screen and (max-width: 480px) {
+@media (max-width: 480px) {
 
     .feed-item > section {
         flex-direction: column;

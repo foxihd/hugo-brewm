@@ -128,7 +128,7 @@ hr.ldots::after {
     font-size: var(--footnotesize);
 }
 
-@media only screen and (max-width: 640px) {
+@media (max-width: 640px) {
 
     body > main > aside#list-tags {
         position: unset;

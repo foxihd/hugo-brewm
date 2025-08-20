@@ -119,7 +119,7 @@ a.favourites.active {
     font-size: calc(10pt * var(--fontScale));
 }
 
-@media only screen and (max-width: 960px) {
+@media (max-width: 960px) {
     .fediverse-comment .content,
     .fediverse-comment > footer {
         margin-left: 0;

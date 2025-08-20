@@ -73,7 +73,7 @@ hr.ldots {
     display: none;
 }
 
-@media only screen and (max-width: 960px) {
+@media (max-width: 960px) {
     body > aside.carousel {
         float: unset;
         padding: 0;
@@ -95,7 +95,7 @@ hr.ldots {
 
 }
 
-@media only screen and (max-width: 640px) {
+@media (max-width: 640px) {
 
     body > main#home > aside#list-tags,
     #home #list-posts {

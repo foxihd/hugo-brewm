@@ -56,7 +56,7 @@ cmtSty.textContent = `
     .bluesky {display:inline-block}
     #join-discussion:hover .blueksy, #join-discussion-bluesky:hover .bluesky {transform-origin:center center;animation:flutter 0.2s alternate infinite}
     @keyframes flutter {from { transform:rotateY(0)}to { transform:rotateY(80deg)}}
-    @media only screen and (max-width:960px) {
+    @media (max-width:960px) {
         .fediverse-comment .content, .fediverse-comment > footer {margin-left:0}
     }
     @media print {

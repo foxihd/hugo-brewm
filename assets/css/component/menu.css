@@ -338,7 +338,7 @@ a#has-i18n:active > .alt {
     font-size: var(--large);
 }
 
-@media only screen and (max-width: 640px) {
+@media (max-width: 640px) {
 
     /* container behaviour */
 

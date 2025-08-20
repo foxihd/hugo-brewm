@@ -130,7 +130,7 @@
 #has-share a:focus .xing,
 #has-share .xing:hover {background: #114C4C}
 
-@media only screen and (max-width: 844px) {
+@media (max-width: 844px) {
 
     #share {
         float: unset;

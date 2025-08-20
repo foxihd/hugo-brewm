@@ -479,7 +479,7 @@ img[data-src],
     border: var(--bound);
 }
 
-@media only screen and (max-width: 640px) {
+@media (max-width: 640px) {
 
     #has-a11y > summary > span {
         display: none;

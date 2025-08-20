@@ -175,7 +175,7 @@ a.pagefind-ui__result-link {
     font-size: 0.9em;
 }
 
-@media only screen and (max-width: 640px) {
+@media (max-width: 640px) {
 
     #has-search .on-deck {
         flex-direction: row-reverse;

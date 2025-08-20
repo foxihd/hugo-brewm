@@ -206,7 +206,7 @@ div + #unified-footer {
 
 }
 
-@media only screen and (min-width: 1440px) {
+@media (min-width: 1440px) {
 
     :root {
         --void: calc((100vw - var(--max-width) - 1rem) / 2) !important;
@@ -216,7 +216,7 @@ div + #unified-footer {
 
 }
 
-@media only screen and (max-width: 960px) {
+@media (max-width: 960px) {
 
     :root {
         --void: calc(29.289322vw - var(--vfoot) - var(--vhead)) / 2);
@@ -224,7 +224,7 @@ div + #unified-footer {
 
 }
 
-@media only screen and (max-width: 640px) {
+@media (max-width: 640px) {
 
     :root {
         --void: var(--vfoot) !important;
@@ -239,7 +239,7 @@ div + #unified-footer {
 
 }
 
-@media only screen and (max-width: 540px) {
+@media (max-width: 540px) {
 
     :root {
         --void: calc(var(--vfoot) / 1.414) !important;
@@ -252,7 +252,7 @@ div + #unified-footer {
 
 }
 
-@media only screen and (max-width: 480px) {
+@media (max-width: 480px) {
 
     header.pagewidth,
     footer.pagewidth {

@@ -70,7 +70,7 @@
     max-width: var(--col);
 }
 
-@media only screen and (max-width: 960px) {
+@media (max-width: 960px) {
 
     .hero {
         width: 100%;
@@ -78,7 +78,7 @@
 
 }
 
-@media only screen and (max-width: 640px) {
+@media (max-width: 640px) {
 
     .hero {
         display: flex;
@@ -99,7 +99,7 @@
 
 }
 
-@media only screen and (max-width: 480px) {
+@media (max-width: 480px) {
 
     .hero__image.auto {
         max-height: calc(var(--vbody) - 15.8rem - 2ex);
@@ -107,7 +107,7 @@
 
 }
 
-@media only screen and (max-width: 480px) {
+@media (max-width: 480px) {
 
     .hero img {
         padding: 1rem;
