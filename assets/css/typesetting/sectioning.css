@@ -53,7 +53,7 @@ h6 {
     position: relative;
     float: left;
     margin: 0;
-    padding: 0.2em 0.5em 0 0;
+    padding: 0.6ex 0.5em 0 0;
     line-height: 1;
 }
 
@@ -66,13 +66,17 @@ h6 {
 #content.secnum h2,
 #content.secnum h3,
 #content.secnum h4 {
+    position: relative;
     font-style: normal;
 }
 
 #content.secnum h2::before,
 #content.secnum h3::before,
 #content.secnum h4::before {
+    position: absolute;
+    right: calc(100% + 1rem);
     opacity: 0.86;
+    width: max-content;
 }
 
 #content.secnum h2::before {
@@ -113,3 +117,12 @@ h6 {
 #content.secnum h6::before {
     counter-increment: subparagraph;
 } */
+
+@media print, (max-width: 480px) {
+    #content.secnum h2::before,
+    #content.secnum h3::before,
+    #content.secnum h4::before {
+        position: unset;
+        right: unset;
+    }
+}
