@@ -259,8 +259,7 @@ pre > code {
     color: var(--s4n);
 }
 
-@media screen and (-ms-high-contrast: active),
-screen and (prefers-contrast: more) {
+@media (-ms-high-contrast: active), (prefers-contrast: more) {
     :root {
         --y6a: var(--fg);
         --w8u: var(--fg);
@@ -297,11 +296,11 @@ screen and (prefers-contrast: more) {
 
 }
 
-@media print {
+/* hide line numbering; not coupled when code break into new line */
+/* @media print {
 
     .lntd:first-child * {
-        /* hide line numbering; not coupled when code break into new line */
-        /* display: none; */
+        display: none;
     }
 
-}
+} */
