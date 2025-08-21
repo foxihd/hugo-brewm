@@ -35,7 +35,7 @@ function bionRead() {
                     const midPoint = Math.ceil(length / 2);
                     return word
                         .split('')
-                        .map((char, index) => index < midPoint ? `<b k>${char}</b>` : char)
+                        .map((char, index) => index < midPoint ? `<b class=k>${char}</b>` : char)
                         .join('');
                 });
                 el.innerHTML = processedWords.join(' ');
