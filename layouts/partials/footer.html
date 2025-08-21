@@ -40,7 +40,7 @@
                 {{- end }}
                 <div id="main-footer-secondary" {{ if or $menu (index . 2) }} class="column" style="--col: 10rem"{{ end }}>
                     {{- range after 1 . -}}
-                        {{- $counter := add 1 $counter }}
+                        {{- $counter = add 1 $counter }}
                         <div
                             {{- if .Params.Span }} class="column__span" {{ end }}
                             {{- if .Title }} aria-labelledby="footer-{{ $counter }}"{{ end }}>
