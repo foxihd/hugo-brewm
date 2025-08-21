@@ -9,20 +9,23 @@
     --ac-dark: #fa0;
 
     /* less contrast */
-    --ac-light-less: var(--ac-light);
+    --ac-light-less: #36c;
     --fg-light-less: #13253d;
     --bg-light-less: #e7e2e2;
     --midtone-less: #7d8490;
     --fg-dark-less: #e7e2e2;
     --bg-dark-less: #13253d;
-    --ac-dark-less: var(--ac-dark);
+    --ac-dark-less: #fa0;
 
     /* more contrast */
-    --ac-light-more: var(--ac-light);
+    --ac-light-more: #36c;
     --fg-light-more: #000;
     --bg-light-more: #fff;
     --midtone-more: gray;
     --fg-dark-more: #fff;
     --bg-dark-more: #000;
-    --ac-dark-more: var(--ac-dark);
+    --ac-dark-more: #fa0;
+
+    /* mark & selector highlight color */
+    --hl: #fa0;
 }

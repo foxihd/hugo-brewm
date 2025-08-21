@@ -94,6 +94,11 @@ kbd:has(kbd) {
     font-weight: unset;
 }
 
+::selection {
+  color:#000;
+  background: var(--hl);
+}
+
 mark {
     position: relative;
 }
@@ -106,7 +111,7 @@ mark::before {
     bottom: 0;
     left: -3pt;
     z-index: -1;
-    background: yellow;
+    background: var(--hl);
     content: '';
     /* inset is simpler but lesser browser support */
     /* inset: 0 -2pt;  */
