@@ -34,7 +34,7 @@
         <time class="doc-publish-date" datetime="{{ .PublishDate.Format $dateMachine }}" data-time-label="{{ i18n "published" }} {{ i18n "on" | lower }}">
             {{- $datePublished -}}
         </time>
-        {{- if $hasMod }}
+        {{- if $hasMod -}}
             <time class="doc-lastmod-date" datetime="{{ .Lastmod.Format $dateMachine }}" data-time-label="{{ i18n "modified" }} {{ i18n "on" | lower }}">
                 {{- $dateModified -}}
             </time>
