@@ -37,7 +37,7 @@
     letter-spacing: 0.2ex;
     font-family: var(--sf), sans-serif;
     font-size: calc(27pt * var(--fontScale));
-    font-weight: 700;
+    font-weight: 550;
     stroke: var(--off);
     stroke-width: 1px;
 }

@@ -218,7 +218,7 @@ tbody tr:nth-child(2n) {
     text-transform: uppercase;
     letter-spacing: 2pt;
     font-size: 86%;
-    font-weight: 700;
+    font-weight: 550;
     font-variant: small-caps;
     font-style: normal;
     /* font-variant-caps: all-small-caps; */

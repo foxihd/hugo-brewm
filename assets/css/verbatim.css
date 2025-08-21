@@ -292,7 +292,7 @@ screen and (prefers-contrast: more) {
 
     .hljs-keyword,
     .hljs-selector-tag {
-        font-weight: 700;
+        font-weight: 550;
     }
 
 }

@@ -26,7 +26,7 @@ body.focus #dwclock {
 
 #has-a11y-summary {
     padding: .6ex 1ex;
-    font-weight: 700;
+    font-weight: 550;
 }
 
 #has-a11y-summary::before{
@@ -173,7 +173,7 @@ label.range > output {
 #lightSwitch + label::after {
     color: var(--fg);
     font-size: inherit;
-    font-weight: 700;
+    font-weight: 550;
 }
 
 /* contrast */
@@ -366,7 +366,7 @@ legend,
 .has-aria-label-top:before,
 #setColorPalette > label,
 input + label > span {
-    font-weight: 700;
+    font-weight: 550;
 }
 
 #setContrast input + label > span {
