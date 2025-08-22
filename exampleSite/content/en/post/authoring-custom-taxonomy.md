@@ -15,9 +15,10 @@ history = [
 ]
 +++
 
-This theme supports custom taxonomy and growth stage indicators, but it does not ship with an indicator icon right now.
+This theme supports custom taxonomy and growth stage indicators.
+By default `seedling`, `budding` and `evergreen` will have predefined indicator.
 <!--more-->
-It must be manually set up as follows:
+But fist, it must be manually set up as follows:
 
 1. Register the taxonomy in your `config.toml`:
 
@@ -42,14 +43,18 @@ mysite/
     └── ...
 ```
 
-3. Setup your custom indicator icon in `_index.md`:
+3. Within  `_index.md`, Set the stage `title` and `translationKey` if site is multilingual,
+ you can also override custom `indicator` or `emoji`:
 
 ```yaml
 ---
-title: 'Evergreen'
-translationKey: evergreen
-indicator: 'https://example.com/indicator.svg'
+title: 'Stage of me being Godzilla'
+translationKey: godzilla
+emoji: '🦖'
+# indicator: 'https://example.com/indicator.svg'
 ---
+
+You can write the introduction or blah blah blah here
 ```
 
 4. Add the stage parameter into your post `index.md`:
