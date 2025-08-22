@@ -70,6 +70,7 @@
     (resources.Get "css/component/marginpar.css")
     (resources.Get "css/optimize.css")
     (resources.Get "css/support.css")
+    (resources.Get "css/verbatim.css")
 }}
 
 {{- $baseFonts := slice $icon $openDyslexic }}
@@ -141,7 +142,7 @@
     </style>
 {{- end }}
 
-{{- define "partials/head/css/verbatim.html" }}
+{{/*  {{- define "partials/head/css/verbatim.html" }}
     {{ "<!-- css/verbatim.html -->" | safeHTML }}
     {{- $verbatimSty := resources.Get "css/verbatim.css" | minify }}
     {{- if eq hugo.Environment "development" }}
@@ -151,4 +152,4 @@
             <link href="{{ $verbatimSty.Permalink }}" rel="stylesheet" type="text/css" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
         {{- end }}
     {{- end }}
-{{- end }}
+{{- end }}  */}}

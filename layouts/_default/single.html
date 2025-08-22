@@ -9,15 +9,15 @@
     {{- end }}
     {{- /*
 
-        Verbatim Style */}}
+        Verbatim Style
     {{- with findRE `class="chroma"` .Content 1 }}
         {{ partialCached "head/css/verbatim.html" $ }}
     {{- end }}
+     */}}
     {{- /*
 
         use Highlight.js */}}
     {{- if .Params.Hljs -}}
-        {{ partialCached "head/css/verbatim.html" . }}
         {{ partialCached "head/js/hljs.html" . }}
     {{- end }}
 {{- end }}

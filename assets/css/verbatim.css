@@ -1,3 +1,4 @@
+/* this part is load balanced to js
 body.deuteranopia {
     --y6a: #d17991; --w8u: #3e8620; --s8i: #ff727b; --n8e: #6f7eb5;
     --m4i: #265245; --y4i: #d61906; --f8a: #8671b2; --s4n: #008ae7;
@@ -39,6 +40,7 @@ body.monochrome {
         --s5e: #414141; --y7i: #818181; --i3i: #565656; --t9u: #313131;
     }
 }
+ */
 
 .lntable {
     display: block;
