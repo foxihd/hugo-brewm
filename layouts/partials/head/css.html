@@ -93,9 +93,8 @@
 
 {{ $zen := or site.Params.BearMode site.Params.ZenMode }}
 {{- if not $zen }}
-    {{- $clock := resources.Get "css/component/clock.css" }}
     {{- $contentinfo := resources.Get "css/component/contentinfo.css" }}
-    {{- $extrasSty = $extrasSty | append $contentinfo $clock }}
+    {{- $extrasSty = $extrasSty | append $contentinfo }}
     {{- if site.Params.posts.share }}
         {{- $share := resources.Get "css/component/share.css" }}
         {{- $extrasSty = $extrasSty | append $share }}
