@@ -280,10 +280,13 @@
         <footer>
             {{- with .stage }}
                 {{- range . }}
+                    {{- $ic := or .Params.indicator .Params.icon .Params.badge }}
                     {{- if .Params.emoji }}
                         <span class="emoji emoji--stage">{{ .Params.emoji }}</span>
+                    {{- else if $ic }}
+                        <img src="{{ absURL $ic }}" class="stage-indicator">
                     {{- else }}
-                        <img src="{{ or .Params.indicator .Params.icon .Params.badge }}" class="stage-indicator">
+                        <span class="st {{ lower .Title }}"></span>
                     {{- end }}
                 {{- end }}
             {{- end }}

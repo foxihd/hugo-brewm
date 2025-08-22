@@ -86,6 +86,11 @@
     {{- $extrasSty = $extrasSty | append $search }}
 {{- end }}
 
+{{- $garden := resources.Get "css/component/garden.css" }}
+{{- if index site.Taxonomies "stage" }}
+    {{- $extrasSty = $extrasSty | append $garden }}
+{{- end }}
+
 {{- if not site.Params.DisableFootBar }}
     {{- $bbar := resources.Get "css/component/mainfooter.css" }}
     {{- $extrasSty = $extrasSty | append $bbar }}

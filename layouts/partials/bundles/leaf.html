@@ -190,10 +190,13 @@
                                 {{- $stage := .stage }}
                                 {{- range site.Taxonomies.stage }}
                                     {{- if eq (lower .Page.Title) (lower $stage) }}
+                                        {{- $ic := or .Page.Params.indicator .Page.Params.icon .Page.Params.badge }}
                                         {{- if .Page.Params.emoji }}
                                             <span class="emoji emoji--stage" aria-hidden="true">{{ .Page.Params.emoji }}</span>
+                                        {{- else if $ic }}
+                                            <img src="{{- absURL $ic }}" class="stage-indicator" aria-hidden="true">
                                         {{- else }}
-                                            <img src="{{- or .Page.Params.indicator .Page.Params.icon .Page.Params.badge | absURL }}" class="stage-indicator" aria-hidden="true">
+                                            <span class="st {{ lower .Page.Title }}"></span>
                                         {{- end }}
                                     {{- end }}
                                 {{- end }}
