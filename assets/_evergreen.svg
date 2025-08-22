@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg"
+  xml:space="preserve" 
+  width="1.5em"
+  height="1.5em"
+  version="1.1"
+  viewBox="0 0 1500 1500"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style type="text/css">
+path {stroke:#808080; stroke-width:62; fill:none}
+#lf {animation: rot 2.5s linear infinite; transform-origin: center;}
+#lfr {transform: translateX(calc(100% / -3))}
+#lfl {transform: translateX(calc(100% / 3))}
+@keyframes rot {
+  0% {transform: unset}
+  100%{transform: rotate(360deg)}}
+    </style>
+  </defs>
+  <g id="lf">
+    <g id="lfl">
+      <g>
+        <path d="M750 1250c-276,0 -500,-224 -500,-500"/>
+        <path d="M250 750c276,0 500,224 500,500"/>
+      </g>
+      <g>
+        <path d="M250 750c0,-276 224,-500 500,-500"/>
+        <path d="M750 250c0,276 -224,500 -500,500"/>
+      </g>
+    </g>
+    <g id="lfr">
+      <g>
+        <path d="M750 250c276,0 500,224 500,500"/>
+        <path d="M1250 750c-276,0 -500,-224 -500,-500"/>
+      </g>
+      <g>
+        <path d="M1250 750c0,276 -224,500 -500,500"/>
+        <path d="M750 1250c0,-276 224,-500 500,-500"/>
+      </g>
+    </g>
+  </g>
+</svg>
