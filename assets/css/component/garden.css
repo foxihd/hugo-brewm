@@ -1,4 +1,5 @@
 .st {
+    display: inline-block;
     margin: 0 1ex 0 0;
     background: var(--svg) 50% / cover;
     padding: 0.5em;
