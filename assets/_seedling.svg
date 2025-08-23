@@ -1,41 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg"
-  xml:space="preserve" 
-  width="1.5em"
-  height="1.5em"
-  version="1.1"
-  viewBox="0 0 1500 1500"
-  xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" version="1.1"
+  width="1em" height="1em" viewBox="0 0 60 60">
   <defs>
     <style type="text/css">
-path {stroke:#808080; stroke-width:62; fill:none}
-#lf {animation: rot 2.5s infinite alternate; transform-origin: center;}
-@keyframes rot {
-  0% {transform: scale(16%) rotate(0deg)}
-  100%{transform: scale(100%) rotate(360deg)}}
+      path{stroke:gray;stroke-width:3;stroke-linecap:round;fill:none}
+      #lf{animation:rot 2.5s infinite alternate;transform-origin:center;}
+      @keyframes rot{
+        0% {transform:rotate(0deg) scale(16%)}
+        100%{transform:rotate(360deg) scale(100%)}}
     </style>
   </defs>
   <g id="lf">
     <g id="lfl">
-      <g>
-        <path d="M750 1250c-276,0 -500,-224 -500,-500"/>
-        <path d="M250 750c276,0 500,224 500,500"/>
-      </g>
-      <g>
-        <path d="M250 750c0,-276 224,-500 500,-500"/>
-        <path d="M750 250c0,276 -224,500 -500,500"/>
-      </g>
+      <path d="M30 50c-11,0 -20,-9 -20,-20 M10 30c11,0 20,9 20,20"/>
+      <path d="M10 30c0,-11 9,-20 20,-20 M30 10c0,11 -9,20 -20,20"/>
     </g>
     <g id="lfr">
-      <g>
-        <path d="M750 250c276,0 500,224 500,500"/>
-        <path d="M1250 750c-276,0 -500,-224 -500,-500"/>
-      </g>
-      <g>
-        <path d="M1250 750c0,276 -224,500 -500,500"/>
-        <path d="M750 1250c0,-276 224,-500 500,-500"/>
-      </g>
+      <path d="M30 10c11,0 20,9 20,20 M50 30c-11,0 -20,-9 -20,-20"/>
+      <path d="M50 30c0,11 -9,20 -20,20 M30 50c0,-11 9,-20 20,-20"/>
     </g>
   </g>
 </svg>
