@@ -14,7 +14,7 @@
 :root {
     --golden-ratio: 61.803398%;
     --canonic: 70.710678%;
-    --max-width: 1024px;
+    --max-width: 67rem;
     --void: calc((29.289322vw - 1rem) / 2); /* 100vw - 70.710678vw */
     --vhead: 4.2rem;
     --vfoot: 3.33rem;
@@ -210,7 +210,7 @@ div + #unified-footer {
 
     :root {
         --void: calc((100vw - var(--max-width) - 1rem) / 2) !important;
-        --marginparwidth: 391.13320448px !important;
+        --marginparwidth: calc(var(--max-width) * 0.38196602) !important;
         /* --max-width - (100% - --golden-ratio) */
     }
 
