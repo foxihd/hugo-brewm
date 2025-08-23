@@ -19,6 +19,34 @@
     top: -100vh;
 }
 
+.marginpar-ctrl + .has-counter::before {
+    counter-increment: marginnote;
+    position: unset;
+}
+
+.marginpar-ctrl + .has-counter::before,
+.has-counter + .marginpar::before {
+    --anm: unset !important;
+    display: inline-block !important;
+    vertical-align: super;
+    color: inherit !important;
+    font: .7rem normal inherit;
+    content: '[' counter(marginnote) ']' !important;
+}
+
+.has-counter + .marginpar::before {
+    position: absolute;
+    left: 0;
+    width: var(--indent);
+    text-align: center;
+    padding-top: 1ex;
+}
+
+.marginpar-ctrl + label.has-counter {
+    display: unset;
+    padding: 0;
+}
+
 @media screen and (max-width: 640px) {
 
     .marginpar-ctrl + label {

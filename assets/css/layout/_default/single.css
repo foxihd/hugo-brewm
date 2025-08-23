@@ -1,6 +1,7 @@
 #main-article {
     margin-top: 1in;
     line-height: calc(var(--baselineStretch) * 1.618);
+    counter-reset: marginnote;
 }
 
 #main-article.sf h1 {

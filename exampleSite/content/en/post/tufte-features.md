@@ -25,14 +25,14 @@ to start the beginning of a section.
 
 ### Inline
 Some inline math:
-{{< marginpar >}}Margin note is now Marginpar.{{< /marginpar >}}
+{{< marginpar >}}This is Marginpar.{{< /marginpar >}}
 $e^{i \pi} = -1$
  and $\sqrt{-1} = i $
 and $ a_2 = 3 $.
 
 ### Display
 And display math using this symbol `$$`:
-{{< marginpar >}}Side note with numbering is eliminated.{{< /marginpar >}}
+{{< marginnote >}}This is Marginnote with counter like footnote.{{< /marginnote >}}
 $$
   -- \cdot_H -- \colon B(G,H) \times B(H, K) \to B(G, K), \quad ([X], [Y]) \mapsto [X \times_H Y].
 $$
