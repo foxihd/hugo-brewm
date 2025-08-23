@@ -111,13 +111,8 @@ header time {
     content: attr(data-time-label)' ';
 }
 
-#page .date-has-label > time,
-#keywords li {
+.doc-lastmod-date:before {
     text-transform: lowercase;
-}
-
-.doc-publish-date::before {
-    text-transform: initial;
 }
 
 #has-TableOfContents,
