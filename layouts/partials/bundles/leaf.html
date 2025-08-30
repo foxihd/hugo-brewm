@@ -196,7 +196,7 @@
                                         {{- else if $ic }}
                                             <img src="{{- absURL $ic }}" class="stage-indicator" aria-hidden="true">
                                         {{- else }}
-                                            <span class="st {{ lower .Page.Title }}"></span>
+                                            <span class="st {{ lower $stage }}"></span>
                                         {{- end }}
                                     {{- end }}
                                 {{- end }}

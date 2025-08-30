@@ -278,6 +278,7 @@
             </div>
         </section>
         <footer>
+            {{- $stage := .stage}}
             {{- with .stage }}
                 {{- range . }}
                     {{- $ic := or .Params.indicator .Params.icon .Params.badge }}
@@ -286,7 +287,7 @@
                     {{- else if $ic }}
                         <img src="{{ absURL $ic }}" class="stage-indicator">
                     {{- else }}
-                        <span class="st {{ lower .Title }}"></span>
+                        <span class="st {{ lower $stage }}"></span>
                     {{- end }}
                 {{- end }}
             {{- end }}

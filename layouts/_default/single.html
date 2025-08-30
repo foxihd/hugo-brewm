@@ -52,7 +52,7 @@
                         {{- else if $ic }}
                             <img src="{{ absURL $ic }}" class="stage-indicator">
                         {{- else }}
-                            <span class="st {{ lower .Title }}"></span>
+                            <span class="st {{ lower $stage }}"></span>
                         {{- end }}
                         <a href="{{ .Permalink }}" id="stage" aria-label="{{ i18n "stage" 1 }}: {{ .Title }}">
                             <span>{{ .Title }}</span>
