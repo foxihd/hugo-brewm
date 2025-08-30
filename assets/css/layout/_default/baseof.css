@@ -183,7 +183,7 @@ body > footer {
 div + #unified-footer {
     margin-top: 1.618rem;
     border-top: var(--bound);
-    padding-top: 1.618rem !important;
+    padding: 1.618rem 0 0 !important;
 }
 
 #unified-footer {
