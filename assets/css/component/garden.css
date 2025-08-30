@@ -1,3 +1,20 @@
+.emoji.emoji--stage {
+    padding: 0 2.4pt 2.4pt 0;
+}
+
+.stage-indicator {
+    margin-right: 1ex;
+    height: 1.3em !important;
+}
+
+
+#has-stage {
+    display: flex;
+    align-items: center;
+    font-family: var(--sf);
+    font-size: var(--footnotesize);
+}
+
 .st {
     display: inline-block;
     margin: 0 1ex 0 0;
@@ -5,6 +22,21 @@
     padding: 0.5em;
     width: 1.5em;
     height: 1.5em;
+}
+
+#series + .st,
+#has-timeline .st {
+    margin: 0 1ex;
+}
+
+#series + .emoji--stage,
+#series + .stage-indicator {
+    margin: 0 8pt;
+}
+
+#has-timeline .emoji--stage {
+    position: absolute;
+    left: -8pt;
 }
 
 .budding {

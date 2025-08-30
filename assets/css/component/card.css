@@ -107,15 +107,6 @@
     font-size: var(--scriptsize);
 }
 
-.emoji.emoji--stage {
-    padding: 0 2.4pt 2.4pt 0;
-}
-
-.stage-indicator {
-    margin-right: 1ex;
-    height: 1.3em !important;
-}
-
 .readingTime {
     margin-right: auto;
     padding-right: 1rem;

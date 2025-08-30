@@ -119,11 +119,6 @@
     margin: 5pt 0;
 }
 
-#has-timeline .emoji--stage {
-    position: absolute;
-    left: -8pt;
-}
-
 @media screen and (max-width: 640px) {
 
     #contentinfo {
