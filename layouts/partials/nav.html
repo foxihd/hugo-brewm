@@ -10,7 +10,7 @@
         {{- replace
             (replace $page.TableOfContents
                 "TableOfContents" "doc-toc")
-                "id" "data-pagefind-body role"
+                "id=" "data-pagefind-body role="
         | safeHTML }}
     {{- else }}
         <nav aria-labelledby="{{ $navID }}">
