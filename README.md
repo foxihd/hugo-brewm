@@ -22,10 +22,9 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 
     | Assets Filename    |    Size | Gzipped | Note                                          |
     | ------------------ | ------: | ------: | :-------------------------------------------- |
-    | hugo-brewm.min.css | ~58.8KB | ~13.7KB | Compiled site-wide stylesheet, could be less  |
-    | hugo-brewm.min.js  | ~28.8KB |  ~9.3KB | Compiled site-wide javascript, could be less  |
+    | hugo-brewm.min.css | ~91.1KB | ~36.4KB | Compiled site-wide stylesheet and basic icon font, could be less  |
+    | hugo-brewm.min.js  | ~32.2KB |  ~10.5KB | Compiled site-wide javascript, could be less  |
     | fediverse.min.js   | ~13.1KB |  ~4.1KB | Mastodon & Bluesky comments, load if required |
-    | verbatim.min.css   |  ~4.4KB |  ~1.4KB | Code block stylesheet, load if required       |
 
 ## Acknowledgement
 
@@ -68,7 +67,6 @@ Web fonts listed bellow may be selected, unless `site.Params.typeface.webSafe` o
 
 | Web Fonts (woff2)  | Styles |   Size | Note                                            |
 | ------------------ | :----: | -----: | :---------------------------------------------- |
-| base-ui            |    1   |  ~22KB | Mandatory UI icon                               |
 | Inconsolata        |    2   |  ~77KB | Load on verbatim, disable on websafe fonts mode |
 | OpenDyslexic       |    4   | ~427KB | Mandatory, load on OpenDyslexic mode            |
 | OpenDyslexic Mono  |    1   |  ~24KB | Load on OpenDyslexic mode for verbatim          |
