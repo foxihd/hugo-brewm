@@ -1,0 +1,248 @@
+[404PageNotFound]
+    other = "पृष्ठ नहीं मिला"
+[404Alert]
+    other = "यह पृष्ठ जानबूझकर पुनर्निर्देशित किया गया है"
+[404ReturnHome]
+    other = "मुखपृष्ठ पर वापस"
+[accessibility]
+    other = "सरलता"
+[accessTime]
+    other = "यह पृष्ठ"
+[allPosts]
+    other = "सभी पोस्ट"
+[appearance]
+    other = "दिखावट"
+[articles]
+    one = "लेख"
+    other = "लेख"
+[author]
+    one = "लेखक"
+    other = "लेखक"
+[back]
+    other = "वापस जाओ"
+[baselineStretch]
+    other = "बेसलाइन खिंचाव"
+[bionRead]
+    other = "बायोनरीड मोड"
+[breadcrumb]
+    other = "ब्रेडक्रंब"
+[buildTime]
+    other = "यह पृष्ठ इस पर बनाया गया है"
+[bypass]
+    other = "बाईपास"
+[categories]
+    one = "श्रेणी"
+    other = "श्रेणी"
+[close]
+    other = "बंद करें"
+[coffeeStat]
+    other = "कॉफी स्टेट"
+[coffeeCount]
+    other = "❤️ और . के साथ बनाया गया"
+[coffeeCountPost]
+    other = ", और नहीं तो और।"
+[colophon]
+    other = "कोलोफ़ोन"
+[colorPalette]
+    other = "रंग पैलेट"
+[colorSettings]
+    other = "रंग सेटिंग्स"
+[comments]
+    other = "चर्चा"
+[contrast]
+    other = "कंट्रास्ट"
+[contrib]
+    other = "योगदान दें"
+[contribAskReader]
+    other = "इस लेख का आनंद लें?"
+[contribAskReaderResponse]
+    other = "बहुत बढ़िया!"
+[contribAskReaderToContribute]
+    one = "आप निम्नलिखित योगदान देकर भी मेरा समर्थन कर सकते हैं:"
+    other = "आप निम्नलिखित योगदान देकर भी हमारा समर्थन कर सकते हैं:"
+[contribCoffeeStat]
+    other = "क्या आपको पता था"
+[contribCoffeeStatPost]
+    one =  "ने मुझे यह लेख लिखने में मदद की?"
+    other = "ने हमें यह लेख लिखने में मदद की?"
+[copy]
+    other = "यूआरएल कॉपी करें"
+[copying]
+    other = "कॉपी किया जा रहा है..."
+[ctaComments]
+    other = "चर्चा में शामिल हों"
+[cup]
+    one = "एक कप कॉफी"
+    other = "कॉफी के कप"
+[currentLang]
+    other = "वर्तमान भाषा है"
+[dark]
+    other = "अंधेरा"
+[darkMode]
+    other = "डार्क मोड"
+[date_long]
+    other = "2 जनवरी 2006"
+[defaultColor]
+    other = "डिफ़ॉल्ट"
+[defaultContrast]
+    other = "डिफ़ॉल्ट"
+[deuteranopia]
+    other = "ड्यूटेरानोपिया"
+[discover]
+    other = "विषय खोजें"
+[editedBy]
+    other = "द्वारा संपादित"
+[email]
+    other = "ईमेल"
+[featuredImg]
+    other = "विशेष रुप से प्रदर्शित छवि"
+[fediverseBluesky]
+    other = "ब्लूस्की के साथ उत्तर दें"
+[fediverseErr]
+    other = "टिप्पणियां लोड करते समय त्रुटि"
+[fediverseIsLoading]
+    other = "फेडिवर्स पर टिप्पणियां लोड हो रही हैं"
+[fediverseReplies]
+    one = "जवाब"
+    other = "जवाब"
+[fediverseReblogs]
+    one = "रिब्लॉग"
+    other = "रिब्लॉग"
+[fediverseFavourites]
+    one = "पसंदीदा"
+    other = "पसंदीदा"
+[focusMode]
+    other = "फोकस मोड"
+[followRSS]
+    other = "आरएसएस के साथ अनुसरण करें"
+[fontSize]
+    other = "फ़ॉन्ट आकार"
+[home]
+    other = "मुखपृष्ठ"
+[in]
+    other = "में"
+[inNewTab]
+    other = "नए टैब में"
+[keepInTouch]
+    other = "चलो संपर्क में रहते हैं!"
+[lessContrast]
+    other = "कम"
+[light]
+    other = "रोशनी"
+[main]
+    other = "मुख्य मेनू"
+[marginpar]
+    other = "अतिरिक्त नोट्स"
+[menuControls]
+    other = "सरलता मेनू नियंत्रण"
+[modified]
+    other = "संशोधित"
+[monochrome]
+    other = "मोनोक्रोम"
+[more]
+    other = "अधिक मेनू"
+[moreContrast]
+    other = "उच्च"
+[nav]
+    other = "पथ प्रदर्शन"
+[networkGraph]
+    other = "सामग्री नेटवर्क ग्राफ़"
+[next]
+    other = "अगला"
+[noArticle]
+    other = "दिखाने के लिए कोई लेख नहीं।"
+[noArticlePost]
+    other = "ऐसा प्रतीत होता है कि हमारे लेखक के पास कॉफ़ी खत्म हो गई है... शांत रहें, हम जल्द ही एक बना लेंगे!"
+[noComment]
+    other = "प्रदर्शित करने के लिए कोई टिप्पणी नहीं।"
+[noGiscus]
+    other = "Giscus को जावास्क्रिप्ट और लोकलस्टोरेज को सक्षम करने की आवश्यकता है।"
+[noScript]
+    other = "ओह-ओह... जावास्क्रिप्ट अक्षम है!"
+[noLocalStorage]
+    other = "आपके ब्राउज़र में लोकलस्टोरेज उपलब्ध नहीं है। सेटिंग्स सहेजी नहीं जाएंगी।"
+[note]
+    other = "टिप्पणी"
+[on]
+    other = "पर"
+[OpenDyslexic]
+    other = "ओपनडिस्लेक्सिक फ़ॉन्ट का उपयोग करें"
+[optimizeSR]
+    other = "स्क्रीन रीडर अनुकूलन"
+[optimizeSRDesc]
+    other = "एक पॉइंटर डिवाइस के साथ नेविगेट करने वाले स्क्रीन रीडर उपयोगकर्ताओं के लिए प्रदर्शन और संसाधनों का अनुकूलन करें।"
+[pages]
+    one = "पृष्ठ"
+    other = "पृष्ठ"
+[pagination]
+    other = "पृष्ठांकन"
+[posts]
+    one = "पद"
+    other = "पोस्ट"
+[postsBy]
+    other = "द्वारा पोस्ट"
+[postsOn]
+    other = "पर पोस्ट"
+[poweredBy]
+    other = "द्वारा संचालित"
+[prev]
+    other = "पिछला"
+[print]
+    other = "प्रिंट"
+[protanopia]
+    other = "प्रोटानोपिया"
+[published]
+    other = "प्रकाशित"
+[readingTime]
+    other = "मिनट पढ़ा"
+[recent]
+    other = "हाल ही की पोस्ट"
+[redactionHistory]
+    other = "संशोधन इतिहास"
+[redactionNotes]
+    other = "समय के साथ कुछ जानकारी बदल सकती है, हम संशोधन को अद्यतित रखते हैं।"
+[related]
+    other = "आपको यह भी पसंद आ सकता हैं"
+[reset]
+    other = "रीसेट"
+[reviewedBy]
+    other = "द्वारा समीक्षित"
+[save]
+    other = "सहेजें"
+[search]
+    other = "खोज"
+[seeAll]
+    other = "सभी को देखें"
+[seeMore]
+    other = "अधिक विषय खोजें"
+[section]
+    other = "खंड"
+[selectLang]
+    other = "भाषा चयन"
+[series]
+    other = "श्रृंखला"
+[share]
+    other = "शेयर करना"
+[shareOn]
+    other = "पर साझा करें"
+[slide]
+    one = "स्लाइड"
+    other = "स्लाइड्स"
+[stage]
+    one = "मंच"
+    other = "चरणों"
+[switchLangTo]
+    other = "भाषा बदलें"
+[TableOfContents]
+    other = "विषयसूची"
+[tags]
+    one = "टैग"
+    other = "टैग"
+[toContent]
+    other = "मुख्य सामग्री पर जाएं"
+[toTop]
+    other = "सामग्री के शीर्ष पर"
+[top-nav]
+    other = "शीर्ष"
+[tritanopia]
+    other = "ट्रिटानोपिया"
