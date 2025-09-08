@@ -41,6 +41,7 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 
 We currently support:
 - 🇬🇧 English
+- 🇮🇳 Hindi (Translated by [Akshay-365](https://github.com/Akshay-365))
 - 🇮🇩 Indonesian
 
 Please feel free to contribute to additional [translation](https://github.com/foxihd/hugo-brewm/blob/main/i18n/).
