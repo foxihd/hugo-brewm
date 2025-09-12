@@ -29,6 +29,7 @@
 #series,
 #stage {
     opacity: 0.8;
+    border-bottom: none;
     color: var(--fg);
 }
 

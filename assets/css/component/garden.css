@@ -7,10 +7,10 @@
     height: 1.3em !important;
 }
 
-
 #has-stage {
     display: flex;
     align-items: center;
+    margin: 0;
     font-family: var(--sf);
     font-size: var(--footnotesize);
 }
@@ -22,6 +22,7 @@
     padding: 0.5em;
     width: 1.5em;
     height: 1.5em;
+    overflow: visible;
 }
 
 #series + .st,
