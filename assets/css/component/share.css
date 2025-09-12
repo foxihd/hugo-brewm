@@ -114,6 +114,8 @@
 #has-share .telegram {color: #54A9EB}
 #has-share a:focus .telegram,
 #has-share .telegram:hover {background: #4B97D1}
+#has-share a:focus .threads,
+#has-share .threads:hover {background: #000}
 #has-share .tumblr {color: #35465C}
 #has-share a:focus .tumblr,
 #has-share .tumblr:hover {background: #222d3c}
