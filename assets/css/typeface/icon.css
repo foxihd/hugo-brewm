@@ -161,6 +161,7 @@
 .icon.substack:before {content: '\e957';}
 #has-share .telegram:before,
 .icon.telegram:before {content: '\e958';}
+#has-share .threads:before,
 .icon.threads:before {content: '\e959';}
 .icon.tiktok:before {content: '\e95a';}
 .icon.tokopedia:before {content: '\e95b';}
