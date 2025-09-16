@@ -163,12 +163,13 @@
         {{- else }}
             {{- /*
 
-                taxonomy listing */}}
+                taxonomy.html listing */}}
             <section class="pagewidth">
                 {{- if eq .Data.Singular "tag" }}
                     {{ template "taxonomy-listing" }}
                 {{- else }}
-                    {{ partial "listing.html" (dict "entry" .Data.Plural ) }}
+                    <h1 id="{{ .Data.Plural }}">{{ .Data.Plural }}</h1>
+                    {{ partial "taxonomies.html" (dict "taxonomy" .Data.Plural "class" "taxonomy" "cover" false "withPages" true ) }}
                 {{- end }}
             </section>
         {{- end }}

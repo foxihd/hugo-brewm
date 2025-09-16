@@ -116,6 +116,7 @@ ul.carousel__viewport > li > a > span::after {
 }
 
 
+ul.taxonomy > li > a::after,
 .pagination .lfill a::after,
 .tr::after,
 .carousel__viewport__slide:first-child > nav a::after {

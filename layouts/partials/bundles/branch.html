@@ -5,11 +5,13 @@
     {{- $class := .class }}
     {{- $cover := .cover }}
     {{- $limit := .limit }}
+    {{- $withPages := .withPages }}
     {{- with index site.Taxonomies $taxonomy }}
         <ul class="{{ $class }}" role="presentation">
             {{- $index := 0 }}
             {{ range .ByCount -}}
                 {{- $index = add $index 1 }}
+                {{- $pages := .Pages }}
                 {{- if or (le $index $limit) (not $limit) -}}
                     {{- $src := partial "page/cover.html" (dict "page" .Page) }}
                     {{- if not $src}}
@@ -23,15 +25,13 @@
                             >
                             <span>{{ .Page.Title }}</span>
                         </a>
-                        {{- /* workaround needed */}}
-                        {{- /*  {{- if eq $taxonomy "categories" }}
+                        {{- if and (ne $taxonomy "tags") $withPages }}
                             <ul role="presentation">
-                                {{ $postWithin := where site.RegularPages "Params.categories" "intersect" .Page.Title }}
-                                {{- range first 5 $postWithin }}
+                                {{- range first 5 $pages }}
                                     <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
                                 {{- end }}
                             </ul>
-                        {{- end }}  */}}
+                        {{- end }}
                     </li>
                 {{- end }}
             {{- end }}
@@ -161,7 +161,7 @@
     {{- if index site.Taxonomies $entry }}
         <div id="list-{{ $entry }}" class="carousel">
             <header class="section-title">{{ i18n $entry }}</header>
-            {{ partial "taxonomies.html" (dict "taxonomy" $entry "class" "carousel__viewport" "cover" true) }}
+            {{ partial "taxonomies.html" (dict "taxonomy" $entry "class" "carousel__viewport" "cover" true "withPages" false ) }}
         </div>
     {{- end }}
 {{- end }}

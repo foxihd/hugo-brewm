@@ -46,7 +46,7 @@ hr.ldots::after {
 #term section.pagewidth,
 #taxonomy section.pagewidth,
 #list-posts  {
-    min-height: calc(var(--vbody) - 7.258rem);
+    min-height: calc(var(--vbody) - 12rem);
 }
 
 #taxonomy #list-tags {
@@ -128,6 +128,39 @@ hr.ldots::after {
     font-size: var(--footnotesize);
 }
 
+ul.taxonomy {
+    padding: 0;
+}
+
+ul.taxonomy li {
+	margin: 1ex 0;
+}
+
+ul.taxonomy > li {
+    margin-top: 3.14rem;
+}
+
+ul.taxonomy > li > a {
+    display: flex;
+    justify-content: space-between;
+}
+
+ul.taxonomy ul {
+    padding-left: var(--marginparwidth);
+}
+
+ul.taxonomy a {
+    display: block;
+    border-bottom: 1pt solid var(--g18s);
+    padding: 1ex;
+    color: var(--fg);
+}
+
+ul.taxonomy a:hover {
+    border-bottom: 1pt solid var(--ac);
+    color: var(--ac);
+}
+
 @media (max-width: 640px) {
 
     body > main > aside#list-tags {
@@ -140,6 +173,7 @@ hr.ldots::after {
         padding: 0 1ex;
     }
 
+    ul.taxonomy ul,
     #home #list-tags .section-title,
     #home #list-posts .section-title {
         padding-left: 1rem;
