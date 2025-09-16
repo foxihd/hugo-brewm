@@ -115,8 +115,7 @@ ul.carousel__viewport > li > a > span::after {
     gap: 1ex;
 }
 
-
-ul.taxonomy > li > a::after,
+a.section-title::after,
 .pagination .lfill a::after,
 .tr::after,
 .carousel__viewport__slide:first-child > nav a::after {

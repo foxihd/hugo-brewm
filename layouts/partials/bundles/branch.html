@@ -19,13 +19,14 @@
                     {{- end }}
                     <li {{ if $cover }}class="srs" style="--img: url({{ $src }});"{{ end }}>
                         <a href="{{ .Page.Permalink }}"
+                            {{- if $withPages }}class="section-title" {{ end }}
                             aria-label="{{ i18n $taxonomy 1 }}: {{ .Page.Title }}"
                             aria-description="{{ printf "%d %s" .Count (i18n "posts" .Count) }}"
                             data-post-counter="{{ printf "%d" .Count }}"
                             >
                             <span>{{ .Page.Title }}</span>
                         </a>
-                        {{- if and (ne $taxonomy "tags") $withPages }}
+                        {{- if $withPages }}
                             <ul role="presentation">
                                 {{- range first 5 $pages }}
                                     <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
@@ -159,10 +160,10 @@
     {{ "<!-- listing.html -->" | safeHTML }}
     {{- $entry := .entry }}
     {{- if index site.Taxonomies $entry }}
-        <div id="list-{{ $entry }}" class="carousel">
-            <header class="section-title">{{ i18n $entry }}</header>
+        <section id="list-{{ $entry }}" class="carousel" aria-label="{{ $entry }}">
+            <a href="{{ absLangURL $entry }}"  class="section-title">{{ i18n $entry }}</a>
             {{ partial "taxonomies.html" (dict "taxonomy" $entry "class" "carousel__viewport" "cover" true "withPages" false ) }}
-        </div>
+        </section>
     {{- end }}
 {{- end }}
 

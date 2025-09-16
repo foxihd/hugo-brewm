@@ -128,10 +128,6 @@ hr.ldots::after {
     font-size: var(--footnotesize);
 }
 
-ul.taxonomy {
-    padding: 0;
-}
-
 ul.taxonomy li {
 	margin: 1ex 0;
 }
@@ -140,9 +136,10 @@ ul.taxonomy > li {
     margin-top: 3.14rem;
 }
 
-ul.taxonomy > li > a {
-    display: flex;
+a.section-title {
+    display: flex !important;
     justify-content: space-between;
+    color: var(--fg);
 }
 
 ul.taxonomy ul {
@@ -160,6 +157,7 @@ ul.taxonomy a:hover {
     border-bottom: 1pt solid var(--ac);
     color: var(--ac);
 }
+
 
 @media (max-width: 640px) {
 

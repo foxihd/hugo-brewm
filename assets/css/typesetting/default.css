@@ -209,7 +209,7 @@ tbody tr:nth-child(2n) {
     background-color: #80808008;
 }
 
-ul.taxonomy > li > a,
+a.section-title,
 #license,
 .carousel__viewport h2,
 .carousel__viewport h3,

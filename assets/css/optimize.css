@@ -77,7 +77,7 @@ details[open] > summary > .menu-icon::before,
             animation: var(--anm);
 }
 
-ul.taxonomy > li > a::after,
+a.section-title::after,
 a::after,
 #main-footer a::after,
 hr.ldots::after,
@@ -139,6 +139,7 @@ figure {
     margin: 0;
 }
 
+ul.taxonomy,
 ul.rounded,
 .list-day {
     padding: 0;

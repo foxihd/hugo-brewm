@@ -319,9 +319,9 @@
 {{- end -}}
 
 {{- define "taxonomy-listing" }}
-    {{- range $name, $taxonomy := site.Taxonomies }}
-        {{- if ne $name "tags" }}
-            {{ partial "listing.html" (dict "entry" $name) }}
+    {{- range $entry, $taxonomy := site.Taxonomies }}
+        {{- if ne $entry "tags" }}
+            {{ partial "listing.html" (dict "entry" $entry) }}
         {{- end }}
     {{- end }}
 {{- end }}
