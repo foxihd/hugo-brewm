@@ -26,7 +26,7 @@
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
-    scrollbar-width: none;
+    scrollbar-width: thin;
 }
 
 ul.carousel__viewport {
