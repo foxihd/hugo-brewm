@@ -70,16 +70,6 @@ body > header > nav {
     width: 43pt;
 }
 
-#has-i18n > summary::before,
-#has-i18n a::before,
-#has-l10n a::before {
-    background: var(--flag) center/cover;
-    content: '';
-    width: 1em;
-    height: 0.75em;
-    border-radius: 2pt;
-}
-
 #has-a11y[open] > summary .icon::before,
 #has-search[open] .icon::before,
 details[open] > summary > .menu-icon::before {
@@ -125,9 +115,10 @@ a#has-i18n {
     max-height: 4.2rem;
 }
 
-#has-i18n > .on-deck {
+#has-i18n .on-deck {
     padding: 0 1ex;
     width: unset;
+    gap: 3pt;
 }
 
 /* item on 'plank' */
@@ -266,10 +257,6 @@ a#has-i18n:active > .alt {
 
 /* multilingual */
 
-#has-i18n .on-deck {
-    gap: 3pt;
-}
-
 #has-l10n {
     display: inline-block;
 }
@@ -289,10 +276,6 @@ a#has-i18n:active > .alt {
 #i18n-menu a {
     align-items: center;
     gap: 1ex;
-}
-
-.iso639 {
-    padding-top: 1pt;
 }
 
 #has-l10n .on-plank {
@@ -456,6 +439,7 @@ a#has-i18n:active > .alt {
 
     #top-nav > nav #has-i18n .on-deck {
         padding: 1ex;
+        gap: 1ex;
     }
 
     /* swap plank element */
@@ -507,8 +491,12 @@ a#has-i18n:active > .alt {
 
     /* bilingual */
 
+    a#has-i18n {
+        font-size: unset;
+        align-items: center;
+    }
+
     #bi18n .t {
-        display: block !important;
         position: unset;
         visibility: unset;
         background: unset;
@@ -517,24 +505,15 @@ a#has-i18n:active > .alt {
         font: unset;
     }
 
-    a#has-i18n::before {
-        margin: auto 0;
-        border-radius: 2pt;
-        background: var(--flag) center/cover;
-        width: 1em;
-        height: 0.75em;
-        content: '';
-    }
-
     /* multilingual */
 
     #i18n-menu {
         margin-top: 1ex;
     }
 
+    a#has-i18n .emoji,
     .languangeName {
         display: block !important;
-        margin-left: 0.5ex;
     }
 
     /* hide desktop element */

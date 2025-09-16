@@ -4,51 +4,50 @@
 {{- if lt $minVersion 124 }}
     {{- $IsMultilingual = site.IsMultiLingual }}
 {{- end }}
-{{ $flagSrc := "https://raw.githubusercontent.com/lipis/flag-icons/c95b262e5ee2366cad4c5aecc4a5ad86220c9ab9/flags/4x3/" }}
 {{- if $IsMultilingual }}
     {{- $bilingual := eq (where $.Site.Home.AllTranslations ".Language.disabled" "ne" true | len ) 2 }}
     {{- if $bilingual }}
         {{- range where $.Site.Home.AllTranslations "Lang" "ne" $.Lang }}
             {{- $act639  := index (split $.Language.LanguageCode "-") 0 | upper }}
             {{- $alt639  := index (split .Language.LanguageCode "-") 0 | upper }}
-            {{- $alt3166 := index (split .Language.LanguageCode "-") 1 | lower }}
             {{- $name    := .Language.LanguageName }}
+            {{- $flag := partial "i18n/flag.html" (dict "iso3166" (index (split .Language.LanguageCode "-") 1 | lower))  }}
             <nav id="bi18n" aria-label="{{ i18n "selectLang" }}">
                 <a id="has-i18n" class="on-deck"
                     href="{{ .Permalink }}"
                     aria-label="{{ printf "%s %s" (i18n "switchLangTo") $name }}"
-                    aria-description="{{ printf "%s %s" (i18n "currentLang") $.Language.LanguageName }}"
-                    style="--flag: url({{ printf "%s%s.svg" $flagSrc $alt3166 | safeCSS }})"
-                    >
+                    aria-description="{{ printf "%s %s" (i18n "currentLang") $.Language.LanguageName }}">
+                    <span class="emoji">{{ $flag }}</span>
                     <span class="act iso639 sri" aria-hidden="true">{{ $act639 }}</span>
                     <span class="alt iso639 sri" aria-hidden="true">{{ $alt639 }}</span>
-                    <span class="t t2 srt">{{ $name }}</span>
+                    <span class="t t2 srt languangeName">{{ $name }}</span>
                 </a>
             </nav>
         {{- end }}
     {{- else }}
         <details id="has-i18n" class="presentation js-details srm" name="on-deck">
-            {{ with $.Language }}
+            {{- with $.Language }}
+                {{- $flag := partial "i18n/flag.html" (dict "iso3166" (index (split .LanguageCode "-") 1 | lower))  }}
                 <summary class="anchor on-deck"
                     aria-label="{{ i18n "selectLang" }}"
-                    aria-description="{{ printf "%s %s" (i18n "currentLang") $.Language.LanguageName }}"
-                    style="--flag: url({{ printf "%s%s.svg" $flagSrc (index (split .LanguageCode "-") 1 | lower) | safeCSS }})">
-                    <span class="iso639">{{ index (split .LanguageCode "-") 0 | upper }}</span>
+                    aria-description="{{ printf "%s %s" (i18n "currentLang") $.Language.LanguageName }}">
+                    <span class="emoji">{{ $flag }}</span>
+                    <span class="iso639">{{ index (split .LanguageCode "-") 0 | upper }} </span>
                     <span class="languangeName">{{ .LanguageName }}</span>
                 </summary>
-            {{ end }}
+            {{- end }}
 
             {{ "<!-- on hull -->" | safeHTML }}
             <nav id="i18n-menu" aria-label="{{ i18n "selectLang" }}">
                 <ul class="on-plank">
-                    {{- range where $.Site.Home.AllTranslations "Lang" "ne" $.Lang }}
-                    {{- $flag := printf "%s%s.svg" $flagSrc (index (split .Language.LanguageCode "-") 1 | lower) }}
-                    <li>
-                        <a href="{{ .Permalink }}" aria-label="{{ printf "Change language to %s" .Language.LanguageName }}"
-                            style="--flag: url({{ $flag | safeCSS }})">
-                           {{ .Language.LanguageName }}
-                        </a>
-                    </li>
+                    {{- range where $.Site.Home.AllTranslations "Lang" "ne" $.Lang -}}
+                        {{- $flag := partial "i18n/flag.html" (dict "iso3166" (index (split .Language.LanguageCode "-") 1 | lower))  }}
+                        <li>
+                            <a href="{{ .Permalink }}" aria-label="{{ printf "Change language to %s" .Language.LanguageName }}">
+                                <span class="emoji">{{ $flag }}</span>
+                                <span class="languangeName">{{ .Language.LanguageName }}</span>
+                            </a>
+                        </li>
                     {{- end }}
                 </ul>
                 <div class="screening js-cgpn" role="presentation" aria-hidden="true"></div>
@@ -68,15 +67,51 @@
         <nav aria-label="{{ i18n "selectLang" }}">
             <ul class="on-plank" role="presentation">
             {{- range $page.Translations }}
-            {{- $flag := printf "https://raw.githubusercontent.com/lipis/flag-icons/c95b262e5ee2366cad4c5aecc4a5ad86220c9ab9/flags/4x3/%s.svg" (index (split .Language.LanguageCode "-") 1 | lower) }}
+            {{- $flag := partial "i18n/flag.html" (dict "iso3166" (index (split .Language.LanguageCode "-") 1 | lower))  }}
                 <li>
-                    <a href="{{ .RelPermalink }}" aria-label="{{ printf "%s %s" (i18n "switchLangTo") .Language.LanguageName }}" aria-description="{{ .LinkTitle }}"
-                        style="--flag: url({{ $flag | safeCSS }})">
-                        {{ .LinkTitle }}
+                    <a href="{{ .RelPermalink }}" aria-label="{{ printf "%s %s" (i18n "switchLangTo") .Language.LanguageName }}" aria-description="{{ .LinkTitle }}">
+                        <span class="emoji">{{ $flag }}</span>
+                        <span>{{ .LinkTitle }}</span>
                     </a>
                 </li>
             {{- end }}
             </ul>
         </nav>
     </details>
+{{- end }}
+
+{{- define "partials/i18n/flag.html" }}
+    {{- $iso3166 := upper .iso3166 }}
+    {{- $ris := dict
+        "A" "🇦"
+        "B" "🇧"
+        "C" "🇨"
+        "D" "🇩"
+        "E" "🇪"
+        "F" "🇫"
+        "G" "🇬"
+        "H" "🇭"
+        "I" "🇮"
+        "J" "🇯"
+        "K" "🇰"
+        "L" "🇱"
+        "M" "🇲"
+        "N" "🇳"
+        "O" "🇴"
+        "P" "🇵"
+        "Q" "🇶"
+        "R" "🇷"
+        "S" "🇸"
+        "T" "🇹"
+        "U" "🇺"
+        "V" "🇻"
+        "W" "🇼"
+        "X" "🇽"
+        "Y" "🇾"
+        "Z" "🇿"
+    }}
+    {{- range $key, $val := $ris }}
+        {{- $iso3166 = replace $iso3166 $key $val }}
+    {{- end }}
+    {{- return $iso3166 }}
 {{- end }}
