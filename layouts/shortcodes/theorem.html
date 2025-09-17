@@ -1,0 +1,20 @@
+{{- $t := .Get 0 }}
+{{- $a := anchorize $t }}
+{{- if le (.Page.Scratch.Get $a) 0 }}
+{{- .Page.Scratch.Add $a 1 }}
+<span role="presentation" id="{{ $a }}"></span>
+<style>
+    # {{ $a }} {
+        counter-reset: {{ $a }};
+    }
+    .{{ $a }}::after {
+        counter-increment: {{ $a }};
+        content: counter({{ $a }}) '. ';
+    }
+}
+</style>
+{{- end }}
+<blockquote role="complementary">
+    <span class="{{ $a }} textssc" role="heading">{{ $t }}</span>
+    {{ .Inner | markdownify }}
+<blockquote>
