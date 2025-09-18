@@ -37,7 +37,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </math>
 {{</marginpar>}}
 
-<math display=block>
+<math class=textwidth display=block>
   <semantics>
     <mrow><mstyle scriptlevel="0" displaystyle="true"><mfrac><mrow><mn>1</mn></mrow><mrow><mo fence="true">(</mo><msqrt><mrow><mi>ϕ</mi><msqrt><mrow><mn>5</mn></mrow></msqrt></mrow></msqrt><mo>−</mo><mi>ϕ</mi><mo fence="true">)</mo><msup><mi>e</mi><mrow><mfrac><mn>2</mn><mn>5</mn></mfrac><mi>π</mi></mrow></msup></mrow></mfrac><mstyle><mspace width="0.1em"></mspace><mpadded width="0px"><mrow><mrow></mrow></mrow></mpadded><mpadded width="0px"><mrow><mrow></mrow></mrow></mpadded><mpadded width="0px"><mrow><mrow></mrow></mrow></mpadded><mspace width="1.5em"></mspace></mstyle><mn>1</mn><mo>+</mo><mfrac><mrow><msup><mi>e</mi><mrow><mo>−</mo><mn>2</mn><mi>π</mi></mrow></msup></mrow><mrow><mn>1</mn><mo>+</mo><mfrac><mrow><msup><mi>e</mi><mrow><mo>−</mo><mn>4</mn><mi>π</mi></mrow></msup></mrow><mrow><mn>1</mn><mo>+</mo><mfrac><mrow><msup><mi>e</mi><mrow><mo>−</mo><mn>6</mn><mi>π</mi></mrow></msup></mrow><mrow><mn>1</mn><mo>+</mo><mfrac><mrow><msup><mi>e</mi><mrow><mo>−</mo><mn>8</mn><mi>π</mi></mrow></msup></mrow><mrow><mn>1</mn><mo>+</mo><mo>⋯</mo></mrow></mfrac></mrow></mfrac></mrow></mfrac></mrow></mfrac></mstyle></mrow>
     <annotation encoding="application/x-tex">\displaystyle \frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} \equiv 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}} {1+\frac{e^{-8\pi}} {1+\cdots} } } }</annotation>
@@ -121,7 +121,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 {{<theorem "Lemma">}}Another theorem shortcode with lorem ipsum dolor sit amet.{{</theorem>}}
 
-<math display=block>
+<math class=textwidth display=block>
   <semantics>
     <mrow><mstyle scriptlevel="0" displaystyle="true"><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>=</mo><mrow><mo fence="true">{</mo><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mfrac><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></mfrac><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtext>if&nbsp;</mtext><mi>n</mi><mtext>&nbsp;is&nbsp;even</mtext></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>3</mn><mi>n</mi><mo>+</mo><mn>1</mn><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtext>if&nbsp;</mtext><mi>n</mi><mtext>&nbsp;is&nbsp;odd</mtext></mrow></mstyle></mtd></mtr></mtable></mrow></mstyle></mrow>
     <annotation encoding="application/x-tex">\displaystyle f(n) = \begin{cases} \frac{n}{2}, &amp; \text{if } n\text{ is even} \\ 3n+1, &amp; \text{if } n\text{ is odd} \end{cases}</annotation>

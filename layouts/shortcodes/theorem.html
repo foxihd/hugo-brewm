@@ -9,7 +9,7 @@
     }
     .{{ $a }}::after {
         counter-increment: {{ $a }};
-        content: counter({{ $a }}) '. ';
+        content: ' ' counter({{ $a }}) '. ';
     }
 </style>
 {{- end }}
