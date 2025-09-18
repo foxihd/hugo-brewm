@@ -4,7 +4,7 @@
 {{- .Page.Scratch.Add $a 1 }}
 <span role="presentation" id="{{ $a }}"></span>
 <style>
-    # {{ $a }} {
+    #{{ $a }} {
         counter-reset: {{ $a }};
     }
     .{{ $a }}::after {
