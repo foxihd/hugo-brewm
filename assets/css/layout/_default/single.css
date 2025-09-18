@@ -106,6 +106,7 @@ header time {
 }
 
 #has-TableOfContents,
+math[display=block],
 #comments-error {
     margin: var(--medskip) 0;
 }
@@ -126,6 +127,16 @@ header time {
 }
 
 /* article mainmatter */
+
+#content {
+    counter-reset: math;
+}
+
+math[display=block]::after {
+    opacity: 0.86;
+    content: '(' counter(math) ')';
+    counter-increment: math;
+}
 
 #content hr {
     display: block;
