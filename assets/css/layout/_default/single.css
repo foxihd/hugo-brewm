@@ -128,11 +128,13 @@ math[display=block],
 
 /* article mainmatter */
 
-#content {
+#page {
     counter-reset: math;
 }
 
 math[display=block]::after {
+    position: relative;
+    left: 1pc;
     opacity: 0.86;
     content: '(' counter(math) ')';
     counter-increment: math;
