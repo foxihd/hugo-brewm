@@ -11,10 +11,9 @@
         counter-increment: {{ $a }};
         content: counter({{ $a }}) '. ';
     }
-}
 </style>
 {{- end }}
 <blockquote role="complementary">
     <span class="{{ $a }} textssc" role="heading">{{ $t }}</span>
     {{ .Inner | markdownify }}
-<blockquote>
+</blockquote>
