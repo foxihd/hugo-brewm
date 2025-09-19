@@ -10,9 +10,9 @@
     margin-left: auto;
 }
 
-#mastodon-comments,
+#mstd-comments,
 #bsky-comments,
-#fediverse-comments {
+#fed-comments {
     padding: 0;
     list-style: none;
     width: var(--golden-ratio);
@@ -24,7 +24,7 @@
     list-style: none;
 }
 
-.fediverse-comment {
+.fed-comments {
     margin: 1rem 0 1rem calc(var(--mul) * var(--indent));
     border-left: 3pt solid var(--ac);
     background: #80808008;
@@ -32,30 +32,30 @@
     overflow: auto;
 }
 
-.fediverse-comment.bsky {
+.fed-comments.bsky {
     --ac: #1185fe;
 }
 
-.fediverse-comment.mstd {
+.fed-comments.mstd {
     --ac: #563acc;
 }
 
-.fediverse-comment > .author > img {
+.fed-comments > .author > img {
     margin-right: 12pt;
 }
 
-.fediverse-comment .content {
+.fed-comments .content {
     margin-left: 4rem;
     line-height: calc(var(--baselineStretch) * 1.272);
 }
 
-.fediverse-comment .par a {
+.fed-comments .par a {
     max-width: 100%;
     vertical-align: bottom;
     white-space: break-spaces;
 }
 
-.fediverse-comment > footer {
+.fed-comments > footer {
     display: flex;
     align-items: center;
     margin-top: 1rem;
@@ -63,7 +63,7 @@
     white-space: nowrap;
 }
 
-.fediverse-comment > footer .stat {
+.fed-comments > footer .stat {
     display: inline-flex;
     flex-shrink: 0;
     gap: 5pt;
@@ -112,7 +112,7 @@ a.favourites.active {
     color: var(--i3i);
 }
 
-.fediverse-comment .date {
+.fed-comments .date {
     margin-left: auto;
     padding-left: 1rem;
     color: var(--mid);
@@ -120,27 +120,27 @@ a.favourites.active {
 }
 
 @media (max-width: 960px) {
-    .fediverse-comment .content,
-    .fediverse-comment > footer {
+    .fed-comments .content,
+    .fed-comments > footer {
         margin-left: 0;
     }
 
 }
 
 @media print {
-    .fediverse-comment {
+    .fed-comments {
         position: relative;
         background: none;
         padding-bottom: 0;
     }
 
-    .fediverse-comment .date {
+    .fed-comments .date {
         position: absolute;
         top: 0;
         right: 0;
     }
 
-    .fediverse-comment .stat {
+    .fed-comments .stat {
         display: none !important;
     }
 

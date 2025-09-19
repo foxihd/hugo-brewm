@@ -9,13 +9,13 @@
     data-i18n-reblogs="{{ i18n "fediverseReblogs" }}"
     data-i18n-favourites="{{ i18n "fediverseFavourites" }}"
     >
-    <summary class="section-title" role="button" aria-expanded="true" aria-controls="mastodon-comments">
+    <summary class="section-title" role="button" aria-expanded="true" aria-controls="mstd-comments">
         <span>{{ i18n "comments" }}</span>
-        <div id="mastodon-stats" class="stat" aria-live="polite"></div>
+        <div id="stats" class="stat" aria-live="polite"></div>
     </summary>
 
     <article id="discussion-starter">
-        <div id="mastodon-content">
+        <div id="discussion-starter-content">
             <noscript>
                 <div id="comments-error" role="alert">{{ i18n "noScript" }} {{ i18n "noComment" }}</div>
             </noscript>
@@ -35,16 +35,16 @@
     </article>
 
     {{ with $toot }}
-        <ul id="mastodon-comments" role="feed" aria-busy="true" aria-label="{{ i18n "comments" }}"
-            data-uri="{{ . }}"></ul>
+        <ul id="mstd-comments" role="feed" aria-busy="true" aria-label="{{ i18n "comments" }}"
+            data-url="{{ . }}"></ul>
     {{ end }}
     {{- with $bsky }}
         <ul id="bsky-comments" role="feed" role="feed" aria-busy="true" aria-label="{{ i18n "comments" }}"
-            data-uri="{{ . }}"></ul>
+            data-url="{{ . }}"></ul>
     {{- end }}
 
     {{- if and $toot $bsky }}
-        <ul id="fediverse-comments" role="feed" aria-busy="false" aria-label="{{ i18n "comments" }}" ></ul>
+        <ul id="fed-comments" role="feed" aria-busy="false" aria-label="{{ i18n "comments" }}" ></ul>
     {{ end }}
 
     {{- if not site.Params.disableDOMPurify }}
