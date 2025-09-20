@@ -1,3 +1,12 @@
+#comments ul ul {
+    padding-left: 1pc;
+}
+
+#comments ul > li {
+    border-radius: 1ex;
+    overflow: hidden;
+}
+
 #comments noscript {
     margin: var(--medskip) 0;
 }
@@ -6,7 +15,7 @@
     margin-bottom: var(--medskip);
 }
 
-#mastodon-stats {
+#stats {
     margin-left: auto;
 }
 
@@ -25,10 +34,9 @@
 }
 
 .fed-comments {
-    margin: 1rem 0 1rem calc(var(--mul) * var(--indent));
     border-left: 3pt solid var(--ac);
     background: #80808008;
-    padding: 1rem 1rem 1ex;
+    padding: 1rem 2rem 1ex 1rem;
     overflow: auto;
 }
 
@@ -47,6 +55,10 @@
 .fed-comments .content {
     margin-left: 4rem;
     line-height: calc(var(--baselineStretch) * 1.272);
+}
+
+.fed-comments .content p {
+    margin: 1.618rem 0;
 }
 
 .fed-comments .content a {
@@ -72,7 +84,7 @@
 .attachments,
 #comments > summary {
     display: flex;
-    margin: .618pc 0;
+    margin: 0.618pc 0;
     overflow: auto;
 }
 
@@ -120,10 +132,38 @@ a.favourites.active {
     font-size: calc(10pt * var(--fontScale));
 }
 
+.bluesky {
+    display: inline-block;
+}
+
+#join-discussion:hover .blueksy,
+#join-discussion-bluesky:hover .bluesky {
+    transform-origin: center center;
+    animation: flutter 0.2s alternate infinite;
+}
+
+@keyframes flutter {
+    from {
+        transform: rotateY(0);
+    }
+
+    to {
+        transform: rotateY(80deg);
+    }
+
+}
+
 @media (max-width: 960px) {
     .fed-comments .content,
     .fed-comments > footer {
         margin-left: 0;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .fed-comments {
+        padding: 1rem 1rem 1ex;
     }
 
 }

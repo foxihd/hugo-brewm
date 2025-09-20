@@ -8,16 +8,19 @@ const i18nNoComment = cmt.dataset.i18nNoComment;
 
 const cmtSty = document.createElement('style');
 cmtSty.textContent = `
+    #comments ul ul {padding-left:1pc}
+    #comments ul > li {border-radius:1ex;overflow:hidden}
     #comments noscript {margin:var(--medskip) 0}
     #discussion-starter {margin-bottom:var(--medskip)}
     #stats {margin-left:auto}
     #mstd-comments, #bsky-comments, #fed-comments {padding:0;list-style:none;width:var(--golden-ratio)}
     #comments li, #comments li > ul {margin-top:1rem;list-style:none}
-    .fed-comments {margin:1rem 0 1rem calc(var(--mul) * var(--indent));border-left:3pt solid var(--ac);background:#80808008;padding:1rem 1rem 1ex;overflow:auto}
+    .fed-comments {border-left:3pt solid var(--ac);background:#80808008;padding:1rem 2rem 1ex 1rem;overflow:auto}
     .fed-comments.bsky {--ac:#1185fe}
     .fed-comments.mstd {--ac:#563acc}
     .fed-comments > .author > img{margin-right:12pt}
     .fed-comments .content {margin-left:4rem;line-height:calc(var(--baselineStretch) * 1.272)}
+    .fed-comments .content p {margin: 1.618rem 0}
     .fed-comments .content a {max-width:100%;vertical-align:bottom;white-space:break-spaces}
     .fed-comments > footer {display:flex;align-items:center;margin-top:1rem;margin-left:3.5rem;white-space:nowrap}
     .fed-comments > footer .stat {display:inline-flex;flex-shrink:0;gap:5pt}
@@ -35,6 +38,9 @@ cmtSty.textContent = `
     @keyframes flutter {from { transform:rotateY(0)}to { transform:rotateY(80deg)}}
     @media (max-width:960px) {
         .fed-comments .content, .fed-comments > footer {margin-left:0}
+    }
+    @media (max-width:480px) {
+        .fed-comments {padding: 1rem 1rem 1ex}
     }
     @media print {
         .fed-comments {position:relative;background:none;padding-bottom:0}
