@@ -123,7 +123,7 @@
                             {{- else if eq (lower $title) (lower (i18n "articles" 1)) }}
                                 {{- i18n "articles" }}
                             {{- else if eq .Data.Singular "author" }}
-                                {{- i18n "postsBy" }}: {{- $title }}
+                                {{- i18n "postsBy" }}: {{ $title }}
                             {{- else }}
                                 {{- i18n "postsOn" }}: <span class="{{ .Data.Singular }}">{{ $title }}</span>
                             {{- end }}
