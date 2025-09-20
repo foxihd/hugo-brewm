@@ -118,7 +118,7 @@ h6 {
     counter-increment: subparagraph;
 } */
 
-@media print, (max-width: 640px) {
+@media print, (max-width: 810px) {
     #content.secnum h2::before,
     #content.secnum h3::before,
     #content.secnum h4::before {
