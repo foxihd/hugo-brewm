@@ -176,7 +176,7 @@ var bskyCommentsLoaded = false;
         const replyDate = new Date(comment.post.record.createdAt);
         return `
         <li data-date='${toISOString(replyDate)}' id='${comment.post.cid}'>
-            <article class='fed-comments bsky' style='margin-bottom: 1rem'>
+            <article class='fed-comments bsky'>
             <header class='author'>
                 <img src='${comment.post.author.avatar}' width=48 height=48 alt='${comment.post.author.handle}' loading='lazy' />
                 <a class='has-aria-label' href='https://bsky.app/profile/${comment.post.author.handle}' rel='external noreferrer nofollow' aria-label='@${comment.post.author.handle}' aria-description='${comment.post.author.displayName}'>
@@ -189,7 +189,6 @@ var bskyCommentsLoaded = false;
                 <a class='date' href='${toBskyURL(comment.post.uri)}' rel='ugc external noreferrer nofollow'><time datetime='${toISOString(replyDate)}'>${formatDate(replyDate)}</time></a>
             </footer>
             </article>
-            <ul class='rep'></ul>
         </li>`;
     }
 
@@ -201,9 +200,14 @@ var bskyCommentsLoaded = false;
             return li.firstChild;
         }
         for (const comment of thread.replies) {
-            const htmlContent = createElementFromHTML(renderSkeet(comment));
-            htmlContent.querySelector('.rep').appendChild(renderSkeets(comment));
-            node.appendChild(htmlContent);
+            const skeet = createElementFromHTML(renderSkeet(comment));
+            if (comment.replies.length > 0 ) {
+                const reply = document.createElement('ul');
+                skeet
+                    .appendChild(reply)
+                    .appendChild(renderSkeets(comment));
+            }
+            node.appendChild(skeet);
         }
         return node;
     }
