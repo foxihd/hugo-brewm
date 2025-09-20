@@ -94,8 +94,8 @@ var bskyCommentsLoaded = false;
     }
 
     const renderBskyContent = (post) => `
-        <div class='par' data-bionRead-safe>${renderRichText(post.record)}</div>
-        <div class='attachments'>${renderBskyAttachment(post)}</div>
+        <div data-bionRead-safe>${renderRichText(post.record)}</div>
+        ${renderBskyAttachment(post)}
     `;
 
     const renderRichText = (record) => {
@@ -127,7 +127,7 @@ var bskyCommentsLoaded = false;
             }
 
             const facetText = utf8Text.slice(facet.index.byteStart, facet.index.byteEnd);
-            richText += `<a href='${facetLink}' target='_blank'>` + utf8Decoder.decode(facetText) + '</a>';
+            richText += `<a href='${facetLink}' target='_blank' rel='external noreferrer nofollow'>` + utf8Decoder.decode(facetText) + '</a>';
 
             charIdx = facet.index.byteEnd;
         }
@@ -137,7 +137,7 @@ var bskyCommentsLoaded = false;
             richText += utf8Decoder.decode(postFacetText);
         }
 
-        return richText;
+        return `<p>${richText}</p>`;
     }
 
     const renderBskyAttachment = (post) => {
@@ -161,6 +161,7 @@ var bskyCommentsLoaded = false;
                 const video = post.record.embed.video;
                 attachment = `<video controls poster='${post.embed.thumbnail}' preload='none'><source src='https://bsky.social/xrpc/com.atproto.sync.getBlob?cid=${video.ref.$link}&did=${did}' type='${video.mimeType}'></video>`
             }
+            return `<div class='attachments'>${attachment}</div>`;
         }
         return attachment;
     }
@@ -171,21 +172,21 @@ var bskyCommentsLoaded = false;
         ${renderStat(post.likeCount, `${toBskyURL(post.uri)}/liked-by`, i18nFavourites, 'favourites')}
     `;
 
-    const skeetNode = (comment) => {
+    const renderSkeet = (comment) => {
         const replyDate = new Date(comment.post.record.createdAt);
         return `
         <li data-date='${toISOString(replyDate)}' id='${comment.post.cid}'>
             <article class='fed-comments bsky' style='margin-bottom: 1rem'>
             <header class='author'>
-                <img src='${comment.post.author.avatar}' width=58 height=48 alt='${comment.post.author.handle}' loading='lazy' />
-                <a class='has-aria-label' href='https://bsky.app/profile/${comment.post.author.handle}' rel='ugc' aria-label='@${comment.post.author.handle}' aria-description='${comment.post.author.displayName}'>
+                <img src='${comment.post.author.avatar}' width=48 height=48 alt='${comment.post.author.handle}' loading='lazy' />
+                <a class='has-aria-label' href='https://bsky.app/profile/${comment.post.author.handle}' rel='external noreferrer nofollow' aria-label='@${comment.post.author.handle}' aria-description='${comment.post.author.displayName}'>
                     <span>${comment.post.author.displayName}</span>
                 </a>
             </header>
             <div class='content'>${renderBskyContent(comment.post)}</div>
             <footer>
                 <div class='stat'>${renderBskyStat(comment.post)}</div>
-                <a class='date' href='${toBskyURL(comment.post.uri)}' rel='ugc nofollow'><time datetime='${toISOString(replyDate)}'>${formatDate(replyDate)}</time></a>
+                <a class='date' href='${toBskyURL(comment.post.uri)}' rel='ugc external noreferrer nofollow'><time datetime='${toISOString(replyDate)}'>${formatDate(replyDate)}</time></a>
             </footer>
             </article>
             <ul class='rep'></ul>
@@ -193,18 +194,18 @@ var bskyCommentsLoaded = false;
     }
 
     const renderSkeets = (thread) => {
-        const commentsNode = document.createDocumentFragment();
+        const node = document.createDocumentFragment();
         const createElementFromHTML = (htmlString) => {
             const li = document.createElement('li');
             li.innerHTML = htmlString.trim();
             return li.firstChild;
         }
         for (const comment of thread.replies) {
-            const htmlContent = createElementFromHTML(skeetNode(comment));
+            const htmlContent = createElementFromHTML(renderSkeet(comment));
             htmlContent.querySelector('.rep').appendChild(renderSkeets(comment));
-            commentsNode.appendChild(htmlContent);
+            node.appendChild(htmlContent);
         }
-        return commentsNode;
+        return node;
     }
 }
 

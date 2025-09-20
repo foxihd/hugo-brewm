@@ -1,4 +1,3 @@
-// sync localization with hugo i18n
 const cmt = getElement('comments');
 const i18nReplies = cmt.dataset.i18nReplies;
 const i18nReblogs = cmt.dataset.i18nReblogs;
@@ -19,10 +18,10 @@ cmtSty.textContent = `
     .fed-comments.mstd {--ac:#563acc}
     .fed-comments > .author > img{margin-right:12pt}
     .fed-comments .content {margin-left:4rem;line-height:calc(var(--baselineStretch) * 1.272)}
-    .fed-comments .par a {max-width:100%;vertical-align:bottom;white-space:break-spaces}
+    .fed-comments .content a {max-width:100%;vertical-align:bottom;white-space:break-spaces}
     .fed-comments > footer {display:flex;align-items:center;margin-top:1rem;margin-left:3.5rem;white-space:nowrap}
     .fed-comments > footer .stat {display:inline-flex;flex-shrink:0;gap:5pt}
-    .attachments, #comments > summary {display:flex;overflow:auto}
+    .attachments, #comments > summary {display:flex;margin:.618pc 0;overflow:auto}
     .attachments > * {flex-shrink:0;width:100%;height:auto}
     .attachments img {width:100%;height:auto}
     .stat > * {display:inline-flex;align-items:center;padding:2pt;color:var(--mid);gap:2pt}
@@ -59,7 +58,7 @@ const addToCounter = (reply, reblog, favorite) => {
 }
 
 const renderStat = (count, url, label, interaction) => `
-    <a class='${interaction} ${count > 0 ? 'active' : ''}' href='${url}' rel='nofollow' aria-label='${label}'>
+    <a class='${interaction} ${count > 0 ? 'active' : ''}' href='${url}' rel='external noreferrer nofollow' aria-label='${label}'>
         <span>${count > 0 ? count : ''}</span>
     </a>
 `;
@@ -146,10 +145,17 @@ if (mstdRoot) {
         respondToVisibility(mstdRoot, loadMstdAPI);
     }
 
-    const renderMstdContent = (toot) => `
-        <div class='par' data-bionRead-safe>${toot.content}</div>
-        <div class='attachments'>${toot.media_attachments.map(renderMstdAttachment).join('')}</div>
-    `;
+    const renderMstdContent = (toot) => {
+        const attachments = 
+            toot.media_attachments.length > 0 
+            ? `<div class='attachments'>${toot.media_attachments.map(renderMstdAttachment).join('')}</div>` 
+            : '';
+
+        return `
+            <div data-bionRead-safe>${toot.content}</div>
+            ${attachments}
+        `;
+    }
 
     const renderMstdAttachment = (attachment) => {
         const attachmentTypes = {
@@ -163,6 +169,7 @@ if (mstdRoot) {
         if (attachmentTypes) {
             return (attachmentTypes[attachment.type] || attachmentTypes.default)();
         }
+
     }
 
     const renderMstdStat = (toot) => `
@@ -171,7 +178,7 @@ if (mstdRoot) {
         ${renderStat(toot.favourites_count, `${toot.url}/favourites`, i18nFavourites, 'favourites')}
     `;
 
-    const tootNode = (toot) => {
+    const renderToot = (toot) => {
         const escapeHtml = (unsafe) => {
             return unsafe
                 .replace(/&/g, '&amp;')
@@ -206,14 +213,14 @@ if (mstdRoot) {
             <article class='fed-comments mstd'>
                 <header class='author'>
                     <img src='${escapeHtml(toot.account.avatar_static)}' height=48 width=48 alt='${user_account(toot.account)}' loading='lazy'/>
-                    <a class='has-aria-label' href='${toot.account.url}' rel='nofollow' aria-label='${user_account(toot.account)}' aria-description='${display_name}'>
+                    <a class='has-aria-label' href='${toot.account.url}' rel='external noreferrer nofollow' aria-label='${user_account(toot.account)}' aria-description='${display_name}'>
                         <span>${toot.account.display_name}</span>
                     </a>
                 </header>
-                <div class='content'>${renderMstdContent(toot)}</div>
+                <div class='content' data-bionRead-safe>${renderMstdContent(toot)}</div>
                 <footer>
                     <div class='stat'>${renderMstdStat(toot)}</div>
-                    <a class='date' href='${toot.url}' rel='ugc nofollow'>
+                    <a class='date' href='${toot.url}' rel='ugc external noreferrer nofollow'>
                         <time datetime='${toISOString(toot.created_at)}'>${toot.edited_at ? '*' : ''}${formatDate(toot.created_at)}</time>
                     </a>
                 </footer>
@@ -223,14 +230,14 @@ if (mstdRoot) {
     }
 
     const renderToots = (toots, in_reply_to) => {
-        const tootsToRender = toots
+        const node = toots
             .filter(toot => toot.in_reply_to_id === in_reply_to);
-        tootsToRender.forEach(toot => {
+        node.forEach(toot => {
             if (toot.in_reply_to_id === mstdRootID) {
                 if (fedRoot) {
-                    fedRoot.appendChild(tootNode(toot));
+                    fedRoot.appendChild(renderToot(toot));
                 } else {
-                    mstdRoot.appendChild(tootNode(toot));
+                    mstdRoot.appendChild(renderToot(toot));
                 }
             } else {
                 const hasChildren = toots.find(t => t.id === toot.in_reply_to_id);
@@ -238,7 +245,7 @@ if (mstdRoot) {
                     const ul = document.createElement('ul');
                     getElement(toot.in_reply_to_id)
                         .appendChild(ul)
-                        .appendChild(tootNode(toot));
+                        .appendChild(renderToot(toot));
                 }
             }
             renderToots(toots, toot.id);

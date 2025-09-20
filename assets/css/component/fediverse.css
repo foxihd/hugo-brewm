@@ -49,7 +49,7 @@
     line-height: calc(var(--baselineStretch) * 1.272);
 }
 
-.fed-comments .par a {
+.fed-comments .content a {
     max-width: 100%;
     vertical-align: bottom;
     white-space: break-spaces;
@@ -72,6 +72,7 @@
 .attachments,
 #comments > summary {
     display: flex;
+    margin: .618pc 0;
     overflow: auto;
 }
 
