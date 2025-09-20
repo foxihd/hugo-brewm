@@ -69,9 +69,10 @@ kbd {
             transition: 0.2s;
     margin: 0 2pt;
     border-radius: 0.7ex;
-    padding: 0.3ex 1ex;
-    font-size: var(--footnotesize);
     box-shadow: var(--box-shadow);
+    padding: 0.3ex 1ex;
+    font-size: 0.8em;
+    font-style: normal;
 }
 
 kbd:hover {
@@ -106,15 +107,15 @@ mark {
 mark::before {
     display: inline-block;
     position: absolute;
-    top: 0;
-    right: -3pt;
-    bottom: 0;
-    left: -3pt;
+    top: -1pt;
+    right: -2pt;
+    bottom: -1pt;
+    left: -2pt;
     z-index: -1;
     background: var(--hl);
     content: '';
     /* inset is simpler but lesser browser support */
-    /* inset: 0 -2pt;  */
+    /* inset: -1pt -2pt;  */
 }
 
 code {

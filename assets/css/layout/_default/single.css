@@ -135,7 +135,8 @@ math[display=block],
 math[display=block]::after {
     position: relative;
     left: 1pc;
-    opacity: 0.86;
+    color: var(--ac);
+    font-size: 1rem;
     content: '(' counter(math) ')';
     counter-increment: math;
 }

@@ -35,7 +35,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     <annotation encoding="application/x-tex">\displaystyle \oint \vec{F} \cdot d\vec{s}=0</annotation>
   </semantics>
 </math>
+<p>Please note that while the marginpar support MathML, the display and counter may not works as intended. Please use KaTeX or MathJax instead.</p>
 {{</marginpar>}}
+
+This page do not load with KaTeX nor MathJax script,
+While all equations on this page is native MathML, the browser support may vary.
 
 <math class=textwidth display=block>
   <semantics>
@@ -58,9 +62,9 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 ### Heading 3
 
 {{<marginpar "safeHTML">}}
-<p>Example table on <kbd>marginpar</kbd> shortcode with <mark>"safeHTM"</mark> attribute to support column spanning:</p>
+<p>Example table on <kbd>marginpar</kbd> shortcode with <mark>"safeHTML"</mark> attribute to support column spanning:</p>
 
-<table style="width:16rem;text-align:center">
+<table style="text-align:center">
   <thead>
     <tr><th colspan=2>Number</th><th>Alphabeth</th>
   </tr>
