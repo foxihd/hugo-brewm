@@ -69,7 +69,8 @@ hr.ldots {
     padding-right: 1rem;
 }
 
-#grain {
+#grain,
+a.section-title::after {
     display: none;
 }
 
