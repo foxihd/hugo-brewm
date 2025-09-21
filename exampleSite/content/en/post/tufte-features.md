@@ -7,7 +7,7 @@ math = true
 title = "Hugo-Tufte Features compatibility"
 subtitle = "Fancy Subtitle"
 toc = true
-categories = ["katex", "latex", "tufte-css"]
+categories = ["latex"]
 +++
 
 This is a quick demonstration post.  It serves as an example of the features

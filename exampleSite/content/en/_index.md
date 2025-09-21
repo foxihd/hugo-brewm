@@ -1,5 +1,6 @@
 ---
-cover: 'https://raw.githubusercontent.com/foxihd/hugo-et-hd/master/static/svg/flowlines/22.svg'
+cover: 'https://cdn.bsky.app/img/feed_fullsize/plain/did:plc:2jc3arh3gtkgork6pycgjsn3/bafkreigbabewvoo6obpgc5drvhqs6bj3tz4eblgmaepvvg5j65fnes2m4q@jpeg'
+alt: 'Wild grass trying to reaches out to the sky'
 keepAspectRatio: true
 ---
 

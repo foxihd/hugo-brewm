@@ -8,7 +8,7 @@ draft: false
 translationKey: markdown
 coffee: 1
 tags: ['markdown']
-categories: ['test']
+categories: ['Latex']
 comments: false
 secnum: true
 ---
@@ -39,7 +39,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 {{</marginpar>}}
 
 This page do not load with KaTeX nor MathJax script,
-While all equations on this page is native MathML, the browser support may vary.
+While all equations on this page is native MathML, the browser supports may vary.
 
 <math class=textwidth display=block>
   <semantics>
