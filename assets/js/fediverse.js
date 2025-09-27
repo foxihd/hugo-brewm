@@ -107,7 +107,7 @@ if (mstdRoot) {
             if (mstdCommentsLoaded) return;
 
             if (!fedRoot) {
-                mstdRoot.innerHTML = i18nLoading;
+                mstdRoot.innerHTML = `<span id=mstdIsLoading class=loading>${i18nLoading}</span>`;
             }
 
             try {
@@ -140,6 +140,7 @@ if (mstdRoot) {
                 }
 
                 mstdCommentsLoaded = true;
+                getElement('mstdIsLoading').remove();
                 mstdRoot.setAttribute('aria-busy', 'false');
 
             } catch (error) {

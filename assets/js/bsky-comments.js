@@ -23,10 +23,10 @@ SOFTWARE.
 */
 
 const bskyRoot = getElement('bsky-comments');
-const skeetURL = bskyRoot.dataset.url;
 
 if (bskyRoot) {
-var bskyCommentsLoaded = false;
+    var bskyCommentsLoaded = false;
+    const skeetURL = bskyRoot.dataset.url;
     const toBskyURL = (uri) => {
     const splitUri = uri.split('/');
     if (splitUri[0] === 'at:') {
@@ -45,7 +45,7 @@ var bskyCommentsLoaded = false;
         if (bskyCommentsLoaded) return;
 
             if (!fedRoot) {
-                bskyRoot.innerHTML = i18nLoading;
+                bskyRoot.innerHTML = `<span id=bskyIsLoading class=loading>${i18nLoading}</span>`;
             }
 
         try {
@@ -82,7 +82,8 @@ var bskyCommentsLoaded = false;
             }
 
             bskyCommentsLoaded = true;
-                bskyRoot.setAttribute('aria-busy', 'false');
+            getElement('bskyIsLoading').remove();
+            bskyRoot.setAttribute('aria-busy', 'false');
 
         } catch (error) {
             console.error(`Bluesky ${i18nErr}`, error);
@@ -104,7 +105,7 @@ var bskyCommentsLoaded = false;
         const textEncoder = new TextEncoder();
         const utf8Decoder = new TextDecoder();
         const utf8Text = new Uint8Array(record.text.length * 3);
-        textEncoder.encodeInto(record.text.replace(/\n/g, '<br />'), utf8Text);
+        textEncoder.encodeInto(record.text, utf8Text);
         var charIdx = 0;
 
         for (const facetIdx in record.facets) {
@@ -127,7 +128,7 @@ var bskyCommentsLoaded = false;
             }
 
             const facetText = utf8Text.slice(facet.index.byteStart, facet.index.byteEnd);
-            richText += `<a href='${facetLink}' target='_blank' rel='external noreferrer nofollow'>` + utf8Decoder.decode(facetText) + '</a>';
+            richText += `<a href='${facetLink}' target='_blank' rel='external noreferrer nofollow'>` + utf8Decoder.decode(facetText) + `</a>`;
 
             charIdx = facet.index.byteEnd;
         }
@@ -137,7 +138,7 @@ var bskyCommentsLoaded = false;
             richText += utf8Decoder.decode(postFacetText);
         }
 
-        return `<p>${richText}</p>`;
+        return `<p>${richText.replace(/\n/g, `<br />`)}</p>`;
     }
 
     const renderBskyAttachment = (post) => {
