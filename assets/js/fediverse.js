@@ -209,7 +209,7 @@ if (mstdRoot) {
         }
 
         const node = document.createElement('li');
-        node.id = toot.id;
+        node.id = `mstd${toot.id}`;
         node.dataset.date = toISOString(toot.created_at);
         node.innerHTML = `
             <article class='fed-comments mstd'>
