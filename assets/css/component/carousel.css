@@ -25,7 +25,6 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
     scrollbar-width: thin;
 }
 

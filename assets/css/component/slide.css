@@ -11,6 +11,10 @@
     font-size: var(--small);
 }
 
+aside .carousel__viewport {
+    scroll-snap-type: x mandatory;
+}
+
 .carousel__viewport__slide > .carousel__nav {
     bottom: 0;
 }
