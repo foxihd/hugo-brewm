@@ -148,11 +148,11 @@ enableRobotsTXT = true
         # username = 'username'
 
     ## Giscus integration settings
-    [params.giscus]
-        repo = "foxihd/hugo-brewm"
-        repoID = "R_kgDONwvqMA"
-        category = "Articles"
-        categoryID = "DIC_kwDONwvqMM4CnXDQ"
+    # [params.giscus]
+    #     repo = "foxihd/hugo-brewm"
+    #     repoID = "R_kgDONwvqMA"
+    #     category = "Articles"
+    #     categoryID = "DIC_kwDONwvqMM4CnXDQ"
 
     ## Logo configuration
     [params.logo]

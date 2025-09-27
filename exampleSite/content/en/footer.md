@@ -14,4 +14,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 <br>
 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+<fieldset id=cookie-banner>
+<legend>Cookie Banner</legend>
+
+We do not collect cookie
+
+<img id="cookieinfo" alt="No Cookie for Cookie Monster" />
+</fieldset>
