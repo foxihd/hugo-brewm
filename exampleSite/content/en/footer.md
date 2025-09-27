@@ -19,5 +19,5 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 We do not collect cookie
 
-<img id="cookieinfo" alt="No Cookie for Cookie Monster" />
+<img id="no-cookie" alt="No Cookie for Cookie Monster" />
 </fieldset>
