@@ -83,6 +83,8 @@ if (bskyRoot) {
 
             bskyCommentsLoaded = true;
             getElement('bskyIsLoading').remove();
+            const bskyItems = getElements('#bsky-comments > li[data-date]');
+            sortComment(bskyItems);
             bskyRoot.setAttribute('aria-busy', 'false');
 
         } catch (error) {
@@ -214,23 +216,28 @@ if (bskyRoot) {
     }
 }
 
+const sortComment = (rootItem) => {
+    const items = Array.from(rootItem);
+    if (items.length > 0) {
+        const index = new Set();
+        items.sort(({ dataset: { date: a } }, { dataset: { date: b } }) => a.localeCompare(b))
+        .forEach((item) => {
+            if (!index.has(item.id)) {
+                index.add(item.id);
+                item.parentNode.appendChild(item);
+            } else {
+                item.remove();
+            }
+        });
+    } else {
+        rootItem.parentNode.innerHTML = i18nNoComment;
+    }
+}
+
 const aggregateComment = () => {
     if (mstdCommentsLoaded && bskyCommentsLoaded) {
-        const items = Array.from(document.querySelectorAll('#fed-comments > li[data-date]'));
-        if (items.length > 0) {
-            const index = new Set();
-            items.sort(({ dataset: { date: a } }, { dataset: { date: b } }) => a.localeCompare(b))
-            .forEach((item) => {
-                    if (!index.has(item.id)) {
-                        index.add(item.id);
-                    item.parentNode.appendChild(item);
-                } else {
-                    item.remove();
-                }
-            });
-        } else {
-            fedRoot.innerHTML = i18nNoComment;
-        }
+        const fedItems = getElements('#fed-comments > li[data-date]');
+        sortComment(fedItems);
         getElement('stats').innerHTML = `
             ${renderStat(replies, skeetURL, i18nReplies, 'replies')}
             ${renderStat(reblogs, `${skeetURL}/reposted-by`, i18nReblogs, 'reblogs')}
