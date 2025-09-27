@@ -245,7 +245,7 @@ if (mstdRoot) {
                 const hasChildren = toots.find(t => t.id === toot.in_reply_to_id);
                 if (hasChildren) {
                     const ul = document.createElement('ul');
-                    getElement(toot.in_reply_to_id)
+                    getElement(`mstd${toot.in_reply_to_id}`)
                         .appendChild(ul)
                         .appendChild(renderToot(toot));
                 }
