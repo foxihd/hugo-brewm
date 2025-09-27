@@ -10,7 +10,7 @@
     {{- end }}
 </head>
 {{- if not (or .Params.headless .Params.target .Params.alias) }}
-<body {{ with .Params.Type }} id="{{ . }}" {{ end -}}>
+<body>
     {{ partial "header.html" . }}
     {{ block "aside" . }}{{ end }}
     {{ "<!-- [main] baseof.html -->" | safeHTML }}
