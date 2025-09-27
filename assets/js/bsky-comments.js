@@ -26,7 +26,7 @@ const bskyRoot = getElement('bsky-comments');
 
 if (bskyRoot) {
     var bskyCommentsLoaded = false;
-    const skeetURL = bskyRoot.dataset.url;
+    var skeetURL = bskyRoot.dataset.url;
     const toBskyURL = (uri) => {
     const splitUri = uri.split('/');
     if (splitUri[0] === 'at:') {
