@@ -62,7 +62,7 @@ if (bskyRoot) {
                 }
 
                     if (!mstdRoot) {
-                    getElement('discussion-starter-content').innerHTML = renderBskyContent(data.thread.post);
+                    getElement('discussion-starter-content').innerHTML = `<div data-bionRead-safe>${renderRichText(data.thread.post.record)}</div>`;
                 }
 
                 if (typeof data.thread.replies != 'undefined' && data.thread.replies.length > 0) {
@@ -149,9 +149,11 @@ if (bskyRoot) {
             const did = post.author.did;
             const embedType = post.embed.$type;
             if (embedType === 'app.bsky.embed.external#view') {
-                const { uri, title, description } = post.embed.external;
+                const { uri, title, description, thumb } = post.embed.external;
                 if (uri.includes('.gif?')) {
                     attachment = `<img src='${uri}' title='${title}' alt='${description}' loading='lazy'>`;
+                } else if (thumb) {
+                    attachment = `<a href='${uri}' aria-label='${title}'><img src='${thumb}' alt='${description}' loading='lazy'></a>`
                 }
             } else if (embedType === 'app.bsky.embed.images#view') {
                 const images = post.record.embed.images;
