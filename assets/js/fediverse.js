@@ -121,6 +121,7 @@ if (mstdRoot) {
                     addToCounter(toot.replies_count, toot.reblogs_count, toot.favourites_count);
                 } else {
                     getElement('stats').innerHTML = renderMstdStat(toot);
+                    getElement('mstdIsLoading').remove();
                 }
                 getElement('discussion-starter-content').innerHTML = renderMstdContent(toot);
 
@@ -135,7 +136,6 @@ if (mstdRoot) {
                 }
 
                 mstdCommentsLoaded = true;
-                getElement('mstdIsLoading').remove();
                 mstdRoot.setAttribute('aria-busy', 'false');
 
             } catch (error) {

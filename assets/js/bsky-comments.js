@@ -59,9 +59,10 @@ if (bskyRoot) {
                     addToCounter(data.thread.post.replyCount, data.thread.post.repostCount, data.thread.post.likeCount);
                 } else {
                     getElement('stats').innerHTML = renderBskyStat(data.thread.post);
+                    getElement('bskyIsLoading').remove();
                 }
 
-                    if (!mstdRoot) {
+                if (!mstdRoot) {
                     getElement('discussion-starter-content').innerHTML = `<div data-bionRead-safe>${renderRichText(data.thread.post.record)}</div>`;
                 }
 
@@ -74,6 +75,8 @@ if (bskyRoot) {
                         fedRoot.appendChild(bskyDOM);
                     } else {
                         bskyRoot.appendChild(bskyDOM);
+                        const bskyItems = getElements('#bsky-comments > li[data-date]');
+                        sortComment(bskyItems);
                 }
             } else {
                     if (!fedRoot) {
@@ -82,9 +85,6 @@ if (bskyRoot) {
             }
 
             bskyCommentsLoaded = true;
-            getElement('bskyIsLoading').remove();
-            const bskyItems = getElements('#bsky-comments > li[data-date]');
-            sortComment(bskyItems);
             bskyRoot.setAttribute('aria-busy', 'false');
 
         } catch (error) {
