@@ -1,10 +1,5 @@
 const cmt = getElement('comments');
-const i18nReplies = cmt.dataset.i18nReplies;
-const i18nReblogs = cmt.dataset.i18nReblogs;
-const i18nFavourites = cmt.dataset.i18nFavourites;
-const i18nLoading = cmt.dataset.i18nLoading;
-const i18nErr = cmt.dataset.i18nErr;
-const i18nNoComment = cmt.dataset.i18nNoComment;
+const { i18nReplies, i18nReblogs, i18nFavourites, i18nLoading, i18nErr, i18nNoComment } = cmt.dataset;
 
 const cmtSty = document.createElement('style');
 cmtSty.textContent = `
