@@ -25,8 +25,8 @@
 {{- define "partials/page/timestamp.html" -}}
     {{- "<!-- timestamp.html-->" | safeHTML }}
     {{- $dateMachine := "2006-01-02T15:04:05-07:00" }}
-    {{- $datePublished := .PublishDate.Format ":date_long" }}
-    {{- $dateModified := .Lastmod.Format ":date_long" }}
+    {{- $datePublished := .PublishDate | time.Format ":date_long" }}
+    {{- $dateModified := .Lastmod | time.Format ":date_long" }}
     {{- $dateOnly := "2006-01-02" }}
     {{- $hasMod := ne (.PublishDate.Format $dateOnly) (.Lastmod.Format $dateOnly) }}
     <div {{ if $hasMod }}class="date-has-label"{{ end }}>
@@ -168,8 +168,8 @@
 {{- define "partials/post/history.html" -}}
     {{- "<!-- history.html -->" | safeHTML }}
     {{- $dateMachine := "2006-01-02T15:04:05-07:00" }}
-    {{- $datePublished := .PublishDate.Format ":date_long" }}
-    {{- $dateModified := .Lastmod.Format ":date_long" }}
+    {{- $datePublished := .PublishDate | time.Format ":date_long" }}
+    {{- $dateModified := .Lastmod | time.Format ":date_long" }}
     {{- $dateOnly := "2006-01-02" }}
     {{- $hasMod := ne (.PublishDate.Format $dateOnly) (.Lastmod.Format  $dateOnly) }}
     {{- $details := .Params.History }}
