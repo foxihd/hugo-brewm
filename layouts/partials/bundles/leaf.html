@@ -25,11 +25,10 @@
 {{- define "partials/page/timestamp.html" -}}
     {{- "<!-- timestamp.html-->" | safeHTML }}
     {{- $dateMachine := "2006-01-02T15:04:05-07:00" }}
-    {{- $minVersion := index ( split hugo.Version "." ) 1 }}
-    {{- $datePublished := cond (lt $minVersion 87) (.PublishDate.Format ( i18n "date_long" )) (.PublishDate | time.Format ":date_long") }}
-    {{- $dateModified := cond (lt $minVersion 87) (.Lastmod.Format ( i18n "date_long" )) (.Lastmod | time.Format ":date_long") }}
+    {{- $datePublished := .PublishDate.Format ":date_long" }}
+    {{- $dateModified := .Lastmod.Format ":date_long" }}
     {{- $dateOnly := "2006-01-02" }}
-    {{- $hasMod := ne (.PublishDate.Format $dateOnly) (.Lastmod.Format  $dateOnly) }}
+    {{- $hasMod := ne (.PublishDate.Format $dateOnly) (.Lastmod.Format $dateOnly) }}
     <div {{ if $hasMod }}class="date-has-label"{{ end }}>
         <time class="doc-publish-date" datetime="{{ .PublishDate.Format $dateMachine }}" data-time-label="{{ i18n "published" }} {{ i18n "on" | lower }}">
             {{- $datePublished -}}
@@ -169,9 +168,8 @@
 {{- define "partials/post/history.html" -}}
     {{- "<!-- history.html -->" | safeHTML }}
     {{- $dateMachine := "2006-01-02T15:04:05-07:00" }}
-    {{- $minVersion := index ( split hugo.Version "." ) 1 }}
-    {{- $datePublished := cond (lt $minVersion 87) (.PublishDate.Format ( i18n "date_long" )) (.PublishDate | time.Format ":date_long") }}
-    {{- $dateModified := cond (lt $minVersion 87) (.Lastmod.Format ( i18n "date_long" )) (.Lastmod | time.Format ":date_long") }}
+    {{- $datePublished := .PublishDate.Format ":date_long" }}
+    {{- $dateModified := .Lastmod.Format ":date_long" }}
     {{- $dateOnly := "2006-01-02" }}
     {{- $hasMod := ne (.PublishDate.Format $dateOnly) (.Lastmod.Format  $dateOnly) }}
     {{- $details := .Params.History }}

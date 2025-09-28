@@ -52,45 +52,6 @@
     </li>
 {{- end }}
 
-{{- define "partials/legacy/breadcrumb.html" -}}
-    {{ "<!-- legacy/breadcrumb.html -->" | safeHTML }}
-    <details id="has-breadcrumb" class="presentation" aria-expanded="true" open>
-        <summary id="breadcrumb" tabindex="-1">
-            <span>{{- i18n "breadcrumb"}}</span>
-        </summary>
-        {{ partial "breadcrumb/menu.html" . }}
-        <nav aria-labelledby="breadcrumb">
-            <ul class="breadcrumb ldots" role="presentation">
-                {{- if .IsTranslated -}}
-                    <li id="is-translated">
-                        {{ partial "l10n.html" ( dict "page" . ) }}
-                    </li>
-                {{- end }}
-                {{ partial "legacy/breadcrumb/loop.html" . }}
-                <li>
-                    <a href="{{ .Permalink }}" aria-current="page" tabindex="-1">
-                        <span>{- .Title }}</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </details>
-{{- end }}
-
-{{- define "partials/legacy/breadcrumb/loop.html" -}}
-    {{ "<!-- legacy/breadcrumb/loop.html -->" | safeHTML }}
-    {{- with .Parent }}
-        {{ partial "legacy/breadcrumb/loop.html" . }}
-        {{- if not .IsHome }}
-            <li>
-                <a href="{{ .Permalink }}" aria-current="true">
-                    <span>{{ .Title }}</span>
-                </a>
-            </li>
-        {{- end }}
-    {{- end }}
-{{- end }}
-
 {{- define "partials/nav/paginator.html" -}}
     {{ "<!-- paginator.html -->" | safeHTML }}
     {{- $page := .page }}
