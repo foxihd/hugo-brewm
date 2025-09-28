@@ -448,6 +448,27 @@ menu.srm--a .srt,
     margin: 2pt;
 }
 
+#print-button::before {
+    font-family: 'base-ui';
+    content: '\e90c';
+}
+
+#copyPermalink::before {
+    font-family: base-ui;
+    content: '\e905';
+}
+
+#back::before {
+    width: 2rem;
+}
+
+#back {
+    position: relative;
+    top: 3pt;
+    float: left;
+    padding: 0;
+}
+
 .srm--a + #back::before {
     content: unset;
 }

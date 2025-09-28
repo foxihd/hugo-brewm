@@ -5,14 +5,8 @@ main > header.pagewidth {
 
 main > header > menu {
     float: right;
-    visibility: hidden;
     margin: 0 0 0 auto;
     padding: 0;
-}
-
-main#term > header > menu,
-main#page > header > menu {
-    visibility: visible;
 }
 
 #back,
@@ -35,10 +29,6 @@ header menu a,
     width: 2.25em;
     text-align: center;
     font-size: var(--normalsize);
-}
-
-#back::before {
-    width: 2rem;
 }
 
 #bionReadSwitch + label,
@@ -70,31 +60,14 @@ menu a .t,
     content: '\e910';
 }
 
-#print-button::before {
-    font-family: 'base-ui';
-    content: '\e90c';
-}
-
 #navigatorShare::before {
     font-family: 'base-ui';
     content: '\e912';
 }
 
-#copyPermalink::before {
-    font-family: base-ui;
-    content: '\e905';
-}
-
 label .t::after,
 main#term #print-button {
     visibility: hidden;
-}
-
-#back {
-    position: relative;
-    top: 3pt;
-    float: left;
-    padding: 0;
 }
 
 .pagination .rfill a::before,
