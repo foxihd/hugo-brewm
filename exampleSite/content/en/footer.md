@@ -16,8 +16,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 <fieldset id=cookie-banner>
 <legend>Cookie Banner</legend>
-
-We do not collect cookie
-
+<div>
+<span>We do not collect cookie</span>
 <img id="no-cookie" alt="No Cookie for Cookie Monster" />
+</div>
 </fieldset>

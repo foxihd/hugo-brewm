@@ -30,9 +30,8 @@
     --hl: yellow;
 }
 
-#cookie-banner {
-    display: grid;
-    grid-template-columns: auto auto;
+#cookie-banner > div {
+    display: flex;
     align-items: center;
     justify-content: space-between;
 }
