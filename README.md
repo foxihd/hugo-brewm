@@ -16,15 +16,15 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 - **Reader-first**: Prioritizes speed[^1], privacy[^2], readability and accessibility with personalized  settings for colors, fonts, BionRead and focus mode (It's Tracker Free!).
 - **Inclusive**: Graceful degradation design[^3] oriented with improved semantic HTML structure & WAI-ARIA attribute, printer-friendly plain vanilla website that remains fully functional even when JavaScript is disabled!
 - **Scalable**: Start small and grow into a thriving digital garden; with multi-author support, multilingual capabilities and content organization through taxonomy. Features include optional Pagefind search integration, RSS feed syndication (site-wide and series-specific), external feed embed over RSS, and social engagement via Giscus, Mastodon and Bluesky comments.
-- **Frameworkless**: Lower maintenance & carbon footprint by lesser resource usage. Hugo-brewm's combined JavaScript and stylesheet assets (excluding optional external libraries like MathJax, Katex or PageFind) totaling under 110KB and compressed to less than 30KB when Gzipped!
+- **Frameworkless**: Lower maintenance & carbon footprint by lesser resource usage. Hugo-brewm's combined JavaScript and stylesheet assets (excluding optional external libraries like MathJax, Katex or PageFind) totaling under 140KB and compressed to less than 55KB when Gzipped!
 
     > All web assets listed below may be fetched once until the cache is purged or expired.
 
     | Assets Filename    |    Size | Gzipped | Note                                          |
     | ------------------ | ------: | ------: | :-------------------------------------------- |
-    | hugo-brewm.min.css | ~91.1KB | ~36.4KB | Compiled site-wide stylesheet and basic icon font, could be less  |
-    | hugo-brewm.min.js  | ~32.2KB |  ~10.5KB | Compiled site-wide javascript, could be less  |
-    | fediverse.min.js   | ~13.1KB |  ~4.1KB | Mastodon & Bluesky comments, load if required |
+    | hugo-brewm.min.css | ~93.6KB | ~38.3KB | Compiled site-wide stylesheet and basic icon font, could be less  |
+    | hugo-brewm.min.js  | ~33.2KB |  ~11.0KB | Compiled site-wide javascript, could be less  |
+    | fediverse.min.js   | ~12.7KB |  ~4.2KB | Mastodon & Bluesky comments, load if required |
 
 ## Acknowledgement
 
@@ -267,7 +267,6 @@ random-cat-directory/
     └── ...
 ```
 
-
 ### Deploy on GitHub Pages
 
 To deploy your Hugo site with PageFind on GitHub Pages, copy the workflow file from [./themes/hugo-brewm/github/workflows/hugo.yml](https://github.com/foxihd/hugo-brewm/blob/main/.github/workflows/hugo.yml) to your repository's workflow directory and start the GitHub Action.
@@ -455,8 +454,10 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         colophon = true
         ## disable redaction history
         disableHistory = false
-        ## SHow related content
+        ## Show related content
         related = true
+        ## override maximum series/related post count
+        # RelatedLimit = 5
         ## Show share buttons
         share = true
         ## enable section numbering
@@ -506,6 +507,16 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         sans = 'inter'
         ## Host fonts on local host instead of GitHub
         localHost = true
+```
+
+## Exploring how Hugo works with exampleSite on this Theme
+
+You can help to develop or explore exampleSite with Hugo live preview feature by following command:
+
+```
+hugo serve --minify \
+--source exampleSite \
+--themesDir ../.. 
 ```
 
 ## Support

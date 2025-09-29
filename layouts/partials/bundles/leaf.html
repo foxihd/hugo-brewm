@@ -252,26 +252,28 @@
 
 {{- define "partials/post/related.html" -}}
     {{- "<!-- related.html -->" | safeHTML }}
-    {{- $related := site.RegularPages.Related . | first 5 }}
+    {{- $n := default 5 site.Params.Posts.RelatedLimit }}
+    {{- $related := site.RegularPages.Related . | first $n }}
     {{- $series := .GetTerms "series" }}
     {{- if or $related $series }}
     <nav id="related" aria-label="{{ i18n "related" }}">
-        <strong class="section-title">{{ i18n "related" }}</strong>
         {{- if $series }}
-            {{- range $series | first 1 -}}
+            {{- range $series | first $n -}}
+            <strong class="section-title">{{ i18n "series" }}: {{ .Title }}</strong>
                 <ol>
-                {{- range .Pages | first 5 }}
+                {{- range .Pages.ByWeight | first 5 }}
                     {{ if ne $ . -}}
                         <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
                     {{- end }}
                 {{- end }}
-                {{- if gt (len .Pages) 5 }}
-                    <li class="see-more"><a href="{{ .Permalink }}">{{ i18n "series" }}: {{ .Title }}</a></li>
+                {{- if gt (len .Pages) $n }}
+                    <li class="see-more"><a href="{{ .Permalink }}">{{ i18n "seeAll" }}: {{ .Title }}</a></li>
                 {{- end }}
                 </ol>
             {{- end }}
         {{- else if $related }}
             {{- with $related -}}
+            <strong class="section-title">{{ i18n "related" }}</strong>
                 <ol>
                     {{- range . }}
                     <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>

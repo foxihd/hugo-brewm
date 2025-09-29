@@ -191,8 +191,10 @@ enableRobotsTXT = true
         colophon = true
         ## disable redaction history
         disableHistory = false
-        ## SHow related content
+        ## Show related content
         related = true
+        ## override maximum series/related post count
+        # RelatedLimit = 5
         ## Show share buttons
         share = true
 
