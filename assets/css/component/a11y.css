@@ -438,7 +438,8 @@ body.sr-user {
     --tt: monospace;
 }
 
-menu.srm--a a::before {
+menu.srm--a a::before,
+menu.srm--a button::before {
     display: none;
 }
 
