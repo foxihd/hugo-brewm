@@ -18,11 +18,10 @@
 .st {
     display: inline-block;
     margin: 0 1ex 0 0;
-    background: var(--svg) 50% / cover;
+    background: var(--svg) 50% / contain;
     padding: 0.5em;
     width: 1.5em;
     height: 1.5em;
-    overflow: visible;
 }
 
 #series + .st,
