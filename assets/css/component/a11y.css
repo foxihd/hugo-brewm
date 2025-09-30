@@ -438,8 +438,7 @@ body.sr-user {
     --tt: monospace;
 }
 
-menu.srm--a a::before,
-menu.srm--a button::before {
+menu.srm--a > *::before {
     display: none;
 }
 
@@ -489,7 +488,7 @@ menu.srm--a + #back {
     display: none;
 }
 
-menu.srm--a a,
+menu.srm--a > *,
 #to-top.srm--a {
     width: unset;
     font-size: 1rem;
