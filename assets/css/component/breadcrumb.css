@@ -71,7 +71,7 @@ main#term #print-button {
 }
 
 .pagination .rfill a::before,
-.carousel__viewport__slide:last-child > nav a::before,
+.slide:last-child > nav a::before,
 #back::before {
     --tsf: rotate(-90deg) translateX(1pt);
     font-family: base-ui;

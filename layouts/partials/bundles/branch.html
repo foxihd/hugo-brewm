@@ -160,9 +160,9 @@
     {{ "<!-- listing.html -->" | safeHTML }}
     {{- $entry := .entry }}
     {{- if index site.Taxonomies $entry }}
-        <section id="list-{{ $entry }}" class="carousel" aria-label="{{ $entry }}">
+        <section id="list-{{ $entry }}" class="has-crsl" aria-label="{{ $entry }}">
             <a href="{{ absLangURL $entry }}"  class="section-title">{{ i18n $entry }}</a>
-            {{ partial "taxonomies.html" (dict "taxonomy" $entry "class" "carousel__viewport" "cover" true "withPages" false ) }}
+            {{ partial "taxonomies.html" (dict "taxonomy" $entry "class" "crsl" "cover" true "withPages" false ) }}
         </section>
     {{- end }}
 {{- end }}
@@ -171,10 +171,10 @@
     {{ "<!-- carousel.html -->" | safeHTML }}
     {{- $slides := where .Site.RegularPages "Type" "slide" }}
     {{- with $slides }}
-        <aside class="carousel">
+        <aside class="has-crsl">
             {{- $numSlides := len . }}
             {{- if gt $numSlides 2 }}
-                <nav class="carousel__nav" aria-label="{{ i18n "slide" }}">
+                <nav class="crsl__nav" aria-label="{{ i18n "slide" }}">
                     <ul class="rounded invert" role="presentation">
                         {{- range $index, $slide := . }}
                             <li>
@@ -187,20 +187,20 @@
                 </nav>
             {{- end }}
 
-            <div class="carousel__viewport">
+            <div class="crsl">
                 {{- range $index, $slide := . }}
                     {{- $slideNum := add $index 1 }}
-                    <section id="slide-{{ $slideNum }}" class="carousel__viewport__slide"
+                    <section id="slide-{{ $slideNum }}" class="slide"
                         aria-labelledby="slide-{{ $slideNum }}__heading">
                         {{- $hasCover := partial "page/cover.html" (dict "page" .Page) }}
                         {{- $alt := or .Page.Params.Alt .Page.Params.coverAlt .Page.Params.imagesAlt }}
                         {{- if or $hasCover }}
-                        <div class="carousel__viewport__slide__cover">
+                        <div class="slide__cover">
                             <img src="{{ $hasCover }}"
                                 alt="{{ with $alt }}{{ . }}{{ end }}" {{ if ne $slideNum 1 }}loading="lazy"{{ end }}>
                         </div>
                         {{- end }}
-                        <div class="carousel__viewport__slide__content {{ with .Params.TextColor }}{{ . }}{{ end }}">
+                        <div class="slide__content {{ with .Params.TextColor }}{{ . }}{{ end }}">
                             {{- with .Title }}
                                 <h1 id="slide-{{ $slideNum }}__heading" class="section-title">{{ . }}</h1>
                             {{- end }}
@@ -216,7 +216,7 @@
 
                             simple prev/next pair for 2 slides */}}
                         {{- if eq $numSlides 2 }}
-                            <nav class="carousel__nav">
+                            <nav class="crsl__nav">
                                 {{- range $navIndex, $navSlide := $slides }}
                                     {{- if ne $slideNum (add $navIndex 1) }}
                                     {{ $rel := cond (eq $navIndex 1) "next" "prev" }}

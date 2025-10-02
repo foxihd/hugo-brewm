@@ -172,9 +172,9 @@ enableRobotsTXT = true
 
     ## Home page display settings
     [params.home]
-        ## Enable slide carousel
+        ## Enable slide has-crsl
         disableSlide = false
-        ## Enable taxonomy listing carousel
+        ## Enable taxonomy listing has-crsl
         disableListing = false
         ## Select taxonomy listing to be featured
         featuredListing = ['categories', 'series']

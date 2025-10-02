@@ -1,8 +1,8 @@
 /*
 <!----- V container ----->
-<div class='has-carousel'>
+<div class='has-crsl'>
     <!--- H container --->
-    <div class='carousel'>
+    <div class='crsl'>
         <div>----  <div>----  <div>----  <div>---- <div>----
         |       |  |       |  |       |  |       |  |       |
         |       |  |       |  |       |  |       |  |       |
@@ -13,13 +13,13 @@
     </div>
 <div>
 */
-.carousel {
+.has-crsl {
     position: relative;
     width: 100%;
     overflow: hidden;
 }
 
-.carousel__viewport {
+.crsl {
     display: flex;
     height: 100%;
     overflow-x: auto;
@@ -28,15 +28,15 @@
     scrollbar-width: thin;
 }
 
-ul.carousel__viewport {
+ul.crsl {
     border: none;
     padding: 0;
 }
 
-.carousel__viewport > div,
-.carousel__viewport > section,
-ul.carousel__viewport > li,
-.carousel__viewport__slide {
+.crsl > div,
+.crsl > section,
+ul.crsl > li,
+.slide {
     display: flex;
     position: relative;
     flex-direction: row;
@@ -47,7 +47,7 @@ ul.carousel__viewport > li,
     scroll-snap-align: start;
 }
 
-ul.carousel__viewport > li {
+ul.crsl > li {
     position: relative;
     margin: 1ex;
     border-radius: 1ex;
@@ -56,7 +56,7 @@ ul.carousel__viewport > li {
     height: 12.8rem;
 }
 
-ul.carousel__viewport > li > a {
+ul.crsl > li > a {
     position: absolute;
     top: -1px;
     right: 0;
@@ -70,13 +70,13 @@ ul.carousel__viewport > li > a {
     border: none;
 }
 
-ul.carousel__viewport > li:hover,
-ul.carousel__viewport > li:focus-within {
+ul.crsl > li:hover,
+ul.crsl > li:focus-within {
     --tsf: scale(0.96);
     opacity: 0.86;
 }
 
-ul.carousel__viewport > li > a > span {
+ul.crsl > li > a > span {
     position: relative;
     border-radius: 0 1ex 1ex 0;
     background-color: var(--bg);
@@ -86,8 +86,8 @@ ul.carousel__viewport > li > a > span {
             box-decoration-break: clone;
 }
 
-ul.carousel__viewport > li > a > span::before,
-ul.carousel__viewport > li > a > span::after {
+ul.crsl > li > a > span::before,
+ul.crsl > li > a > span::after {
     position: absolute;
     border-top-left-radius: 1ex;
     box-shadow: 0 -1ex 0 0 var(--bg);
@@ -97,18 +97,18 @@ ul.carousel__viewport > li > a > span::after {
     content: '';
 }
 
-ul.carousel__viewport > li > a > span::before {
+ul.crsl > li > a > span::before {
     bottom: -2ex;
     left: 0;
 }
 
-ul.carousel__viewport > li > a > span::after {
+ul.crsl > li > a > span::after {
     top: 0.5ex;
     right: -0.9ex;
 }
 
 .tr,
-.carousel__viewport__slide > nav a {
+.slide > nav a {
     display: inline-flex;
     padding: 1ex;
     gap: 1ex;
@@ -117,14 +117,14 @@ ul.carousel__viewport > li > a > span::after {
 a.section-title::after,
 .pagination .lfill a::after,
 .tr::after,
-.carousel__viewport__slide:first-child > nav a::after {
+.slide:first-child > nav a::after {
     /* -> */
     --tsf: rotate(90deg);
     font-family: base-ui;
     content: '\e902';
 }
 
-#list-taxonomy > .carousel__viewport {
+#list-taxonomy > .crsl {
     flex-direction: column;
     height: 14.75rem;
     overflow-y: auto;
@@ -135,11 +135,11 @@ a.section-title::after,
     margin: 1rem 0;
 }
 
-#list-taxonomy ul.carousel__viewport {
+#list-taxonomy ul.crsl {
     scrollbar-width: thin;
 }
 
-#list-taxonomy ul.carousel__viewport a:hover::after {
+#list-taxonomy ul.crsl a:hover::after {
     position: absolute;
     right: 1ex;
     bottom: 1ex;

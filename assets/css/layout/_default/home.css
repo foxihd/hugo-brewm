@@ -10,7 +10,7 @@ body > header.pagewidth {
     padding: 0 calc(1.5rem + 1ex);
 }
 
-body > aside.carousel {
+body > aside.has-crsl {
     position: sticky;
     position: -webkit-sticky;
     left: 0;
@@ -48,7 +48,7 @@ div[role="feed"] {
     padding: 0 1ex;
 }
 
-.carousel .feed-item,
+.has-crsl .feed-item,
 #home .feed-item,
 hr.ldots {
     width: unset;
@@ -75,7 +75,7 @@ a.section-title::after {
 }
 
 @media (max-width: 960px) {
-    body > aside.carousel {
+    body > aside.has-crsl {
         float: unset;
         padding: 0;
         width: unset;

@@ -1,18 +1,3 @@
-/*
-<!----- V container ----->
-<div class='has-carousel'>
-    <!--- H container --->
-    <div class='carousel'>
-        <div>----  <div>----  <div>----  <div>---- <div>----
-        |       |  |       |  |       |  |       |  |       |
-        |       |  |       |  |       |  |       |  |       |
-        |       |  |       |  |       |  |       |  |       |
-        |       |  |       |  |       |  |       |  |       |
-        ---</div>  |       |  ---</div>  |       |  ---</div>
-                   ---</div>             ---</div>
-    </div>
-<div>
-*/
 .hero {
     display: flex;
     position: relative;

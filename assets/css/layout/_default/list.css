@@ -19,12 +19,12 @@ hr.ldots::after {
     padding: 0 calc(1rem - 1ex);
 }
 
-#list-subsection .carousel__viewport,
-#taxonomy .carousel__viewport {
+#list-subsection .crsl,
+#taxonomy .crsl {
     padding: 0 1rem;
 }
 
-#list-taxonomy .carousel {
+#list-taxonomy .has-crsl {
     display: flex;
     flex-direction: row-reverse;
     flex-wrap: nowrap;
@@ -57,12 +57,12 @@ hr.ldots::after {
     width: unset;
 }
 
-#taxonomy .carousel .section-title {
+#taxonomy .has-crsl .section-title {
     margin: var(--bigskip) 0 var(--smallskip);
     writing-mode: unset;
 }
 
-.carousel + .carousel {
+.has-crsl + .has-crsl {
     margin-top: 2rem;
 }
 

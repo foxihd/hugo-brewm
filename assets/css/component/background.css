@@ -17,9 +17,9 @@
 #lightSwitch + label::before,
 #setContrast,
 #colorPalette,
-ul.carousel__viewport > li > a > span::before,
-ul.carousel__viewport > li > a > span::after,
-ul.carousel__viewport > li > a > span,
+ul.crsl > li > a > span::before,
+ul.crsl > li > a > span::after,
+ul.crsl > li > a > span,
 #list-categories a:hover::after,
 .letterine > i {
     -webkit-transition: var(--flashGuard);
