@@ -6,7 +6,7 @@
     languageName = 'English'
     [en.pagination]
         disableAliases = false
-        pagerSize = 12
+        pagerSize = 6
         path = 'page'
 
 [id]
