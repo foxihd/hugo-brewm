@@ -1,0 +1,64 @@
+.pagefind-ui {
+    display: flex;
+    flex-direction: column;
+    border: var(--border);
+    border-radius: 1ex;
+    background: var(--bg);
+    padding: 1.414ex;
+    overflow-y: auto;
+    gap: 1ex;
+}
+
+.pagefind-ui__drawer p {
+    margin: 0;
+}
+
+.pagefind-ui__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1ex;
+}
+
+.pagefind-ui__search-input {
+    margin: 1ex 1ex 0.5ex;
+    border: 0;
+    border-bottom: 2pt solid var(--g18s);
+    background: none;
+    padding: 1ex !important;
+    color: var(--fg);
+}
+
+.pagefind-ui__drawer {
+    margin: 0 1ex;
+    padding: 0 1ex;
+}
+
+p.pagefind-ui__message {
+    margin: 1ex 0;
+}
+
+.pagefind-ui__result-excerpt {
+    color: var(--mid);
+    font-size: var(--small);
+}
+
+ol.pagefind-ui__results {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pagefind-ui__result {
+    margin-bottom: 1rem;
+}
+
+a.pagefind-ui__result-link {
+    border-bottom: 0 !important;
+    padding: 1ex 1ex 0.5ex !important;
+    font-weight: 550;
+}
+
+.pagefind-ui__result-excerpt {
+    padding: 0 1ex;
+    font-size: 0.9em;
+}

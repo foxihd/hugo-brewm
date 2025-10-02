@@ -58,7 +58,6 @@
     (resources.Get "css/component/breadcrumb.css")
     (resources.Get "css/component/column.css")
     (resources.Get "css/component/keyframe.css")
-    (resources.Get "css/component/logotype.css")
     (resources.Get "css/component/link.css")
     (resources.Get "css/component/menu.css")
     (resources.Get "css/component/skipper.css")
@@ -82,9 +81,19 @@
 
 {{- $extrasSty := slice }}
 
+{{- $logotype := resources.Get "css/component/logotype.css" }}
+{{- if site.Params.logo.logoType }}
+    {{- $extrasSty = $extrasSty | append $logotype }}
+{{- end }}
+
 {{- $search := resources.Get "css/component/search.css" }}
 {{- if site.Params.search.enable }}
     {{- $extrasSty = $extrasSty | append $search }}
+{{- end }}
+
+{{- $pagefind := resources.Get "css/component/pagefind.css" }}
+{{- if site.Params.search.pagefind }}
+    {{- $extrasSty = $extrasSty | append $pagefind }}
 {{- end }}
 
 {{- $garden := resources.Get "css/component/garden.css" }}
