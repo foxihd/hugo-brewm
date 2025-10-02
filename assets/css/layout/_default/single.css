@@ -166,6 +166,16 @@ math[display=block]::after {
     width: calc(100% - var(--indent));
 }
 
+#content ul > li::marker {
+    content: '✦   ';
+    font-size: 0.7em;
+}
+
+#content ul > li li::marker {
+    content: '✧   ';
+    font-size: 0.7em;
+}
+
 /* article backmatter */
 
 #main-article > footer {
