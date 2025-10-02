@@ -22,7 +22,7 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 
     | Assets Filename    |    Size | Gzipped | Note                                          |
     | ------------------ | ------: | ------: | :-------------------------------------------- |
-    | hugo-brewm.min.css | ~93.6KB | ~38.3KB | Compiled site-wide stylesheet and basic icon font, could be less  |
+    | hugo-brewm.min.css | ~93.0KB | ~38.3KB | Compiled site-wide stylesheet and basic icon font, could be less  |
     | hugo-brewm.min.js  | ~33.2KB |  ~11.0KB | Compiled site-wide javascript, could be less  |
     | fediverse.min.js   | ~12.7KB |  ~4.2KB | Mastodon & Bluesky comments, load if required |
 
@@ -125,6 +125,14 @@ hugo serve --minify --port=8080 --bind=0.0.0.0 --baseURL=http://192.168.0.1
 
 > [!IMPORTANT]
 > Please use the `--minify` options to strip white spaces; otherwise, some elements will have additional spaces.
+
+> [!NOTE]
+> You can also explore on how Hugo works with exampleSite on this theme with following command:
+    ```
+    hugo serve --minify \
+    --source exampleSite \
+    --themesDir ../.. 
+    ```
 
 4. With Hugo running, you can now live configure your site and begin writing articles. Some templates might persist until you clear the build cache, please stop the running hugo server (`ctrl + c`) and before you rebuild, run:
 
@@ -507,16 +515,6 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         sans = 'inter'
         ## Host fonts on local host instead of GitHub
         localHost = true
-```
-
-## Exploring how Hugo works with exampleSite on this Theme
-
-You can help to develop or explore exampleSite with Hugo live preview feature by following command:
-
-```
-hugo serve --minify \
---source exampleSite \
---themesDir ../.. 
 ```
 
 ## Support
