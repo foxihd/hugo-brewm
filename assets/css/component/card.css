@@ -128,7 +128,7 @@ ul.pagination {
 
 .pagination a {
     display: flex;
-    padding: 1ex 1em;
+    padding: 1ex;
     text-transform: uppercase;
     letter-spacing: 0.2ex;
     color: var(--ac);

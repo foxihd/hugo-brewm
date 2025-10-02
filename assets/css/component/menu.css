@@ -334,10 +334,6 @@ a#has-i18n:active > .alt {
         --tso: top;
     }
 
-    li.lfill {
-        margin-left: unset;
-    }
-
     .has-childfree li,
     .has-childfree li.lfill {
         margin: auto;
