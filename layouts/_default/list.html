@@ -168,7 +168,7 @@
                 {{- if eq .Data.Singular "tag" }}
                     {{ template "taxonomy-listing" }}
                 {{- else }}
-                    <h1 id="{{ .Data.Plural }}">{{ .Data.Plural }}</h1>
+                    <h1 id="{{ .Data.Plural }}">{{ i18n .Data.Plural }}</h1>
                     {{ partial "taxonomies.html" (dict "taxonomy" .Data.Plural "class" "taxonomy" "cover" false "withPages" true ) }}
                 {{- end }}
             </section>
