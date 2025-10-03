@@ -12,7 +12,7 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 ![A11y Console](https://repository-images.githubusercontent.com/923527728/46a32a19-69ac-45b3-91a4-c4d299fb234b)
 
 > [!TIP]
-> Always keep hugo-brewm up-to-date for better user experience, maximum performancem and resource efficiency.
+> Always keep hugo-brewm up-to-date for better user experience, maximum performance and resource efficiency.
 > See [Updating Theme](#updating-theme) section for more detailed information, or run the following command:  
 > `git submodule update --remote --merge themes/hugo-brewm`
 
@@ -133,11 +133,7 @@ hugo serve --minify --port=8080 --bind=0.0.0.0 --baseURL=http://192.168.0.1
 
 > [!NOTE]
 > You can also explore on how Hugo works with exampleSite on this theme with following command:  
-    ```
-    hugo serve --minify \
-    --source exampleSite \
-    --themesDir ../.. 
-    ```
+> `hugo serve --minify --source exampleSite --themesDir ../.. `
 
 4. With Hugo running, you can now live configure your site and begin writing articles. Some templates might persist until you clear the build cache, please stop the running hugo server (`ctrl + c`) and before you rebuild, run:
 
