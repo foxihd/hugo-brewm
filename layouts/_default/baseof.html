@@ -14,10 +14,7 @@
     {{ partial "header.html" . }}
     {{ block "aside" . }}{{ end }}
     {{ "<!-- [main] baseof.html -->" | safeHTML }}
-    <main id="{{ .Kind }}" 
-        {{- if eq .Kind "page" }}
-            class="{{- if eq .Params.type (or "post" "posts") -}}
-                posts{{ else }}pages{{ end }}"
+    <main id="{{ .Kind }}" {{- if eq .Kind "page" }}class="{{- with .Params.type -}}{{ . }}{{ else }}page{{ end }}"
         {{ end -}}>
         {{ partial "main/header.html" . }}
         <div id="top" role="presentation">
