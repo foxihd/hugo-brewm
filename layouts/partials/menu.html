@@ -24,7 +24,7 @@
     <details id="{{ printf "has-%s-menu" $menuID }}" {{ if $more }}class="presentation js-details" name="on-deck"{{ else }}class="presentation"{{ end }} {{ $open | safeHTMLAttr -}}>
         <summary {{ if $more }} accesskey="=" class="on-deck srm" {{ else }} class="hide" {{ end }} aria-label="{{ i18n $menuID }}">
             {{ if $more -}}
-                <span class="t t2 srt">{{ i18n $menuID }}</span>
+                <span class="t srt">{{ i18n $menuID }}</span>
                 <span class="menu-icon sri" role="presentation"></span>
             {{- else -}}
                 <span>{{ i18n $menuID }}</span>

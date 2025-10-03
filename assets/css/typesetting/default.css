@@ -274,12 +274,6 @@ details.presentation > summary {
     font: var(--scriptsize) var(--sf), sans-serif;
 }
 
-.t.t2 {
-    --tsf: unset;
-    display: block;
-    top: var(--vhead);
-}
-
 .t::after {
     position: absolute;
     bottom: 100%;

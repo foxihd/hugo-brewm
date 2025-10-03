@@ -121,6 +121,12 @@ a#has-i18n {
     gap: 3pt;
 }
 
+.on-deck .t {
+    --tsf: unset;
+    display: block;
+    top: var(--vhead);
+}
+
 /* item on 'plank' */
 
 .on-plank {
