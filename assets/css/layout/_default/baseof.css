@@ -129,6 +129,16 @@ body > footer {
     width: var(--golden-ratio);
 }
 
+#logo {
+    --h: calc(3.33rem - 10pt);
+    border: none;
+}
+
+#logo,
+#logo > * {
+    height: var(--h);
+}
+
 #main-footer {
     position: relative;
     margin: 1in 1em 1em;

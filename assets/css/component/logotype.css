@@ -17,18 +17,11 @@
     https://codepen.io/alvarotrigo/pen/rNbxNWg */
 
 #logo {
-    --h: calc(3.33rem - 10pt);
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 5pt 0;
-    border: none;
     max-width: calc(100% - 5rem);
-    height: var(--h);
-}
-
-#logo > * {
-    height: var(--h);
 }
 
 #logo #logotype__text {
