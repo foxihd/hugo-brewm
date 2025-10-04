@@ -114,7 +114,6 @@
         (dict "platform" "pinterest" "url" (printf "https://pinterest.com/pin/create/button/?url=%s&media=%s&description=%s" $page.Permalink $page.Permalink ($page.Title | htmlEscape)))
         (dict "platform" "reddit" "url" (printf "https://reddit.com/submit/?url=%s&resubmit=true&title=%s" $page.Permalink ($page.Title | htmlEscape)))
         (dict "platform" "tumblr" "url" (printf "https://www.tumblr.com/widgets/share/tool?posttype=link&title=%s&caption=%s&content=%s&canonicalUrl=%s" ($page.Title | htmlEscape) ($page.Title | htmlEscape) $page.Permalink $page.Permalink))
-        (dict "platform" "vk" "url" (printf "http://vk.com/share.php?title=%s&url=%s" ($page.Title | htmlEscape) $page.Permalink))
         (dict "platform" "threads" "url" (printf "https://threads.net/intent/post?text=%s&url=%s" ($page.Title | htmlEscape) $page.Permalink))
         (dict "platform" "twitter" "url" (printf "https://twitter.com/intent/tweet/?text=%s&url=%s" ($page.Title | htmlEscape) $page.Permalink))
         (dict "platform" "xing" "url" (printf "https://www.xing.com/app/user?op=share;url=%s;title=%s" $page.Permalink ($page.Title | htmlEscape)))
