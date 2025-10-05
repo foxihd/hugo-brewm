@@ -49,19 +49,18 @@ if (typeof mastodonInstance !== 'undefined') {
 
 // Digital well-being clock
 const hour = date.getHours();
-const isDaytime = hour > 6 && hour < 21;
 
-function toggleNightElements(hidden) {
-    const elements = getElements('.grain, #dwclock');
-    elements.forEach(element => {
-        element?.[hidden ? 'setAttribute' : 'removeAttribute']('hidden', 'hidden');
+if (hour > 6 && hour < 21) {
+    getElements('.grain, #dwclock').forEach(e => {
+        e?.remove();
     });
-}
-
-if (isDaytime) {
-    toggleNightElements(true);
 } else {
-    toggleNightElements(false);
+    getElement('background-body').innerHTML = `
+    <div class="grain"></div>
+    <div id="dwclock">
+        <div id="min"><div class="hand"></div></div>
+        <div id="hour"><div class="hand"></div></div>
+    </div>`
 
     const clockSty = document.createElement('style');
     clockSty.textContent = `

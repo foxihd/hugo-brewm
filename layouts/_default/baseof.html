@@ -26,18 +26,7 @@
     {{ partialCached "footer.html" . }}
     {{ block "post" . }}{{ end }}
     {{ "<!-- [background] baseof.html -->" | safeHTML }}
-    <div id="background-body"
-        role="presentation" aria-hidden="true">
-        <div class="grain" hidden></div>
-        <div id="dwclock" hidden>
-            <div id="min">
-                <div class="hand"></div>
-            </div>
-            <div id="hour">
-                <div class="hand"></div>
-            </div>
-        </div>
-    </div>
+    <div id="background-body" role="presentation" aria-hidden="true"></div>
     {{- if eq (lower site.Params.analytics.append) "body" -}}
         {{ partialCached "analytics.html" . }}
     {{- end }}
