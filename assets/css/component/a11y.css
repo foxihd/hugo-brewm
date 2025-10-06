@@ -256,7 +256,7 @@ label.range > output {
 input.toggle + label {
     display: flex;
     position: relative;
-    padding-right: 3.6rem;
+    padding-right: 3rem !important;
     align-items: center;
     font-weight: bold;
 }
