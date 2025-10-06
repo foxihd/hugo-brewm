@@ -37,8 +37,8 @@
     languageDirection = 'ltr'
     languageName = 'हिन्दी'
 
-[es_mx]
-    contentDir = 'content/es_mx'
+[es-mx]
+    contentDir = 'content/es-mx'
     disabled = false
     languageCode = 'es-MX'
     languageDirection = 'ltr'
