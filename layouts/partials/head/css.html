@@ -88,12 +88,11 @@
 
 {{- $search := resources.Get "css/component/search.css" }}
 {{- if site.Params.search.enable }}
+    {{- $pagefind := resources.Get "css/component/pagefind.css" }}
+    {{- if site.Params.search.pagefind }}
+        {{- $extrasSty = $extrasSty | append $pagefind }}
+    {{- end }}
     {{- $extrasSty = $extrasSty | append $search }}
-{{- end }}
-
-{{- $pagefind := resources.Get "css/component/pagefind.css" }}
-{{- if site.Params.search.pagefind }}
-    {{- $extrasSty = $extrasSty | append $pagefind }}
 {{- end }}
 
 {{- $garden := resources.Get "css/component/garden.css" }}
