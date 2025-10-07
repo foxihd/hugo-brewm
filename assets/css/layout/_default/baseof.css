@@ -101,7 +101,6 @@ body > main > aside {
     position: relative;
     float: right;
     clear: right;
-    padding-left: var(--indent);
     width: var(--marginparwidth);
 }
 
@@ -222,6 +221,11 @@ div + #unified-footer {
         --void: calc((100vw - var(--max-width) - 1rem) / 2) !important;
         --marginparwidth: calc(var(--max-width) * 0.38196602) !important;
         /* --max-width - (100% - --golden-ratio) */
+    }
+
+    .marginpar,
+    body > main > aside {
+        padding-left: var(--indent);
     }
 
 }
