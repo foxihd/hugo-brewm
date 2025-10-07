@@ -46,8 +46,8 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 
 We currently support:
 - 🇬🇧 English
-- 🇲🇽 Español (México) --- Translated by [Jerson-Cortes](https://github.com/Jerson-Cortes)
-- 🇮🇳 Hindi --- Translated by [Akshay-365](https://github.com/Akshay-365)
+- 🇲🇽 Español (México) — Translated by [Jerson-Cortes](https://github.com/Jerson-Cortes)
+- 🇮🇳 Hindi — Translated by [Akshay-365](https://github.com/Akshay-365)
 - 🇮🇩 Indonesian
 
 Please feel free to contribute to additional [translation](https://github.com/foxihd/hugo-brewm/blob/main/i18n/).
@@ -537,25 +537,25 @@ Keep brewing! :)
 
 This project could not be made, without a lot efforts of — thank to:
 
-- [Aliftype/Amiri](https://github.com/aliftype/amiri) - for Amiri.
-- [Alvarotrigo on Codepen](https://codepen.io/alvarotrigo/pen/rNbxNWg) - for Logotype.
-- [Antijingoist/opendyslexic/](https://github.com/antijingoist/opendyslexic/) - for OpenDyslexic typeface.
-- [Datalog/Qrcode Svg](https://github.com/datalog/qrcode-svg) - for page QR code generation.
-- [Dpecos/Mastodon Comments](https://github.com/dpecos/mastodon-comments) - for Mastodon comments.
+- [Aliftype/Amiri](https://github.com/aliftype/amiri) — for Amiri.
+- [Alvarotrigo on Codepen](https://codepen.io/alvarotrigo/pen/rNbxNWg) — for Logotype.
+- [Antijingoist/opendyslexic/](https://github.com/antijingoist/opendyslexic/) — for OpenDyslexic typeface.
+- [Datalog/Qrcode Svg](https://github.com/datalog/qrcode-svg) — for page QR code generation.
+- [Dpecos/Mastodon Comments](https://github.com/dpecos/mastodon-comments) — for Mastodon comments.
 - [Georgd/EB-Garamond](https://github.com/georgd/EB-Garamond), [Imedadel/Typeface EB Garamond/](https://github.com/imedadel/typeface-eb-garamond-latest/) & [Googlefonts/Ebgaramond Specimen/](https://github.com/googlefonts/ebgaramond-specimen/) - for serif typeface.
-- [GoogleFonts/Inconsolata](https://github.com/googlefonts/Inconsolata) - for teletype typeface.
-- [IcoMoon](https://icomoon.io) - for icon font.
+- [GoogleFonts/Inconsolata](https://github.com/googlefonts/Inconsolata) — for teletype typeface.
+- [IcoMoon](https://icomoon.io) — for icon font.
 - [Jacobxperez/Lexica Ultralegible](https://github.com/jacobxperez/lexica-ultralegible)
-- [JulietaUla/Montserrat](https://github.com/JulietaUla/Montserrat) - for sans-serif typeface.
-- [Markmead/JS Bionic Reading](https://github.com/markmead/js-bionic-reading) - for BionRead support.
-- [Mrozilla on codepen](https://codepen.io/mrozilla/pen/OJJNjRb) - for dark/light mode toggle style.
-- [Msurguy/Flow Lines](https://github.com/msurguy/flow-lines) - for generated feature images.
+- [JulietaUla/Montserrat](https://github.com/JulietaUla/Montserrat) — for sans-serif typeface.
+- [Markmead/JS Bionic Reading](https://github.com/markmead/js-bionic-reading) — for BionRead support.
+- [Mrozilla on codepen](https://codepen.io/mrozilla/pen/OJJNjRb) — for dark/light mode toggle style.
+- [Msurguy/Flow Lines](https://github.com/msurguy/flow-lines) — for generated feature images.
 - [Nsideras/Bluesky JS Comments](https://github.com/nsideras/bluesky-js-comments) - for Bluesky comments.
-- [Omnibus-Type/Rosario](https://github.com/Omnibus-Type/Rosario) - for sans-serif typeface.
-- [Risilab/Cormorant](https://github.com/risilab/cormorant) - for serif typeface.
-- [Rsms/Inter](https://github.com/rsms/inter) - for sans-serif typeface.
-- [Skoch/Crimson](https://github.com/skosch/Crimson) - for serif typeface.
-- [Slashformotion/Hugo Tufte](https://github.com/slashformotion/hugo-tufte) - for figure, marginpar, epigraph and section shortcodes.
+- [Omnibus-Type/Rosario](https://github.com/Omnibus-Type/Rosario) — for sans-serif typeface.
+- [Risilab/Cormorant](https://github.com/risilab/cormorant) — for serif typeface.
+- [Rsms/Inter](https://github.com/rsms/inter) — for sans-serif typeface.
+- [Skoch/Crimson](https://github.com/skosch/Crimson) — for serif typeface.
+- [Slashformotion/Hugo Tufte](https://github.com/slashformotion/hugo-tufte) — for figure, marginpar, epigraph and section shortcodes.
 
 ## License
 
