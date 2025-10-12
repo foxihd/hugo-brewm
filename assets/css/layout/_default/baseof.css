@@ -223,14 +223,9 @@ div + #unified-footer {
         /* --max-width - (100% - --golden-ratio) */
     }
 
-    .marginpar,
-    body > main > aside {
-        padding-left: var(--indent);
-    }
-
 }
 
-@media (max-width: 640px) {
+@media only screen and (max-width: 640px) {
 
     :root {
         --void: var(--vfoot) !important;

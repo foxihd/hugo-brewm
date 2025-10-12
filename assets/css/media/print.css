@@ -10,7 +10,7 @@
         /* ragged bottom if supported */
         margin-bottom: clamp(8vmin, 10vmin, 12vmin) !important;
         background: none;
-        padding-left: 0 !important;
+        padding: 0 !important;
         max-width: 100vw !important;
     }
 
@@ -30,6 +30,9 @@
     #menu-footer,
     #has-timeline ol li::before,
     .has-details .emoji--stage,
+    .st,
+    .marginpar-ctrl,
+    .marginpar-ctrl + label::before,
     #discussion-starter,
     .giscus {
         display: none;
@@ -117,11 +120,14 @@
     }
 
     .marginpar {
-        width: var(--golden-ratio);
+        left: var(--golden-ratio);
         margin-left: calc(var(--golden-ratio) * -1);
+        padding-left: var(--indent);
+        width: var(--golden-ratio);
     }
 
     .marginpar.abs {
+        position: relative;
         right: 0;
         width: 38%;
     }

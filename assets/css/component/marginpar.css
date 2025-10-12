@@ -1,5 +1,5 @@
 .marginpar {
-    left: var(--golden-ratio);
+    left: calc(var(--marginparwidth) + var(--indent));
     margin-right: 0;
     margin-left: calc(var(--marginparwidth) * -1);
     font-size: var(--small);
@@ -8,9 +8,8 @@
 
 .marginpar.abs {
     /* will ignore clear attribute */
-    position: absolute;
-    right: var(--void);
     left: unset;
+    padding-left: var(--indent);
 }
 
 .marginpar-ctrl,
@@ -36,7 +35,7 @@
 
 .has-counter + .marginpar::before {
     position: absolute;
-    left: 0;
+    left: calc(var(--indent) * -1);
     width: var(--indent);
     text-align: center;
     padding-top: 1ex;
@@ -45,6 +44,13 @@
 .marginpar-ctrl + label.has-counter {
     display: unset;
     padding: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .marginpar.abs {
+        left: -1rem;
+        padding-left: unset;
+    }
 }
 
 @media screen and (max-width: 640px) {
@@ -73,7 +79,8 @@
     .marginpar-ctrl:checked + label + .marginpar {
         display: block;
         position: unset;
-        margin: 1ex 0;
+        margin: 0 var(--indent) 1ex;
+        padding-right: var(--indent);
     }
 
 }
