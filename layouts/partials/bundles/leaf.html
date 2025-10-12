@@ -1,6 +1,6 @@
 {{- define "partials/page/title.html" -}}
     {{- "<!-- title.html -->" | safeHTML }}
-    {{- $subtitle := .Params.Subtitle | default .Description }}
+    {{- $subtitle := .Params.Subtitle }}
     {{- $isPost := eq (lower .Params.type) (or "post" "articles") }}
     {{- if $subtitle }}
         <hgroup data-bionRead-safe>

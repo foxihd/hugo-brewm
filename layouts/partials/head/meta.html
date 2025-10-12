@@ -3,7 +3,7 @@
 {{- $siteTitle := or site.Title site.Params.title | plainify }}
 {{- $permalink := .Permalink }}
 {{- $title := cond .IsHome $siteTitle (printf "%s | %s" .Title $siteTitle) | plainify  }}
-    {{- $desc := or .Params.Subtitle .Params.Description .Description .Summary }}
+    {{- $desc := or .Params.Description .Params.Subtitle .Summary | default .Description }}
     {{- $siteDesc := or site.Params.description site.Params.subtitle }}
     {{- if and .IsHome $siteDesc }}
         {{- $desc = $siteDesc  }}
