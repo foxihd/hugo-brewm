@@ -30,9 +30,6 @@
     {{- warnf "The author key in site configuration is deprecated. Use params.author.name instead." }}
   {{- end }}
 {{- end }}
-
-{{- $desc := or .Params.Subtitle .Params.Description .Description .Summary }}
-
 {{- $pctx := . }}
 {{- if .IsHome }}{{ $pctx = site }}{{ end }}
 {{- $pages := slice }}
@@ -75,6 +72,7 @@
         <author>{{ . }}</author>
       {{ end -}}
       <guid>{{ .Permalink }}</guid>
+      {{- $desc := or .Params.Description .Description  .Params.Subtitle | default .Summary }}
       <description>{{ $desc | transform.XMLEscape | safeHTML }}</description>
       {{- $cover := partial "page/cover.html" (dict "page" .) }}
       {{ with $cover -}}
