@@ -148,7 +148,7 @@
                         {{- $hasCover := partial "page/cover.html" (dict "page" .) }}
                         {{- $alt := or .Params.Alt .Params.coverAlt .Params.imagesAlt }}
                         {{- if $index }}<hr class="ldots" role="presentation" aria-hidden="true">{{- end }}
-                        {{ template "card" (dict "page" $page "paginator" $paginator "counter" $counter "desc" $desc "hasCover" $hasCover "alt" $alt "author" $author "authors" $authors "stage" $stage) }}
+                        {{ template "card" (dict "page" $page "paginator" $paginator "counter" $counter "desc" $desc "hasCover" $hasCover "alt" $alt "author" $author "authors" $authors "stage" $stage "PublishDate" .PublishDate) }}
                     {{- end }}
                     </div>
                     {{/*
@@ -236,29 +236,19 @@
         aria-describedby="{{ printf "desc-%d" .counter }}">
         <hgroup>
             <div>
+                <time datetime="{{ .page.PublishDate.Format "2006-01-02T15:04:05-07:00" }}">{{- .PublishDate | time.Format ":date_long" -}}</time>
                 <span>
                     {{- if .authors }}
-                            {{- if eq (len .authors) 1 }}
-                                {{- range .authors }}
-                                    <a href="{{ .RelPermalink }}" tabindex="-1">{{ .LinkTitle }}</a>
-                                {{- end }}
-                            {{- else }}
-                                {{ partial "terms.html" (dict "taxonomy" "author" "class" "delimiter" "tabindex" "-1" "page" .page) }}
-                            {{- end }}
+                        {{ partial "terms.html" (dict "taxonomy" "author" "type" "delimiter" "tabindex" "-1" "page" .page) }}
                     {{- else }}
                         {{- with .author }}<span>{{ . }}</span>{{ end }}
                     {{- end }}
                     {{- if .page.Params.categories }}
                         <span>{{ i18n "in" | lower }}</span>
-                            {{- if eq (len .page.Params.categories) 1 }}
-                                {{ partial "terms.html" (dict "taxonomy" "categories" "class" "inline" "tabindex" "-1" "page" .page ) }}
-                            {{ else }}
-                                {{ partial "terms.html" (dict "taxonomy" "categories" "class" "delimiter" "tabindex" "-1" "page" .page ) }}
-                            {{- end }}
+                        {{ partial "terms.html" (dict "taxonomy" "categories" "type" "delimiter" "tabindex" "-1" "page" .page ) }}
                     {{- end }}
                 </span>
                 <!-- hfill -->
-                {{ partial "page/timestamp.html" .page }}
             </div>
             <a href="{{ .page.RelPermalink }}" class="sr0" tabindex="-1" aria-describedby="{{ printf "desc-%d" .counter }}">
                 <h1 id="{{ printf "title-%d" .counter }}">{{ .page.Title }}</h1>

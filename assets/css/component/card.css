@@ -89,6 +89,10 @@
     white-space: nowrap;
 }
 
+.feed-item > hgroup > div {
+    flex-direction: row-reverse;
+}
+
 .feed-item > footer > ul,
 .feed-item > hgroup > div > span {
     display: block;
@@ -97,7 +101,7 @@
     scrollbar-width: none;
 }
 
-.feed-item > hgroup > div > div {
+.feed-item > hgroup time {
     margin-left: auto;
     padding-left: 1rem;
 }
