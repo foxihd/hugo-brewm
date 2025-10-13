@@ -45,13 +45,22 @@
     {{- $page := .page }}
     {{- $taxonomy := .taxonomy }}
     {{- $class := .class }}
+    {{- $type := .type }}
     {{- $tabindex := .tabindex }}
     {{- with $page.GetTerms $taxonomy }}
-    <ul class="{{ $class }}" role="presentation">
-        {{- range . }}
-            <li><a href="{{ .RelPermalink }}" {{ if eq $tabindex "-1" }}tabindex="-1"{{ end }}>{{ .Page.Title }}</a></li>
+        {{- if eq $type "delimiter" }}
+            {{ $len := len . }}
+            {{- range $i, $e := . }}
+                {{- if and (ne $len 1) (eq $i (sub $len 1)) }} & {{ else if $i }}, {{ end }}
+                <a href="{{ .RelPermalink }}" {{ if eq $tabindex "-1" }}tabindex="-1"{{ end }}>{{ .Page.Title }}</a>
+            {{- end }}
+        {{- else }}
+            <ul class="{{ $class }}" role="presentation">
+                {{- range . }}
+                    <li><a href="{{ .RelPermalink }}" {{ if eq $tabindex "-1" }}tabindex="-1"{{ end }}>{{ .Page.Title }}</a></li>
+                {{- end }}
+            </ul>
         {{- end }}
-    </ul>
     {{- end }}
 {{- end }}
 
