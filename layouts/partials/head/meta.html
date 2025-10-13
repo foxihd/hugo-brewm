@@ -27,7 +27,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ $title }}</title>
-<meta name="author" content="{{ $author }}">
+<meta name="author" content="{{ if gt (len $author) 1 }}{{ delimit $author ", " " & " }}{{ else }}{{ $author }}{{ end }}">
 {{ with $desc -}}
     <meta name="description" content="{{ . }}" >
 {{ end -}}
