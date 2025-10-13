@@ -1,39 +1,32 @@
 {{ "<!-- a11y.html -->" | safeHTML -}}
-<details id="has-a11y" class="presentation js-details hide" name="on-deck" aria-haspopup="true" aria-labelledby="has-a11y-summary">
-    <summary id="has-a11y-summary" accesskey="a" aria-keyshortcuts="a">
-        <span>&nbsp;{{ i18n "accessibility" }}</span>
-        <kbd class="key" aria-hidden="true">a</kbd>
-    </summary>
-    {{ "<!-- a11y console -->" | safeHTML }}
-    <fieldset id="a11y" role="region" aria-label="{{ i18n "accessibility" }}"
-        data-i18n-optimizeSR="{{ i18n "optimizeSR" }}"
-        data-i18n-optimizeSRdesc="{{ i18n "optimizeSRDesc" }}"
-        data-i18n-colorSettings="{{ i18n "colorSettings" }}"
-        data-i18n-darkMode="{{ i18n "darkMode" }}"
-        data-i18n-light="{{ i18n "light" }}"
-        data-i18n-dark="{{ i18n "dark" }}"
-        data-i18n-contrast="{{ i18n "contrast" }}"
-        data-i18n-lessContrast="{{ i18n "lessContrast" }}"
-        data-i18n-moreContrast="{{ i18n "moreContrast" }}"
-        data-i18n-defaultContrast="{{ i18n "defaultContrast" }}"
-        data-i18n-colorPalette="{{ i18n "colorPalette" }}"
-        data-i18n-defaultColor="{{ i18n "defaultColor" }}"
-        data-i18n-deuteranopia="{{ i18n "deuteranopia" }}"
-        data-i18n-protanopia="{{ i18n "protanopia" }}"
-        data-i18n-tritanopia="{{ i18n "tritanopia" }}"
-        data-i18n-monochrome="{{ i18n "monochrome" }}"
-        data-i18n-fontSize="{{ i18n "fontSize" }}"
-        data-i18n-baselineStretch="{{ i18n "baselineStretch" }}"
-        data-i18n-OpenDyslexic="{{ i18n "OpenDyslexic" }}"
-        data-i18n-menuControls="{{ i18n "menuControls" }}"
-        data-i18n-save="{{ i18n "save" }}"
-        data-i18n-reset="{{ i18n "reset" }}"
-        data-i18n-close="{{ i18n "close" }}"
-        data-i18n-bionRead="{{ i18n "bionRead" }}"
-        data-i18n-focusMode="{{ i18n "focusMode" }}"
-        data-i18n-noLocalStorage="{{ i18n "noLocalStorage" }}">
-    </fieldset>
-    <div class="screening js-cpn" role="presentation" aria-hidden="true"></div>
+<details id="has-a11y" class="presentation js-details hide" name="on-deck" aria-haspopup="true" aria-labelledby="has-a11y-summary"
+    data-i18n-accessibility="{{ i18n "accessibility" }}"
+    data-i18n-optimizeSR="{{ i18n "optimizeSR" }}"
+    data-i18n-optimizeSRdesc="{{ i18n "optimizeSRDesc" }}"
+    data-i18n-colorSettings="{{ i18n "colorSettings" }}"
+    data-i18n-darkMode="{{ i18n "darkMode" }}"
+    data-i18n-light="{{ i18n "light" }}"
+    data-i18n-dark="{{ i18n "dark" }}"
+    data-i18n-contrast="{{ i18n "contrast" }}"
+    data-i18n-lessContrast="{{ i18n "lessContrast" }}"
+    data-i18n-moreContrast="{{ i18n "moreContrast" }}"
+    data-i18n-defaultContrast="{{ i18n "defaultContrast" }}"
+    data-i18n-colorPalette="{{ i18n "colorPalette" }}"
+    data-i18n-defaultColor="{{ i18n "defaultColor" }}"
+    data-i18n-deuteranopia="{{ i18n "deuteranopia" }}"
+    data-i18n-protanopia="{{ i18n "protanopia" }}"
+    data-i18n-tritanopia="{{ i18n "tritanopia" }}"
+    data-i18n-monochrome="{{ i18n "monochrome" }}"
+    data-i18n-fontSize="{{ i18n "fontSize" }}"
+    data-i18n-baselineStretch="{{ i18n "baselineStretch" }}"
+    data-i18n-OpenDyslexic="{{ i18n "OpenDyslexic" }}"
+    data-i18n-menuControls="{{ i18n "menuControls" }}"
+    data-i18n-save="{{ i18n "save" }}"
+    data-i18n-reset="{{ i18n "reset" }}"
+    data-i18n-close="{{ i18n "close" }}"
+    data-i18n-bionRead="{{ i18n "bionRead" }}"
+    data-i18n-focusMode="{{ i18n "focusMode" }}"
+    data-i18n-noLocalStorage="{{ i18n "noLocalStorage" }}">
 </details>
 
 {{/*----------------------- end of a11y.html ------------------------*/}}

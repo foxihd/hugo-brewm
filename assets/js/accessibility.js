@@ -6,80 +6,116 @@ body.focus>header,body.focus>main>header,body.focus #contentinfo,body.focus #dis
 `
 document.head.appendChild(a11ySty);
 
+const a11y = getElement('has-a11y');
+
 // Enable accessibility settings when JavaScript is permitted
-getElement('has-a11y').classList.remove('hide');
+a11y.classList.remove('hide');
 getElement('background-footer').classList.remove('hide');
 
 // Render a11y element
-const a11y = getElement('a11y');
-const i18nColorPalette = a11y.dataset.i18nColorpalette;
-const i18nOpenDyslexic = a11y.dataset.i18nOpendyslexic;
-const i18nFocusMode = a11y.dataset.i18nFocusmode;
+const {
+    i18nAccessibility,
+    i18nOptimizesr,
+    i18nOptimizesrdesc,
+    i18nColorsettings,
+    i18nDarkmode,
+    i18nLight,
+    i18nDark,
+    i18nContrast,
+    i18nLesscontrast,
+    i18nDefaultcontrast,
+    i18nMorecontrast,
+    i18nColorpalette,
+    i18nDefaultcolor,
+    i18nDeuteranopia,
+    i18nProtanopia,
+    i18nTritanopia,
+    i18nMonochrome,
+    i18nFontsize,
+    i18nBaselinestretch,
+    i18nOpendyslexic,
+    i18nMenucontrols,
+    i18nSave,
+    i18nReset,
+    i18nClose,
+    i18nBionread,
+    i18nFocusmode,
+    i18nNolocalstorage
+} = a11y.dataset;
+
 a11y.innerHTML = `
-<!-- optimizeSR -->
-<div id="optimizeSR">
+<summary id="has-a11y-summary" accesskey="a" aria-keyshortcuts="a">
+  <span>&nbsp;${i18nAccessibility}</span>
+  <kbd class="key" aria-hidden="true">a</kbd>
+</summary>
+<!-- a11y console -->
+<fieldset id="a11y" role="region" aria-label="${i18nAccessibility}">
+  <!-- optimizeSR -->
+  <div id="optimizeSR">
     <input id="useSR" class="toggle" type="checkbox" onclick="useSreenReader()">
-    <label for="useSR" aria-description="${a11y.dataset.i18nOptimizesrDesc}">${a11y.dataset.i18nOptimizesr}</label>
-</div>
-<!-- setColorScheme -->
-<div id="setColorScheme" class="sri" role="group" aria-label="${a11y.dataset.i18nColorsettings}">
+    <label for="useSR" aria-description="${i18nOptimizesrdesc}">${i18nOptimizesr}</label>
+  </div>
+  <!-- setColorScheme -->
+  <div id="setColorScheme" class="sri" role="group" aria-label="${i18nColorsettings}">
     <!-- lightSwitch -->
     <input id="lightSwitch" type="checkbox" onclick="setColor()">
-    <label id="lightSwitchIndicator" class="has-desc" for="lightSwitch" aria-label="${a11y.dataset.i18nDarkmode}" aria-description="${a11y.dataset.i18nLight}">
+    <label id="lightSwitchIndicator" class="has-desc" for="lightSwitch" aria-label="${i18nDarkmode}" aria-description="${i18nLight}">
     </label>
     <!-- setContrast -->
     <fieldset id="setContrast">
-        <legend>${a11y.dataset.i18nContrast}</legend>
-        <div>
-            <input id="lessContrast" type="radio" name="setContrast" value="less" onclick="setColor()">
-                <label for="lessContrast"><span>${a11y.dataset.i18nLesscontrast}</span></label>
-            <input id="defaultContrast" type="radio" name="setContrast" value="default" onclick="setColor()">
-                <label for="defaultContrast"><span>${a11y.dataset.i18nDefaultcontrast}</span></label>
-            <input id="moreContrast" type="radio" name="setContrast" value="more" onclick="setColor()">
-                <label for="moreContrast"><span>${a11y.dataset.i18nMorecontrast}</span></label>
-        </div>
+      <legend>${i18nContrast}</legend>
+      <div>
+        <input id="lessContrast" type="radio" name="setContrast" value="less" onclick="setColor()">
+          <label for="lessContrast"><span>${i18nLesscontrast}</span></label>
+        <input id="defaultContrast" type="radio" name="setContrast" value="default" onclick="setColor()">
+          <label for="defaultContrast"><span>${i18nDefaultcontrast}</span></label>
+        <input id="moreContrast" type="radio" name="setContrast" value="more" onclick="setColor()">
+          <label for="moreContrast"><span>${i18nMorecontrast}</span></label>
+      </div>
     </fieldset>
-</div>
-<!-- setColorPalette -->
-<div id="setColorPalette" class="sri" style="display:none;">
-    <label for="colorPalette">${i18nColorPalette}</label>
-    <select id="colorPalette" name="colorPalette" oninput="setColorPalette()" aria-label="${i18nColorPalette}">
-        <option value="defaultColor">${a11y.dataset.i18nDefaultcolor}</option>
-        <option value="deuteranopia">${a11y.dataset.i18nDeuteranopia}</option>
-        <option value="protanopia">${a11y.dataset.i18nProtanopia}</option>
-        <option value="tritanopia">${a11y.dataset.i18nTritanopia}</option>
-        <option value="monochrome">${a11y.dataset.i18nMonochrome}</option>
+  </div>
+  <!-- setColorPalette -->
+  <div id="setColorPalette" class="sri" style="display:none;">
+    <label for="colorPalette">${i18nColorpalette}</label>
+    <select id="colorPalette" name="colorPalette" oninput="setColorPalette()" aria-label="${i18nColorpalette}">
+      <option value="defaultColor">${i18nDefaultcolor}</option>
+      <option value="deuteranopia">${i18nDeuteranopia}</option>
+      <option value="protanopia">${i18nProtanopia}</option>
+      <option value="tritanopia">${i18nTritanopia}</option>
+      <option value="monochrome">${i18nMonochrome}</option>
     </select>
-</div>
-<!-- setFontSize -->
-<div id="setFontSize" class="has-aria-label-top sri" aria-label="${a11y.dataset.i18nFontsize}">
-    <label class="range" for="fontSize" aria-label="${a11y.dataset.i18nFontsize}">
-        <input id="fontSize" type="range" min="8" max="12" step="0.5" oninput="setFontSize()">
-        <output id="fontSizeState" for="fontSize" role="status" aria-live="polite">10</output>
+  </div>
+  <!-- setFontSize -->
+  <div id="setFontSize" class="has-aria-label-top sri" aria-label="${i18nFontsize}">
+    <label class="range" for="fontSize" aria-label="${i18nFontsize}">
+      <input id="fontSize" type="range" min="8" max="12" step="0.5" oninput="setFontSize()">
+      <output id="fontSizeState" for="fontSize" role="status" aria-live="polite">10</output>
     </label>
-</div>
-<!-- setBaselineStretch -->
-<div id="setBaselineStretch" class="has-aria-label-top sri" aria-label="${a11y.dataset.i18nBaselinestretch}">
-    <label class="range" for="baselineStretch" aria-label="${a11y.dataset.i18nBaselinestretch}">
-        <input id="baselineStretch" type="range" min="0.8" max="1.2" step="0.05" oninput="setStretch()">
-        <output id="baselineStretchState" for="baselineStretch" role="status" aria-live="polite">1</output>
+  </div>
+  <!-- setBaselineStretch -->
+  <div id="setBaselineStretch" class="has-aria-label-top sri" aria-label="${i18nBaselinestretch}">
+    <label class="range" for="baselineStretch" aria-label="${i18nBaselinestretch}">
+      <input id="baselineStretch" type="range" min="0.8" max="1.2" step="0.05" oninput="setStretch()">
+      <output id="baselineStretchState" for="baselineStretch" role="status" aria-live="polite">1</output>
     </label>
-</div>
-<!-- setOpenDyslexic -->
-<div id="setOpenDyslexic" class="sri">
+  </div>
+  <!-- setOpenDyslexic -->
+  <div id="setOpenDyslexic" class="sri">
     <input id="OpenDyslexic" class="toggle" type="checkbox" onclick="useOpenDyslexic()">
-    <label for="OpenDyslexic" aria-label="${i18nOpenDyslexic}">
-        ${i18nOpenDyslexic}
+    <label for="OpenDyslexic" aria-label="${i18nOpendyslexic}">
+      ${i18nOpendyslexic}
     </label>
-</div>
-<!-- a11y-menu -->
-<menu id="a11y-menu" class="hide" role="toolbar" aria-label="${a11y.dataset.i18nMenucontrols}"></menu>
-<!-- noLocalStorage -->
-<center id="noLocalStorage" class="hide" role="alert">${a11y.dataset.i18nNolocalstorage}</center>
+  </div>
+  <!-- a11y-menu -->
+  <menu id="a11y-menu" class="hide" role="toolbar" aria-label="${i18nMenucontrols}"></menu>
+  <!-- noLocalStorage -->
+  <center id="noLocalStorage" class="hide" role="alert">${i18nNolocalstorage}</center>
+</fieldset>
+<div class="screening" role="presentation" aria-hidden="true" onclick="closeA11yConsole()"></div>
 `;
 
 // Close console
-const closeA11yConsole = () => getElement('has-a11y').removeAttribute('open');
+const closeA11yConsole = () => a11y.removeAttribute('open');
 
 // Optimize content for screen reader
 function useSreenReader() {
@@ -142,7 +178,7 @@ function useSreenReader() {
 // Color scheme and contrast functions
 const matchMediaColor = () => {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        lightSwitchIndicator.setAttribute('aria-description', a11y.dataset.i18nDark);
+        lightSwitchIndicator.setAttribute('aria-description', i18nDark);
         lightSwitch.checked = true;
     }
     if (window.matchMedia('(prefers-contrast: more)').matches) {
@@ -167,7 +203,7 @@ function setColor() {
             more: '--off: #fff; --fg: var(--fg-dark-more); --mid: var(--midtone-more); --ac: var(--ac-dark-more); --bg: var(--bg-dark-more); --border: 1pt solid var(--fg); --bound: var(--border);'
         }
     };
-    lightSwitchIndicator.setAttribute('aria-description', (lightSwitch.checked ? a11y.dataset.i18nDark : a11y.dataset.i18nLight));
+    lightSwitchIndicator.setAttribute('aria-description', (lightSwitch.checked ? i18nDark : i18nLight));
     const scheme = lightSwitch.checked ? 'dark' : 'light';
     const contrast = lessContrast.checked ? 'less' : (moreContrast.checked ? 'more' : 'default');
     bodySty.setAttribute('style', styles[scheme][contrast]);
@@ -192,9 +228,9 @@ addEvent(document, 'DOMContentLoaded', () => {
 isPage = getElement('page');
 if (isPage) {
     getElement('focusMode').innerHTML = `
-    <input id="defocusAuxElement" accesskey="d" type="checkbox" onclick="focusMode()" aria-keyshortcuts="d" aria-label="${i18nFocusMode}">
-    <label id="focusModeButton" for="defocusAuxElement" aria-label="${i18nFocusMode}">
-        ⦿ <span class="t" role="tooltip">${i18nFocusMode}</span>
+    <input id="defocusAuxElement" accesskey="d" type="checkbox" onclick="focusMode()" aria-keyshortcuts="d" aria-label="${i18nFocusmode}">
+    <label id="focusModeButton" for="defocusAuxElement" aria-label="${i18nFocusmode}">
+        ⦿ <span class="t" role="tooltip">${i18nFocusmode}</span>
     </label>
     `;
     defocusAuxElement.checked = false;
@@ -266,9 +302,9 @@ function hasLocalStorage() {
 if (hasLocalStorage()) {
     getElement('a11y-menu').className = '';
     getElement('a11y-menu').innerHTML = `
-        <button id="saveButton" class="reverse" onclick="saveA11y()">${a11y.dataset.i18nSave}</button>
-        <button id="resetButton" class="has-aria-label" onclick="resetA11y()" aria-label="${a11y.dataset.i18nReset}"></button>
-        <button id="closeButton" class="has-aria-label" onclick="closeA11yConsole()" aria-label="${ a11y.dataset.i18nClose}"></button>
+        <button id="saveButton" class="reverse" onclick="saveA11y()">${i18nSave}</button>
+        <button id="resetButton" class="has-aria-label" onclick="resetA11y()" aria-label="${i18nReset}"></button>
+        <button id="closeButton" class="has-aria-label" onclick="closeA11yConsole()" aria-label="${ i18nClose}"></button>
     `;
     // Reset function
     function resetA11y() {
