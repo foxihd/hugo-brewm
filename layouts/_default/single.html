@@ -63,7 +63,7 @@
             {{ end }}
             {{ partial "page/title.html" . }}
             {{- if $isPost }}
-            <div id="doc-author" class="textsw author">
+            <div id="doc-author" class="textsw">
                 {{- $author := cond .Params.author .Params.author site.Params.Author.name }}
                 {{- $authors := or (.GetTerms "authors") (.GetTerms "author") }}
                 {{- $notMultiAuthor := eq (len $authors) 1 }}
@@ -71,20 +71,15 @@
                     {{- if $notMultiAuthor }}
                         {{- range $authors }}
                             {{ $flair := .Params.flair }}
-                            {{- if $flair }}
                                 {{- $displayPicture := partial "page/cover.html" (dict "page" .) }}
-                                <a id="avatar" class="sri" href="{{ .Permalink }}" aria-label="{{ .LinkTitle }}">
-                                    <img src="{{ $displayPicture }}" alt="{{ .LinkTitle }}"/>
+                                <a class="author" href="{{ .Permalink }}" aria-label="{{ .LinkTitle }}">
+                                    {{- if $flair }}
+                                        <img id="avatar" class="sri" src="{{ $displayPicture }}" alt="{{ .LinkTitle }}"/>
+                                        <span class="has-desc" aria-label="{{ .LinkTitle }}" aria-description="{{ $flair }}">{{- .LinkTitle -}}</span>
+                                    {{- else }}
+                                    {{- .LinkTitle -}}
+                                    {{- end }}
                                 </a>
-                            {{- end }}
-                            <a href="{{ .Permalink }}"
-                                {{- if $flair }}
-                                    class="has-desc"
-                                    aria-label="{{ .LinkTitle }}"
-                                    aria-description="{{ $flair }}"
-                                {{- end }}>
-                                {{- .LinkTitle -}}
-                            </a>
                         {{- end }}
                     {{- else }}
                         {{ partial "terms.html" (dict "taxonomy" "author" "class" "delimiter" "page" .) }}

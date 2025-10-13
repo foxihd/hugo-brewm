@@ -51,10 +51,11 @@
 }
 
 /* with avatar */
-#avatar,
+#doc-author,
 .author {
     display: flex;
     align-items: center;
+    border: none;
     line-height: 1.272;
 }
 
@@ -89,20 +90,12 @@
     vertical-align: text-top;
 }
 
-header time {
+header #timestamp {
     font-style: italic;
     -webkit-font-feature-settings:'onum' 1;
        -moz-font-feature-settings:'onum' 1;
             font-feature-settings:'onum' 1;
     font-variant-numeric: oldstyle-nums;
-}
-
-#page .date-has-label > time:before {
-    content: attr(data-time-label)' ';
-}
-
-.doc-lastmod-date:before {
-    text-transform: lowercase;
 }
 
 #has-TableOfContents,
@@ -201,7 +194,7 @@ math[display=block]::after {
 #has-stage + #title,
 #has-timeline > p,
 .footnotes ol {
-    margin-top: 0;
+    margin: 0;
     padding: 0;
 }
 
