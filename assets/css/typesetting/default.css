@@ -318,7 +318,6 @@ ul.delimiter li:nth-last-child(2)::after {
     content: '\a0';
 }
 
-#page .date-has-label > .doc-publish-date::after,
 ul.delimiter li:after {
     content: ',\a0';
 }
@@ -327,7 +326,6 @@ ul.delimiter li:last-child:before {
     content: '&\a0';
 }
 
-#page .doc-lastmod-date::after,
 #keywords .inline li::after,
 ul.delimiter li:last-child:after {
     content: '.';

@@ -25,20 +25,18 @@
 {{- define "partials/page/timestamp.html" -}}
     {{- "<!-- timestamp.html-->" | safeHTML }}
     {{- $dateMachine := "2006-01-02T15:04:05-07:00" }}
-    {{- $datePublished := .PublishDate | time.Format ":date_long" }}
-    {{- $dateModified := .Lastmod | time.Format ":date_long" }}
     {{- $dateOnly := "2006-01-02" }}
     {{- $hasMod := ne (.PublishDate.Format $dateOnly) (.Lastmod.Format $dateOnly) }}
-    <div {{ if $hasMod }}class="date-has-label"{{ end }}>
-        <time class="doc-publish-date" datetime="{{ .PublishDate.Format $dateMachine }}" data-time-label="{{ i18n "published" }} {{ i18n "on" | lower }}">
-            {{- $datePublished -}}
-        </time>
-        {{- if $hasMod -}}
-            <time class="doc-lastmod-date" datetime="{{ .Lastmod.Format $dateMachine }}" data-time-label="{{ i18n "modified" }} {{ i18n "on" | lower }}">
-                {{- $dateModified -}}
-            </time>
-        {{- end }}
-    </div>
+    {{- if $hasMod }}
+        <div id="timestamp">
+            <span>{{ i18n "published" }} {{ i18n "on" | lower }}</span>
+            <time datetime="{{ .PublishDate.Format $dateMachine }}">{{- .PublishDate | time.Format ":date_long"  -}}</time>,
+            <span>{{ i18n "modified" | lower }} {{ i18n "on" | lower }}</span>
+            <time datetime="{{ .Lastmod.Format $dateMachine }}">{{- .Lastmod | time.Format ":date_long"  -}}</time>.
+        </div>
+    {{- else }}
+        <time datetime="{{ .PublishDate.Format $dateMachine }}">{{- .PublishDate | time.Format ":date_long"  -}}</time>
+    {{- end }}
 {{- end }}
 
 {{- define "partials/page/cover.html" -}}
