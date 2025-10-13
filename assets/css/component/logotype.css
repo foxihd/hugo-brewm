@@ -17,11 +17,12 @@
     https://codepen.io/alvarotrigo/pen/rNbxNWg */
 
 #logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin: 5pt 0;
     max-width: calc(100% - 5rem);
+}
+
+#logo a {
+    display: flex;
 }
 
 #logo #logotype__text {
@@ -35,7 +36,7 @@
     stroke-width: 1px;
 }
 
-#logo:focus #logotype__text {
+#logo a:focus #logotype__text {
     --anm: none;
     outline-color: var(--off);
     stroke: none;

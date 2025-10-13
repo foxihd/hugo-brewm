@@ -128,13 +128,10 @@ body > footer {
     width: var(--golden-ratio);
 }
 
-#logo {
+#logo,
+#logo * {
     --h: calc(3.33rem - 10pt);
     border: none;
-}
-
-#logo,
-#logo > * {
     height: var(--h);
 }
 
