@@ -1,5 +1,14 @@
 {{ "<!-- meta.html -->" | safeHTML -}}
-{{- $author := cond (and .IsPage .Params.author) .Params.author site.Params.Author.Name }}
+{{- $author := or .Params.author .Params.authors | default  site.Params.Author.Name }}
+{{- with or (.GetTerms "authors") (.GetTerms "author") }}
+    {{- if eq (len .) 1}}
+        {{- range . }}
+            {{- $author = .LinkTitle }}
+        {{- end }}
+    {{- else }}
+        {{- $author = delimit $author ", " " & " }}
+    {{- end }}
+{{- end }}
 {{- $siteTitle := or site.Title site.Params.title | plainify }}
 {{- $permalink := .Permalink }}
 {{- $title := cond .IsHome $siteTitle (printf "%s | %s" .Title $siteTitle) | plainify  }}
@@ -27,7 +36,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ $title }}</title>
-<meta name="author" content="{{ if gt (len $author) 1 }}{{ delimit $author ", " " & " }}{{ else }}{{ $author }}{{ end }}">
+<meta name="author" content="{{ $author }}">
 {{ with $desc -}}
     <meta name="description" content="{{ . }}" >
 {{ end -}}
