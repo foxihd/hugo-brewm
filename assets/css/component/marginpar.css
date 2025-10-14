@@ -46,13 +46,6 @@
     padding: 0;
 }
 
-@media screen and (max-width: 1024px) {
-    .marginpar.abs {
-        left: -1rem;
-        padding-left: unset;
-    }
-}
-
 @media screen and (max-width: 640px) {
 
     .marginpar-ctrl + label {
