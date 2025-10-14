@@ -13,7 +13,7 @@
         {{- end }}
         <a id="to-content" href="{{ printf "#%s" $content }}" aria-label="{{ i18n "toContent" }}">
             <span>{{ i18n "toContent" }}</span>
-            <kbd class="key" aria-hidden="true">c</kbd>
+            <kbd class="key" aria-hidden="true" data-key="c"></kbd>
             <span class="screening" aria-hidden="true"></span>
         </a>
     </nav>
@@ -36,6 +36,7 @@
                 {{ partialCached "header/logotype.html" . }}
             {{- end }}
         </a>
+        <hr class="hide"/>
     </div>
     {{- end }}
     {{/*
@@ -61,11 +62,18 @@
     {{ "<!-- main/header.html -->" | safeHTML }}
     {{- if not .IsHome }}
         <header class="pagewidth">
+            <hr class="hide"/>
             {{- if not (or site.Params.BearMode site.Params.ZenMode) }}
                 {{- if or (eq .Kind "term" ) .IsSection .IsPage }}
-                    <menu class="srm">
+                    <menu id="menu" class="srm"
+                        data-i18n-back="{{ i18n "back"}}"
+                        data-i18n-print="{{ i18n "print" }}"
+                        data-i18n-copy="{{ i18n "copy" }}"
+                        data-i18n-copying="{{ i18n "copying"}}">
                         {{- if .IsPage }}
-                            {{- partialCached "nav/button.html" . -}}
+                                <a id="navigatorShare" href="#mastodon" role="button" aria-label="{{ i18n "share" }}">
+                                    <span class="t srt" role="tooltip">{{ i18n "share" }}</span>
+                                </a>
                         {{- else }}
                             {{- with .OutputFormats.Get "rss" }}
                                 <a id="rss-button" href="{{ .Permalink }}" title="{{ i18n "followRSS" }}" role="button" aria-label="{{ i18n "followRSS" }}">
@@ -76,10 +84,12 @@
                     </menu>
                 {{- end }}
                 {{- if not .IsPage }}
-                    {{ partialCached "nav/button/back.html" . -}}
+                    <div id="has-back">
+                    </div>
                 {{- end }}
             {{- end }}
             {{ partial "nav.html" ( dict "navID" "breadcrumb" "page" . )}}
+            <hr class="hide"/>
         </header>
     {{- end }}
 {{- end }}
@@ -93,24 +103,4 @@
             <text id="logotype__text" y="19.5pt" x="0">{{ . }}</text>
         </svg>
     {{- end }}
-{{- end }}
-
-{{- define "partials/nav/button.html" -}}
-    <button id="print-button" class="hide" onclick="window.print()" aria-label="{{ i18n "print" }}">
-        <span class="t srt" role="tooltip">{{ i18n "print" }}</span>
-    </button>
-    <a id="navigatorShare" href="#share" role="button" aria-label="{{ i18n "share" }}">
-        <span class="t srt" role="tooltip">{{ i18n "share" }}</span>
-    </a>
-    <button id="copyPermalink" {{ if ne hugo.Environment "development" }}class="hide"{{ end }} onclick="navigator.clipboard.writeText(window.location.href)" aria-label="{{ i18n "copy" }}">
-        <span id="copy" class="t srt" role="tooltip">{{ i18n "copy" }}</span>
-        <span id="isCopying" style="display: none;">{{ i18n "copying" }}</span>
-        <span id="copyText" style="display: none;">{{ i18n "copy" }}</span>
-    </button>
-{{- end }}
-
-{{- define "partials/nav/button/back.html" -}}
-    <button id="back" class="hide" type="button" onclick="history.back();" aria-label="{{ i18n "back" }}">
-        <span class="t srt" role="tooltip">{{ i18n "back" }}</span>
-    </button>
 {{- end }}

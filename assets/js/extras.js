@@ -1,8 +1,24 @@
+const menu = getElement('menu');
+const {
+    i18nBack,
+    i18nPrint,
+    i18nCopy,
+    i18nCopying
+} = menu.dataset;
+
+menu.innerHTML += `
+    <button id="print-button" onclick="window.print()" aria-label="${i18nPrint}">
+        <span class="t srt" role="tooltip">${i18nPrint}</span>
+    </button>
+`
+getElement('has-back').innerHTML = `
+    <button id="back" type="button" onclick="history.back();" aria-label="${i18nBack}">
+        <span class="t srt" role="tooltip">${i18nBack}</span>
+    </button>
+`
 
 // enable copy and navigatorShare element when protocol is secure
 if (location.protocol === 'https:') {
-    getElement('copyPermalink')?.removeAttribute('class');
-
     // use navigator.share when supported
     if (navigator.share) {
         getElement('navigatorShare')?.setAttribute(
@@ -10,10 +26,21 @@ if (location.protocol === 'https:') {
             'javascript:navigator.share({title: document.title, url: window.location.href})'
         );
     }
-}
 
-getElement('print-button')?.removeAttribute('class');
-getElement('back')?.removeAttribute('class');
+    menu.innerHTML += `
+    <button id="copyPermalink" onclick="navigator.clipboard.writeText(window.location.href)" aria-label="${i18nCopy}">
+        <span id="copy" class="t srt" role="tooltip">${i18nCopy}</span>
+        <span id="isCopying" style="display: none;">${i18nCopying}</span>
+        <span id="copyText" style="display: none;">${i18nCopy}</span>
+    </button>
+    `
+    // copying
+    const copyPermalink = getElement('copyPermalink');
+    addEvent(copyPermalink, 'click', () => {
+        getElement('copy').innerText = getElement('isCopying').innerText;
+        setTimeout(() => getElement('copy').innerText = getElement('copyText').innerText, 2000 )
+    });
+}
 
 // Mastodon and QR code functionality
 if (typeof mastodonInstance !== 'undefined') {
@@ -107,10 +134,3 @@ if (window.matchMedia("print").matches) {
 } else {
     addEvent(window, 'beforeprint', expandRH);
 }
-
-// copying
-const copyPermalink = getElement('copyPermalink');
-addEvent(copyPermalink, 'click', () => {
-    getElement('copy').innerText = getElement('isCopying').innerText;
-    setTimeout(() => getElement('copy').innerText = getElement('copyText').innerText, 2000 )
-});
