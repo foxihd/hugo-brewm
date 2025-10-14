@@ -129,7 +129,7 @@ label.range > output {
     align-items: center;
     border-radius: 0.5ex;
     padding: 1ex;
-    width: 4rem;
+    min-width: 4rem;
     gap: 1ex;
 }
 
@@ -180,6 +180,7 @@ label.range > output {
 #setContrast {
     display: flex;
     position: relative;
+    flex: 1;
     justify-content: center;
     margin: 0 0 0 1ex;
     border: none;
@@ -194,7 +195,9 @@ label.range > output {
 
 #setContrast > div {
     display: flex;
+    justify-content: space-around;
     padding: 2pt;
+    width: 100%;
     gap: 2pt;
 }
 
