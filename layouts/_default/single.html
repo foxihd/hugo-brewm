@@ -108,10 +108,13 @@
             </footer>
         {{- end }}
     </article>
+{{- end }}
+
+{{- define "exclude" }}
     <hr class="hide" style="margin: 1in 0;">
     {{- if not (or site.Params.BearMode site.Params.ZenMode) }}
     <div id="contentinfo" class="pagewidth" role="contentinfo" data-pagefind-ignore="all">
-        {{- if $isPost }}
+        {{- if eq .Params.type (or "post" "articles")  }}
             {{- if or .Params.related site.Params.posts.related }}
                 {{ partial "post/related.html" . }}
             {{- end }}

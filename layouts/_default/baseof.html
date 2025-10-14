@@ -21,7 +21,11 @@
             {{ block "top" . }}{{ end }}
         </div>
         {{ block "main" . }}{{ end }}
+        <div id="exclude" role="presentation">
+            {{ "<!-- excluded last block frome some RSS reader and browser reader mode -->" | safeHTML }}
+            {{ block "exclude" . }}{{ end }}
         {{ partialCached "main/footer.html" . }}
+        </div>
     </main>
     {{ partialCached "footer.html" . }}
     {{ block "post" . }}{{ end }}
