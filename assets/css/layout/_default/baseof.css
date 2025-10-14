@@ -212,7 +212,7 @@ div + #unified-footer {
 
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
 
     :root {
         --void: calc((100vw - var(--max-width) - 1rem) / 2) !important;
