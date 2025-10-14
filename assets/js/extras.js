@@ -11,11 +11,15 @@ menu.innerHTML += `
         <span class="t srt" role="tooltip">${i18nPrint}</span>
     </button>
 `
-getElement('has-back').innerHTML = `
-    <button id="back" type="button" onclick="history.back();" aria-label="${i18nBack}">
-        <span class="t srt" role="tooltip">${i18nBack}</span>
-    </button>
-`
+
+const hasBack = getElement('has-back');
+if (hasBack) {
+    hasBack.innerHTML = `
+        <button id="back" type="button" onclick="history.back();" aria-label="${i18nBack}">
+            <span class="t srt" role="tooltip">${i18nBack}</span>
+        </button>
+    `
+}
 
 // enable copy and navigatorShare element when protocol is secure
 if (location.protocol === 'https:') {
