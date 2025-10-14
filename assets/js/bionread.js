@@ -3,7 +3,7 @@ getElement('useBionRead').innerHTML = `
 <input id="bionReadSwitch" accesskey="b" type="checkbox" onclick="bionRead()" aria-keyshortcuts="b" aria-label="${a11y.dataset.i18nBionread}">
 <label id="bionReadButton" for="bionReadSwitch">
     <span><strong>Bion</strong>Read</span>
-    <kbd class="key" aria-hidden="true">b</kbd>
+    <kbd class="key" aria-hidden="true" data-key="b"></kbd>
 </label>
 `;
 bionReadSwitch.checked = false;

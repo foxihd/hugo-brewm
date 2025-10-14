@@ -46,7 +46,7 @@ const {
 a11y.innerHTML = `
 <summary id="has-a11y-summary" accesskey="a" aria-keyshortcuts="a">
   <span>&nbsp;${i18nAccessibility}</span>
-  <kbd class="key" aria-hidden="true">a</kbd>
+  <kbd class="key" aria-hidden="true" data-key="a"></kbd>
 </summary>
 <!-- a11y console -->
 <fieldset id="a11y" role="region" aria-label="${i18nAccessibility}">

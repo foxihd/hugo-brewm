@@ -86,11 +86,15 @@ kbd:has(kbd) {
 
 .key {
     display: none;
+}
+
+.key::after {
     text-transform: uppercase;
+    content: attr(data-key);
 }
 
 .keydown .key {
-    display: initial !important;
+    display: inline-flex !important;
     font-family: var(--sf), sans-serif;
     font-weight: unset;
 }
