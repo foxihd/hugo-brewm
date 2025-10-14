@@ -54,6 +54,7 @@
             {{ partialCached "i18n.html" . }}
         </nav>
         <div id="top-nav-screen" class="screening js-cpn" role="presentation" aria-hidden="true"></div>
+        <hr class="hide"/>
     </details>
 </header>
 {{- /*--------------------- end of header.html ---------------------*/}}
@@ -62,7 +63,6 @@
     {{ "<!-- main/header.html -->" | safeHTML }}
     {{- if not .IsHome }}
         <header class="pagewidth">
-            <hr class="hide"/>
             {{- if not (or site.Params.BearMode site.Params.ZenMode) }}
                 {{- if or (eq .Kind "term" ) .IsSection .IsPage }}
                     <menu id="menu" class="srm"
