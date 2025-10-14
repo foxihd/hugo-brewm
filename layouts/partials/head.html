@@ -11,8 +11,10 @@
     <meta http-equiv="refresh" content="0; url={{ $url }}" />
 {{- else -}}
     {{ partial "head/meta.html" . -}}
+    {{- $siteTitle := or site.Title site.Params.title | plainify }}
+    {{- $title := cond .IsHome $siteTitle (printf "%s | %s" .Title $siteTitle) | plainify  }}
     {{ with .OutputFormats.Get "rss" -}}
-        {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+        {{ printf `<link rel="%s" type="%s" href="%s" title="%s (RSS)" />` .Rel .MediaType.Type .Permalink $title | safeHTML }}
     {{ end -}}
     {{ partialCached "head/js.html" . -}}
     {{ partialCached "head/css.html" . -}}
