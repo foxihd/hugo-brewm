@@ -6,20 +6,22 @@
 {{- $alt := .Get "alt" }}
 {{- if .IsNamedParams }}
     {{- if .Get "quote" }}
+        <div>
         <a href="{{ $url }}" class="has-img has-aria-label has-quote"
             {{ with $label }} aria-label="{{ . }}"{{ end }}>
             {{ with .Get "quote" }}<div>{{ safeHTML . }}</div>{{ end }}
-            {{ with $img }} <img src="{{ . }}" alt="{{ or $alt $label }}" loading="lazy">{{ end }}
+            {{ with $img }} <img src="{{ . }}" alt="{{ default $alt $label }}" loading="lazy">{{ end }}
         </a>
+        </div>
     {{- else }}
-        <figure>
-            {{ with $img }}<img src="{{ . }}" alt="{{ or $alt $label }}" loading="lazy">{{ end }}
+        <div role="figure">
+            {{ with $img }}<img src="{{ . }}" alt="{{ default $alt $label }}" loading="lazy">{{ end }}
             {{- with $label }}
                 <figcaption>
                     {{ if $url }}<a href="{{ $url }}"> {{ . }}</a>{{ else }}{{ . }}{{ end }}
                 </figcaption>
             {{- end }}
-        </figure>
+            </div>
     {{- end }}
 {{ else if or (eq $var "") (eq $var "begin") }}<div class="column pin">
 {{ else if eq $var "end" }}</div>
