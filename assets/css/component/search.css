@@ -19,23 +19,7 @@
     display: none;
 }
 
-.form {
-    flex-direction: row;
-    align-items: center;
-}
-
 /* the search box */
-
-.form__input {
-    flex: 1;
-    border: none;
-    border-radius: 2rem 0 0 2rem;
-    background: none;
-    padding: 0;
-    padding-left: 1em;
-    color: var(--fg);
-    font-family: var(--sf), sans-serif;
-}
 
 .form.on-plank .form__input {
     flex: 1;
@@ -66,16 +50,6 @@
 }
 
 /* the search button */
-
-.pagefind-ui__button,
-.form__button {
-    display: inline-flex;
-    position: relative;
-    border: none;
-    border-radius: 0 50% 50% 0;
-    background: none;
-    padding: 0;
-}
 
 .form.on-plank .form__button,
 .form.on-plank .form__button > img {

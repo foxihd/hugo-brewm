@@ -17,6 +17,34 @@ nav > ul > li {
     padding: 0;
 }
 
+/* form dependency for search & share button  */
+
+.form {
+    flex-direction: row;
+    align-items: center;
+}
+
+.form__input {
+    flex: 1;
+    border: none;
+    border-radius: 2rem 0 0 2rem;
+    background: none;
+    padding: 0;
+    padding-left: 1em;
+    color: var(--fg);
+    font-family: var(--sf), sans-serif;
+}
+
+.pagefind-ui__button,
+.form__button {
+    display: inline-flex;
+    position: relative;
+    border: none;
+    border-radius: 0 50% 50% 0;
+    background: none;
+    padding: 0;
+}
+
 /* container */
 
 body > header,
