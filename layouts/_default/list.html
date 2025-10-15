@@ -16,6 +16,7 @@
     {{- $enableSlide := not site.Params.home.disableSlide }}
     {{- if and .IsHome (not $paginator.HasPrev) $enableSlide}}
         {{ partialCached "carousel.html" . }}
+        <hr class="hide"/>
     {{- end }}
 {{- end -}}
 
@@ -36,19 +37,23 @@
                         {{ template "taxonomy-listing" }}
                     {{- end }}
                     </div>
+                    <hr class="hide"/>
                 </div>
             {{- end }}
             {{- with .Content }}
                 {{ partial "hero.html" $ }}
+                <hr class="hide"/>
             {{- end }}
         {{- else }}
             {{- if .IsSection }}
                 <div id="list-subsection" class="has-crsl">
                     {{ partial "list/sections.html" (dict "class" "crsl" "cover" true "page" .) }}
+                    <hr class="hide"/>
                 </div>
             {{- end }}
             {{- with .Content }}
                 {{ partial "hero.html" $ }}
+                <hr class="hide"/>
             {{- end }}
         {{- end }}
     {{- end }}
@@ -85,6 +90,7 @@
                             {{ partial "head/js/network-graph.html" . }}
                         </div>
                     {{- end }}
+                    <hr class="hide"/>
                 </aside>
             {{- else if or (eq .Data.Singular "tag") .IsSection }}
                 <aside id="list-tags">
@@ -94,6 +100,7 @@
                     <nav aria-label="{{ i18n "tags" }}">
                         {{ partial "taxonomies.html" (dict "taxonomy" "tags" "class" "rounded has-hash") }}
                     </nav>
+                    <hr class="hide"/>
                 </aside>
             {{- end }}
         {{- end }}
@@ -129,6 +136,7 @@
                             {{- end }}
                         {{- end }}
                     </strong>
+                    <hr class="hide"/>
                 </header>
                 {{- /*
 

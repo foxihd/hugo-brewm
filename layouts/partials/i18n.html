@@ -12,7 +12,7 @@
                     href="{{ .Permalink }}"
                     aria-label="{{ printf "%s %s" (i18n "switchLangTo") $name }}"
                     aria-description="{{ printf "%s %s" (i18n "currentLang") $.Language.LanguageName }}">
-                    <span class="emoji">{{ $flag }}</span>
+                    <span class="emoji">{{ $flag }}&nbsp;</span>
                     <span class="act iso639 sri" aria-hidden="true">{{ $act639 }}</span>
                     <span class="alt iso639 sri" aria-hidden="true">&rarr; {{ $alt639 }}</span>
                     <span class="t srt languangeName">{{ $name }}</span>
@@ -26,7 +26,7 @@
                 <summary class="anchor on-deck"
                     aria-label="{{ i18n "selectLang" }}"
                     aria-description="{{ printf "%s %s" (i18n "currentLang") $.Language.LanguageName }}">
-                    <span class="emoji">{{ $flag }}</span>
+                    <span class="emoji">{{ $flag }}&nbsp;</span>
                     <span class="iso639">{{ substr .LanguageCode 0 2 | upper }} </span>
                     <span class="languangeName">{{ .LanguageName }}</span>
                 </summary>
@@ -39,7 +39,7 @@
                         {{- $flag := partial "i18n/flag.html" (dict "iso3166" (substr .Language.LanguageCode -2)) }}
                         <li>
                             <a href="{{ .Permalink }}" aria-label="{{ printf "Change language to %s" .Language.LanguageName }}">
-                                <span class="emoji">{{ $flag }}</span>
+                                <span class="emoji">{{ $flag }}&nbsp;</span>
                                 <span class="languangeName">{{ .Language.LanguageName }}</span>
                             </a>
                         </li>
@@ -65,7 +65,7 @@
             {{- $flag := partial "i18n/flag.html" (dict "iso3166" (substr .Language.LanguageCode -2)) }}
                 <li>
                     <a href="{{ .RelPermalink }}" aria-label="{{ printf "%s %s" (i18n "switchLangTo") .Language.LanguageName }}" aria-description="{{ .LinkTitle }}">
-                        <span class="emoji">{{ $flag }}</span>
+                        <span class="emoji">{{ $flag }}&nbsp;</span>
                         <span>{{ .LinkTitle }}</span>
                     </a>
                 </li>
