@@ -90,11 +90,15 @@ if (hour > 6 && hour < 21) {
     });
 } else {
     getElement('background-body').innerHTML = `
-    <div class="grain"></div>
     <div id="dwclock">
         <div id="min"><div class="hand"></div></div>
         <div id="hour"><div class="hand"></div></div>
     </div>`
+
+    const bg = getElements('.background, #background-body');
+    bg.forEach(e => {
+        e.innerHTML += `<div class="grain"></div>`;
+    });
 
     const clockSty = document.createElement('style');
     clockSty.textContent = `
