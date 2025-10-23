@@ -1,4 +1,5 @@
 const menu = getElement('menu');
+if (menu) {
 const {
     i18nBack,
     i18nPrint,
@@ -44,6 +45,8 @@ if (location.protocol === 'https:') {
         getElement('copy').innerText = getElement('isCopying').innerText;
         setTimeout(() => getElement('copy').innerText = getElement('copyText').innerText, 2000 )
     });
+    }
+
 }
 
 // Mastodon and QR code functionality
