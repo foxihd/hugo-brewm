@@ -65,8 +65,7 @@ menu a .t,
     content: '\e912';
 }
 
-label .t::after,
-main#term #print-button {
+label .t::after {
     visibility: hidden;
 }
 
