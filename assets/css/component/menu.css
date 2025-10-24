@@ -20,7 +20,7 @@ nav > ul > li {
 /* form dependency for search & share button  */
 
 .form {
-    flex-direction: row;
+    flex-direction: row !important;
     align-items: center;
 }
 
