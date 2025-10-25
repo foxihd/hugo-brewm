@@ -20,7 +20,7 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 
 - **Reader-first**: Prioritizes speed[^1], privacy[^2], readability and accessibility with personalized settings for colors, fonts, BionRead and focus mode (It's Tracker Free!).
 - **Inclusive**: Graceful degradation design[^3] oriented with improved semantic HTML structure & WAI-ARIA attribute, RSS/reader-mode optimized, printer-friendly plain vanilla website that remains fully functional even when JavaScript is disabled! The theme is even compatible with terminal browsers such as Lynx or W3M.
-- **Scalable**: Start small and grow into a thriving digital garden; with multi-author support, multilingual capabilities and content organization through taxonomy, optional Pagefind search integration, followable section and terms-specific or site-wide, over RSS, external feed embed over RSS, and comments via Giscus, Mastodon and Bluesky.
+- **Scalable**: Start small and grow into a thriving digital garden; with multi-author support, multilingual capabilities and content organization through taxonomy, optional Pagefind search integration, followable section and terms-specific or site-wide over RSS, external feed embed over RSS, and comments via Giscus or Fediverse (Mastodon & Bluesky).
 - **Frameworkless**: Lower maintenance & carbon footprint by lesser resource usage. Hugo-brewm's combined JavaScript and stylesheet assets (excluding optional external libraries like MathJax, Katex or PageFind) totaling under 130KB and compressed to less than 55KB when Gzipped!
 
     > All web assets listed below may be fetched once and reusable for thousands of pages until the cache is purged or expired.
@@ -28,7 +28,7 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
     | Assets Filename    |    Size | Gzipped | Note                                          |
     | ------------------ | ------: | ------: | :-------------------------------------------- |
     | hugo-brewm.min.css | ~83.5KB | ~36.3KB | Compiled site-wide stylesheet and basic icon font, could be less  |
-    | hugo-brewm.min.js  | ~33.2KB | ~11.0KB | Compiled site-wide javascript, could be less  |
+    | hugo-brewm.min.js  | ~34.4KB | ~11.4KB | Compiled site-wide javascript, could be less  |
     | fediverse.min.js   | ~12.7KB |  ~4.2KB | Mastodon & Bluesky comments, load if required |
 
 ## Acknowledgement
@@ -517,7 +517,7 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         sans = 'inter'
         ## Host fonts on local host instead of GitHub
         localHost = true
-        ## Reduce icon subset for base-ui to only 38 icon (save 15KB)
+        ## Reduce icon subset for base-ui to only 38 icon (save up to 15KB)
         minimalUI = true
 ```
 
