@@ -517,6 +517,8 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         sans = 'inter'
         ## Host fonts on local host instead of GitHub
         localHost = true
+        ## Reduce icon subset for base-ui to only 38 icon (save 15KB)
+        minimalUI = true
 ```
 
 ## Support

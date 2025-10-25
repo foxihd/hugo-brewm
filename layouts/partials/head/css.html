@@ -15,6 +15,10 @@
 {{- $icon         := resources.Get "css/typeface/icon.css" }}
 {{- $websafe      := resources.Get "css/typeface/websafe.css" }}
 
+{{- if site.Params.typeface.minimalUI }}
+    {{- $icon  := resources.Get "css/typeface/icon-minimal.css" }}
+{{- end }}
+
 {{- if site.Params.Typeface.localHost }}
     {{- $icon         = resources.Get "css/typeface-local/icon.css" }}
     {{- $cormorant    = resources.Get "css/typeface-local/Cormorant.css" }}
