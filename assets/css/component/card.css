@@ -153,11 +153,11 @@ ul.pagination {
 
 }
 
-@media (max-width: 480px) {
+@media (max-width: 412px) {
 
-    .feed-item > section {
-        flex-direction: column;
-        aspect-ratio: unset !important;
+    .feed-item > section.has-cover {
+        display: block;
+        aspect-ratio: unset;
     }
 
     .feed-item img {
