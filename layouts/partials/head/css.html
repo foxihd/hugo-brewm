@@ -16,7 +16,7 @@
 {{- $websafe      := resources.Get "css/typeface/websafe.css" }}
 
 {{- if site.Params.typeface.minimalUI }}
-    {{- $icon  := resources.Get "css/typeface/icon-minimal.css" }}
+    {{- $icon = resources.Get "css/typeface/icon-minimal.css" }}
 {{- end }}
 
 {{- if site.Params.Typeface.localHost }}
