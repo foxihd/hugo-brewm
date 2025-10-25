@@ -25,7 +25,8 @@
 }
 
 .feed-item img {
-    width: auto;
+    order: 2;
+    width: 100%;
     height: auto;
     max-height: 68.8vw;
     aspect-ratio: 10/8;
@@ -39,10 +40,6 @@
     -webkit-mask-image: var(--grd);
             mask-image: var(--grd);
     clip-path: text;
-}
-
-.feed-item img + .par {
-    width: var(--golden-ratio);
 }
 
 .feed-item > a {
@@ -68,8 +65,6 @@
 }
 
 .feed-item > section {
-    display: flex;
-    flex-direction: row-reverse;
     margin: 8pt 0;
     width: 100%;
     overflow: hidden;
@@ -78,6 +73,8 @@
 }
 
 .feed-item > section.has-cover {
+    display: grid;
+    grid-template-columns: 6fr 4fr;
     aspect-ratio: 10/3;
 }
 

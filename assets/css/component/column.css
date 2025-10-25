@@ -25,17 +25,10 @@
     column-span: all;
 }
 
-.column > *,
-.column__item {
+.column > * {
     break-after: auto;
     break-before: auto;
     break-inside: avoid;
-}
-
-div + #menu-footer,
-.column > div + div,
-.column__item + .column__item {
-    margin-top: 1.618rem;
 }
 
 .column img {
@@ -86,6 +79,12 @@ div + #menu-footer,
 
     .column.pin {
         --col: 10rem;
+    }
+
+
+    div + #menu-footer,
+    .column > div + div {
+        margin-top: 1.618rem;
     }
 
 }

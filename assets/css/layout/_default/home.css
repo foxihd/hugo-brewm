@@ -5,6 +5,10 @@ body {
     max-width: 2560px !important;
 }
 
+body::-webkit-scrollbar {
+    display: none !important;
+}
+
 body > footer.pagewidth,
 body > header.pagewidth {
     padding: 0 calc(1.5rem + 1ex);
