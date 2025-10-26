@@ -208,6 +208,7 @@ function setColor() {
     const scheme = lightSwitch.checked ? 'dark' : 'light';
     const contrast = lessContrast.checked ? 'less' : (moreContrast.checked ? 'more' : 'default');
     bodySty.setAttribute('style', styles[scheme][contrast]);
+    bodySty.dataset.contrast = contrast;
     const logomarkDark = getElement('logomark--dark');
     if (logomarkDark) {
         const logomark = getElement('logomark');

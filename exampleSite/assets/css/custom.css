@@ -51,3 +51,25 @@
 #no-cookie:hover {
     box-shadow: inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080;
 }
+
+body[data-contrast="less"] #background-header,
+body[data-contrast="less"] #background-footer {
+    --opt-border: 1px solid #fff3;
+    box-shadow: 0 -1px 1pc #0003;
+    background-color: unset;
+    backdrop-filter: blur(5px);
+}
+
+body[data-contrast="less"] #background-body {
+    background-color: var(--bg);
+    background-image:
+        radial-gradient(at 50% 40%,var(--bg) 0,transparent 50%),
+        radial-gradient(at 68% 62%,var(--bg) 0,transparent 50%),
+        radial-gradient(at 62% 38%,hsla(226,96%,52%,.5) 0,transparent 50%),
+        radial-gradient(at 35% 70%,hsla(246,31%,58%,.5) 0,transparent 50%),
+        radial-gradient(at 90% 85%,hsla(343,77%,69%,.3) 0,transparent 50%);
+}
+
+body[data-contrast="less"] #to-top {
+    background: unset;
+}
