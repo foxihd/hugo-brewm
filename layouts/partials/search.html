@@ -28,8 +28,8 @@
     {{ "<!-- duckduckgo.html -->" | safeHTML }}
     {{- $site := index (split site.BaseURL "/") 2 }}
     <form id="duckduckgo" class="form on-plank"
-        name="x" action="//duckduckgo.com/"
-        role="search" aria-label="{{ i18n "searchDuckDuckGo" }}">
+        name="{{ i18n "seach" }}" action="//duckduckgo.com/"
+        role="search" aria-label="{{ i18n "search" }}">
         <input type="hidden" value="{{ $site }}" name="sites"></input>
         <input type="hidden" value="1" name="kh"></input>
         <input type="hidden" value="1" name="kn"></input>
@@ -63,6 +63,7 @@
                 const pFInput = document.querySelector('.pagefind-ui__search-input');
                 if (pFInput) {
                     pFInput.setAttribute('aria-label', pFInput.getAttribute('placeholder'));
+                    pFInput.setAttribute('name', pFInput.getAttribute('placeholder'));
                 }
                 pageFindInitialized = true;
                 document.removeEventListener('DOMContentLoaded', initPageFind);
@@ -76,8 +77,8 @@
     {{ "<!-- mojeek.html -->" | safeHTML }}
     {{- $site := index (split site.BaseURL "/") 2 }}
     <form id="mojeek" class="form on-plank"
-        name="x" action="//www.mojeek.com/search"
-        role="search" aria-label="{{ i18n "searchMojeek" }}">
+        name="{{ i18n "seach" }}" action="//www.mojeek.com/search"
+        role="search" aria-label="{{ i18n "seach" }}">
         <input type="hidden" value="{{ $site }}" name="site"></input>
         <input class="ldots form__input" type="search" placeholder="{{ i18n "search" }}" name="q" role="searchbox"></input>
         <button class="form__button" type="submit" aria-label="{{ i18n "search" }}">
