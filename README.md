@@ -474,6 +474,11 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         secnum = false
 
     ## Search configuration
+    [params.RSS]
+        limit = 15 # item limit default: 15
+        content = 15 # limit item with full content
+
+    ## Search configuration
     [params.search]
         ## Enable search functionality, please index your site first
         enable = true

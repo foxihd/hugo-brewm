@@ -22,7 +22,7 @@
       {{- $authorName = . }}
     {{- end }}
   {{- else }}
-    {{- $authorName  = . }}
+    {{- $authorName = . }}
   {{- end }}
 {{- else }}
   {{- with site.Author.name }}
@@ -34,50 +34,54 @@
 {{- if .IsHome }}{{ $pctx = site }}{{ end }}
 {{- $pages := slice }}
 {{- if or $.IsHome $.IsSection }}
-{{- $pages = where $pctx.RegularPages "Type"  (or "post" "articles") }}
+{{- $pages = where $pctx.RegularPages "Type" (or "post" "articles") }}
 {{- else }}
 {{- $pages = $pctx.Pages }}
 {{- end }}
-{{- $limit := site.Config.Services.RSS.Limit }}
+{{- $limit := or site.Params.RSS.Limit site.Config.Services.RSS.Limit | default 15 }}
+{{- $contentLimit := site.Params.RSS.Content | default 15 }}
 {{- if ge $limit 1 }}
 {{- $pages = $pages | first $limit }}
 {{- end }}
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" >
   <channel>
     <title>{{ if eq .Title site.Title }}{{ site.Title }}{{ else }}{{ with .Title }}{{ . }} on {{ end }}{{ site.Title }}{{ end }}</title>
     <link>{{ .Permalink }}</link>
     <description>{{ i18n "recent"}} {{ if ne .Title site.Title }}{{ with .Title }}{{ i18n "in" | lower}} {{ . }} {{ end }}{{ end }}{{ i18n "on" | lower }} {{ site.Title }}</description>
     <generator>Hugo {{ hugo.Version }}</generator>
-    <language>{{ site.Language.LanguageCode }}</language>
-    {{ with $authorName -}}
-      <managingEditor>{{ . }}</managingEditor>
-    {{ end -}}
-    {{ with $authorName }}
-      <webMaster>{{ . }}</webMaster>
-    {{ end -}}
-    {{ with site.Copyright -}}
-      <copyright>{{ . }}</copyright>
-    {{ end -}}
+    <language>{{ site.Language.LanguageCode }}</language>{{ with $authorEmail }}
+    <managingEditor>{{.}}{{ with $authorName }} ({{ . }}){{ end }}</managingEditor>{{ end }}{{ with $authorEmail }}
+    <webMaster>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</webMaster>{{ end }}{{ with site.Copyright }}
+    <copyright>{{ . }}</copyright>{{ end }}
     <lastBuildDate>{{ now.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
     {{ with .OutputFormats.Get "RSS" -}}
       {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML -}}
     {{ end -}}
-    {{- range $pages }}
+    {{- range $index, $data := $pages }}
+      {{- $cover := partial "page/cover.html" (dict "page" .) }}
+      {{- $desc := or .Params.Description .Description .Params.Subtitle | default .Summary }}
+      {{- $author := or .Params.author .Params.authors | default  site.Params.Author.Name }}
+      {{- with or (.GetTerms "authors") (.GetTerms "author") }}
+        {{- if eq (len .) 1}}
+          {{- range . }}
+            {{- $author = .LinkTitle }}
+          {{- end }}
+        {{- else }}
+          {{- $author = delimit $author ", " " & " }}
+        {{- end }}
+      {{- end }}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
-      <pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
-      {{ with $authorName -}}
-        <author>{{ . }}</author>
-      {{ end -}}
+      <pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>{{ with $authorEmail }}
+      <author>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</author>{{ end }}{{ with $author }}
+      <dc:creator>{{ . }}</dc:creator>{{ end }}
       <guid>{{ .Permalink }}</guid>
-      {{- $desc := or .Params.Description .Description  .Params.Subtitle | default .Summary }}
-      <description>{{ $desc | transform.XMLEscape | safeHTML }}</description>
-      {{- $cover := partial "page/cover.html" (dict "page" .) }}
-      {{ with $cover -}}
-        <enclosure url="{{ . }}" length="0" type="image/jpeg" />
-      {{- end }}
+      <description>{{ $desc | transform.XMLEscape | safeHTML }}</description>{{ if lt $index $contentLimit }}
+      <content:encoded>{{ .Content | transform.XMLEscape | safeHTML }}</content:encoded>{{ end }}{{ with .GetTerms "categories" }}{{ range . }}
+      <category>{{ .LinkTitle }}</category>{{ end}}{{ end }}{{ with $cover }}
+      <enclosure url="{{ . }}" length="0" type="image/jpeg" />{{ end }}
     </item>
     {{- end }}
   </channel>
