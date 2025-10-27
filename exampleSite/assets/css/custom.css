@@ -30,6 +30,8 @@
     --hl: yellow;
 }
 
+/* code below not available by default */
+
 #cookie-banner > div {
     display: flex;
     align-items: center;
@@ -52,49 +54,49 @@
     box-shadow: inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080;
 }
 
-body[data-contrast="less"]  {
-    #background-header,
-    #background-footer,
-    #a11y,
-    #top-nav-screen,
-    .on-plank {
-        outline: 1px solid #fff2;
-        border: 1px solid #fff1;
-        box-shadow: 0 -1px 1pc #0002;
-        background: #fff1;
-        backdrop-filter: blur(9px);
-    }
-    #background-body {
-        background-color: var(--bg);
-        background-image:
-            radial-gradient(at 50% 40%,var(--bg) 0,transparent 50%),
-            radial-gradient(at 68% 62%,var(--bg) 0,transparent 50%),
-            radial-gradient(at 62% 38%,hsla(226,96%,52%,.5) 0,transparent 50%),
-            radial-gradient(at 35% 70%,hsla(246,31%,58%,.5) 0,transparent 50%),
-            radial-gradient(at 90% 85%,hsla(343,77%,69%,.3) 0,transparent 50%);
-    }
-    .screening {
-        background: unset;
-        backdrop-filter: var(--blur);
-    }
-    #bionReadSwitch + label {
-        background: unset;
-        color: unset;
-    }
+body[data-contrast="less"] #background-header,
+body[data-contrast="less"] #background-footer,
+body[data-contrast="less"] #a11y,
+body[data-contrast="less"] #top-nav-screen,
+body[data-contrast="less"] .on-plank {
+    outline: 1px solid #fff2;
+    border: 1px solid #fff1;
+    box-shadow: 0 -1px 1pc #0002;
+    background: #fff1;
+    backdrop-filter: blur(9px);
 }
+
+body[data-contrast="less"] #background-body {
+    background-color: var(--bg);
+    background-image:
+        radial-gradient(at 50% 40%,var(--bg) 0,transparent 50%),
+        radial-gradient(at 68% 62%,var(--bg) 0,transparent 50%),
+        radial-gradient(at 62% 38%,hsla(226,96%,52%,.5) 0,transparent 50%),
+        radial-gradient(at 35% 70%,hsla(246,31%,58%,.5) 0,transparent 50%),
+        radial-gradient(at 90% 85%,hsla(343,77%,69%,.3) 0,transparent 50%);
+}
+
+body[data-contrast="less"] .screening {
+    background: unset;
+    backdrop-filter: var(--blur);
+}
+
+body[data-contrast="less"] #bionReadSwitch + label {
+    background: unset;
+    color: unset;
+}
+
 @media (max-width: 640px) {
-    body[data-contrast="less"] {
-        #top-nav {
-            #top-nav-screen,
-            .on-plank {
-                outline: unset;
-                border: unset;
-            }
-            .on-plank {
-                box-shadow: none;
-                background: none;
-                backdrop-filter: unset;
-            }
-        }
+    body[data-contrast="less"] #top-nav-screen {
+        outline: unset;
+        border: unset;
+    }
+
+    body[data-contrast="less"] #top-nav .on-plank {
+        outline: unset;
+        border: unset;
+        box-shadow: none;
+        background: none;
+        backdrop-filter: unset;
     }
 }
