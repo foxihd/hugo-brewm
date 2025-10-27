@@ -239,7 +239,7 @@ label.range > output {
     margin-left: 0.5ex;
     border: unset;
     border-radius: 1rem;
-    background: var(--bg);
+    background: none;
     padding: 0.5ex 1.25ex;
     color: var(--fg);
     font: inherit !important;
@@ -441,6 +441,8 @@ body.sr-user {
     --tt: monospace;
 }
 
+#to-top .t,
+#has-search > summary.srm--a::before,
 menu.srm--a > *::before {
     display: none;
 }
@@ -486,9 +488,8 @@ menu.srm--a + #back {
     padding: 0 5pt;
 }
 
-#to-top .t,
-#has-search > summary.srm--a::before {
-    display: none;
+#to-top {
+    background: none;
 }
 
 menu.srm--a > *,
