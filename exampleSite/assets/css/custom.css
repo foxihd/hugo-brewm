@@ -59,7 +59,6 @@ body[data-contrast="less"] #background-footer,
 body[data-contrast="less"] #a11y,
 body[data-contrast="less"] #top-nav-screen,
 body[data-contrast="less"] .on-plank {
-    outline: 1px solid #fff2;
     border: 1px solid #fff1;
     box-shadow: 0 -1px 1pc #0002;
     background: #fff1;
@@ -84,6 +83,12 @@ body[data-contrast="less"] .screening {
 body[data-contrast="less"] #bionReadSwitch + label {
     background: unset;
     color: unset;
+}
+
+body[data-contrast="less"] #bionReadSwitch + label:active,
+body[data-contrast="less"] #bionReadSwitch + label:hover,
+body[data-contrast="less"] #bionReadSwitch:checked + label {
+    color: var(--ac);
 }
 
 @media (max-width: 640px) {
