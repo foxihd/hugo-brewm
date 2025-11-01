@@ -92,6 +92,7 @@
             {{- end }}
         </header>
         {{- with .Params.toc }}
+            <br />
             {{ partial "nav.html" (dict "navID" "TableOfContents" "page" $) }}
         {{- end }}
         {{ partial "page/audio.html" . }}
