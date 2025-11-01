@@ -9,13 +9,13 @@
       #lfr{animation:lfr 5s infinite}
       #lfl{animation:lfl 5s infinite}
       @keyframes lfr{
-        0%, 100%{transform:unset}
+        0%, 100%{transform:rotate(0deg) translateX(0)}
         25%, 75%{transform:rotate(45deg) translateX(calc(100% / 6))}
-        50%{transform:translateX(calc(100% / -3))}}
+        50%{transform:rotate(0deg) translateX(calc(100% / -3))}}
       @keyframes lfl{
-        0%, 100%{transform:unset}
+        0%, 100%{transform:rotate(0deg) translateX(0)}
         25%, 75%{transform:rotate(-45deg) translateX(calc(100% / -6))}
-        50%{transform:translateX(calc(100% / 3))}}
+        50%{transform:rotate(0deg) translateX(calc(100% / 3))}}
     </style>
   </defs>
   <g id="lf">

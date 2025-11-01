@@ -8,7 +8,7 @@
       #lf{animation:rot 2.5s linear infinite;transform-origin:center;}
       #lfr{transform:translateX(calc(100% / -3))}
       #lfl{transform:translateX(calc(100% / 3))}
-      @keyframes rot{0% {transform:unset}100%{transform:rotate(360deg)}}
+      @keyframes rot{0% {transform:rotate(0deg)}100%{transform:rotate(360deg)}}
     </style>
   </defs>
   <g id="lf">
