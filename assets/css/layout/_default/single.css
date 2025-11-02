@@ -98,7 +98,6 @@ header #timestamp {
     font-variant-numeric: oldstyle-nums;
 }
 
-#has-TableOfContents,
 math[display=block],
 #comments-error {
     margin: var(--medskip) 0;
