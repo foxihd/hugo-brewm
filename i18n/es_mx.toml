@@ -110,7 +110,7 @@
     one = "Reblog"
     other = "Reblogs"
 [fediverseFavourites]
-    one = "Favoritos"
+    one = "Favorito"
     other = "Favoritos"
 [focusMode]
     other = "Modo concentración"
