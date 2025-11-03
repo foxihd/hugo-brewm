@@ -83,8 +83,6 @@
     other = "Oscuro"
 [darkMode]
     other = "Modo oscuro"
-[date_long]
-    other = "Enero 3, 2006"
 [defaultColor]
     other = "Predeterminado"
 [defaultContrast]
