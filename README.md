@@ -10,6 +10,7 @@
 Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hugo-brewm/en/)
 
 ![A11y Console](https://repository-images.githubusercontent.com/923527728/46a32a19-69ac-45b3-91a4-c4d299fb234b)
+_**Figure 1.** Accessibility panel in javascript-disabled and javascript-enabled browsers, with local DOM storage disabled and enabled, respectively. Since v1.10.0, the Accessibility panel renders on the client side._
 
 > [!TIP]
 > Always keep hugo-brewm up-to-date for better user experience, maximum performance and resource efficiency.
@@ -17,21 +18,22 @@ Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hug
 > `git submodule update --remote --merge themes/hugo-brewm`
 
 ![Side-by-side windows to demonstrate beautiful degradation and inclusivity; a terminal with Lynx browser, Gnome Web (a WebKit-based browser), and Pulp (an RSS reader)](https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:2jc3arh3gtkgork6pycgjsn3/bafkreidfmmztrywqmrldjqcrlrsc2xqapebyhgrycvxvfg5vxad4zlpmyy@jpeg)
+_**Figure 2.** Side-by-side windows demonstrating multiple platform supports; Lynx browser (terminal based browser), Gnome Web (WebKit-based browser), and Pulp (RSS reader)._
 
 ## Feature Highlights
 
 - **Reader-first**: Prioritizes speed[^1], privacy[^2], readability and accessibility with personalized settings for colors, fonts, BionRead and focus mode (It's Tracker Free!).
-- **Inclusive**: Graceful degradation design[^3] oriented with improved semantic HTML structure & WAI-ARIA attribute, RSS/reader-mode optimized, printer-friendly plain vanilla website that remains fully functional even when JavaScript is disabled! The theme is even compatible with terminal browsers such as Lynx or W3M.
-- **Scalable**: Start small and grow into a thriving digital garden; with multi-author support, multilingual capabilities and content organization through taxonomy, optional Pagefind search integration, followable section and terms-specific or site-wide over RSS, external feed embed over RSS, and comments via Giscus or Fediverse (Mastodon & Bluesky).
+- **Inclusive**: Graceful degradation design[^3] oriented with improved semantic HTML structure & WAI-ARIA attribute, RSS/reader-mode optimized, printer-friendly full static website that remains fully functional even when JavaScript is disabled! The theme is even compatible with terminal browsers such as Lynx or W3M.
+- **Scalable**: Start small and grow into a thriving digital garden; with multi-author support, multilingual capabilities and content organization through taxonomy, optional Pagefind search integration, subscribable section and terms-specific or site-wide over RSS, external feed embed over RSS, and comments via Giscus or Fediverse (Mastodon & Bluesky).
 - **Frameworkless**: Lower maintenance & carbon footprint by lesser resource usage. Hugo-brewm's combined JavaScript and stylesheet assets (excluding optional external libraries like MathJax, Katex or PageFind) totaling under 140KB and compressed to less than 55KB when Gzipped!
-
-    > All web assets listed below may be fetched once and reusable for thousands of pages until the cache is purged or expired.
 
     | Assets Filename    |    Size | Gzipped | Note                                          |
     | ------------------ | ------: | ------: | :-------------------------------------------- |
     | hugo-brewm.min.css | ~92.9KB | ~38.2KB | Compiled site-wide stylesheet and basic icon font, could be less  |
     | hugo-brewm.min.js  | ~34.4KB | ~11.5KB | Compiled site-wide javascript, could be less  |
     | fediverse.min.js   | ~12.7KB |  ~4.2KB | Mastodon & Bluesky comments, load if required |
+  
+    _**Table 1.** All hugo-brewm's web assets that may be fetched once and reusable for thousands of pages until the cache is purged or expired._
 
 ## Acknowledgement
 
@@ -56,9 +58,6 @@ Please feel free to contribute to additional [translation](https://github.com/fo
 
 ### 3rd Party Assets
 
-The 3rd party assets listed bellow may be required:
-
-
 | 3rd Party Assets   |    Size |  Gzipped | Note                                         |
 | ------------------ | ------: | ------: | :-------------------------------------------- |
 | pagefind-ui.js     | ~76.5KB | ~21.0KB | Search function`site.Params.search.pagefind`  |
@@ -69,10 +68,9 @@ The 3rd party assets listed bellow may be required:
 | tex-mml-chtml.js   | ~1.11MB |  ~249KB | MathJax math engine`.Params.mathJax`          |
 | highlight.min.js   |  ~117KB | ~38.5KB | Code Highlighting`.Params.hljs`               |
 
+_**Table 2.** All 3rd party assets web assets that may be fetched when required._
+
 ### Web Fonts
-
-Web fonts listed bellow may be selected, unless `site.Params.typeface.webSafe` or `site.Params.posts.sfdefault` is configured:
-
 
 | Web Fonts (woff2)  | Styles |   Size | Note                                            |
 | ------------------ | :----: | -----: | :---------------------------------------------- |
@@ -86,6 +84,8 @@ Web fonts listed bellow may be selected, unless `site.Params.typeface.webSafe` o
 | EBGaramond         |    4   | ~864KB | default roman/serif, disable on websafe         |
 | Cormorant          |    4   | ~516KB | set on`site.Params.typeface.roman` = `Cormorant`|
 | Crimson            |    4   | ~104KB | set on`site.Params.typeface.roman` = `Crimson`  |
+
+_**Table 3.** Hugo-brewm's available fonts that can be selected, unless `site.Params.typeface.webSafe` or `site.Params.posts.sfdefault` is configured._
 
 ## Getting Started: Blog with Hugo and hugo-brewm
 
