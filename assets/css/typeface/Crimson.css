@@ -9,7 +9,7 @@
     font-weight: 400;
     font-display: swap;
     src: local('Crimson Roman'),
-     url(https://raw.githubusercontent.com/skosch/Crimson/master/Web%20Fonts/crimson-roman-webfont.woff2) format('woff2');
+         url(https://fonts.gstatic.com/s/amiri/v30/J7aRnpd8CGxBHpUutLM.woff2) format('woff2');
     size-adjust: 95%;
 }
 
@@ -19,7 +19,7 @@
     font-weight: 400;
     font-display: swap;
     src: local('Crimson Italic'),
-         url(https://raw.githubusercontent.com/skosch/Crimson/master/Web%20Fonts/crimson-italic-webfont.woff2) format('woff2');
+         url(https://fonts.gstatic.com/s/amiri/v30/J7afnpd8CGxBHpUrhLEY6w.woff2) format('woff2');
     size-adjust: 95%;
 }
 
@@ -29,7 +29,7 @@
     font-weight: 700;
     font-display: swap;
     src: local('Crimson Bold'),
-         url(https://raw.githubusercontent.com/skosch/Crimson/master/Web%20Fonts/crimson-bold-webfont.woff2) format('woff2');
+         url(https://fonts.gstatic.com/s/amiri/v30/J7acnpd8CGxBHp2VkaY_zp4.woff2) format('woff2');
     size-adjust: 95%;
 }
 
@@ -39,7 +39,7 @@
     font-weight: 700;
     font-display: swap;
     src: local('Crimson BoldItalic'),
-         url(https://raw.githubusercontent.com/skosch/Crimson/master/Web%20Fonts/crimson-bolditalic-webfont.woff2) format('woff2');
+         url(https://fonts.gstatic.com/s/amiri/v30/J7aanpd8CGxBHpUrjAo9_pxqHw.woff2) format('woff2');
     size-adjust: 95%;
 }
 
