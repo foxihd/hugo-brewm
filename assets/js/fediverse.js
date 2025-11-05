@@ -1,5 +1,5 @@
 const cmt = getElement('comments');
-const { i18nReplies, i18nReblogs, i18nFavourites, i18nLoading, i18nErr, i18nNoComment } = cmt.dataset;
+const { i18nReplies, i18nReblogs, i18nFavourites, i18nLoading, i18nErr, i18nNocomment } = cmt.dataset;
 
 const cmtSty = document.createElement('style');
 cmtSty.textContent = `
@@ -125,13 +125,13 @@ if (mstdRoot) {
                 }
                 getElement('discussion-starter-content').innerHTML = renderMstdContent(toot);
 
-                if (data.descendants?.length > 0) {
+                if (replies > 0) {
                     typeof DOMPurify !== 'undefined'
                         ? DOMPurify.sanitize(renderToots(data.descendants, mstdRootID), { RETURN_DOM_FRAGMENT: true })
                         : renderToots(data.descendants, mstdRootID);
                 } else {
                     if (!fedRoot) {
-                        mstdRoot.innerHTML = i18nNoComment;
+                        mstdRoot.innerHTML = i18nNocomment;
                     }
                 }
 

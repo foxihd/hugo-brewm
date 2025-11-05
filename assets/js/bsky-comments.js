@@ -44,9 +44,9 @@ if (bskyRoot) {
         const loadbskyAPI = async () => {
         if (bskyCommentsLoaded) return;
 
-            if (!fedRoot) {
-                bskyRoot.innerHTML = `<span id=bskyIsLoading class=loading>${i18nLoading}</span>`;
-            }
+        if (!fedRoot) {
+            bskyRoot.innerHTML = `<span id=bskyIsLoading class=loading>${i18nLoading}</span>`;
+        }
 
         try {
                 const skeetResponse = await fetch(
@@ -66,7 +66,7 @@ if (bskyRoot) {
                     getElement('discussion-starter-content').innerHTML = `<div data-bionRead-safe>${renderRichText(data.thread.post.record)}</div>`;
                 }
 
-                if (typeof data.thread.replies != 'undefined' && data.thread.replies.length > 0) {
+                if (replies > 0) {
                     const bskyDOM =
                         typeof DOMPurify !== 'undefined'
                             ? DOMPurify.sanitize(renderSkeets(data.thread), { RETURN_DOM_FRAGMENT: true })
@@ -77,12 +77,12 @@ if (bskyRoot) {
                         bskyRoot.appendChild(bskyDOM);
                         const bskyItems = getElements('#bsky-comments > li[data-date]');
                         sortComment(bskyItems);
-                }
-            } else {
+                    }
+                } else {
                     if (!fedRoot) {
-                    bskyRoot.innerHTML = i18nNoComment;
+                        bskyRoot.innerHTML = i18nNocomment;
+                    }
                 }
-            }
 
             bskyCommentsLoaded = true;
             bskyRoot.setAttribute('aria-busy', 'false');
@@ -220,26 +220,26 @@ if (bskyRoot) {
 
 const sortComment = (rootItem) => {
     const items = Array.from(rootItem);
-    if (items.length > 0) {
-        const index = new Set();
-        items.sort(({ dataset: { date: a } }, { dataset: { date: b } }) => a.localeCompare(b))
-        .forEach((item) => {
-            if (!index.has(item.id)) {
-                index.add(item.id);
-                item.parentNode.appendChild(item);
-            } else {
-                item.remove();
-            }
-        });
-    } else {
-        rootItem.parentNode.innerHTML = i18nNoComment;
-    }
+    const index = new Set();
+    items.sort(({ dataset: { date: a } }, { dataset: { date: b } }) => a.localeCompare(b))
+    .forEach((item) => {
+        if (!index.has(item.id)) {
+            index.add(item.id);
+            item.parentNode.appendChild(item);
+        } else {
+            item.remove();
+        }
+    });
 }
 
 const aggregateComment = () => {
     if (mstdCommentsLoaded && bskyCommentsLoaded) {
-        const fedItems = getElements('#fed-comments > li[data-date]');
-        sortComment(fedItems);
+        if (replies > 0) {
+            const fedItems = getElements('#fed-comments > li[data-date]');
+            sortComment(fedItems);
+        } else {
+            fedRoot.innerHTML = i18nNocomment;
+        }
         getElement('stats').innerHTML = `
             ${renderStat(replies, skeetURL, i18nReplies, 'replies')}
             ${renderStat(reblogs, `${skeetURL}/reposted-by`, i18nReblogs, 'reblogs')}
