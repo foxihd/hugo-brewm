@@ -46,11 +46,9 @@ document.head.appendChild(cmtSty);
 
 const fedRoot = getElement('fed-comments');
 
-if (fedRoot) {
-    var replies = 0;
-    var reblogs = 0;
-    var favourites = 0;
-}
+let replies = 0;
+let reblogs = 0;
+let favourites = 0;
 
 const addToCounter = (reply, reblog, favorite) => {
     replies = replies + reply;
@@ -117,12 +115,13 @@ if (mstdRoot) {
                 checkResponseStatus(tootResponse);
                 checkResponseStatus(contextResponse);
 
-                if (fedRoot) {
-                    addToCounter(toot.replies_count, toot.reblogs_count, toot.favourites_count);
-                } else {
+                addToCounter(toot.replies_count, toot.reblogs_count, toot.favourites_count);
+
+                if (!fedRoot) {
                     getElement('stats').innerHTML = renderMstdStat(toot);
                     getElement('mstdIsLoading').remove();
                 }
+
                 getElement('discussion-starter-content').innerHTML = renderMstdContent(toot);
 
                 if (replies > 0) {

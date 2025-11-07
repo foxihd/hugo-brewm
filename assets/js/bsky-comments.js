@@ -55,9 +55,9 @@ if (bskyRoot) {
                 const data = await skeetResponse.json();
                 checkResponseStatus(skeetResponse);
 
-                if (fedRoot) {
-                    addToCounter(data.thread.post.replyCount, data.thread.post.repostCount, data.thread.post.likeCount);
-                } else {
+                addToCounter(data.thread.post.replyCount, data.thread.post.repostCount, data.thread.post.likeCount);
+
+                if (!fedRoot) {
                     getElement('stats').innerHTML = renderBskyStat(data.thread.post);
                     getElement('bskyIsLoading').remove();
                 }
