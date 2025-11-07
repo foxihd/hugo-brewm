@@ -67,6 +67,7 @@ if (bskyRoot) {
                 }
 
                 if (replies > 0) {
+                    bskyRoot.setAttribute('role', 'feed');
                     const bskyDOM =
                         typeof DOMPurify !== 'undefined'
                             ? DOMPurify.sanitize(renderSkeets(data.thread), { RETURN_DOM_FRAGMENT: true })
@@ -235,6 +236,7 @@ const sortComment = (rootItem) => {
 const aggregateComment = () => {
     if (mstdCommentsLoaded && bskyCommentsLoaded) {
         if (replies > 0) {
+            fedRoot.setAttribute('role', 'feed');
             const fedItems = getElements('#fed-comments > li[data-date]');
             sortComment(fedItems);
         } else {

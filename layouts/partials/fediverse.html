@@ -35,16 +35,16 @@
     </article>
 
     {{ with $toot }}
-        <ul id="mstd-comments" role="feed" aria-busy="true" aria-label="{{ i18n "comments" }}"
+        <ul id="mstd-comments" aria-busy="true" aria-label="{{ i18n "comments" }}"
             data-url="{{ . }}"></ul>
     {{ end }}
     {{- with $bsky }}
-        <ul id="bsky-comments" role="feed" role="feed" aria-busy="true" aria-label="{{ i18n "comments" }}"
+        <ul id="bsky-comments" aria-busy="true" aria-label="{{ i18n "comments" }}"
             data-url="{{ . }}"></ul>
     {{- end }}
 
     {{- if and $toot $bsky }}
-        <ul id="fed-comments" role="feed" aria-busy="false" aria-label="{{ i18n "comments" }}" ></ul>
+        <ul id="fed-comments" aria-busy="false" aria-label="{{ i18n "comments" }}" ></ul>
     {{ end }}
 
     {{- if not site.Params.disableDOMPurify }}

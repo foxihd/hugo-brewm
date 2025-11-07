@@ -125,6 +125,7 @@ if (mstdRoot) {
                 getElement('discussion-starter-content').innerHTML = renderMstdContent(toot);
 
                 if (replies > 0) {
+                    mstdRoot.setAttribute('role', 'feed');
                     typeof DOMPurify !== 'undefined'
                         ? DOMPurify.sanitize(renderToots(data.descendants, mstdRootID), { RETURN_DOM_FRAGMENT: true })
                         : renderToots(data.descendants, mstdRootID);
