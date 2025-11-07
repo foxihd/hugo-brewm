@@ -60,7 +60,7 @@
     {{ "<!-- fediverse/js.html -->" | safeHTML }}
     {{- $mastodon := resources.Get "js/fediverse.js" }}
     {{- $bluesky := resources.Get "js/bsky-comments.js" }}
-    {{- $fediverse := slice $mastodon $bluesky | resources.Concat "js/fediverse.js" | minify  }}
+    {{- $fediverse := slice $mastodon $bluesky | resources.Concat "js/fediscuss.js" | minify  }}
     {{- if eq hugo.Environment "development" }}
         <script src="{{ $fediverse.Permalink }}" defer></script>
     {{- else }}

@@ -31,7 +31,7 @@ _**Figure 2.** Side-by-side windows demonstrating multiple platform supports; Ly
     | ------------------ | ------: | ------: | :-------------------------------------------- |
     | hugo-brewm.min.css | ~92.9KB | ~38.2KB | Compiled site-wide stylesheet and basic icon font, could be less  |
     | hugo-brewm.min.js  | ~34.4KB | ~11.5KB | Compiled site-wide javascript, could be less  |
-    | fediverse.min.js   | ~12.7KB |  ~4.2KB | Mastodon & Bluesky comments, load if required |
+    | fediscuss.min.js   | ~12.7KB |  ~4.2KB | Discuss over Mastodon & Bluesky, load if required |
   
     _**Table 1.** All hugo-brewm's web assets that may be fetched once and reusable for thousands of pages until the cache is purged or expired._
 
