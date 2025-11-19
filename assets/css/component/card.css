@@ -37,6 +37,7 @@
     --grd: linear-gradient(var(--off) 50%, transparent 100%);
     opacity: 0.86;
     margin-right: auto;
+    max-height: 21ex;
     -webkit-mask-image: var(--grd);
             mask-image: var(--grd);
     clip-path: text;
