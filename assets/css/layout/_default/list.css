@@ -41,6 +41,7 @@ hr.ldots::after {
     position: -webkit-sticky;
     top: var(--vhead);
     right: var(--void);
+    padding: 0 1rem;
 }
 
 #term section.pagewidth,
