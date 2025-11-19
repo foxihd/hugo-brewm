@@ -168,7 +168,8 @@
 {{- define "partials/listing.html" -}}
     {{ "<!-- listing.html -->" | safeHTML }}
     {{- $entry := .entry }}
-    {{- if index site.Taxonomies $entry }}
+    {{- $hasEntry := index site.Taxonomies $entry }}
+    {{- if and $hasEntry (ne $entry "stage") (not (and (eq $entry "author") (eq (len $hasEntry) 1))) }}
         <section id="list-{{ $entry }}" class="has-crsl" aria-label="{{ $entry }}">
             <a href="{{ absLangURL $entry }}"  class="section-title">{{ i18n $entry }}</a>
             {{ partial "taxonomies.html" (dict "taxonomy" $entry "class" "crsl" "cover" true "withPages" false ) }}
