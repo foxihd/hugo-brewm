@@ -103,15 +103,8 @@ pre > code {
     width: auto;
 }
 
-.chroma .c, /* Comment */
-.chroma .ch, /* CommentHashbang */
-.chroma .cm, /* CommentMultiline */
-.chroma .c1, /* CommentSingle */
-.chroma .cs, /* CommentSpecial */
-.chroma .cp, /* CommentPreproc */
-.chroma .cpf, /* CommentPreprocFile */
-.hljs-emphasis {
-    font-style: italic;
+.chroma .cl {
+    color: var(--ac);
 }
 
 .chroma .m, /* LiteralNumber */
@@ -124,16 +117,14 @@ pre > code {
 .chroma .kc, /* KeywordConstant */
 .chroma .kt, /* KeywordType */
 .chroma .nt, /* NameTag */
-.hljs-strong {
-    /* font-weight: bold; */
-}
-
+.hljs-strong,
 .chroma .x, /* Other */
 .chroma .err, /* Error */
 .chroma .ln,/* LineNumbers */
 .chroma .o, /* Operator */
 .chroma .p, /* Punctuation */
 .chroma .w { /* TextWhitespace */
+    color: var(--i3i);
 }
 
 .chroma .kn {/* KeywordNamespace */
@@ -154,7 +145,8 @@ pre > code {
 .chroma .cpf, /* CommentPreprocFile */
 .hljs-comment,
 .hljs-quote {
-    color: var(--i3i);
+    color: var(--mid);
+    font-style: italic;
 }
 
 .chroma .n, /* Name */
@@ -180,7 +172,7 @@ pre > code {
 .hljs-tag,
 .hljs-template-variable,
 .hljs-variable {
-    color: var(--k8i);
+    color: var(--y7i);
 }
 
 .chroma .nb, /* NameBuiltin */
@@ -201,7 +193,7 @@ pre > code {
 .hljs-number,
 .hljs-params,
 .hljs-type {
-    color: var(--s8i);
+    color: var(--k8i);
 }
 
 .chroma .na, /* NameAttribute */
@@ -227,7 +219,7 @@ pre > code {
 .hljs-bullet,
 .hljs-string,
 .hljs-symbol {
-    color: var(--y7i);
+    color: var(--s8i);
 }
 
 .chroma .no, /* NameConstant */
