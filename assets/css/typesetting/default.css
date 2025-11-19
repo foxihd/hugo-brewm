@@ -350,8 +350,12 @@ figure.fullwidth {
     clear: both;
 }
 
-figure.fullwidth img {
+figure.fullwidth img,
+.column img,
+.attachments img,
+.marginpar img {
     width: 100%;
+    height: auto;
 }
 
 #doc-author,

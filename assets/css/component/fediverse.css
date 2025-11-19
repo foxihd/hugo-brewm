@@ -94,10 +94,6 @@
     height: auto;
 }
 
-.attachments img {
-    width: 100%;
-    height: auto;
-}
 
 .stat > * {
     display: inline-flex;

@@ -32,11 +32,6 @@
     margin-bottom: 1.618rem;
 }
 
-.column img {
-    width: 100%;
-    height: auto;
-}
-
 .column.pin {
     --col: 13rem;
 }
