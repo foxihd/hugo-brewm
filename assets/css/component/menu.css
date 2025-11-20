@@ -410,7 +410,8 @@ a#has-i18n:active > .alt {
     #top-nav-screen.screening {
         display: block;
         background-color: var(--bg);
-        height: calc(100vh - var(--vhead) - var(--vfoot));
+        /* the nav screen overlap to vfoot since when javascript disabled the vfoot is visible */
+        height: calc(100vh - var(--vhead));
     }
 
     /* swap hull element */
