@@ -46,6 +46,8 @@ body > main#home > aside#list-tags {
 #home #list-posts {
     padding: 1rem;
     width: var(--golden-ratio);
+    /* close to --max-width * --golden-ratio */
+    max-width: 42rem;
 }
 
 div[role="feed"] {
@@ -118,4 +120,11 @@ a.section-title::after {
         margin-right: 1ex;
     }
 
+}
+
+/* 1421px is breaking point when right panel (main#home) is equal to --max-width */
+@media (min-width: 1421px) {
+    body > main#home > aside#list-tags {
+        width: calc(100% - 42rem);
+    }
 }
