@@ -237,12 +237,3 @@ math[display=block]::after {
     border-right: var(--border);
     color: #1185fe;
 }
-
-#content > blockquote,
-.epigraph > blockquote,
-#content > ul,
-#content > ol,
-#comments > *,
-.giscus {
-    width: var(--golden-ratio);
-}

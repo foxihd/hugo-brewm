@@ -1,7 +1,5 @@
 hr.ldots {
-    margin-left: 0;
     border: none;
-    width: var(--golden-ratio);
 }
 
 hr.ldots::after {
@@ -74,6 +72,10 @@ hr.ldots::after {
 .section-title#series {
     margin-left: auto;
     width: var(--golden-ratio);
+}
+
+#list-tags .section-title {
+    margin-bottom: 1pc;
 }
 
 .list-year {

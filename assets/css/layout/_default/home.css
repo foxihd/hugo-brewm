@@ -45,9 +45,7 @@ body > main#home > aside#list-tags {
 
 #home #list-posts {
     padding: 1rem;
-    width: var(--golden-ratio);
-    /* close to --max-width * --golden-ratio */
-    max-width: 42rem;
+    max-width: var(--max-width);
 }
 
 div[role="feed"] {

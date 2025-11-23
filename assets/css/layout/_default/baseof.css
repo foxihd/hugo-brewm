@@ -124,6 +124,13 @@ body > footer {
     max-width: var(--max-width); */
 }
 
+#content > blockquote,
+.epigraph > blockquote,
+#content > ul,
+#content > ol,
+#comments > *,
+.giscus,
+#list-posts > div,
 .textwidth {
     width: var(--golden-ratio);
 }

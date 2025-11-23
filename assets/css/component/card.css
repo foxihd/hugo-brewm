@@ -1,9 +1,8 @@
 .feed-item {
     position: relative;
     transition: 99ms;
-    margin: var(--medskip) auto var(--medskip) 0;
+    margin: var(--medskip) 0;
     padding: 1rem;
-    width: var(--golden-ratio);
     font-size: var(--small);
 }
 
