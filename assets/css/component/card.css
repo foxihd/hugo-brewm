@@ -2,7 +2,9 @@
     position: relative;
     transition: 99ms;
     margin: var(--medskip) 0;
+    border-radius: 1ex;
     padding: 1rem;
+    overflow: hidden;
     font-size: var(--small);
 }
 
