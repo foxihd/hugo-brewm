@@ -1,3 +1,10 @@
+.has-hero {
+    float: left;
+    clear: left;
+    margin-left: var(--void);
+    margin-top: var(--medskip);
+}
+
 .hero {
     display: flex;
     position: relative;
@@ -65,6 +72,11 @@
 
 @media (max-width: 640px) {
 
+    .has-hero {
+        float: unset;
+        margin-left: unset;
+    }
+
     .hero {
         display: flex;
         flex-direction: column;
@@ -89,10 +101,6 @@
     .hero__image.auto {
         max-height: calc(var(--vbody) - 15.8rem - 2ex);
     }
-
-}
-
-@media (max-width: 480px) {
 
     .hero img {
         padding: 1rem;
