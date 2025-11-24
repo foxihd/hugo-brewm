@@ -51,9 +51,11 @@
                     <hr class="hide"/>
                 </div>
             {{- end }}
-            {{- with .Content }}
-                {{ partial "hero.html" $ }}
-                <hr class="hide"/>
+            {{- if ne .Params.Position "aside" }}
+                {{- with .Content }}
+                    {{ partial "hero.html" $ }}
+                    <hr class="hide"/>
+                {{- end }}
             {{- end }}
         {{- end }}
     {{- end }}
@@ -64,6 +66,9 @@
     {{- $firstPage := not $paginator.HasPrev }}
     {{- $noContent := and (or .IsHome .IsSection) (eq (len $paginator.Pages) 0) (not .Content) }}
     {{- $noContentinTaxonomy := and (not .IsHome) (not .IsSection) (eq (index site.Taxonomies .Data.Plural | len) 0) (not .Content) }}
+    {{- $changeFreq := or .Params.Sitemap.ChangeFreq .Sitemap.ChangeFreq | lower }}
+    {{- $active := eq $changeFreq (or "always" "hourly" "daily" "weekly") }}
+    {{- $liViewCondition := or $active (and (eq .Kind "term") (eq .Data.Plural "series") ) }}
     {{- if or $noContent $noContentinTaxonomy }}
         <div class="pagewidth">
             {{ template "no-content" . }}
@@ -103,13 +108,20 @@
                     <hr class="hide"/>
                 </aside>
             {{- end }}
+        {{- else if $liViewCondition }}
+            {{- if eq .Params.Position "aside" }}
+                {{- with .Content }}
+                    <aside class="has-hero">
+                        {{ partial "hero.html" $ }}
+                        <hr class="hide"/>
+                    </aside>
+                {{- end }}
+            {{- end }}
         {{- end }}
         {{/*
 
             feed */}}
         {{- if ne .Kind "taxonomy" }}
-            {{- $changeFreq := or .Params.Sitemap.ChangeFreq .Sitemap.ChangeFreq | lower }}
-            {{- $active := eq $changeFreq (or "always" "hourly" "daily" "weekly") }}
             <section id="list-posts" class="pagewidth" {{ if not .IsHome }} aria-labelledby="list-post-heading"{{ end }}>
                 <header {{ with .Data.Singular }}id="{{ . }}"{{ end }} class="section-title">
                     <strong id="list-post-heading">
@@ -141,7 +153,6 @@
                 {{- /*
 
                     list post */}}
-                {{- $liViewCondition := or $active (and (eq .Kind "term") (eq .Data.Plural "series") ) }}
                 {{- if $liViewCondition }}
                     {{ template "li" . }}
                 {{- else }}
