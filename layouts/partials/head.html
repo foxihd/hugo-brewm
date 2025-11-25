@@ -18,5 +18,8 @@
     {{ end -}}
     {{ partialCached "head/js.html" . -}}
     {{ partialCached "head/css.html" . -}}
+    {{- with .Resources.GetMatch "*.css" }}
+        <style>{{ .Content | safeCSS }}</style>
+    {{- end }}
     {{ partial "head/css/inline.html" . -}}
 {{ end }}
