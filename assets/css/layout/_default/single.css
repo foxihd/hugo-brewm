@@ -56,7 +56,9 @@
     display: flex;
     align-items: center;
     border: none;
+    overflow: auto;
     line-height: 1.272;
+    white-space: nowrap;
 }
 
 #doc-author .has-aria-label::after {
