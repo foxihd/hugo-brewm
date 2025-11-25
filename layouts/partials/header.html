@@ -69,14 +69,18 @@
                         data-i18n-copy="{{ i18n "copy" }}"
                         data-i18n-copying="{{ i18n "copying"}}">
                         {{- if .IsPage }}
+                            <li>
                                 <a id="navigatorShare" href="#mastodon" role="button" aria-label="{{ i18n "share" }}">
                                     <span class="t srt" role="tooltip">{{ i18n "share" }}</span>
                                 </a>
+                            </li>
                         {{- else }}
                             {{- with .OutputFormats.Get "rss" }}
+                            <li>
                                 <a id="rss-button" href="{{ .Permalink }}" title="{{ i18n "followRSS" }}" role="button" aria-label="{{ i18n "followRSS" }}">
                                     <span class="t srt" role="tooltip">{{ i18n "followRSS" }}</span>
                                 </a>
+                            </li>
                             {{- end }}
                         {{- end }}
                     </menu>

@@ -8,17 +8,19 @@ const {
 } = menu.dataset;
 
 menu.innerHTML += `
+  <li>
     <button id="print-button" onclick="window.print()" aria-label="${i18nPrint}">
         <span class="t srt" role="tooltip">${i18nPrint}</span>
     </button>
+  </li>
 `
 
 const hasBack = getElement('has-back');
 if (hasBack) {
     hasBack.innerHTML = `
-        <button id="back" type="button" onclick="history.back();" aria-label="${i18nBack}">
-            <span class="t srt" role="tooltip">${i18nBack}</span>
-        </button>
+      <button id="back" type="button" onclick="history.back();" aria-label="${i18nBack}">
+        <span class="t srt" role="tooltip">${i18nBack}</span>
+      </button>
     `
 }
 
@@ -33,11 +35,13 @@ if (location.protocol === 'https:') {
     }
 
     menu.innerHTML += `
-    <button id="copyPermalink" onclick="navigator.clipboard.writeText(window.location.href)" aria-label="${i18nCopy}">
+    <li>
+      <button id="copyPermalink" onclick="navigator.clipboard.writeText(window.location.href)" aria-label="${i18nCopy}">
         <span id="copy" class="t srt" role="tooltip">${i18nCopy}</span>
         <span id="isCopying" style="display: none;">${i18nCopying}</span>
         <span id="copyText" style="display: none;">${i18nCopy}</span>
-    </button>
+      </button>
+    </li>
     `
     // copying
     const copyPermalink = getElement('copyPermalink');
@@ -91,8 +95,8 @@ if (hour > 6 && hour < 21) {
 } else {
     getElement('background-body').innerHTML = `
     <div id="dwclock">
-        <div id="min"><div class="hand"></div></div>
-        <div id="hour"><div class="hand"></div></div>
+      <div id="min"><div class="hand"></div></div>
+      <div id="hour"><div class="hand"></div></div>
     </div>`
 
     const bg = getElements('.background, #background-body');
