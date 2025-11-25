@@ -190,7 +190,12 @@ math[display=block]::after {
     width: 16.18rem;
 }
 
-#has-stage + #title,
+#has-stage + article,
+#has-stage + article header {
+    margin-top: 1em;
+}
+
+#has-stage + article #title,
 #has-timeline > p,
 .footnotes ol {
     margin: 0;

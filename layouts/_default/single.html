@@ -25,6 +25,34 @@
 {{- define "main" }}
     {{- $isPost := eq .Params.type (or "post" "articles") }}
     {{- $sf := or site.Params.Posts.sfdefault .Params.sfdefault }}
+    {{- $series := .GetTerms "series" }}
+    {{- $stage := .GetTerms "stage" }}
+    {{- if or $series $stage }}
+        <div id="has-stage" class="section-title pagewidth">
+            {{- with $series }}
+                {{- range . | first 1 }}
+                    <a href="{{ .Permalink }}" id="series" aria-label="{{ i18n "series" 1 }}: {{ .Title }}">
+                        <span>{{ .Title }}</span>
+                    </a>
+                {{- end }}
+            {{- end }}
+            {{- with $stage }}
+                {{- range . | first 1 }}
+                    {{- $ic := or .Params.indicator .Params.icon .Params.badge }}
+                    {{- if .Params.emoji }}
+                        <span class="emoji emoji--stage">{{ .Params.emoji }}</span>
+                    {{- else if $ic }}
+                        <img src="{{ absURL $ic }}" class="stage-indicator">
+                    {{- else }}
+                        <span class="st {{ lower .Name }}"></span>
+                    {{- end }}
+                    <a href="{{ .Permalink }}" id="stage" aria-label="{{ i18n "stage" 1 }}: {{ .Title }}">
+                        <span>{{ .Title }}</span>
+                    </a>
+                {{- end }}
+            {{- end }}
+        </div>
+    {{- end }}
     <article id="main-article" class="pagewidth {{ if or (not $isPost) $sf }}sf{{ else }}rm{{ end }}"
         role="document" aria-labelledby="title"
         {{- if ne (lower .Params.type) (or "post" "articles") }}
@@ -33,34 +61,6 @@
             data-pagefind-body
         {{- end }}>
         <header aria-labelledby="title">
-            {{- $series := .GetTerms "series" }}
-            {{- $stage := .GetTerms "stage" }}
-            {{ if or $series $stage }}
-            <span id="has-stage" class="section-title">
-                {{- with $series }}
-                    {{- range . | first 1 }}
-                        <a href="{{ .Permalink }}" id="series" aria-label="{{ i18n "series" 1 }}: {{ .Title }}">
-                            <span>{{ .Title }}</span>
-                        </a>
-                    {{- end }}
-                {{- end }}
-                {{- with $stage }}
-                    {{- range . | first 1 }}
-                        {{- $ic := or .Params.indicator .Params.icon .Params.badge }}
-                        {{- if .Params.emoji }}
-                            <span class="emoji emoji--stage">{{ .Params.emoji }}</span>
-                        {{- else if $ic }}
-                            <img src="{{ absURL $ic }}" class="stage-indicator">
-                        {{- else }}
-                            <span class="st {{ lower .Name }}"></span>
-                        {{- end }}
-                        <a href="{{ .Permalink }}" id="stage" aria-label="{{ i18n "stage" 1 }}: {{ .Title }}">
-                            <span>{{ .Title }}</span>
-                        </a>
-                    {{- end }}
-                {{- end }}
-            </span>
-            {{ end }}
             {{ partial "page/title.html" . }}
             {{- if $isPost }}
             <div id="doc-author" class="textsw">

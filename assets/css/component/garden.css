@@ -10,7 +10,7 @@
 #has-stage {
     display: flex;
     align-items: center;
-    margin: 0;
+    margin: 1in 0 0 0;
     font-family: var(--sf);
     font-size: var(--footnotesize);
 }
