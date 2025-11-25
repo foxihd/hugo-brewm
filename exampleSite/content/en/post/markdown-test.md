@@ -61,8 +61,8 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 ### Heading 3
 
-{{<marginpar "safeHTML">}}
-<p>Example table on <kbd>marginpar</kbd> shortcode with <mark>"safeHTML"</mark> attribute to support column spanning:</p>
+{{<marginpar "abs">}}
+<p>Example table on <kbd>marginpar</kbd> shortcode with <mark>"abs"</mark> attribute to support flowing content:</p>
 
 <table style="text-align:center">
   <thead>

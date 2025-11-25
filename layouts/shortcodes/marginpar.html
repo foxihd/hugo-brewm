@@ -3,5 +3,9 @@
 {{- $force := eq $var "safeHTML" }}
 {{- $marginparID := print "marginpar-" .Ordinal }}
 <input id="{{ $marginparID }}" class="marginpar-ctrl" type="checkbox" aria-label="{{ i18n "marginpar" }}" aria-controls="the-{{ $marginparID }}" hidden>
-<label for="{{ $marginparID }}" tabindex="0" role="checkbox" aria-label="{{ i18n "marginpar" }}" aria-controls="the-{{ $marginparID }}" aria-expanded="undefined"></label>
-<span id="the-{{ $marginparID }}" class="marginpar {{ if or $abs $force }}abs{{ end }}" role="note">{{ if $force }}{{ safeHTML .Inner }}{{ else }}{{ markdownify .Inner }}{{ end }}</span>
+<label for="{{ $marginparID }}" tabindex="0" aria-label="{{ i18n "marginpar" }}" aria-controls="the-{{ $marginparID }}"></label>
+{{- if $abs }}
+<div id="the-{{ $marginparID }}" class="marginpar abs" role="note">{{ if $force }}{{ safeHTML .Inner }}{{ else }}{{ markdownify .Inner }}{{ end }}</div>
+{{- else }}
+<span id="the-{{ $marginparID }}" class="marginpar {{ if $force }}abs{{ end }}" role="note">{{ if $force }}{{ safeHTML .Inner }}{{ else }}{{ markdownify .Inner }}{{ end }}</span>
+{{- end }}
