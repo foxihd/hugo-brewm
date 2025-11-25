@@ -12,6 +12,7 @@ main > header > menu {
 #back,
 menu button,
 menu a {
+    z-index: 1;
     border: unset;
     background: unset;
     padding: 1ex;
