@@ -15,7 +15,9 @@
         </div>
     {{- else }}
         <div role="figure">
-            {{ with $img }}<img src="{{ . }}" alt="{{ default $alt $label }}" loading="lazy">{{ end }}
+            {{- with $url }}<a href="{{ . }}" target="_blank">{{ end }}
+            {{- with $img }}<img src="{{ . }}" alt="{{ default $alt $label }}" loading="lazy">{{ end }}
+            {{- if $url }}</a>{{ end }}
             {{- with $label }}
                 <figcaption>
                     {{ if $url }}<a href="{{ $url }}"> {{ . }}</a>{{ else }}{{ . }}{{ end }}

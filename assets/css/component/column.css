@@ -29,7 +29,7 @@
     break-after: auto;
     break-before: auto;
     break-inside: avoid;
-    margin-bottom: 1.618rem;
+    margin-bottom: 1rem;
 }
 
 .column.pin {
@@ -39,6 +39,10 @@
 .column.pin > * {
     margin-bottom: 1em;
     font-size: var(--small);
+}
+
+.column.pin a::after {
+    content: '' !important;
 }
 
 .has-quote {
