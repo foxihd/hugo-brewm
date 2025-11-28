@@ -192,6 +192,12 @@ math[display=block]::after {
     width: 16.18rem;
 }
 
+.footnotes li::before {
+    display: initial;
+    left: -1.618pc;
+    background: unset;
+}
+
 #has-stage + article,
 #has-stage + article header {
     margin-top: 1em;
