@@ -13,6 +13,7 @@ cmtSty.textContent = `
     .fed-comments {border-left:3pt solid var(--ac);background:#80808008;padding:1rem 2rem 1ex 1rem;overflow:auto}
     .fed-comments.bsky {--ac:#1185fe}
     .fed-comments.mstd {--ac:#563acc}
+    .fed-comments > .author {overflow-x:auto;white-space:nowrap}
     .fed-comments > .author > img{margin-right:12pt}
     .fed-comments .content {margin-left:4rem;line-height:calc(var(--baselineStretch) * 1.272)}
     .fed-comments .content p {margin: 1.618rem 0}
