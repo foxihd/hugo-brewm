@@ -79,11 +79,11 @@
 
 {{- define "partials/head/meta/favicon.html" }}
     {{- with site.Params.favicon }}
+        {{ $appTitle := default .appTitle site.Title }}
+        {{ with .ico -}}<link rel="shortcut icon" href="{{ . }}" />{{ end }}
+        {{ with .apple -}}<link rel="apple-touch-icon" sizes="180x180" href="{{ . }}" /><meta name="apple-mobile-web-app-title" content="{{ $appTitle }}" />{{ end }}
         {{ with .png -}}<link rel="icon" type="image/png" href="{{ . }}" sizes="96x96" />{{ end }}
         {{ with .svg -}}<link rel="icon" type="image/svg+xml" href="{{ . }}" />{{ end }}
-        {{ with .ico -}}<link rel="shortcut icon" href="{{ . }}" />{{ end }}
-        {{ with .apple -}}<link rel="apple-touch-icon" sizes="180x180" href="{{ . }}" />{{ end }}
-        <meta name="apple-mobile-web-app-title" content="{{ or .appTitle site.Title }}" />
         {{ with .webmanifest -}}<link rel="manifest" href="{{ . }}" />{{ end }}
     {{- end }}
 {{- end }}
