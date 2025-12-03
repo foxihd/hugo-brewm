@@ -58,6 +58,14 @@
     {{ with .OutputFormats.Get "RSS" -}}
       {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML -}}
     {{ end -}}
+    {{ with .Translations -}}
+      {{- range . -}}
+        {{- $lang := .Language.Lang }}
+        {{ with .OutputFormats.Get "RSS" -}}
+          <atom:link href="{{ .Permalink }}" hreflang="{{ $lang }}" rel="alternate" type="{{ .MediaType }}" />
+        {{ end -}}
+      {{- end }}
+    {{- end }}
     {{- range $index, $data := $pages }}
       {{- $cover := partial "page/cover.html" (dict "page" .) }}
       {{- $desc := or .Params.Description .Description .Params.Subtitle | default .Summary }}
