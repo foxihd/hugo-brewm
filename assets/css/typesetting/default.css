@@ -198,12 +198,9 @@ thead {
     background: var(--g18s);
 }
 
-th {
-    padding: 2pt 0;
-}
-
+th,
 td {
-    padding: 1pt 0;
+    padding: 1pt 2pt;
 }
 
 th + th {

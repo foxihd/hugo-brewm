@@ -105,7 +105,7 @@ body > main > aside {
 }
 
 body > footer {
-    display: flex !important;
+    display: flex;
     position: -webkit-sticky;
     position: sticky;
     bottom: 0;

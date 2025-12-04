@@ -22,7 +22,7 @@
 #main-article > header {
     display: flex;
     flex-direction: column;
-    margin:var(--vskip);
+    margin: 1pc 0;
     gap: 1rem;
 }
 

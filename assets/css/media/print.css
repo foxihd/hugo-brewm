@@ -22,6 +22,8 @@
     body > aside,
     body > main > header,
     audio,
+    #has-stage,
+    #main-footer,
     #has-share,
     #background-body,
     #contribute,
@@ -42,27 +44,17 @@
         height: unset;
     }
 
-    body > main > #main-footer {
-        border: unset;
-        margin:var(--vskip);
-        padding: unset;
-    }
 
     figure {
         position: relative
     }
 
-    .pagewidth,
-    #main-footer .pagewidth {
+    .pagewidth {
         padding: 0;
     }
 
-    body > main > #main-footer {
+    #keywords a {
         background: none;
-        color: var(--fg);
-    }
-
-    #main-footer a {
         color: var(--fg);
     }
 
@@ -103,18 +95,16 @@
         word-wrap: break-word;
     }
 
-    #main-footer a::after,
     #content a::after {
         --tsf: unset;
-        -webkit-transform: var(--tsf);
-           -moz-transform: var(--tsf);
-            -ms-transform: var(--tsf);
-             -o-transform: var(--tsf);
-                transform: var(--tsf);
-        font: unset;
+        display: inherit;
+        word-break: break-all;
+        word-wrap: break-word;
+        font-family: monospace;
         content: '\a0('attr(href)')';
     }
 
+    .footnotes li::before,
     #keywords a::after {
         content: unset;
     }
