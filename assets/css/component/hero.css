@@ -27,8 +27,7 @@
 .hero__image img {
     margin-left: auto;
     padding: 2rem;
-    max-width: 100%;
-    max-height: calc(var(--vbody) - 14.8rem - 1rem - 2ex);
+    width: 100%;
     object-fit: contain;
 }
 
@@ -97,10 +96,6 @@
 }
 
 @media (max-width: 480px) {
-
-    .hero__image.auto {
-        max-height: calc(var(--vbody) - 15.8rem - 2ex);
-    }
 
     .hero img {
         padding: 1rem;
