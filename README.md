@@ -447,6 +447,8 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
 
     ## Logo configuration
     [params.logo]
+        ## define `#logomark` `content` in CSS
+        ## logoInlineCSS = false
         ## Light mode logo mark
         logoMark = 'https://example.com/logoMark.svg'
         ## Dark mode logo mark

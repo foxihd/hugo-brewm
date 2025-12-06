@@ -18,25 +18,7 @@
     {{/*
 
         site banner  */}}
-    {{- $logoMark := site.Params.logo.logoMark }}
-    {{- $logoType := site.Params.logo.logoType }}
-    {{- $siteTitle := or site.Title site.Params.Title }}
-    {{- if or $logoType $logoMark }}
-    <div id="logo">
-        <a href="{{ absLangURL "" }}" aria-label="{{ $siteTitle }}" aria-description="{{ i18n "home" }}">
-            {{- with site.Params.logo.logoMarkDark }}
-                <img id="logomark--dark" src="{{ . }}" alt="{{ $siteTitle }}" />
-            {{- end }}
-            {{- with $logoMark }}
-                <img id="logomark" src="{{ . }}" alt="{{ $siteTitle }}" />
-            {{- end }}
-            {{- if or $logoType (not $logoMark) }}
-                {{ partialCached "header/logotype.html" . }}
-            {{- end }}
-        </a>
-        <hr class="hide"/>
-    </div>
-    {{- end }}
+    {{ partialCached "header/logo.html" . }}
     {{/*
 
         top nav */}}
@@ -96,13 +78,32 @@
     {{- end }}
 {{- end }}
 
-{{- define "partials/header/logotype.html" -}}
-    {{ "<!-- logotype.html -->" | safeHTML }}
+{{- define "partials/header/logo.html" -}}
+    {{ "<!-- logo.html -->" | safeHTML }}
+    {{- $logoMark := site.Params.logo.logoMark }}
+    {{- $logoType := site.Params.logo.logoType }}
+    {{- $logoInlineCSS := site.Params.logo.logoInlineCSS }}
     {{- $siteTitle := or site.Title site.Params.Title }}
-    {{- with $siteTitle -}}
-        {{- $estimatedWidth := printf "%dpt" (mul (len . ) 28) -}}
-        <svg id="logotype" xmlns="http://www.w3.org/2000/svg" version="1.1" width="{{ $estimatedWidth }}" aria-label="{{ . }}">
-            <text id="logotype__text" y="19.5pt" x="0">{{ . }}</text>
-        </svg>
+    {{- if or $logoType $logoMark $logoInlineCSS }}
+    <div id="logo">
+        <a href="{{ absLangURL "" }}" aria-label="{{ $siteTitle }}" aria-description="{{ i18n "home" }}">
+            {{- with site.Params.logo.logoMarkDark }}
+                <img id="logomark--dark" src="{{ . }}" alt="{{ $siteTitle }}" />
+            {{- end }}
+            {{- if or $logoMark $logoInlineCSS }}
+                <img id="logomark" {{ with $logoMark }}src="{{ . }}"{{ end }} alt="{{ $siteTitle }}" />
+            {{- end }}
+            {{- if or $logoType (not (or $logoMark $logoInlineCSS)) }}
+                {{- $siteTitle := or site.Title site.Params.Title }}
+                {{- with $siteTitle -}}
+                    {{- $estimatedWidth := printf "%dpt" (mul (len . ) 28) -}}
+                    <svg id="logotype" xmlns="http://www.w3.org/2000/svg" version="1.1" width="{{ $estimatedWidth }}" aria-label="{{ . }}">
+                        <text id="logotype__text" y="19.5pt" x="0">{{ . }}</text>
+                    </svg>
+                {{- end }}
+            {{- end }}
+        </a>
+        <hr class="hide"/>
+    </div>
     {{- end }}
 {{- end }}
