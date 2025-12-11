@@ -123,6 +123,6 @@ a.section-title::after {
 /* 1421px is breaking point when right panel (main#home) is equal to --max-width */
 @media (min-width: 1421px) {
     body > main#home > aside#list-tags {
-        width: calc(100% - 42rem);
+        width: calc(100% - 36rem);
     }
 }
