@@ -16,7 +16,6 @@
     --medskip: 1.618rem;
     --bigskip: 3.14rem;
     --vskip:var(--bigskip) 0;
-    font-size: 11pt;
 }
 
 .rm {
