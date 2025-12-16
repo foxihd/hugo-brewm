@@ -1,3 +1,7 @@
+#comments ul {
+    position: relative;
+}
+
 #comments ul ul {
     padding-left: 1pc;
 }
@@ -6,6 +10,19 @@
     border-radius: 1ex;
     overflow: hidden;
 }
+
+#comments ul::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    border-left: 3pt solid #80808008;
+    border-radius: 1ex;
+    content: '';
+}
+
 
 #comments noscript {
     margin: var(--medskip) 0;
@@ -29,7 +46,7 @@
 
 #comments li,
 #comments li > ul {
-    margin-top: 1rem;
+    padding-top: 1ex;
     list-style: none;
 }
 
@@ -149,7 +166,7 @@ a.favourites.active {
 
 }
 
-@media (max-width: 960px) {
+@media(max-width: 960px) {
     .fed-comments .content,
     .fed-comments > footer {
         margin-left: 0;
@@ -157,7 +174,7 @@ a.favourites.active {
 
 }
 
-@media (max-width: 480px) {
+@media(max-width: 480px) {
     .fed-comments {
         padding: 1rem 1rem 1ex;
     }

@@ -3,13 +3,15 @@ const { i18nReplies, i18nReblogs, i18nFavourites, i18nLoading, i18nErr, i18nNoco
 
 const cmtSty = document.createElement('style');
 cmtSty.textContent = `
+    #comments ul{position:relative;}
     #comments ul ul {padding-left:1pc}
     #comments ul > li {border-radius:1ex;overflow:hidden}
+    #comments ul::before {z-index:-1;position:absolute;top:0;right:0;bottom:0;left:0;border-left:3pt solid #80808008;border-radius:1ex;content:'';}
     #comments noscript {margin:var(--medskip) 0}
     #discussion-starter {margin-bottom:var(--medskip)}
     #stats {margin-left:auto}
     #mstd-comments, #bsky-comments, #fed-comments {padding:0;list-style:none;width:var(--golden-ratio)}
-    #comments li, #comments li > ul {margin-top:1rem;list-style:none}
+    #comments li, #comments li > ul {padding-top:1ex;list-style:none}
     .fed-comments {border-left:3pt solid var(--ac);background:#80808008;padding:1rem 2rem 1ex 1rem;overflow:auto}
     .fed-comments.bsky {--ac:#1185fe}
     .fed-comments.mstd {--ac:#563acc}
