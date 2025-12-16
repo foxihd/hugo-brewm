@@ -12,16 +12,6 @@
     100% {content: '..';}
 }
 
-@-webkit-keyframes idle {
-    from, to {border-color: var(--paper);}
-    50% {border-color: transparent;}
-}
-
-@keyframes idle {
-    from, to {border-color: var(--paper);}
-    50% {border-color: transparent;}
-}
-
 @-webkit-keyframes blinking {
     from, to {opacity: 1;;}
     50% {opacity: 0;}
