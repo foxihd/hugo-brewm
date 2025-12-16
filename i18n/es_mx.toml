@@ -18,6 +18,8 @@
 [articles]
     one = "Artículo"
     other = "Artículos"
+[audio]
+    other = ""
 [author]
     one = "Autor"
     other = "Autores"
@@ -120,6 +122,8 @@
     other = "Tamaño de letra"
 [home]
     other = "Página principal"
+[ifNoAudioSupport]
+    other = ""
 [in]
     other = "en"
 [inNewTab]

@@ -18,6 +18,8 @@
 [articles]
     one = "Article"
     other = "Articles"
+[audio]
+    other = "Audio"
 [author]
     one = "Author"
     other = "Authors"
@@ -120,6 +122,8 @@
     other = "Font Size"
 [home]
     other = "Homepage"
+[ifNoAudioSupport]
+    other = "Your browser does not support the audio element."
 [in]
     other = "in"
 [inNewTab]

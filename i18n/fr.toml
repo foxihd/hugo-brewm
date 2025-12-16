@@ -18,6 +18,8 @@
 [articles]
     one = "Article"
     other = "Articles"
+[audio]
+    other = ""
 [author]
     one = "Auteur"
     other = "Auteurs"
@@ -120,6 +122,8 @@
     other = "Taille de la police"
 [home]
     other = "Accueil"
+[ifNoAudioSupport]
+    other = ""
 [in]
     other = "dans"
 [inNewTab]
