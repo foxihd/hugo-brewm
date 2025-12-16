@@ -34,5 +34,6 @@
     {{- if eq (lower site.Params.analytics.append) "body" -}}
         {{ partialCached "analytics.html" . }}
     {{- end }}
+</body>
 {{- end }}
 </html>
