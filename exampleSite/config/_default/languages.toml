@@ -43,3 +43,10 @@
     languageCode = 'es-MX'
     languageDirection = 'ltr'
     languageName = 'Español (México)'
+
+[fr]
+    contentDir = 'content/fr'
+    disabled = false
+    languageCode = 'fr'
+    languageDirection = 'ltr'
+    languageName = 'French'
