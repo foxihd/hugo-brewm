@@ -127,6 +127,7 @@
 ul.pagination {
     display: flex;
     margin: var(--medskip) 1ex;
+    max-width: var(--golden-ratio);
 }
 
 .pagination a {
