@@ -158,6 +158,10 @@ math[display=block]::after {
     width: calc(100% - var(--indent));
 }
 
+#content li {
+    margin: 0.618pc 0;
+}
+
 #content ul > li::marker {
     content: '✦   ';
     font-size: 0.7em;
@@ -175,21 +179,6 @@ math[display=block]::after {
     border-bottom: var(--bound) ;
 }
 
-.footnote-ref {
-    padding: 0 0.5ex;
-    font-size: var(--scriptsize);
-}
-
-.footnote-ref::before {
-    content: '[';
-}
-
-.footnote-ref::after {
-    --tsf: unset !important;
-    font: inherit !important;
-    content: ']' !important;
-}
-
 .footnotes {
     font-size: var(--footnotesize);
 }
@@ -200,14 +189,11 @@ math[display=block]::after {
     width: 16.18rem;
 }
 
-.footnotes li::before {
-    display: initial;
-    left: -1.618pc;
-    background: unset;
-    width: 1.333pc;
-    text-align: right;
-    content: '['counter(li) '\]''';
+.footnote-backref::after,
+.footnote-ref::after {
+    content: '' !important;
 }
+
 
 #has-stage + article,
 #has-stage + article header {
@@ -216,6 +202,7 @@ math[display=block]::after {
 
 #has-stage + article #title,
 #has-timeline > p,
+.footnotes p,
 .footnotes ol {
     margin: 0;
     padding: 0;
