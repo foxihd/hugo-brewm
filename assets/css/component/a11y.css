@@ -166,14 +166,7 @@ label.range > output {
 
 #lightSwitch:checked + label::before {
     --tsf: scale(1);
-    display: block;
-    outline: none;
-    border-radius: 2em;
     box-shadow: inset calc(var(--size) * 0.33) calc(var(--size) * -0.25) 0;
-    width: var(--size);
-    height: var(--size);
-    color: #fa0;
-    content: '';
 }
 
 #lightSwitch + label::after {
