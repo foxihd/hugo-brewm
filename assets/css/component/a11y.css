@@ -88,10 +88,9 @@ main#page + footer #useBionRead {
     top: -100vh;
 }
 
-#a11y select,
-#a11y input[type=range],
-#setColorScheme label,
-#setOpenDyslexic,
+select,
+input[type=range],
+label,
 button {
     cursor: pointer;
 }
@@ -149,7 +148,7 @@ label.range > output {
     --size: 1.414em;
     display: block;
     outline: none;
-    border-radius: 999px;
+    border-radius: 2em;
     box-shadow: inset 0 0 0 var(--size),
         calc(var(--offset-orthogonal) * -1) 0 0 var(--ray-size),
         var(--offset-orthogonal) 0 0 var(--ray-size),
@@ -161,13 +160,20 @@ label.range > output {
         var(--offset-diagonal) calc(var(--offset-diagonal) * -1) 0 var(--ray-size);
     width: var(--size);
     height: var(--size);
-    color: #ffaa00;
+    color: #fa0;
     content: '';
 }
 
 #lightSwitch:checked + label::before {
     --tsf: scale(1);
+    display: block;
+    outline: none;
+    border-radius: 2em;
     box-shadow: inset calc(var(--size) * 0.33) calc(var(--size) * -0.25) 0;
+    width: var(--size);
+    height: var(--size);
+    color: #fa0;
+    content: '';
 }
 
 #lightSwitch + label::after {
@@ -345,7 +351,6 @@ input.toggle:checked + label::before {
 #saveButton {
     flex: 1;
     margin-left: auto;
-    cursor: pointer;
 }
 
 /* bionRead */
@@ -426,8 +431,8 @@ input:checked + #focusModeButton {
 }
 
 #has-a11y[open] > #has-a11y-summary,
-#lightSwitch:hover + label span::after,
-#lightSwitch:focus + label span::after,
+#lightSwitch:hover + label::after,
+#lightSwitch:focus + label::after,
 #a11y-menu > .has-aria-label:focus,
 #a11y-menu > .has-aria-label:hover {
     color: var(--ac);
