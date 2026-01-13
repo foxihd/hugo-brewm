@@ -1,0 +1,251 @@
+# Translated into català
+[404PageNotFound]
+    other = "Pàgina no trobada"
+[404Alert]
+    other = "Aquesta pàgina redirigeix intencionadament"
+[404ReturnHome]
+    other = "tornar a la pàgina d'inici"
+[accessibility]
+    other = "Accessibilitat"
+[accessTime]
+    other = "Aquesta pàgina s'ha consultat el"
+[allPosts]
+    other = "Totes les entrades"
+[appearance]
+    other = "Aparença"
+[articles]
+    one = "Article"
+    other = "Articles"
+[audio]
+    other = "Àudio"
+[author]
+    one = "Autor"
+    other = "Autors"
+[back]
+    other = "Tornar enrere"
+[baselineStretch]
+    other = "Baseline Stretch"
+[bionRead]
+    other = "Mode BionRead"
+[breadcrumb]
+    other = "Ruta de navegació"
+[buildTime]
+    other = "Aquesta pàgina s'ha generat el"
+[bypass]
+    other = "Ometre"
+[categories]
+    one = "Categoria"
+    other = "Categories"
+[close]
+    other = "Tancar"
+[coffeeStat]
+    other = "Estadística dels cafès"
+[coffeeCount]
+    other = "Fet amb ❤️ i "
+[coffeeCountPost]
+    other = ", o potser més."
+[colophon]
+    other = "Colofó"
+[colorPalette]
+    other = "Paleta de colors"
+[colorSettings]
+    other = "Configuració de colors"
+[comments]
+    other = "Debat"
+[contrast]
+    other = "Contrast"
+[contrib]
+    other = "Col·labora"
+[contribAskReader]
+    other = "T'ha agradat aquest article?"
+[contribAskReaderResponse]
+    other = "Genial!"
+[contribAskReaderToContribute]
+    one = "També em pots donar suport fent les contribucions següents:"
+    other = "També ens pots donar suport fent les contribucions següents:"
+[contribCoffeeStat]
+    other = "Sabies que"
+[contribCoffeeStatPost]
+    one = "m'ha ajudat a escriure aquest article?"
+    other = "ens ha ajudat a escriure aquest article?"
+[copy]
+    other = "Copia l'URL"
+[copying]
+    other = "Copiant..."
+[ctaComments]
+    other = "Uneix-te al debat"
+[cup]
+    one = "Tassa de cafè"
+    other = "Tasses de cafè"
+[currentLang]
+    other = "L'idioma actual és"
+[dark]
+    other = "Fosc"
+[darkMode]
+    other = "Mode fosc"
+[defaultColor]
+    other = "Per defecte"
+[defaultContrast]
+    other = "Per defecte"
+[deuteranopia]
+    other = "Deuteranòpia"
+[discover]
+    other = "Descobreix temes"
+[editedBy]
+    other = "Editat per"
+[email]
+    other = "Correu electrònic"
+[featuredImg]
+    other = "Imatge destacada"
+[fediverseBluesky]
+    other = "Respon amb Bluesky"
+[fediverseErr]
+    other = "Error al carregar els comentaris"
+[fediverseIsLoading]
+    other = "S'estan carregant els comentaris del Fedivers"
+[fediverseReplies]
+    one = "Resposta"
+    other = "Respostes"
+[fediverseReblogs]
+    one = "Reblog"
+    other = "Reblogs"
+[fediverseFavourites]
+    one = "Preferit"
+    other = "Preferits"
+[focusMode]
+    other = "Mode concentració"
+[followRSS]
+    other = "Segueix amb RSS"
+[fontSize]
+    other = "Mida de la lletra"
+[home]
+    other = "Inici"
+[ifNoAudioSupport]
+    other = "El teu navegador no admet l'element d'àudio."
+[in]
+    other = "a"
+[inNewTab]
+    other = "en una nova pestanya"
+[keepInTouch]
+    other = "Estiguem en contacte!"
+[lessContrast]
+    other = "Baix"
+[light]
+    other = "Clar"
+[main]
+    other = "Menú principal"
+[marginpar]
+    other = "Notes addicionals"
+[menuControls]
+    other = "Controls del menú d'accessibilitat"
+[modified]
+    other = "Modificat"
+[monochrome]
+    other = "Monocrom"
+[more]
+    other = "Més"
+[moreContrast]
+    other = "Alt"
+[nav]
+    other = "Navegació"
+[networkGraph]
+    other = "Gràfic de xarxa dels continguts"
+[next]
+    other = "Següent"
+[noArticle]
+    other = "No hi ha articles per mostrar."
+[noArticlePost]
+    other = "Sembla que l'autor s'ha quedat sense cafè... Tranquil, en preparem de seguida!"
+[noComment]
+    other = "No hi ha comentaris per mostrar."
+[noGiscus]
+    other = "Giscus requereix Javascript i LocalStorage activats."
+[noScript]
+    other = "Ups... Javascript està desactivat!"
+[noLocalStorage]
+    other = "LocalStorage no està disponible al teu navegador. No es desaran els ajustos."
+[note]
+    other = "Nota"
+[on]
+    other = "Activat"
+[OpenDyslexic]
+    other = "Utilitza la font OpenDyslexic"
+[optimizeSR]
+    other = "Optimització per a lectors de pantalla"
+[optimizeSRDesc]
+    other = "Optimitza la visualització i els recursos per a usuaris de lectors de pantalla que naveguen amb un dispositiu amb punter."
+[pages]
+    one = "Pàgina"
+    other = "Pàgines"
+[pagination]
+    other = "Paginació"
+[posts]
+    one = "Entrada"
+    other = "Entrades"
+[postsBy]
+    other = "Entrada de"
+[postsOn]
+    other = "Entrades a"
+[poweredBy]
+    other = "Impulsat per"
+[prev]
+    other = "Anterior"
+[print]
+    other = "Imprimeix"
+[protanopia]
+    other = "Protanòpia"
+[published]
+    other = "Publicat"
+[readingTime]
+    other = "min. de lectura"
+[recent]
+    other = "Entrades recents"
+[redactionHistory]
+    other = "Historial de redacció"
+[redactionNotes]
+    other = "Alguna informació pot canviar amb el temps; mantenim la redacció actualitzada."
+[related]
+    other = "També et pot agradar"
+[reset]
+    other = "Restableix"
+[reviewedBy]
+    other = "Revisat per"
+[save]
+    other = "Desa"
+[search]
+    other = "Cerca"
+[seeAll]
+    other = "Veure-ho tot"
+[seeMore]
+    other = "Explora més temes"
+[section]
+    other = "Secció"
+[selectLang]
+    other = "Selecció d'idioma"
+[series]
+    other = "Sèries"
+[share]
+    other = "Comparteix"
+[shareOn]
+    other = "Comparteix a"
+[slide]
+    one = "diapositiva"
+    other = "diapositives"
+[stage]
+    one = "Etapa"
+    other = "Etapes"
+[switchLangTo]
+    other = "Canvia l'idioma a"
+[TableOfContents]
+    other = "Taula de continguts"
+[tags]
+    one = "Etiqueta"
+    other = "Etiquetes"
+[toContent]
+    other = "Salta al contingut principal"
+[toTop]
+    other = "Torna a dalt"
+[top-nav]
+    other = "Inici"
+[tritanopia]
+    other = "Tritanòpia"
