@@ -103,7 +103,9 @@ math[display=block],
     margin: var(--medskip) 0;
 }
 
-#has-TableOfContents ul {
+#TableOfContents + nav ul,
+#TableOfContents + nav ul li {
+    display: block;
     list-style: none;
     font-style: italic;
 }

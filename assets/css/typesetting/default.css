@@ -258,8 +258,6 @@ details.presentation > summary {
     content: attr(aria-description);
 }
 
-#TableOfContents + nav > ul,
-#TableOfContents + nav > ul > li,
 .has-desc:after {
     display: block;
     white-space: break-spaces;
