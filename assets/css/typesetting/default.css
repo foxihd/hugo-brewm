@@ -41,12 +41,16 @@ p * {
 blockquote {
     margin: 0;
     padding: 1pt var(--indent);
+    border-left: 3pt solid var(--ac);    
 }
 
 blockquote blockquote {
-    margin-bottom: var(--indent);
-    border-left: var(--bound);
+    margin: var(--indent) 0;
     width: unset;
+}
+
+.epigraph blockquote {
+    border-left: unset;
 }
 
 blockquote footer {
@@ -380,7 +384,7 @@ blockquote cite {
 
 .letterine::before {
     display: block;
-    border-bottom: 2pt solid var(--ac);
+    border-bottom: 3pt solid var(--ac);
     content: '';
 }
 
@@ -389,7 +393,7 @@ blockquote cite {
         inconsistence result across browsers
         */
     position: relative;
-    top: -0.2rem;
+    top: -3pt;
     float: left;
     background: var(--bg);
     padding-right: .1em;
