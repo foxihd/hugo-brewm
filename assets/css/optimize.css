@@ -27,12 +27,6 @@ ul.invert a:hover,
     opacity: 1;
 }
 
-#TableOfContents + nav > ul,
-#TableOfContents + nav > ul > li,
-.has-desc:after {
-    display: block;
-}
-
 #has-breadcrumb summary,
 #has-pagination summary,
 #page #back,
