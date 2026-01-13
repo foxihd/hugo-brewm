@@ -29,9 +29,9 @@ _**Figure 2.** Side-by-side windows demonstrating multiple platform supports; Ly
 
     | Assets Filename    |    Size | Gzipped | Note                                          |
     | ------------------ | ------: | ------: | :-------------------------------------------- |
-    | hugo-brewm.min.css | ~92.9KB | ~38.2KB | Compiled site-wide stylesheet and basic icon font, could be less  |
-    | hugo-brewm.min.js  | ~34.4KB | ~11.5KB | Compiled site-wide javascript, could be less  |
-    | fediscuss.min.js   | ~12.7KB |  ~4.2KB | Discuss over Mastodon & Bluesky, load if required |
+    | hugo-brewm.min.css | ~92.4KB | ~38.3KB | Compiled site-wide stylesheet and basic icon font, could be less  |
+    | hugo-brewm.min.js  | ~34.3KB | ~11.5KB | Compiled site-wide javascript, could be less  |
+    | fediscuss.min.js   | ~13.0KB |  ~4.3KB | Discuss over Mastodon & Bluesky, load if required |
   
     _**Table 1.** All hugo-brewm's web assets that may be fetched once and reusable for thousands of pages until the cache is purged or expired._
 
@@ -50,8 +50,9 @@ _**Figure 2.** Side-by-side windows demonstrating multiple platform supports; Ly
 
 We currently support:
 - 🇬🇧 English
-- 🇲🇽 Español (México) — Translated by [Jerson-Cortes](https://github.com/Jerson-Cortes)
-- 🇮🇳 Hindi — Translated by [Akshay-365](https://github.com/Akshay-365)
+- 🇲🇽 Español (México) — Translated by [Jerson Cortes (@Jerson-Cortes)](https://github.com/Jerson-Cortes)
+- 🇫🇷 French — Translated by [N. Piatte (@Ennpeh)](https://github.com/Ennpeh)
+- 🇮🇳 Hindi — Translated by [@Akshay-365](https://github.com/Akshay-365)
 - 🇮🇩 Indonesian
 
 Please feel free to contribute to additional [translation](https://github.com/foxihd/hugo-brewm/blob/main/i18n/).
