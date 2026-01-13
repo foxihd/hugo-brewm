@@ -90,6 +90,7 @@ Berikut adalah daftar ikon yang didukung beserta nama-namanya yang dapat digunak
   <li><i class="icon paypal"></i> paypal  </li>
   <li><i class="icon peertube"></i> peertube  </li>
   <li><i class="icon pinterest"></i> pinterest  </li>
+  <li><i class="icon pixelfed"></i> pixelfed  </li>
   <li><i class="icon pleroma"></i> pleroma  </li>
   <li><i class="icon publons"></i> publons  </li>
   <li><i class="icon quora"></i> quora  </li>
@@ -106,6 +107,7 @@ Berikut adalah daftar ikon yang didukung beserta nama-namanya yang dapat digunak
   <li><i class="icon stackoverflow"></i> stackoverflow  </li>
   <li><i class="icon stripe"></i> stripe  </li>
   <li><i class="icon substack"></i> substack  </li>
+  <li><i class="icon tangled"></i> tangled  </li>
   <li><i class="icon telegram"></i> telegram  </li>
   <li><i class="icon threads"></i> threads  </li>
   <li><i class="icon tiktok"></i> tiktok  </li>
@@ -115,7 +117,6 @@ Berikut adalah daftar ikon yang didukung beserta nama-namanya yang dapat digunak
   <li><i class="icon twitter"></i> twitter  </li>
   <li><i class="icon vimeo"></i> vimeo  </li>
   <li><i class="icon vine"></i> vine  </li>
-  <li><i class="icon vk"></i> vk  </li>
   <li><i class="icon wattpad"></i> wattpad  </li>
   <li><i class="icon weibo"></i> weibo  </li>
   <li><i class="icon whatsapp"></i> whatsapp  </li>
