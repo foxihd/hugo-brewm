@@ -135,41 +135,43 @@ math[display=block]::after {
     counter-increment: math;
 }
 
-#content hr {
+.content hr {
     display: block;
     margin: 0.618pc 0;
     border: 0;
     border-bottom: var(--bound);
 }
 
-#content table {
+.content table {
     margin: 0.618pc 0;
     width: 100%;
     overflow-x: auto;
 }
 
+/* .content can be used in slide or comments, #content is exclusive block on main-article */
+
 #content figure.fullwidth {
     max-width: none;
 }
 
-#content p:not(:first-of-type) {
+.content p:not(:first-of-type) {
     text-indent: var(--indent);
 }
 
-#content p img {
+.content p img {
     width: calc(100% - var(--indent));
 }
 
-#content li {
+.content li {
     margin: 0.618pc 0;
 }
 
-#content ul > li::marker {
+.content ul > li::marker {
     content: '✦   ';
     font-size: 0.7em;
 }
 
-#content ul > li li::marker {
+.content ul > li li::marker {
     content: '✧   ';
     font-size: 0.7em;
 }
