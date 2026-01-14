@@ -210,7 +210,7 @@
                                 alt="{{ with $alt }}{{ . }}{{ end }}" {{ if ne $slideNum 1 }}loading="lazy"{{ end }}>
                         </div>
                         {{- end }}
-                        <div class="slide__content {{ with .Params.TextColor }}{{ . }}{{ end }}">
+                        <div class="slide__content content {{ with .Params.TextColor }}{{ . }}{{ end }}">
                             {{- with .Title }}
                                 <h1 id="slide-{{ $slideNum }}__heading" class="section-title">{{ . }}</h1>
                             {{- end }}
