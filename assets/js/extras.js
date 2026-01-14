@@ -27,8 +27,9 @@ if (hasBack) {
 // enable copy and navigatorShare element when protocol is secure
 if (location.protocol === 'https:') {
     // use navigator.share when supported
-    if (navigator.share) {
-        getElement('navigatorShare')?.setAttribute(
+    shareBtn = getElement('navigatorShare');
+    if (navigator.share && shareBtn) {
+        shareBtn.setAttribute(
             'href',
             'javascript:navigator.share({title: document.title, url: window.location.href})'
         );
