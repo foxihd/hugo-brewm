@@ -1,3 +1,10 @@
+[ca]
+    contentDir = 'content/ca-es'
+    disabled = false
+    languageCode = 'ca-ES'
+    languageDirection = 'ltr'
+    languageName = 'Català'
+
 [en]
     contentDir = 'content/en'
     disabled = false
@@ -8,6 +15,34 @@
         disableAliases = false
         pagerSize = 6
         path = 'page'
+
+[es]
+    contentDir = 'content/es'
+    disabled = false
+    languageCode = 'es-ES'
+    languageDirection = 'ltr'
+    languageName = 'Español'
+
+[es-mx]
+    contentDir = 'content/es-mx'
+    disabled = false
+    languageCode = 'es-MX'
+    languageDirection = 'ltr'
+    languageName = 'Español (México)'
+
+[fr]
+    contentDir = 'content/fr'
+    disabled = false
+    languageCode = 'fr'
+    languageDirection = 'ltr'
+    languageName = 'French'
+
+[hi]
+    contentDir = 'content/hi'
+    disabled = false
+    languageCode = 'hi-IN'
+    languageDirection = 'ltr'
+    languageName = 'हिन्दी'
 
 [id]
     title = 'Contoh'
@@ -29,24 +64,3 @@
         disableListing = true
     [id.sitemap]
         changeFreq = 'always' ## Change posts listings layout
-
-[hi]
-    contentDir = 'content/hi'
-    disabled = false
-    languageCode = 'hi-IN'
-    languageDirection = 'ltr'
-    languageName = 'हिन्दी'
-
-[es-mx]
-    contentDir = 'content/es-mx'
-    disabled = false
-    languageCode = 'es-MX'
-    languageDirection = 'ltr'
-    languageName = 'Español (México)'
-
-[fr]
-    contentDir = 'content/fr'
-    disabled = false
-    languageCode = 'fr'
-    languageDirection = 'ltr'
-    languageName = 'French'
