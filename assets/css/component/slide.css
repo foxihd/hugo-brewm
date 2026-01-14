@@ -59,10 +59,11 @@ aside .crsl {
     font-size: var(--normalsize);
 }
 
-.slide__content p {
-    max-width: var(--canonic);
+.slide__content p,
+.slide__content ul,
+.slide__content ol {
+    max-width: 36rem;
 }
-
 
 .slide__content .footnotes p,
 .slide__cover + .slide__content p {
