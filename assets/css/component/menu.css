@@ -320,6 +320,8 @@ a#has-i18n:active > .alt {
     border: var(--border);
     background: var(--bg);
     width: auto;
+    max-width: calc(100% - var(--void) - var(--void));
+    white-space: wrap;
 }
 
 #main-footer a::after,
