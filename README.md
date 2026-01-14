@@ -49,7 +49,9 @@ _**Figure 2.** Side-by-side windows demonstrating multiple platform supports; Ly
 ### Translation
 
 We currently support:
+- 🇪🇸 Català — Translated by [duub qnnp @duub](https://github.com/duub)
 - 🇬🇧 English
+- 🇪🇸 Español — Translated by [duub qnnp @duub](https://github.com/duub)
 - 🇲🇽 Español (México) — Translated by [Jerson Cortes (@Jerson-Cortes)](https://github.com/Jerson-Cortes)
 - 🇫🇷 French — Translated by [N. Piatte (@Ennpeh)](https://github.com/Ennpeh)
 - 🇮🇳 Hindi — Translated by [@Akshay-365](https://github.com/Akshay-365)
