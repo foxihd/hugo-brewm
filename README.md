@@ -191,7 +191,8 @@ cd mysite
 
 ```sh
 git submodule deinit -f themes/hugo-brewm
-rm themes/hugo-brewm
+git rm -r --cached themes/hugo-brewm
+rm -R themes/hugo-brewm
 ```
 
 3. Re-add the submodule with force flag
