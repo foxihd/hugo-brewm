@@ -1,9 +1,10 @@
 #contentinfo {
     display: grid;
-    grid-template-columns: minmax(62%, 1fr) minmax(38%, 1fr);
+    grid-template-columns: 6fr 4fr;
     font-size: var(--small);
     gap: var(--medskip);
 }
+
 
 #colophon {
     grid-column: 1;
