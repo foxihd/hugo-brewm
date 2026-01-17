@@ -110,40 +110,42 @@
 {{- end }}
 
 {{- define "exclude" }}
-    <hr class="hide" style="margin: 1in 0;">
-    {{- if not (or site.Params.BearMode site.Params.ZenMode) }}
-    <div id="contentinfo" class="pagewidth" role="contentinfo" data-pagefind-ignore="all">
-        {{- if eq .Params.type (or "post" "articles")  }}
-            {{- if or .Params.related site.Params.posts.related }}
-                {{ partial "post/related.html" . }}
+    <div class="pagewidth">
+        <hr />
+        {{- if not (or site.Params.BearMode site.Params.ZenMode) }}
+        <div id="contentinfo" role="contentinfo" data-pagefind-ignore="all">
+            {{- if eq .Params.type (or "post" "articles")  }}
+                {{- if or .Params.related site.Params.posts.related }}
+                    {{ partial "post/related.html" . }}
+                {{- end }}
+                {{- if or .Params.colophon site.Params.posts.colophon }}
+                    {{ partial "post/colophon.html" . }}
+                {{- end }}
+                {{- if not site.Params.posts.disableHistory }}
+                    {{ partial "post/history.html" . }}
+                {{- end }}
+                {{ partial "post/contribute.html" . }}
             {{- end }}
-            {{- if or .Params.colophon site.Params.posts.colophon }}
-                {{ partial "post/colophon.html" . }}
+            {{- if site.Params.posts.share }}
+                {{ partial "nav.html" (dict "navID" "share" "page" .) }}
             {{- end }}
-            {{- if not site.Params.posts.disableHistory }}
-                {{ partial "post/history.html" . }}
-            {{- end }}
-            {{ partial "post/contribute.html" . }}
+        </div>
         {{- end }}
-        {{- if site.Params.posts.share }}
-            {{ partial "nav.html" (dict "navID" "share" "page" .) }}
+        {{ if not site.Params.comments.disabled -}}
+            {{- $toot := or .Params.toot  .Params.mstd .Params.mastodon }}
+            {{- $bsky := or .Params.skeet .Params.bsky .Params.bluesky }}
+            {{- $giscus := isset .Site.Params "giscus" }}
+            {{ if or $toot $bsky $giscus -}}
+                {{ if not (or $toot $bsky) -}}
+                    {{ if ne .Params.comments false }}
+                        {{ partial "giscus.html" . }}
+                    {{ end }}
+                {{- else }}
+                    {{ partial "fediverse.html" (dict "toot" $toot "bsky" $bsky ) }}
+                {{- end }}
+            {{- end }}
         {{- end }}
     </div>
-    {{- end }}
-    {{ if not site.Params.comments.disabled -}}
-        {{- $toot := or .Params.toot  .Params.mstd .Params.mastodon }}
-        {{- $bsky := or .Params.skeet .Params.bsky .Params.bluesky }}
-        {{- $giscus := isset .Site.Params "giscus" }}
-        {{ if or $toot $bsky $giscus -}}
-            {{ if not (or $toot $bsky) -}}
-                {{ if ne .Params.comments false }}
-                    {{ partial "giscus.html" . }}
-                {{ end }}
-            {{- else }}
-                {{ partial "fediverse.html" (dict "toot" $toot "bsky" $bsky ) }}
-            {{- end }}
-        {{- end }}
-    {{- end }}
 {{- end }}
 
 {{- define "post" }}

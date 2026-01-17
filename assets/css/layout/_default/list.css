@@ -1,5 +1,5 @@
 hr.ldots {
-    border: none;
+    border: none !important;
 }
 
 hr.ldots::after {

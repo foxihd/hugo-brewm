@@ -178,9 +178,8 @@ math[display=block]::after {
 
 /* article backmatter */
 
-#main-article > footer {
-    margin: var(--vskip);
-    border-bottom: var(--bound) ;
+#exclude hr {
+    border-style: dashed;
 }
 
 .footnotes {
@@ -220,6 +219,7 @@ math[display=block]::after {
 #main-article.sf > header,
 #content,
 #keywords,
+#main-article > footer,
 #contentinfo {
     margin: var(--vskip);
     overflow-wrap: break-word;
