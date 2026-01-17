@@ -225,11 +225,6 @@ math[display=block]::after {
     overflow-wrap: break-word;
 }
 
-.verbose {
-    font: 1rem/2rem monospace;
-    overflow-wrap: anywhere;
-}
-
 #has-share,
 #comments {
     grid-column: 1 / 3;

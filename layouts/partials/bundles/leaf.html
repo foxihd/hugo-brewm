@@ -152,7 +152,7 @@
         <strong class="section-title">{{ i18n "colophon" }}</strong>
         <div>
             <div id="qr" role="img" aria-label="QR code"></div>
-            <div class="verbose">
+            <div>
                 <div class="has-aria-label-top" aria-label="{{ .Title }}"><span>{{- .Permalink }}</span></div>
                 {{- $copyright := or site.Copyright site.Params.copyright site.Params.license }}
                 {{- if and (not site.Params.unifiedFooter) $copyright -}}

@@ -7,7 +7,7 @@
 {{- with $data }}
     {{- $version := index $data "-version" }}
     {{- if not $version }}
-        <p class="verbose">{{- printf "Unable to get remote resource %q" $url }}</p>
+        <p>{{- printf "Unable to get remote resource %q" $url }}</p>
     {{- else if eq $version "2.0" }}
         {{- $siteTitle := .channel.title }}
         {{- $siteDescription := .channel.description }}
