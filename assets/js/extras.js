@@ -66,24 +66,25 @@ if (typeof mastodonInstance !== 'undefined') {
     };
 
     addEvent(mastodonInstance, 'input', mastodonHandler);
+}
 
-    if (typeof QRCode !== 'undefined') {
-        getElement('colophon').removeAttribute('style');
+// Colophon
+if (typeof QRCode !== 'undefined') {
+    getElement('colophon').removeAttribute('style');
 
-        qr?.appendChild(
-            QRCode({
-                msg: window.location.href,
-                ecl: 'M',
-                pal: ['#000', '#fff'],
-                pad: 2,
-                dim: 96,
-            })
-        );
+    qr?.appendChild(
+        QRCode({
+            msg: window.location.href,
+            ecl: 'M',
+            pal: ['#000', '#fff'],
+            pad: 2,
+            dim: 96,
+        })
+    );
 
-        const timeStamp = getElement('time-stamp');
-              timeStamp.innerHTML = formatDate(date);
-              timeStamp?.setAttribute('datetime', date.toISOString());
-    }
+    const timeStamp = getElement('time-stamp');
+            timeStamp.innerHTML = formatDate(date);
+            timeStamp?.setAttribute('datetime', date.toISOString());
 }
 
 // Digital well-being clock
