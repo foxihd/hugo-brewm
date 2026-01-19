@@ -43,12 +43,9 @@
     {{- "<!-- cover.html -->" | safeHTML }}
     {{- $page := .page }}
     {{- $src := or .page.Params.cover .page.Params.image }}
-    {{- $auto := partial "_funcs/get-page-images.html" .page -}}
     {{- with .page.Resources.GetMatch "cover.*" }}
         {{- $src = .Permalink }}
-    {{- else with index $auto 0 -}}
-        {{- $src = .Permalink -}}
-    {{- end -}}
+    {{- end }}
     {{- return $src }}
 {{- end }}
 
