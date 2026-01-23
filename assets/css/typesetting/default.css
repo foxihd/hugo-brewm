@@ -135,7 +135,7 @@ pre > code {
     display: block;
     border-radius: 1ex;
     background: unset;
-    width: fit-content;
+    width: max-content;
     max-width: 100%;
     overflow-x: auto;
 }

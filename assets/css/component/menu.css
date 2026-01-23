@@ -165,7 +165,7 @@ a#has-i18n {
     border-radius: 1ex;
     background: var(--bg);
     padding: 1.414ex;
-    width: fit-content;
+    width: max-content;
     max-height: calc(var(--vbody) - 2rem);
     overflow-y: auto;
     gap: 1ex;

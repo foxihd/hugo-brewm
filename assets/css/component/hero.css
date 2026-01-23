@@ -16,7 +16,7 @@
     position: sticky;
     top: 0;
     width: 50%;
-    height: fit-content;
+    height: max-content;
 }
 
 .hero__image.auto {
