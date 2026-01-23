@@ -12,6 +12,7 @@ function bionRead() {
     // define capture and restore environment variable
     const bionReadMainContent = getElement('content');
     const bionReadSnapshot = getElement('bionReadSnapshot');
+    const safeElements = getElements('[data-bionRead-safe]');
 
     if (!bionReadMainContent || !bionReadSnapshot) {
         console.error('Required elements not found');
@@ -24,7 +25,6 @@ function bionRead() {
         bionReadSnapshot.innerHTML = bionReadMainContent.innerHTML;
 
         // split words into 'anchored' and 'floated' part
-        const safeElements = getElements('[data-bionRead-safe]');
         safeElements.forEach(element => {
             const targetElements = element.querySelectorAll('h1, h2, h3, h4, h5, p, a, li, blockquote');
             targetElements.forEach(el => {

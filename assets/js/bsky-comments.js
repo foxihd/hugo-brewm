@@ -28,13 +28,13 @@ if (bskyRoot) {
     var bskyCommentsLoaded = false;
     var skeetURL = bskyRoot.dataset.url;
     const toBskyURL = (uri) => {
-    const splitUri = uri.split('/');
-    if (splitUri[0] === 'at:') {
-        return 'https://bsky.app/profile/' + splitUri[2] + '/post/' + splitUri[4];
-    } else {
-        return uri;
+        const splitUri = uri.split('/');
+        if (splitUri[0] === 'at:') {
+            return 'https://bsky.app/profile/' + splitUri[2] + '/post/' + splitUri[4];
+        } else {
+            return uri;
+        }
     }
-}
     const toAtProtoURI = (splitUrl) => `at://${splitUrl[4]}/app.bsky.feed.post/${splitUrl[6]}`;
     const ToBskyImgURL = (did, blobLink, thumb) => `https://cdn.bsky.app/img/${thumb ? 'feed_thumbnail' : 'feed_fullsize'}/plain/${did}/${blobLink}`;
     const bskyAPI = getURI(skeetURL, toAtProtoURI);
@@ -181,21 +181,22 @@ if (bskyRoot) {
     const renderSkeet = (comment) => {
         const replyDate = new Date(comment.post.record.createdAt);
         return `
-        <li data-date='${toISOString(replyDate)}' id='${comment.post.cid}'>
-            <article class='fed-comments bsky'>
-            <header class='author'>
-                <img src='${comment.post.author.avatar}' width=48 height=48 alt='${comment.post.author.handle}' loading='lazy' />
-                <a class='has-aria-label' href='https://bsky.app/profile/${comment.post.author.handle}' rel='external noreferrer nofollow' aria-label='@${comment.post.author.handle}' aria-description='${comment.post.author.displayName}'>
-                    <span>${comment.post.author.displayName}</span>
-                </a>
-            </header>
-            <div class='content'>${renderBskyContent(comment.post)}</div>
-            <footer>
-                <div class='stat'>${renderBskyStat(comment.post)}</div>
-                <a class='date' href='${toBskyURL(comment.post.uri)}' rel='ugc external noreferrer nofollow'><time datetime='${toISOString(replyDate)}'>${formatDate(replyDate)}</time></a>
-            </footer>
-            </article>
-        </li>`;
+<li data-date='${toISOString(replyDate)}' id='${comment.post.cid}'>
+    <article class='fed-comments bsky'>
+    <header class='author'>
+        <img src='${comment.post.author.avatar}' width=48 height=48 alt='${comment.post.author.handle}' loading='lazy' />
+        <a class='has-aria-label' href='https://bsky.app/profile/${comment.post.author.handle}' rel='external noreferrer nofollow' aria-label='@${comment.post.author.handle}' aria-description='${comment.post.author.displayName}'>
+            <span>${comment.post.author.displayName}</span>
+        </a>
+    </header>
+    <div class='content'>${renderBskyContent(comment.post)}</div>
+    <footer>
+        <div class='stat'>${renderBskyStat(comment.post)}</div>
+        <a class='date' href='${toBskyURL(comment.post.uri)}' rel='ugc external noreferrer nofollow'><time datetime='${toISOString(replyDate)}'>${formatDate(replyDate)}</time></a>
+    </footer>
+    </article>
+</li>
+        `;
     }
 
     const renderSkeets = (thread) => {

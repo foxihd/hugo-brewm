@@ -1,3 +1,14 @@
+// constant block
+    // DOM element getters
+const getElement = id => document.getElementById(id);
+const getElements = selector => document.querySelectorAll(selector);
+    // collapsable
+const collapseParentNode = getElements('.js-cpn');
+const collapseGrandParentNode = getElements('.js-cgpn');
+const detailsElements = getElements('details.js-details');
+    // register date
+const date = new Date();
+
 // Event listener helper function
 function addEvent(element, event, handler) {
     if (element?.attachEvent) {
@@ -5,10 +16,6 @@ function addEvent(element, event, handler) {
     }
     return element?.addEventListener(event, handler, false);
 }
-
-// DOM element getters
-const getElement = id => document.getElementById(id);
-const getElements = selector => document.querySelectorAll(selector);
 
 // Logotype width calculation
 function recalcLogotypeWidth() {
@@ -49,10 +56,6 @@ function adaptViewport() {
 addEvent(window, 'DOMContentLoaded', adaptViewport);
 
 // Node collapse handlers
-const collapseParentNode = getElements('.js-cpn');
-const collapseGrandParentNode = getElements('.js-cgpn');
-const detailsElements = getElements('details.js-details');
-
 collapseParentNode.forEach(element => {
     const handler = () => element.parentNode?.removeAttribute('open');
     addEvent(element, 'click', handler);
@@ -81,7 +84,6 @@ if (window.innerWidth > 640) {
 }
 
 // Date handling
-const date = new Date();
 function formatDate(dateString) {
     return new Date(dateString).toLocaleString('en-US', {
         year: 'numeric',
