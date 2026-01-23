@@ -70,6 +70,7 @@
     (resources.Get "css/component/carousel.css")
     (resources.Get "css/component/hero.css")
     (resources.Get "css/layout/_default/single.css")
+    (resources.Get "css/component/garden.css")
     (resources.Get "css/component/marginpar.css")
     (resources.Get "css/optimize.css")
     (resources.Get "css/support.css")
@@ -99,10 +100,14 @@
     {{- $extrasSty = $extrasSty | append $search }}
 {{- end }}
 
-{{- $garden := resources.Get "css/component/garden.css" }}
+{{/*  temporarily force included stage indicator in CSS due to bug */}}
+{{/*  {{- $garden := resources.Get "css/component/garden.css" }}
 {{- if index site.Taxonomies "stage" }}
+    {{- warnf "has stage taxonomy" }}
     {{- $extrasSty = $extrasSty | append $garden }}
-{{- end }}
+{{ else }}
+    {{- warnf "has no stage taxonomy" }}
+{{- end }}  */}}
 
 {{- if not site.Params.DisableFootBar }}
     {{- $bbar := resources.Get "css/component/mainfooter.css" }}
