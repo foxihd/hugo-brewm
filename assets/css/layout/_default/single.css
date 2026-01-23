@@ -167,12 +167,12 @@ math[display=block]::after {
 }
 
 .content ul > li::marker {
-    content: '✦   ';
+    content: '✦\2002';
     font-size: 0.7em;
 }
 
 .content ul > li li::marker {
-    content: '✧   ';
+    content: '✧\2002';
     font-size: 0.7em;
 }
 
