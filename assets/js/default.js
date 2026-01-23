@@ -11,17 +11,19 @@ const date = new Date();
 
 // Event listener helper function
 function addEvent(element, event, handler) {
-    if (element?.attachEvent) {
+    if (element.attachEvent) {
         return element.attachEvent('on' + event, handler);
     }
-    return element?.addEventListener(event, handler, false);
+    return element.addEventListener(event, handler, false);
 }
 
 // Logotype width calculation
 function recalcLogotypeWidth() {
     const logotype = getElement('logotype');
     const logotypeText = getElement('logotype__text');
-    logotype?.setAttribute('width', `${logotypeText.getBoundingClientRect().width}px`);
+    if (logotype) {
+        logotype.setAttribute('width', `${logotypeText.getBoundingClientRect().width}px`);
+    }
 }
 
 // Viewport adaptation
@@ -31,9 +33,13 @@ function adaptViewport() {
         recalcLogotypeWidth();
     });
     if (window.innerWidth < 640) {
-        getElement('has-search')?.setAttribute('open', 'open');
-        getElement('has-search')?.removeAttribute('name');
-        getElement('has-more-menu')?.setAttribute('open', 'open');
+        if (getElement('has-search')) {
+            getElement('has-search').setAttribute('open', 'open');
+            getElement('has-search').removeAttribute('name');
+        }
+        if (getElement('has-more-menu')) {
+            getElement('has-more-menu').setAttribute('open', 'open');
+        }
         // rotate to content top icon if homepage has slide
         let hasSlide = getElement('slide-1');
         if (hasSlide) {
@@ -49,20 +55,24 @@ function adaptViewport() {
             addEvent(window, 'scroll', adjustToTopButon);
         };
     } else {
-        getElement('top-nav')?.setAttribute('open', 'open');
-        addEvent(visualViewport, 'resize', adaptViewport);
+        if (getElement('top-nav')) {
+            getElement('top-nav').setAttribute('open', 'open');
+        }
+        if (typeof visualViewport !== 'undefined') {
+            addEvent(visualViewport, 'resize', adaptViewport);            
+        }
     }
 }
 addEvent(window, 'DOMContentLoaded', adaptViewport);
 
 // Node collapse handlers
 collapseParentNode.forEach(element => {
-    const handler = () => element.parentNode?.removeAttribute('open');
+    const handler = () => element.parentNode.removeAttribute('open');
     addEvent(element, 'click', handler);
 });
 
 collapseGrandParentNode.forEach(element => {
-    const handler = () => element.parentNode?.parentNode?.removeAttribute('open');
+    const handler = () => element.parentNode.parentNode.removeAttribute('open');
     addEvent(element, 'click', handler);
 });
 

@@ -63,16 +63,16 @@ if (typeof mastodonInstance !== 'undefined') {
         mastodonTitle.disabled = true;
         mastodonPermalink.disabled = true;
         mastodonText.disabled = false;
-        mastodon?.setAttribute('action', `${mastodonInstance.value}/share`);
+        mastodon.setAttribute('action', `${mastodonInstance.value}/share`);
     };
 
     addEvent(mastodonInstance, 'input', mastodonHandler);
 }
 
 // Colophon
-if (typeof QRCode !== 'undefined') {
-    getElement('colophon')?.removeAttribute('style');
-    getElement('qr')?.appendChild(
+if (getElement('colophon') && (typeof QRCode !== 'undefined')) {
+    getElement('colophon').removeAttribute('style');
+    getElement('qr').appendChild(
         QRCode({
             msg: window.location.href,
             ecl: 'M',
@@ -92,7 +92,7 @@ if (typeof QRCode !== 'undefined') {
 // Digital well-being clock
 if (hour > 6 && hour < 21) {
     getElements('.grain, #dwclock').forEach(e => {
-        e?.remove();
+        e.remove();
     });
 } else {
     getElement('background-body').innerHTML = `
@@ -138,7 +138,7 @@ if (hour > 6 && hour < 21) {
 
 // expand redaction history on print
 function expandRH() {
-    getElements('[name="redaction-history"]')?.forEach(e => {
+    getElements('[name="redaction-history"]').forEach(e => {
         e.removeAttribute('name');
         e.removeAttribute('class');
         e.setAttribute('open', 'open');

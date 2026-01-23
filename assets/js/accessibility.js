@@ -297,7 +297,9 @@ function hasLocalStorage() {
     } catch(e) {
         defaultContrast.checked = true;
         getElement('noLocalStorage').className = '';
-        getElement('noDOMGiscus')?.removeAttribute('class');
+        if (getElement('noDOMGiscus')) {
+            getElement('noDOMGiscus').removeAttribute('class');
+        }
         return false;
     };
 };
