@@ -108,22 +108,31 @@ kbd:has(kbd) {
   background: var(--hl);
 }
 
-mark {
+mark,
+#has-mastodon.active #mastodon,
+#comments ul {
+    /* .has-inset */
     position: relative;
 }
 
-mark::before {
-    display: inline-block;
-    position: absolute;
-    top: -1pt;
-    right: -2pt;
-    bottom: -1pt;
-    left: -2pt;
-    z-index: -1;
-    background: var(--hl);
-    content: '';
+mark::before,
+#has-mastodon.active #mastodon::before,
+#comments ul::before {
     /* inset is simpler but lesser browser support */
-    /* inset: -1pt -2pt;  */
+    --inset: -3pt;
+    position: absolute;
+    top: var(--inset);
+    right: var(--inset);
+    bottom: var(--inset);
+    left: var(--inset);
+    z-index: -1;
+    content: '';
+}
+
+mark::before {
+    --inset: 1.5pt;
+    display: inline-block;
+    background: var(--hl);
 }
 
 code {

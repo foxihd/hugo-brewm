@@ -1,7 +1,3 @@
-#comments ul {
-    position: relative;
-}
-
 #comments ul ul {
     padding-left: 1pc;
 }
@@ -12,17 +8,11 @@
 }
 
 #comments ul::before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
+    --inset: 0;
     border-left: 3pt solid #80808008;
     border-radius: 1ex;
     content: '';
 }
-
 
 #comments noscript {
     margin: var(--medskip) 0;
@@ -63,6 +53,11 @@
 
 .fed-comments.mstd {
     --ac: #563acc;
+}
+
+.fed-comments > .author {
+    overflow-x:auto;
+    white-space:nowrap
 }
 
 .fed-comments > .author > img {
@@ -111,6 +106,10 @@
     height: auto;
 }
 
+.attachments img {
+    width:100%;
+    height:auto;
+}
 
 .stat > * {
     display: inline-flex;

@@ -2,49 +2,8 @@ const cmt = getElement('comments');
 const { i18nReplies, i18nReblogs, i18nFavourites, i18nLoading, i18nErr, i18nNocomment } = cmt.dataset;
 
 const cmtSty = document.createElement('style');
-cmtSty.textContent = `
-    #comments ul{position:relative;}
-    #comments ul ul {padding-left:1pc}
-    #comments ul > li {border-radius:1ex;overflow:hidden}
-    #comments ul::before {z-index:-1;position:absolute;top:0;right:0;bottom:0;left:0;border-left:3pt solid #80808008;border-radius:1ex;content:'';}
-    #comments noscript {margin:var(--medskip) 0}
-    #discussion-starter {margin-bottom:var(--medskip)}
-    #stats {margin-left:auto}
-    #mstd-comments, #bsky-comments, #fed-comments {padding:0;list-style:none;width:var(--golden-ratio)}
-    #comments li, #comments li > ul {padding-top:1ex;list-style:none}
-    .fed-comments {border-left:3pt solid var(--ac);background:#80808008;padding:1rem 2rem 1ex 1rem;overflow:auto}
-    .fed-comments.bsky {--ac:#1185fe}
-    .fed-comments.mstd {--ac:#563acc}
-    .fed-comments > .author {overflow-x:auto;white-space:nowrap}
-    .fed-comments > .author > img{margin-right:12pt}
-    .fed-comments .content {margin-left:4rem;line-height:calc(var(--baselineStretch) * 1.272)}
-    .fed-comments .content p {margin: 1.618rem 0}
-    .fed-comments .content a {max-width:100%;vertical-align:bottom;white-space:break-spaces}
-    .fed-comments > footer {display:flex;align-items:center;margin-top:1rem;margin-left:3.5rem;white-space:nowrap}
-    .fed-comments > footer .stat {display:inline-flex;flex-shrink:0;gap:5pt}
-    .attachments, #comments > summary {display:flex;margin:.618pc 0;overflow:auto}
-    .attachments > * {flex-shrink:0;width:100%;height:auto}
-    .attachments img {width:100%;height:auto}
-    .stat > * {display:inline-flex;align-items:center;padding:2pt;color:var(--mid);gap:2pt}
-    .stat > *::before {vertical-align:text-top;font-family:'base-ui'}
-    .stat > * > span {font-size:0.8em}
-    a.replies.active, a.reblogs.active {color:var(--ac)}
-    a.favourites.active {color:var(--i3i)}
-    .fed-comments .date {margin-left:auto;padding-left:1rem;color:var(--mid);font-size:calc(10pt * var(--fontScale))}
-    .bluesky {display:inline-block}
-    #join-discussion:hover .blueksy, #join-discussion-bluesky:hover .bluesky {transform-origin:center center;animation:flutter 0.2s alternate infinite}
-    @keyframes flutter {from { transform:rotateY(0)}to { transform:rotateY(80deg)}}
-    @media (max-width:960px) {
-        .fed-comments .content, .fed-comments > footer {margin-left:0}
-    }
-    @media (max-width:480px) {
-        .fed-comments {padding: 1rem 1rem 1ex}
-    }
-    @media print {
-        .fed-comments {position:relative;background:none;padding-bottom:0}
-        .fed-comments .date {position:absolute;top:0;right:0}
-        .fed-comments .stat {display:none !important}
-    }`;
+// see /assets/css/component/fediverse.css
+cmtSty.textContent = `#comments ul ul{padding-left:1pc}#comments ul>li{border-radius:1ex;overflow:hidden}#comments ul::before{--inset:0;border-left:3pt solid #80808008;border-radius:1ex;content:''}#comments noscript{margin:var(--medskip) 0}#discussion-starter{margin-bottom:var(--medskip)}#stats{margin-left:auto}#mstd-comments,#bsky-comments,#fed-comments{padding:0;list-style:none;width:var(--golden-ratio)}#comments li,#comments li>ul{padding-top:1ex;list-style:none}.fed-comments{border-left:3pt solid var(--ac);background:#80808008;padding:1rem 2rem 1ex 1rem;overflow:auto}.fed-comments.bsky{--ac:#1185fe}.fed-comments.mstd{--ac:#563acc}.fed-comments>.author{overflow-x:auto;white-space:nowrap}.fed-comments>.author>img{margin-right:12pt}.fed-comments .content{margin-left:4rem;line-height:calc(var(--baselineStretch) * 1.272)}.fed-comments .content p{margin:1.618rem 0}.fed-comments .content a{max-width:100%;vertical-align:bottom;white-space:break-spaces}.fed-comments>footer{display:flex;align-items:center;margin-top:1rem;margin-left:3.5rem;white-space:nowrap}.fed-comments>footer .stat{display:inline-flex;flex-shrink:0;gap:5pt}.attachments,#comments>summary{display:flex;margin:.618pc 0;overflow:auto}.attachments>*{flex-shrink:0;width:100%;height:auto}.attachments img{width:100%;height:auto}.stat>*{display:inline-flex;align-items:center;padding:2pt;color:var(--mid);gap:2pt}.stat>*::before{vertical-align:text-top;font-family:'base-ui'}.stat>*>span{font-size:.8em}a.replies.active,a.reblogs.active{color:var(--ac)}a.favourites.active{color:var(--i3i)}.fed-comments .date{margin-left:auto;padding-left:1rem;color:var(--mid);font-size:calc(10pt * var(--fontScale))}.bluesky{display:inline-block}#join-discussion:hover .blueksy,#join-discussion-bluesky:hover .bluesky{transform-origin:center center;animation:flutter .2s alternate infinite}@keyframes flutter{from{transform:rotateY(0)}to{transform:rotateY(80deg)}}@media(max-width:960px){.fed-comments .content,.fed-comments>footer{margin-left:0}}@media(max-width:480px){.fed-comments{padding:1rem 1rem 1ex}}@media print{.fed-comments{position:relative;background:none;padding-bottom:0}.fed-comments .date{position:absolute;top:0;right:0}.fed-comments .stat{display:none!important}}`;
 document.head.appendChild(cmtSty);
 
 const fedRoot = getElement('fed-comments');

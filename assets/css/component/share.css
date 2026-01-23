@@ -18,8 +18,8 @@
     display: initial !important;
 }
 
-#has-mastodon.active #mastodon {
-    border: 3pt solid #563acc02;
+#has-mastodon.active #mastodon::before {
+    --inset: -3pt;
     border-radius: 2rem;
     background: #563acc22;
 }
