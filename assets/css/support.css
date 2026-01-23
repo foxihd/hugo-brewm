@@ -4,10 +4,8 @@
     }
 }
 
-/* @supports (backdrop-filter: blur(0)) {
-    @media (max-width: 640px) {
-        #top-nav-screen.screening {
-            backdrop-filter: blur(2rem);
-            background: none;
-        }
-} */
+@supports (backdrop-filter: blur(0)) {
+    .screening {
+        background-color: #80808008;
+    }
+}

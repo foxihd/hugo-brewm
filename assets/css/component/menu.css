@@ -124,7 +124,7 @@ details[open] > summary > .menu-icon::before {
     --blur: blur(0.2vmin);
     --dim: brightness(0.96);
     z-index: -1;
-    background-color: #80808008;
+    background-color: #80808080;
     -webkit-backdrop-filter: var(--blur) var(--dim);
             backdrop-filter: var(--blur) var(--dim);
 }
