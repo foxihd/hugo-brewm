@@ -8,6 +8,7 @@
 ![GitHub License: MIT](https://img.shields.io/github/license/foxihd/hugo-brewm)
 ![GitHub Code Size](https://img.shields.io/github/languages/code-size/foxihd/hugo-brewm?color=00bce2)
 ![GitHub Repo Size](https://img.shields.io/github/repo-size/foxihd/hugo-brewm)
+![GitHub Sponsor](https://img.shields.io/github/sponsors/foxihd?label=Sponsor&logo=GitHub&color=6a00d1)
 
 Demosite: [https://foxihd.github.io/hugo-brewm/en/](https://foxihd.github.io/hugo-brewm/en/)
 
@@ -133,7 +134,7 @@ git submodule update --init --recursive
 3. To preview your changes locally before pushing to the repository, run Hugo's development server with the following command, make sure to update the baseURL to match your local IP address - this will make your site accessible across your local network:
 
 ```sh
-hugo serve --minify --port=8080 --bind=0.0.0.0 --baseURL=http://192.168.0.1
+hugo serve --minify --gc --port=8080 --bind=0.0.0.0 --baseURL=http://192.168.0.1
 ```
 
 > [!IMPORTANT]
@@ -141,7 +142,7 @@ hugo serve --minify --port=8080 --bind=0.0.0.0 --baseURL=http://192.168.0.1
 
 > [!NOTE]
 > You can also explore on how Hugo works with exampleSite on this theme with following command:  
-> `hugo serve --minify --source exampleSite --themesDir ../.. `
+> `hugo serve --minify --gc --source exampleSite --themesDir ../.. `
 
 4. With Hugo running, you can now live configure your site and begin writing articles. Some templates might persist until you clear the build cache, please stop the running hugo server (`ctrl + c`) and before you rebuild, run:
 
@@ -234,32 +235,6 @@ To customize the theme's templates, create files with matching names in your sit
             │   └── 404.html
             ├── static/
             └── ...
-```
-
-### Host Web Fonts on Local Server
-
-At the moment hugo-brewm use web fonts hosted on GitHub with short cache expiration policy (about ~5min),
-for optimal performance you can host the web fonts on your server with following steps:
-
-1. Change to your site directory
-
-```sh
-cd mysite
-```
-
-2. Download fonts URIs to site fonts directory with `wget -i fonts.uri.txt`,
-the command bellow will download all available fonts (Please discard unused fonts on the URI list):
-
-```sh
-wget -i /themes/hugo-brewm/static/css/fonts/fonts.uri.txt -P /static/css/fonts/
-```
-
-3. Configure `site.Params.typeface.localHost` on `hugo.toml`/`config.toml` to choose local directory during CSS compilation.
-
-```toml
-[params]
-    [params.typeface]
-        localHost = true
 ```
 
 ### Override Flowlines Directory
@@ -582,4 +557,4 @@ This theme is released under the MIT License.
 
 [^2]: This theme does not include a cookie consent banner or any pre-configured web analytics or advertisements. While comments from the fediverse can be viewed without cookies, Giscus, or custom web analytics & advertisements may need local storage to be enabled, which means a cookie consent banner is necessary.
 
-[^3]: This theme is intended for browsers from 2016 or later and does not support Internet Explorer and Opera Mini.
+[^3]: This theme is intended for browsers from 2019 or later and does not support Internet Explorer and Opera Mini.
