@@ -10,7 +10,7 @@
 #comments ul::before {
     --inset: 0;
     border-left: 3pt solid #80808008;
-    border-radius: 1ex;
+    border-radius: 0 1ex;
     content: '';
 }
 
@@ -34,9 +34,8 @@
     width: var(--golden-ratio);
 }
 
-#comments li,
-#comments li > ul {
-    padding-top: 1ex;
+#comments li {
+    margin-top: 1pc;
     list-style: none;
 }
 
