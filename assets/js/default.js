@@ -11,10 +11,12 @@ const date = new Date();
 
 // Event listener helper function
 function addEvent(element, event, handler) {
-    if (element && element.attachEvent) {
-        return element.attachEvent('on' + event, handler);
+    if (element) {
+        if (element.attachEvent) {
+            return element.attachEvent('on' + event, handler);
+        }
+        return element.addEventListener(event, handler, false);
     }
-    return element.addEventListener(event, handler, false);
 }
 
 // Logotype width calculation
