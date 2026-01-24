@@ -456,7 +456,7 @@ menu.srm--a .srt,
     content: '\e90c';
 }
 
-#copyPermalink::before {
+#copy::before {
     font-family: base-ui;
     content: '\e905';
 }

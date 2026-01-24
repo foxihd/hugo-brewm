@@ -9,7 +9,6 @@ if (menu) {
         i18nCopying
     } = menu.dataset;
     const hasBack = getElement('has-back');
-    const copyPermalink = getElement('copyPermalink');
 
     menu.innerHTML += `
 <li>
@@ -40,17 +39,16 @@ if (menu) {
 
         menu.innerHTML += `
 <li>
-  <button id="copyPermalink" onclick="navigator.clipboard.writeText(window.location.href)" aria-label="${i18nCopy}">
-    <span id="copy" class="t srt" role="tooltip">${i18nCopy}</span>
-    <span id="isCopying" style="display: none;">${i18nCopying}</span>
-    <span id="copyText" style="display: none;">${i18nCopy}</span>
+  <button id="copy" onclick="navigator.clipboard.writeText(window.location.href)" aria-label="${i18nCopy}">
+    <span id="status" class="t srt" role="tooltip">${i18nCopy}</span>
   </button>
 </li>
         `
         // copying
-        addEvent(copyPermalink, 'click', () => {
-            getElement('copy').innerText = getElement('isCopying').innerText;
-            setTimeout(() => getElement('copy').innerText = getElement('copyText').innerText, 2000 )
+        const status = getElement('status');
+        addEvent(getElement('copy'), 'click', () => {
+            status.innerText = i18nCopying;
+            setTimeout(() => status.innerText = i18nCopy, 2000 )
         });
     }
 }
