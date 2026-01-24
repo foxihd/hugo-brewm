@@ -9,3 +9,29 @@
         background-color: #80808008;
     }
 }
+
+@support not (accent-color: blue) {
+
+    /* closer compatibility to @font-face(size-adjust) */
+
+    :root {
+        font-size: calc(var(--fontScale) * 9.5pt);
+    }
+
+    body {
+        line-height: calc(var(--baselineStretch) * 1.618);
+    }
+
+    #main-article {
+        --tiny: 0.68rem;
+        --scriptsize: 0.86rem;
+        --footnotesize: 1.1rem;
+        --small: 1.22rem;
+        --normalsize: 1.4rem;
+        --large: 1.56rem;
+        --Large: 1.78rem;
+        --LARGE: 2.27rem;
+        --huge: 2.89rem;
+        --Huge: 3.68rem;
+    }
+}
