@@ -4,7 +4,7 @@
 [404PageNotFound]
     other = "Seite nicht gefunden"
 [404Alert]
-    other = "Diese Seite leitet absichtlich weiter"
+    other = "Du wirst gleich weitergeleitet."
 [404ReturnHome]
     other = "Zurück zur Startseite"
 [accessibility]
@@ -61,8 +61,8 @@
 [contribAskReaderResponse]
     other = "Großartig!"
 [contribAskReaderToContribute]
-    one = "Du kannst mich auch mit den folgenden Beiträgen unterstützen:"
-    other = "Du kannst uns auch mit den folgenden Beiträgen unterstützen:"
+    one = "Du kannst mich auch mit einer Spende unterstützen:"
+    other = "Du kannst mich auch mit Spenden unterstützen:"
 [contribCoffeeStat]
     other = "Wussten Sie, dass ich"
 [contribCoffeeStatPost]
@@ -147,15 +147,15 @@
 [nav]
     other = "Navigation"
 [networkGraph]
-    other = "Inhaltsnetzwerkgrafik"
+    other = "Inhaltsgraph"
 [next]
     other = "Nächste"
 [noArticle]
-    other = "Keine Artikel zum Anzeigen."
+    other = "Keine Artikel gefunden"
 [noArticlePost]
     other = "Anscheinend ist unserem Autor der Kaffee ausgegangen... Keine Sorge, nachschub ist in der Mache!"
 [noComment]
-    other = "Keine Kommentare zum Anzeigen."
+    other = "Keine Kommentare"
 [noGiscus]
     other = "Giscus erfordert, dass Javascript und LocalStorage aktiviert sind."
 [noScript]
@@ -203,7 +203,7 @@
 [redactionNotes]
     other = "Einige Informationen können sich im Laufe der Zeit ändern, wir halten die Änderungen auf dem neuesten Stand."
 [related]
-    other = "Das könnte Ihnen auch gefallen"
+    other = "Das könnte Dir auch gefallen"
 [reset]
     other = "Zurücksetzen"
 [reviewedBy]
