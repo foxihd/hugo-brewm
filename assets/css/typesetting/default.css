@@ -402,9 +402,9 @@ blockquote cite {
         inconsistence result across browsers
         */
     position: relative;
-    top: -3pt;
+    top: 0;
     float: left;
-    background: var(--bg);
+    background: transparent;
     padding-right: .1em;
     line-height: 0.5;
     color: var(--ac);
