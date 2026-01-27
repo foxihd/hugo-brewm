@@ -18,7 +18,6 @@ h4 {
 
 h1 {
     margin: var(--bigskip) 0 var(--smallskip);
-    text-transform: capitalize;
     font-size: var(--huge);
 }
 
