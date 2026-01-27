@@ -1,0 +1,250 @@
+# Please feel free to contribute to additional translation.
+# Copy this file and rename it to your language code.
+# Then translate the values.
+[404PageNotFound]
+    other = "Seite nicht gefunden"
+[404Alert]
+    other = "Du wirst gleich weitergeleitet."
+[404ReturnHome]
+    other = "Zurück zur Startseite"
+[accessibility]
+    other = "Barrierefreiheit"
+[accessTime]
+    other = "Diese Seite wurde aufgerufen am"
+[allPosts]
+    other = "Alle Beiträge"
+[appearance]
+    other = "Erscheinungsbild"
+[articles]
+    one = "Artikel"
+    other = "Artikel"
+[author]
+    one = "Autor"
+    other = "Autoren"
+[back]
+    other = "Zurück"
+[baselineStretch]
+    other = "Zeilenabstand"
+[bionRead]
+    other = "BionRead Modus"
+[breadcrumb]
+    other = "Brotkrümelnavigation"
+[buildTime]
+    other = "Diese Seite wurde erstellt am"
+[bypass]
+    other = "Umgehen"
+[categories]
+    one = "Kategorie"
+    other = "Kategorien"
+[close]
+    other = "Schließen"
+[coffeeStat]
+    other = "Kaffee-Statistik"
+[coffeeCount]
+    other = "Mit ❤️ und "
+[coffeeCountPost]
+    other = "gemacht, wenn nicht mehr."
+[colophon]
+    other = "Seiteninformationen"
+[colorPalette]
+    other = "Farbpalette"
+[colorSettings]
+    other = "Farbeinstellungen"
+[comments]
+    other = "Diskussion"
+[contrast]
+    other = "Kontrast"
+[contrib]
+    other = "Beitragen"
+[contribAskReader]
+    other = "Gefällt Dir dieser Artikel?"
+[contribAskReaderResponse]
+    other = "Großartig!"
+[contribAskReaderToContribute]
+    one = "Du kannst mich auch mit einer Spende unterstützen:"
+    other = "Du kannst mich auch mit Spenden unterstützen:"
+[contribCoffeeStat]
+    other = "Wussten Sie, dass ich"
+[contribCoffeeStatPost]
+    one =  "getrunken habe während ich diesen Artikel geschrieben habe?"
+    other = "getrunken habe während ich diesen Artikel geschrieben habe?"
+[copy]
+    other = "URL kopieren"
+[copying]
+    other = "Kopiere..."
+[ctaComments]
+    other = "An Diskussion teilnehmen"
+[cup]
+    one = "Tasse Kaffee"
+    other = "Tassen Kaffee"
+[currentLang]
+    other = "Aktuelle Sprache ist"
+[dark]
+    other = "Dunkel"
+[darkMode]
+    other = "Dunkelmodus"
+[defaultColor]
+    other = "Standard"
+[defaultContrast]
+    other = "Standard"
+[deuteranopia]
+    other = "Deuteranopie"
+[discover]
+    other = "Themen entdecken"
+[editedBy]
+    other = "Bearbeitet von"
+[email]
+    other = "E-Mail"
+[featuredImg]
+    other = "Beitragsbild"
+[fediverseBluesky]
+    other = "Mit Bluesky antworten"
+[fediverseErr]
+    other = "Fehler beim Laden der Kommentare"
+[fediverseIsLoading]
+    other = "Lade Kommentare aus dem Fediverse"
+[fediverseReplies]
+    one = "Antwort"
+    other = "Antworten"
+[fediverseReblogs]
+    one = "Reblog"
+    other = "Reblogs"
+[fediverseFavourites]
+    one = "Favorit"
+    other = "Favoriten"
+[focusMode]
+    other = "Fokusmodus"
+[followRSS]
+    other = "Mit RSS folgen"
+[fontSize]
+    other = "Schriftgröße"
+[home]
+    other = "Startseite"
+[in]
+    other = "in"
+[inNewTab]
+    other = "in neuem Tab"
+[keepInTouch]
+    other = "Bleiben wir in Kontakt!"
+[lessContrast]
+    other = "Niedrig"
+[light]
+    other = "Hell"
+[main]
+    other = "Hauptmenü"
+[marginpar]
+    other = "Zusätzliche Anmerkungen"
+[menuControls]
+    other = "Barrierefreiheitsmenü"
+[modified]
+    other = "Geändert"
+[monochrome]
+    other = "monochrom"
+[more]
+    other = "mehr"
+[moreContrast]
+    other = "Hoch"
+[nav]
+    other = "Navigation"
+[networkGraph]
+    other = "Inhaltsgraph"
+[next]
+    other = "Nächste"
+[noArticle]
+    other = "Keine Artikel gefunden"
+[noArticlePost]
+    other = "Anscheinend ist unserem Autor der Kaffee ausgegangen... Keine Sorge, nachschub ist in der Mache!"
+[noComment]
+    other = "Keine Kommentare"
+[noGiscus]
+    other = "Giscus erfordert, dass Javascript und LocalStorage aktiviert sind."
+[noScript]
+    other = "Oh-oh... Javascript ist deaktiviert!"
+[noLocalStorage]
+    other = "LocalStorage ist in Ihrem Browser nicht verfügbar. Einstellungen werden nicht gespeichert."
+[note]
+    other = "Hinweis"
+[on]
+    other = "am"
+[OpenDyslexic]
+    other = "OpenDyslexic Schriftart verwenden"
+[optimizeSR]
+    other = "Screenreader-Optimierung"
+[optimizeSRDesc]
+    other = "Anzeige und Ressourcen für Screenreader-Benutzer optimieren, die mit einem Zeigegerät navigieren."
+[pages]
+    one = "Seite"
+    other = "Seiten"
+[pagination]
+    other = "Seitennummerierung"
+[posts]
+    one = "Beitrag"
+    other = "Beiträge"
+[postsBy]
+    other = "Beitrag von"
+[postsOn]
+    other = "Beiträge am"
+[poweredBy]
+    other = "Angetrieben von"
+[prev]
+    other = "Vorherige"
+[print]
+    other = "Drucken"
+[protanopia]
+    other = "Protanopie"
+[published]
+    other = "Veröffentlicht"
+[readingTime]
+    other = "Min. Lesezeit"
+[recent]
+    other = "Neueste Beiträge"
+[redactionHistory]
+    other = "Änderungshistorie"
+[redactionNotes]
+    other = "Einige Informationen können sich im Laufe der Zeit ändern, wir halten die Änderungen auf dem neuesten Stand."
+[related]
+    other = "Das könnte Dir auch gefallen"
+[reset]
+    other = "Zurücksetzen"
+[reviewedBy]
+    other = "Geprüft von"
+[save]
+    other = "Speichern"
+[search]
+    other = "Suche"
+[seeAll]
+    other = "Alle ansehen"
+[seeMore]
+    other = "Weitere Themen entdecken"
+[section]
+    other = "Abschnitt"
+[selectLang]
+    other = "Sprachauswahl"
+[series]
+    other = "Serien"
+[share]
+
+    other = "Teilen"
+[shareOn]
+    other = "Teilen auf"
+[slide]
+    one = "Folie"
+    other = "Folien"
+[stage]
+    one = "Phase"
+    other = "Phasen"
+[switchLangTo]
+    other = "Sprache wechseln zu"
+[TableOfContents]
+    other = "Inhaltsverzeichnis"
+[tags]
+    one = "Schlagwort"
+    other = "Schlagwörter"
+[toContent]
+    other = "Zum Hauptinhalt springen"
+[toTop]
+    other = "Zum Seitenanfang"
+[top-nav]
+    other = "Oben"
+[tritanopia]
+    other = "Tritanopie"
