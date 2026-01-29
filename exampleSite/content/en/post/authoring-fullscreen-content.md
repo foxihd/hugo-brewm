@@ -1,7 +1,7 @@
 ---
 title: "Authoring Fullscreen Content"
 date: 2026-01-29
-description: "A guide on adding cover images and audio articles"
+description: "A guide on creating pages with fullscreen layout"
 draft: false
 author: "Author Name"
 type: "post"
