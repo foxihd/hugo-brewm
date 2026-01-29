@@ -2,9 +2,19 @@
     {{- /*
 
         MathML render engine    */}}
-    {{- if or .Params.Math site.Params.Math }}
+    {{ $noop := .WordCount }}
+    {{- if .Page.Store.Get "hasMath" }}
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.css"
+            integrity="sha384-WcoG4HRXMzYzfCgiyfrySxx90XSl2rxY5mnVY5TwtWE6KLrArNKn0T/mOgNL0Mmi"
+            crossorigin="anonymous"
+            >
+    {{- end }}
+    {{/*  could use else if instead of new if, but some block equation is broken on test, so here */}}
+    {{- if or .Params.Math .Params.katex }}
         {{ partialCached "head/js/katex.html" . }}
-    {{- else if or .Params.MathJax site.Params.MathJax }}
+    {{- else if or .Params.MathJax }}
         {{ partialCached "head/js/mathjax.html" . }}
     {{- end }}
     {{- /*
