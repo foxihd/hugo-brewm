@@ -5,8 +5,7 @@
     (resources.Get "js/bionread.js")
 }}
 
-{{ $zen := or site.Params.BearMode site.Params.ZenMode }}
-{{- if not $zen }}
+{{- if not (or site.Params.BearMode site.Params.ZenMode ) }}
     {{- $js_files = $js_files | append (resources.Get "js/extras.js") }}
     {{- if site.Params.posts.colophon }}
         {{- $js_files = $js_files | append (resources.Get "js/qrcode.js") }}

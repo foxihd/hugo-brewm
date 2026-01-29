@@ -85,15 +85,15 @@
 
 {{- $extrasSty := slice }}
 
-{{- $logotype := resources.Get "css/component/logotype.css" }}
 {{- if site.Params.logo.logoType }}
+    {{- $logotype := resources.Get "css/component/logotype.css" }}
     {{- $extrasSty = $extrasSty | append $logotype }}
 {{- end }}
 
-{{- $search := resources.Get "css/component/search.css" }}
 {{- if site.Params.search.enable }}
-    {{- $pagefind := resources.Get "css/component/pagefind.css" }}
+    {{- $search := resources.Get "css/component/search.css" }}
     {{- if site.Params.search.pagefind }}
+        {{- $pagefind := resources.Get "css/component/pagefind.css" }}
         {{- $extrasSty = $extrasSty | append $pagefind }}
     {{- end }}
     {{- $extrasSty = $extrasSty | append $search }}
@@ -110,8 +110,7 @@
     {{- $extrasSty = $extrasSty | append $bbar }}
 {{- end }}
 
-{{ $zen := or site.Params.BearMode site.Params.ZenMode }}
-{{- if not $zen }}
+{{- if not (or site.Params.BearMode site.Params.ZenMode ) }}
     {{- $contentinfo := resources.Get "css/component/contentinfo.css" }}
     {{- $extrasSty = $extrasSty | append $contentinfo }}
     {{- if site.Params.posts.share }}
