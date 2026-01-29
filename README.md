@@ -304,6 +304,15 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         ## Use hugo-brewm classes for verbatim styling
         noClasses = false
 
+    [markup.goldmark.extensions]
+        [markup.goldmark.extensions.passthrough]
+            ## Enable internal math render
+            enable = true
+            ## Set math delimiters
+            [markup.goldmark.extensions.passthrough.delimiters]
+                block = [['\[', '\]'], ['$$', '$$'], ['\begin{equation}', '\end{equation}'], ['\begin{align}', '\end{align}']]
+                inline = [['\(', '\)'], ['$', '$'] ]
+
 ## Sitemap configuration
 [sitemap]
     ## Change frequency setting (will affect posts listings layout): 'always', 'hourly', 'daily', 'weekly', 'monthly', 'yearly', 'never'
