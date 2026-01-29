@@ -1,0 +1,64 @@
+{{- define "head" }}
+    {{- /* CSS spezifisch für den Fullscreen-Type */ -}}
+    <style>
+        /* Nutzt die Variablen aus baseof.css für exakte Höhenberechnung */
+        main {
+            width: 100%;
+            min-height: var(--vbody);
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+        
+        /* Artikel nimmt den verfügbaren Platz ein */
+        #main-article {
+            flex-grow: 1;
+            width: 100%;
+            margin: 0 !important;
+            padding: 0 !important;
+            display: flex !important;
+            flex-direction: column !important;
+        }
+
+        /* Entfernt Abstände von Absätzen, die Hugo oft um HTML-Inhalte generiert */
+        #main-article > * {
+            margin: 0 !important;
+            padding: 0 !important;
+            display: block;
+            flex-grow: 1 !important;
+            height: 100% !important;
+        }
+
+        /* Versteckt den Fokus-Modus Button */
+        #focusMode {
+            display: none !important;
+        }
+
+        /* Versteckt den BionRead-Modus Button */
+        #useBionRead {
+            display: none !important;
+        }
+
+        /* Versteckt den Nach-oben Button */
+        #to-top {
+            display: none !important;
+        }
+
+        /* Passt die pagewidth an die Fenstergröße an (keine Beschränkung) */
+        .pagewidth {
+            max-width: 100% !important;
+            width: 100% !important;
+            padding: 0 calc(1.5rem + 1ex); !important;
+        }
+    </style>
+{{- end }}
+
+{{- define "main" }}
+    <article id="main-article">
+        {{ .Content }}
+    </article>
+{{- end }}
+
+{{- define "exclude" }}
+    {{- /* Leer lassen, um Kommentare und "Related Posts" auszublenden */ -}}
+{{- end }}
