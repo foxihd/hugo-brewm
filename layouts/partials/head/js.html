@@ -5,8 +5,7 @@
     (resources.Get "js/bionread.js")
 }}
 
-{{ $zen := or site.Params.BearMode site.Params.ZenMode }}
-{{- if not $zen }}
+{{- if not (or site.Params.BearMode site.Params.ZenMode ) }}
     {{- $js_files = $js_files | append (resources.Get "js/extras.js") }}
     {{- if site.Params.posts.colophon }}
         {{- $js_files = $js_files | append (resources.Get "js/qrcode.js") }}
@@ -42,12 +41,10 @@
 
 {{- define "partials/head/js/katex.html" -}}
     {{ "<!-- katex.html -->" | safeHTML }}
-    <link href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" rel="stylesheet"
-        integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"
-        integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.js"
+        integrity="sha384-J+9dG2KMoiR9hqcFao0IBLwxt6zpcyN68IgwzsCSkbreXUjmNVRhPFTssqdSGjwQ" crossorigin="anonymous"
         defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/contrib/auto-render.min.js"
         integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
         onload="renderMathInElement(document.body);"
         defer></script>
@@ -70,26 +67,17 @@
 
 {{- define "partials/head/js/mathjax.html" -}}
     {{ "<!-- mathjax.html -->" | safeHTML }}
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"
-        integrity="sha384-WSLBwI+Q8tqRHaC+f1sjS/FVv5cWp7VAfrGB17HLfZlXhbp5F/RPVP7bYVHtiAWE"
-        crossorigin="anonymous"></script>
-    <script
-        id="MathJax-script"
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-        integrity="sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei" crossorigin="anonymous"
-        async></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            MathJax = {
-                tex: {
-                    inlineMath: [['$', '$'], ['\\(', '\\)']],
-                    displayMath: [['$$','$$'], ['\\[', '\\]'], ['\begin{equation}','\end{equation}'], ['\begin{align}','\end{align}']],
-                    equationNumbers: { autoNumber: "AMS" },
-                    extensions: ["AMSmath.js", "AMSsymbols.js"],
-                }
-            };
-        });
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$','$$'], ['\\[', '\\]'], ['\begin{equation}','\end{equation}'], ['\begin{align}','\end{align}']],
+                equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"],
+            }
+        };
     </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"></script>
 {{- end }}
 
 {{- define "partials/head/js/network-graph.html" -}}

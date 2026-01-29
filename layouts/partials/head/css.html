@@ -70,7 +70,6 @@
     (resources.Get "css/component/carousel.css")
     (resources.Get "css/component/hero.css")
     (resources.Get "css/layout/_default/single.css")
-    (resources.Get "css/component/garden.css")
     (resources.Get "css/component/marginpar.css")
     (resources.Get "css/optimize.css")
     (resources.Get "css/support.css")
@@ -86,36 +85,32 @@
 
 {{- $extrasSty := slice }}
 
-{{- $logotype := resources.Get "css/component/logotype.css" }}
 {{- if site.Params.logo.logoType }}
+    {{- $logotype := resources.Get "css/component/logotype.css" }}
     {{- $extrasSty = $extrasSty | append $logotype }}
 {{- end }}
 
-{{- $search := resources.Get "css/component/search.css" }}
 {{- if site.Params.search.enable }}
-    {{- $pagefind := resources.Get "css/component/pagefind.css" }}
+    {{- $search := resources.Get "css/component/search.css" }}
     {{- if site.Params.search.pagefind }}
+        {{- $pagefind := resources.Get "css/component/pagefind.css" }}
         {{- $extrasSty = $extrasSty | append $pagefind }}
     {{- end }}
     {{- $extrasSty = $extrasSty | append $search }}
 {{- end }}
 
-{{/*  temporarily force included stage indicator in CSS due to bug */}}
-{{/*  {{- $garden := resources.Get "css/component/garden.css" }}
-{{- if index site.Taxonomies "stage" }}
-    {{- warnf "has stage taxonomy" }}
+{{- $hasStage := partial "head/css/has-taxonomy.html" (dict "taxonomy" "stage")  }}
+{{- if $hasStage }}
+    {{- $garden := resources.Get "css/component/garden.css" }}
     {{- $extrasSty = $extrasSty | append $garden }}
-{{ else }}
-    {{- warnf "has no stage taxonomy" }}
-{{- end }}  */}}
+{{- end }}
 
 {{- if not site.Params.DisableFootBar }}
     {{- $bbar := resources.Get "css/component/mainfooter.css" }}
     {{- $extrasSty = $extrasSty | append $bbar }}
 {{- end }}
 
-{{ $zen := or site.Params.BearMode site.Params.ZenMode }}
-{{- if not $zen }}
+{{- if not (or site.Params.BearMode site.Params.ZenMode ) }}
     {{- $contentinfo := resources.Get "css/component/contentinfo.css" }}
     {{- $extrasSty = $extrasSty | append $contentinfo }}
     {{- if site.Params.posts.share }}
@@ -138,6 +133,13 @@
 {{- end }}
 
 {{- /*---------------------- end of css.html -----------------------*/}}
+
+{{- define "partials/head/css/has-taxonomy.html" }}
+    {{- $taxonomy := .taxonomy }}
+    {{- if index site.Taxonomies $taxonomy }}
+        {{- return true }}
+    {{- end }}
+{{- end }}
 
 {{- define "partials/head/css/inline.html"}}
     {{ "<!-- css/inline.html -->" | safeHTML }}

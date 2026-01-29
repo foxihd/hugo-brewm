@@ -5,6 +5,13 @@
     languageDirection = 'ltr'
     languageName = 'Català'
 
+[de]
+    contentDir = 'content/de'
+    disabled = false
+    languageCode = 'de-DE'
+    languageDirection = 'ltr'
+    languageName = 'Deutsch'
+
 [en]
     contentDir = 'content/en'
     disabled = false

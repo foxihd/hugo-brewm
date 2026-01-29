@@ -64,6 +64,12 @@ enableRobotsTXT = true
         [markup.goldmark.renderer]
             ## Allow HTML in markdown
             unsafe = true
+        [markup.goldmark.extensions]
+            [markup.goldmark.extensions.passthrough]
+                enable = true
+                [markup.goldmark.extensions.passthrough.delimiters]
+                    block = [['\[', '\]'], ['$$', '$$'], ['\begin{equation}', '\end{equation}'], ['\begin{align}', '\end{align}']]
+                    inline = [['\(', '\)'], ['$', '$'] ]
 
 [outputs]
     home = ['html', 'rss', 'json']

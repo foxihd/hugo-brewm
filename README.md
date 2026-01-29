@@ -32,9 +32,9 @@ _**Figure 2.** Side-by-side windows demonstrating multiple platform supports; Ly
 
     | Assets Filename    |    Size | Gzipped | Note                                          |
     | ------------------ | ------: | ------: | :-------------------------------------------- |
-    | hugo-brewm.min.css | ~92.4KB | ~38.3KB | Compiled site-wide stylesheet and basic icon font, could be less  |
-    | hugo-brewm.min.js  | ~34.3KB | ~11.5KB | Compiled site-wide javascript, could be less  |
-    | fediscuss.min.js   | ~13.0KB |  ~4.3KB | Discuss over Mastodon & Bluesky, load if required |
+    | hugo-brewm.min.css | ~93.2KB | ~38.6KB | Compiled site-wide stylesheet and basic icon font, could be less  |
+    | hugo-brewm.min.js  | ~34.1KB | ~11.4KB | Compiled site-wide javascript, could be less  |
+    | fediscuss.min.js   | ~12.2KB |  ~4.2KB | Discuss over Mastodon & Bluesky, load if required |
   
     _**Table 1.** All hugo-brewm's web assets that may be fetched once and reusable for thousands of pages until the cache is purged or expired._
 
@@ -53,12 +53,13 @@ _**Figure 2.** Side-by-side windows demonstrating multiple platform supports; Ly
 
 We currently support:
 - 🇪🇸 Català — Translated by [duub qnnp @duub](https://github.com/duub)
+- 🇩🇪 Deutsch  — Translated by [Hegik @Hegik](https://github.com/Hegik)
 - 🇬🇧 English
 - 🇪🇸 Español — Translated by [duub qnnp @duub](https://github.com/duub)
 - 🇲🇽 Español (México) — Translated by [Jerson Cortes (@Jerson-Cortes)](https://github.com/Jerson-Cortes)
 - 🇫🇷 French — Translated by [N. Piatte (@Ennpeh)](https://github.com/Ennpeh)
-- 🇮🇳 Hindi — Translated by [@Akshay-365](https://github.com/Akshay-365)
-- 🇮🇩 Indonesian
+- 🇮🇳 Hindi (हिन्दी) — Translated by [@Akshay-365](https://github.com/Akshay-365)
+- 🇮🇩 Bahasa Indonesia
 
 Please feel free to contribute to additional [translation](https://github.com/foxihd/hugo-brewm/blob/main/i18n/).
 
@@ -302,6 +303,15 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         codeFences = true
         ## Use hugo-brewm classes for verbatim styling
         noClasses = false
+
+    [markup.goldmark.extensions]
+        [markup.goldmark.extensions.passthrough]
+            ## Enable internal math render
+            enable = true
+            ## Set math delimiters
+            [markup.goldmark.extensions.passthrough.delimiters]
+                block = [['\[', '\]'], ['$$', '$$'], ['\begin{equation}', '\end{equation}'], ['\begin{align}', '\end{align}']]
+                inline = [['\(', '\)'], ['$', '$'] ]
 
 ## Sitemap configuration
 [sitemap]
