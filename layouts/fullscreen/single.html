@@ -45,7 +45,7 @@
 {{- end }}
 
 {{- define "main" }}
-    <article id="main-article">
+    <div id="main-article">
         {{ .Content }}
         {{- if .Params.fullscreen_link }}
             <nav id="content">
@@ -55,7 +55,7 @@
                 </a>
             </nav>
         {{- end }}
-    </article>
+    </div>
 {{- end }}
 
 {{- define "exclude" }}
