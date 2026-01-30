@@ -51,7 +51,7 @@
             <nav id="content">
                 <a href="{{ .Params.fullscreen_link }}"
                    target="_blank" rel="external noopener noreferrer nofollow">
-                    {{ with .Params.fullscreen_link_text }}<span>{{ . }}</span>{{ end }}
+                    {{ with or .Params.fullscreen_link_txt (i18n "link" 1) }}<span>{{ . }}</span>{{ end }}
                 </a>
             </nav>
         {{- end }}

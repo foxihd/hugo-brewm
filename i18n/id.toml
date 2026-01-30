@@ -122,6 +122,8 @@
     other = "Rendah"
 [light]
     other = "Terang"
+[link]
+    other = "Tautan"
 [main]
     other = "Menu Utama"
 [marginpar]

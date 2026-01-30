@@ -134,6 +134,9 @@
     other = "Low"
 [light]
     other = "Light"
+[link]
+    one = "Link"
+    other = "Links"
 [main]
     other = "Main Menu"
 [marginpar]
