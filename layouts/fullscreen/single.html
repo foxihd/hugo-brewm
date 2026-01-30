@@ -2,60 +2,59 @@
     {{- /* CSS spezifisch für den Fullscreen-Type */ -}}
     <style>
         /* Nutzt die Variablen aus baseof.css für exakte Höhenberechnung */
-        main {
-            width: 100%;
-            min-height: var(--vbody);
-            display: flex;
-            flex-direction: column;
-            padding: 0;
-        }
-        
         /* Artikel nimmt den verfügbaren Platz ein */
-        #main-article {
-            flex-grow: 1;
-            width: 100%;
-            margin: 0 !important;
-            padding: 0 !important;
-            display: flex !important;
-            flex-direction: column !important;
+        /* Passt die pagewidth an die Fenstergröße an (keine Beschränkung) */
+        #fullscreen {
+            --void: calc(1.5rem + 1ex);
         }
 
-        /* Entfernt Abstände von Absätzen, die Hugo oft um HTML-Inhalte generiert */
-        #main-article > * {
-            margin: 0 !important;
-            padding: 0 !important;
-            display: block;
-            flex-grow: 1 !important;
-            height: 100% !important;
+        #fullscreen #main-article {
+            margin: 0;
+            height: var(--vbody);
         }
 
         /* Versteckt den Fokus-Modus Button */
-        #focusMode {
-            display: none !important;
-        }
-
+        #focusMode,
         /* Versteckt den BionRead-Modus Button */
-        #useBionRead {
-            display: none !important;
-        }
-
+        #useBionRead,
         /* Versteckt den Nach-oben Button */
         #to-top {
             display: none !important;
         }
 
-        /* Passt die pagewidth an die Fenstergröße an (keine Beschränkung) */
-        .pagewidth {
-            max-width: 100% !important;
-            width: 100% !important;
-            padding: 0 calc(1.5rem + 1ex); !important;
+        /* For now, nav has id #content so the links have icons. */
+        nav#content {
+            position: fixed;
+            right: var(--void);
+            bottom: 0;
+            z-index: 3;
+            margin: 0;
         }
+
+        nav#content > a {
+            display: flex;
+            align-items: center;
+            padding: 0 1.5ex;
+            height: var(--vfoot);
+            color: var(--fg);
+            font-size: calc(1em - 2pt);
+            font-weight: bold;
+        }
+
     </style>
 {{- end }}
 
 {{- define "main" }}
     <article id="main-article">
         {{ .Content }}
+        {{- if .Params.fullscreen_link }}
+            <nav id="content">
+                <a href="{{ .Params.fullscreen_link }}"
+                   target="_blank" rel="external noopener noreferrer nofollow">
+                    {{ with .Params.fullscreen_link_text }}<span>{{ . }}</span>{{ end }}
+                </a>
+            </nav>
+        {{- end }}
     </article>
 {{- end }}
 
