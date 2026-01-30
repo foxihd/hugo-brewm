@@ -10,10 +10,9 @@
     {{- end }}
 </head>
 {{- if not (or .Params.headless .Params.target .Params.alias) }}
-<body>
+<body {{ with .Params.type }}id="{{ . }}"{{ end }}>
     {{/* Globaler Header (wie auf der Startseite) */}}
     {{ partial "header.html" . }}
-    {{ block "aside" . }}{{ end }}
     
     <main id="{{ .Kind }}">
         {{ block "main" . }}{{ end }}
@@ -21,15 +20,6 @@
 
     {{/* Globaler Footer (wie auf der Startseite) */}}
     {{ partialCached "footer.html" . }}
-    {{- if .Params.fullscreen_link -}}
-    <nav style="position: fixed; bottom: 0; right: 1rem; z-index: 1000; height: var(--vfoot); display: flex; align-items: center;">
-        <a class="on-deck" href="{{ .Params.fullscreen_link }}" style="padding: 1.5ex; color: var(--fg); font-size: calc(1em - 2pt); font-weight: bold;">
-            <span>{{ .Params.fullscreen_link_text | default "Link" }}</span>
-            <span style="transform: rotate(45deg); display: inline-block; margin-left: 0.5ex; font: 0.7em 'base-ui';">&#xe902;</span>
-        </a>
-    </nav>
-    {{- end -}}
-    {{ block "aside" . }}{{ end }}
     <div id="background-body" role="presentation" aria-hidden="true"></div>
     {{- if eq (lower site.Params.analytics.append) "body" -}}
         {{ partialCached "analytics.html" . }}
