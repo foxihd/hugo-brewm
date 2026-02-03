@@ -96,6 +96,14 @@ _**Table 3.** Hugo-brewm's available fonts that can be selected, unless `site.Pa
 
 ## Getting Started: Blog with Hugo and hugo-brewm
 
+> [!IMPORTANT]
+> Do not fork this repo if you want to use this theme to build your site!
+
+### Prerequisite
+
+If you want a live preview on your local PC, download [Hugo](https://github.com/gohugoio/hugo/releases).
+It's recommended to use a hosting provider that supports hugo deployment for minimal clutter.
+
 ### Installation
 
 1. Create a new Hugo site (for an existing hugo site, skip to step 2) :
