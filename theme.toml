@@ -21,7 +21,7 @@ features = [
     "mastodon comments",
     "search"
     ]
-min_version = "0.135.0"
+min_version = "0.141.0"
 
 [author]
     name = "Foxx"
