@@ -19,7 +19,7 @@
     one = "Article"
     other = "Articles"
 [audio]
-    other = ""
+    other = "Audio"
 [author]
     one = "Auteur"
     other = "Auteurs"
@@ -123,7 +123,7 @@
 [home]
     other = "Accueil"
 [ifNoAudioSupport]
-    other = ""
+    other = "Votre navigateur ne supporte pas l'élément audio."
 [in]
     other = "dans"
 [inNewTab]
