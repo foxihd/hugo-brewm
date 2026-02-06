@@ -2,7 +2,7 @@
 
 > Fine-brewed Hugo theme made open.
 
-![Minimum Hugo Version: v.0.141.0](https://img.shields.io/static/v1?label=Hugo&message=&ge;%20v0.135.0&color=ca187d&logo=hugo)
+![Minimum Hugo Version: v.0.141.0](https://img.shields.io/static/v1?label=Hugo&message=&ge;%20v0.141.0&color=ca187d&logo=hugo)
 ![CSS baseline 2020](https://img.shields.io/static/v1?label=Baseline&message=2020&color=e44d26&logo=css&logoColor=e44d26)
 ![Javascript baseline 2019](https://img.shields.io/static/v1?label=Baseline&message=2019&color=f7df1e&logo=javascript)
 ![GitHub License: MIT](https://img.shields.io/github/license/foxihd/hugo-brewm)
@@ -101,7 +101,7 @@ _**Table 3.** Hugo-brewm's available fonts that can be selected, unless `site.Pa
 
 ### Prerequisite
 
-If you want a live preview on your local PC, download [Hugo](https://github.com/gohugoio/hugo/releases).
+If you want a live preview on your local PC, download [Hugo](https://github.com/gohugoio/hugo/releases).  
 It's recommended to use a hosting provider that supports hugo deployment for minimal clutter.
 
 ### Installation
