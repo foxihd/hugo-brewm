@@ -1,6 +1,6 @@
 +++
 author = "AUTHOR NAME"
-date = "2026-02-07T13:56:01-08:00"
+date = "2026-02-06T13:56:01-08:00"
 type = "post"
 meta = true
 math = true
