@@ -19,7 +19,7 @@
     one = "Article"
     other = "Articles"
 [audio]
-    other = ""
+    other = "Audio"
 [author]
     one = "Auteur"
     other = "Auteurs"
@@ -43,7 +43,7 @@
 [coffeeStat]
     other = "Stats de café"
 [coffeeCount]
-    other = "Fait avec ❤️ et"
+    other = "Fait avec ❤️ et "
 [coffeeCountPost]
     other = ", si ce n'est plus."
 [colophon]
@@ -123,7 +123,7 @@
 [home]
     other = "Accueil"
 [ifNoAudioSupport]
-    other = ""
+    other = "Votre navigateur ne supporte pas l'élément audio."
 [in]
     other = "dans"
 [inNewTab]
@@ -157,7 +157,7 @@
 [noArticle]
     other = "Aucun article à afficher."
 [noArticlePost]
-    other = "Il semblerait que notre auteur est arrivé à cours de café... Pas de panique, nous revenons dans un instant!"
+    other = "Il semblerait que notre auteur est arrivé à cours de café... Pas de panique, nous en préparons un dans un instant!"
 [noComment]
     other = "Aucun commentaire à afficher."
 [noGiscus]
@@ -169,7 +169,7 @@
 [note]
     other = "Note"
 [on]
-    other = "Allumé"
+    other = "le"
 [OpenDyslexic]
     other = "Utiliser la police OpenDyslexic"
 [optimizeSR]
