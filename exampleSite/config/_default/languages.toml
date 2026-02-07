@@ -20,7 +20,7 @@
     languageName = 'English'
     [en.pagination]
         disableAliases = false
-        pagerSize = 6
+        pagerSize = 8
         path = 'page'
 
 [es]
