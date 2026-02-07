@@ -148,3 +148,24 @@ if (window.matchMedia("print").matches) {
 } else {
     addEvent(window, 'beforeprint', expandRH);
 }
+
+if (getElement('content') && getElement('has-TableOfContents') && (getElement('content').getBoundingClientRect().x > 300) ) {
+    const tocSty = document.createElement('style');
+    tocSty.textContent = `#has-TableOfContents {display: flex;position: fixed;top: ${getElement('main-article').getBoundingClientRect().y}px;left: 0;flex-direction: column;align-items: center;padding: 1rem;width: var(--void);height: 100vh;overflow-y: auto;}a.active{color: var(--fg);}`
+    document.head.appendChild(tocSty);
+    addEvent(document, 'DOMContentLoaded', () => {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+        const id = entry.target.getAttribute('id');
+        if (entry.intersectionRatio > 0) {
+            document.querySelector(`#has-TableOfContents a[href="#${id}"]`).classList.add('active');
+        } else {
+            document.querySelector(`#has-TableOfContents a[href="#${id}"]`).classList.remove('active');
+        }
+        });
+    });
+    getElements('h2[id], h3[id]').forEach((h) => {
+        observer.observe(h);
+    });
+    });
+};
