@@ -149,9 +149,10 @@ if (window.matchMedia("print").matches) {
     addEvent(window, 'beforeprint', expandRH);
 }
 
-if (getElement('content') && getElement('has-TableOfContents') && (getElement('content').getBoundingClientRect().x > 300) ) {
+const halfmarginpar = 11.077 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+if (getElement('content') && getElement('has-TableOfContents') && (getElement('content').getBoundingClientRect().x > halfmarginpar) ) {
     const tocSty = document.createElement('style');
-    tocSty.textContent = `#has-TableOfContents {display: flex;position: fixed;top: ${getElement('main-article').getBoundingClientRect().y}px;left: 0;flex-direction: column;align-items: center;padding: 1rem;width: var(--void);height: 100vh;overflow-y: auto;}a.active{color: var(--fg);}`
+    tocSty.textContent = `#has-TableOfContents{--top:${getElement('main-article').getBoundingClientRect().y}px;display:flex;position:fixed;top:var(--top);left:calc(var(--void) - 11.077rem);flex-direction:column;align-items:center;padding:1rem;width:var(--marginparwidth);height:calc(var(--vbody) + var(--vhead) - var(--top));overflow-y:auto;}a.active{color:var(--fg);}#exclude{background:var(--bg);position:relative;}#top,.pagewidth{padding-right:calc(var(--void) - 11.077rem);padding-left:calc(var(--void) - 11.077rem);}#main-article{padding-right:calc(var(--void) - 11.077rem);padding-left:calc(var(--void) + 11.077rem);}`
     document.head.appendChild(tocSty);
     addEvent(document, 'DOMContentLoaded', () => {
     const observer = new IntersectionObserver(entries => {
