@@ -149,12 +149,23 @@ if (window.matchMedia("print").matches) {
     addEvent(window, 'beforeprint', expandRH);
 }
 
+const toc = getElement('has-TableOfContents');
+const content = getElement('content');
 const halfmarginpar = 11.077 * parseFloat(getComputedStyle(document.documentElement).fontSize);
-if (getElement('content') && getElement('has-TableOfContents') && (getElement('content').getBoundingClientRect().x > halfmarginpar) ) {
+if (content && toc && (content.getBoundingClientRect().x > halfmarginpar) ) {
+    const tocy = getElement('timestamp').getBoundingClientRect().y;
     const tocSty = document.createElement('style');
-    tocSty.textContent = `#has-TableOfContents{--top:${getElement('main-article').getBoundingClientRect().y}px;display:flex;position:fixed;top:var(--top);left:calc(var(--void) - 11.077rem);flex-direction:column;align-items:center;padding:0 1rem;width:var(--marginparwidth);height:calc(var(--vbody) + var(--vhead) - var(--top));overflow-y:auto}a.active{color:var(--fg)}#exclude{background:var(--bg);position:relative}#top,.pagewidth{padding-right:calc(var(--void) - 11.077rem);padding-left:calc(var(--void) - 11.077rem)}#main-article{padding-right:calc(var(--void) - 11.077rem);padding-left:calc(var(--void) + 11.077rem)}.form{z-index:2}#i18n-menu > .on-plank, #more-menu > .on-plank {margin: 1rem calc(var(--void) - 11.077rem) 1rem auto;}#main-footer > div {padding: 0 calc(var(--void) - 1em - 12.695rem);}`
-
+    tocSty.textContent = `#has-TableOfContents{--top:${tocy}px;display:flex;position:fixed;top:var(--top);left:calc(var(--void) - 11.077rem);flex-direction:column;align-items:center;padding:0 1rem;width:var(--marginparwidth);height:calc(var(--vbody) + var(--vhead) - var(--top));overflow-y:auto;transition:1s;}a.active{color:var(--fg)}#exclude{background:var(--bg);position:relative}#top,.pagewidth{padding-right:calc(var(--void) - 11.077rem);padding-left:calc(var(--void) - 11.077rem)}#main-article{padding-right:calc(var(--void) - 11.077rem);padding-left:calc(var(--void) + 11.077rem)}.form{z-index:2}#i18n-menu > .on-plank, #more-menu > .on-plank {margin: 1rem calc(var(--void) - 11.077rem) 1rem auto;}#main-footer > div {padding: 0 calc(var(--void) - 1em - 12.695rem);}`
     document.head.appendChild(tocSty);
+    function adjusttoc() {
+        if (document.documentElement.scrollTop < tocy) {
+            toc.style.setProperty('--top', tocy + 'px' );
+        } else {
+            toc.style.setProperty('--top', '6rem');
+        }
+    }
+    adjusttoc();
+    addEvent(window, 'scroll', adjusttoc);
     addEvent(document, 'DOMContentLoaded', () => {
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
