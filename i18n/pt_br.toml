@@ -1,0 +1,254 @@
+# Tradução para Português (Brasil)
+[404PageNotFound]
+	other = "Página não encontrada"
+[404Alert]
+	other = "Esta página redireciona intencionalmente"
+[404ReturnHome]
+	other = "voltar para a página inicial"
+[accessibility]
+	other = "Acessibilidade"
+[accessTime]
+	other = "Esta página foi acessada em"
+[allPosts]
+	other = "Todas as publicações"
+[appearance]
+	other = "Aparência"
+[articles]
+	one = "Artigo"
+	other = "Artigos"
+[audio]
+	other = "Áudio"
+[author]
+	one = "Autor"
+	other = "Autores"
+[back]
+	other = "Voltar"
+[baselineStretch]
+	other = "Espaçamento da linha base"
+[bionRead]
+	other = "Modo BionRead"
+[breadcrumb]
+	other = "Trilha de navegação"
+[buildTime]
+	other = "Esta página foi construída em"
+[bypass]
+	other = "Ignorar"
+[categories]
+	one = "Categoria"
+	other = "Categorias"
+[close]
+	other = "Fechar"
+[coffeeStat]
+	other = "Estatística Coffee"
+[coffeeCount]
+	other = "Feito com ❤️ e "
+[coffeeCountPost]
+	other = ", se não mais."
+[colophon]
+	other = "Colofão"
+[colorPalette]
+	other = "Paleta de cores"
+[colorSettings]
+	other = "Configurações de cor"
+[comments]
+	other = "Discussão"
+[contrast]
+	other = "Contraste"
+[contrib]
+	other = "Contribuir"
+[contribAskReader]
+	other = "Gostou deste artigo?"
+[contribAskReaderResponse]
+	other = "Incrível!"
+[contribAskReaderToContribute]
+	one = "Você também pode apoiar-me fazendo as seguintes contribuições:"
+	other = "Você também pode nos apoiar fazendo as seguintes contribuições:"
+[contribCoffeeStat]
+	other = "Você sabia que"
+[contribCoffeeStatPost]
+	one = "me ajudou a escrever este artigo?"
+	other = "nos ajudou a escrever este artigo?"
+[copy]
+	other = "Copiar URL"
+[copying]
+	other = "Copiando..."
+[ctaComments]
+	other = "Participar da discussão"
+[cup]
+	one = "Xícara de café"
+	other = "Xícaras de café"
+[currentLang]
+	other = "Idioma atual é"
+[dark]
+	other = "Escuro"
+[darkMode]
+	other = "Modo Escuro"
+[defaultColor]
+	other = "Padrão"
+[defaultContrast]
+	other = "Padrão"
+[deuteranopia]
+	other = "Deuteranopia"
+[discover]
+	other = "Descobrir tópicos"
+[editedBy]
+	other = "Editado por"
+[email]
+	other = "Email"
+[featuredImg]
+	other = "Imagem em destaque"
+[fediverseBluesky]
+	other = "Responder com Bluesky"
+[fediverseErr]
+	other = "Erro ao carregar comentários"
+[fediverseIsLoading]
+	other = "Carregando comentários no Fediverse"
+[fediverseReplies]
+	one = "Resposta"
+	other = "Respostas"
+[fediverseReblogs]
+	one = "Reblog"
+	other = "Reblogs"
+[fediverseFavourites]
+	one = "Favorito"
+	other = "Favoritos"
+[focusMode]
+	other = "Modo de foco"
+[followRSS]
+	other = "Seguir por RSS"
+[fontSize]
+	other = "Tamanho da fonte"
+[home]
+	other = "Início"
+[ifNoAudioSupport]
+	other = "Seu navegador não suporta o elemento de áudio."
+[in]
+	other = "em"
+[inNewTab]
+	other = "em nova aba"
+[keepInTouch]
+	other = "Vamos manter contato!"
+[lessContrast]
+	other = "Baixo"
+[light]
+	other = "Claro"
+[link]
+	one = "Link"
+	other = "Links"
+[main]
+	other = "Menu principal"
+[marginpar]
+	other = "Notas adicionais"
+[menuControls]
+	other = "Controles do menu de acessibilidade"
+[modified]
+	other = "Modificado"
+[monochrome]
+	other = "Monocromático"
+[more]
+	other = "Mais"
+[moreContrast]
+	other = "Alto"
+[nav]
+	other = "Navegação"
+[networkGraph]
+	other = "Grafo de conteúdo"
+[next]
+	other = "Próximo"
+[noArticle]
+	other = "Nenhum artigo para mostrar."
+[noArticlePost]
+	other = "Parece que nosso autor ficou sem café... Mantenha a calma, vamos preparar um em breve!"
+[noComment]
+	other = "Nenhum comentário para exibir."
+[noGiscus]
+	other = "Giscus requer Javascript e LocalStorage habilitados."
+[noScript]
+	other = "Ops... Javascript está desativado!"
+[noLocalStorage]
+	other = "LocalStorage não está disponível no seu navegador. Configurações não serão salvas."
+[note]
+	other = "Nota"
+[on]
+	other = "Ligado"
+[OpenDyslexic]
+	other = "Usar fonte OpenDyslexic"
+[optimizeSR]
+	other = "Otimização para leitor de tela"
+[optimizeSRDesc]
+	other = "Espaçamento entre linhas"
+[pages]
+	other = "Estatísticas do café"
+	other = "Páginas"
+	other = ", ou até mais."
+	other = "Paginação"
+	one = "Você também pode me apoiar contribuindo com:"
+	other = "Você também pode nos apoiar contribuindo com:"
+	other = "Publicações"
+	other = "Assinar via RSS"
+	other = "Publicação por"
+	other = "Copiar link"
+	other = "Publicações em"
+	other = "Giscus requer JavaScript e LocalStorage habilitados."
+	other = "Desenvolvido com"
+	other = "Ops... JavaScript está desativado!"
+	other = "Anterior"
+	other = "E-mail"
+	other = "Imprimir"
+	other = "Ativado"
+	other = "Protanopia"
+	other = "Tempo de leitura"
+	other = "Publicado"
+	other = "Contraste baixo"
+	other = "Min de leitura"
+	other = "Contraste alto"
+	other = "Publicações recentes"
+	other = "Selecionar idioma"
+	other = "Histórico de redação"
+	other = "Ir para o topo"
+	other = "Algumas informações podem mudar com o tempo; mantemos a redação atualizada."
+[related]
+	other = "Você também pode gostar"
+[reset]
+	other = "Redefinir"
+[reviewedBy]
+	other = "Revisado por"
+[save]
+	other = "Salvar"
+[search]
+	other = "Pesquisar"
+[seeAll]
+	other = "Ver tudo"
+[seeMore]
+	other = "Explorar mais tópicos"
+[section]
+	other = "Seção"
+[selectLang]
+	other = "Seleção de idioma"
+[series]
+	other = "Séries"
+[share]
+	other = "Compartilhar"
+[shareOn]
+	other = "Compartilhar em"
+[slide]
+	one = "slide"
+	other = "slides"
+[stage]
+	one = "Estágio"
+	other = "Estágios"
+[switchLangTo]
+	other = "Mudar idioma para"
+[TableOfContents]
+	other = "Sumário"
+[tags]
+	one = "Tag"
+	other = "Tags"
+[toContent]
+	other = "Ir para o conteúdo principal"
+[toTop]
+	other = "Ir para o topo do conteúdo"
+[top-nav]
+	other = "Topo"
+[tritanopia]
+	other = "Tritanopia"
