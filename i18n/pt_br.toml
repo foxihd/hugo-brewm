@@ -1,3 +1,4 @@
+# Tradução para Português (Brasil)
 [404PageNotFound]
 	other = "Página não encontrada"
 [404Alert]
@@ -177,35 +178,8 @@
 [optimizeSRDesc]
 	other = "Espaçamento entre linhas"
 [pages]
-	other = "Estatísticas do café"
+	one = "Página"
 	other = "Páginas"
-	other = ", ou até mais."
-	other = "Paginação"
-	one = "Você também pode me apoiar contribuindo com:"
-	other = "Você também pode nos apoiar contribuindo com:"
-	other = "Publicações"
-	other = "Assinar via RSS"
-	other = "Publicação por"
-	other = "Copiar link"
-	other = "Publicações em"
-	other = "Giscus requer JavaScript e LocalStorage habilitados."
-	other = "Desenvolvido com"
-	other = "Ops... JavaScript está desativado!"
-	other = "Anterior"
-	other = "E-mail"
-	other = "Imprimir"
-	other = "Ativado"
-	other = "Protanopia"
-	other = "Tempo de leitura"
-	other = "Publicado"
-	other = "Contraste baixo"
-	other = "Min de leitura"
-	other = "Contraste alto"
-	other = "Publicações recentes"
-	other = "Selecionar idioma"
-	other = "Histórico de redação"
-	other = "Ir para o topo"
-	other = "Algumas informações podem mudar com o tempo; mantemos a redação atualizada."
 [related]
 	other = "Você também pode gostar"
 [reset]
