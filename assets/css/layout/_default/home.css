@@ -3,6 +3,7 @@
 body {
     margin: auto !important;
     max-width: 2560px !important;
+    overscroll-behavior: contain;
 }
 
 body::-webkit-scrollbar {
