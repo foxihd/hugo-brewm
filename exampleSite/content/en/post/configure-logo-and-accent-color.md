@@ -16,41 +16,34 @@ The Hugo Brewm theme allows you to easily configure your site's logo and accent 
 
 ## Change Color Accent
 
-To make the color accent align with your brand identity, you can customize the accent color in `custom.css` under `assets/css`.
-For example, in `exampleSite/assets/css/custom.css`:
+To make the color accent align with your brand identity, you can add following code to your site configuration (`hugo.toml`):
 
-```css
-:root {
-    /* default contrast */
-    --ac-light: #36c;      /* accent color on default contrast */
-    --fg-light: #111;      /* foreground color on default contrast */
-    --bg-light: #f9f9fb; /* background color on default contrast */
-    --midtone: gray;       /* midtone on default contrast */
-    --fg-dark: #f9f9fb;  /* foreground color on dark mode, default contrast */
-    --bg-dark: #111;       /* background color on dark mode, default contrast */
-    --ac-dark: #fa0;       /* accent color on dark mode, default contrast */
-
-    /* less contrast */
-    --ac-light-less: var(--ac-light);
-    --fg-light-less: #13253d;
-    --bg-light-less: #e7e2e2;
-    --midtone-less: #7d8490;
-    --fg-dark-less: #e7e2e2;
-    --bg-dark-less: #13253d;
-    --ac-dark-less: var(--ac-dark);
-
-    /* more contrast */
-    --ac-light-more: var(--ac-light);
-    --fg-light-more: #000;
-    --bg-light-more: #fff;
-    --midtone-more: gray;
-    --fg-dark-more: #fff;
-    --bg-dark-more: #000;
-    --ac-dark-more: var(--ac-dark);
-}
+```toml
+    // Adjust color
+    [params.style]
+        // light mode
+        [params.style.light]
+            // accent color on default contrast 
+            ac = '#800'
+            // background color on default contrast
+            bg = '#eee'
+            // foreground color on default contrast
+            fg = '#111'
+            // midtone color
+            // mid = 'gray'
+            [params.style.light.more]
+                // accent color on hight contrast 
+                ac = 'red'
+            [params.style.light.less]
+        // dark mode
+        [params.style.dark]
+            ac = '#f80'
+            bg = '#000'
+            fg = '#fff'
+            mid= 'gray'
+            [params.style.light.less]
+            [params.style.light.more]
 ```
-
-This file will take the place of custom.css in the theme. To avoid missing the color variable during the build, please copy every variable and do not remove any.
 
 ## Adding Logo Image / Logomark Icon
 

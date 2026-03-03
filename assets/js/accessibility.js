@@ -193,16 +193,26 @@ const matchMediaColor = () => {
 };
 
 function setColor() {
+    {{ $lite := site.Params.style.light }}
+    {{ $dark := site.Params.style.dark }}
+    {{ if site.Params.logo.logomark }}
+        const logomark = getElement('logomark');
+        const logomarkDark = getElement('logomark--dark');
+        if (logomarkDark) {
+            logomark.style.display = lightSwitch.checked ? 'none' : 'inline-block';
+            logomarkDark.style.display = lightSwitch.checked ? 'inline-block' : 'none';
+        }
+    {{ end }}
     const styles = {
         light: {
-            default: '--off: #000; --fg: var(--fg-light); --mid: var(--midtone); --ac: var(--ac-light); --bg: var(--bg-light);',
-            less: '--off: #000; --fg: var(--fg-light-less); --mid: var(--midtone-less); --ac: var(--ac-light-less); --bg: var(--bg-light-less);',
-            more: '--off: #000; --fg: var(--fg-light-more); --mid: var(--midtone-more); --ac: var(--ac-light-more); --bg: var(--bg-light-more); --border: 1pt solid var(--fg); --bound: var(--border);'
+            default: '--off: #000; --ac: {{ or $lite.ac "#36c" }}; --bg: {{ or $lite.bg "#f9f9f9" }}; --fg: {{ or $lite.fg "#111" }}; --mid:{{ or $lite.mid "gray" }};',
+            less: '--off: #000; --ac: {{ or $lite.less.ac $lite.ac "#36c" }}; --bg: {{ or $lite.less.bg "#e7e2e2" }}; --fg: {{ or $lite.less.fg "#13253d" }}; --mid:{{ or $lite.less.mid "#7d8490" }};',
+            more: '--off: #000; --ac: {{ or $lite.more.ac $lite.ac "#36c" }}; --bg: {{ or $lite.more.bg "#fff" }}; --fg: {{ or $lite.more.fg "#000" }}; --mid:{{ or $lite.more.mid "gray" }};'
         },
         dark: {
-            default: '--off: #fff; --fg: var(--fg-dark); --mid: var(--midtone); --ac: var(--ac-dark); --bg: var(--bg-dark);',
-            less: '--off: #fff; --fg: var(--fg-dark-less); --mid: var(--midtone-less); --ac: var(--ac-dark-less); --bg: var(--bg-dark-less);',
-            more: '--off: #fff; --fg: var(--fg-dark-more); --mid: var(--midtone-more); --ac: var(--ac-dark-more); --bg: var(--bg-dark-more); --border: 1pt solid var(--fg); --bound: var(--border);'
+            default: '--off: #111; --ac: {{ or $dark.ac "#fa0" }}; --bg: {{ or $dark.bg "#111" }}; --fg: {{ or $dark.fg "#f9f9f9" }}; --mid:{{ or $dark.mid "gray" }};',
+            less: '--off: #fff; --ac: {{ or $dark.less.ac $dark.ac "#fa0" }}; --bg: {{ or $dark.less.bg "#13253d" }}; --fg: {{ or $dark.less.fg "#e7e2e2" }}; --mid:{{ or $dark.less.mid "#7d8490" }};',
+            more: '--off: #fff; --ac: {{ or $dark.more.ac $dark.ac "#fa0" }}; --bg: {{ or $dark.more.bg "#000" }}; --fg: {{ or $dark.more.fg "#fff" }}; --mid:{{ or $dark.more.mid "gray" }};'
         }
     };
     const scheme = lightSwitch.checked ? 'dark' : 'light';

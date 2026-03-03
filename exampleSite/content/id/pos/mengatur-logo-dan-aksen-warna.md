@@ -13,41 +13,27 @@ Tema Hugo Brewm memungkinkan Anda untuk dengan mudah mengatur logo dan aksen war
 
 ## Mengubah Aksen Warna
 
-Untuk membuat aksen warna sesuai dengan identitas merek Anda, Anda dapat menyesuaikan warna aksen di `custom.css` yang berada di dalam `assets/css`.
-Sebagai contoh, di `exampleSite/assets/css/custom.css`:
+Untuk membuat aksen warna sesuai dengan identitas merek Anda, Anda dapat menambahkan kode berikut pada berkas konfigurasi situs anda (`hugo.toml`):
 
-```css
-:root {
-    /* default contrast */
-    --ac-light: #36c;      /* warna aksen pada kontras default */
-    --fg-light: #111;      /* warna latar depan pada kontras default */
-    --bg-light: #f9f9fb; /* warna latar belakang pada kontras default */
-    --midtone: gray;       /* warna midtone pada kontras default */
-    --fg-dark: #f9f9fb;  /* warna latar depan pada mode gelap, kontras default */
-    --bg-dark: #111;       /* warna latar belakang pada mode gelap, kontras default */
-    --ac-dark: #fa0;       /* warna aksen pada mode gelap, kontras default */
-
-    /* less contrast */
-    --ac-light-less: var(--ac-light);
-    --fg-light-less: #13253d;
-    --bg-light-less: #e7e2e2;
-    --midtone-less: #7d8490;
-    --fg-dark-less: #e7e2e2;
-    --bg-dark-less: #13253d;
-    --ac-dark-less: var(--ac-dark);
-
-    /* more contrast */
-    --ac-light-more: var(--ac-light);
-    --fg-light-more: #000;
-    --bg-light-more: #fff;
-    --midtone-more: gray;
-    --fg-dark-more: #fff;
-    --bg-dark-more: #000;
-    --ac-dark-more: var(--ac-dark);
-}
 ```
-
-File ini akan menggantikan custom.css dalam tema. Untuk menghindari hilangnya variabel warna selama pembuatan, harap salin setiap variabel dan jangan hapus apa pun selain komentar.
+    // Adjust color
+    [params.style]
+        [params.style.light]
+            ac = '#800'
+            bg = '#eee'
+            fg = '#111'
+            mid = 'gray'
+            [params.style.light.more]
+                ac = 'red'
+            [params.style.light.less]
+        [params.style.dark]
+            ac = '#f80'
+            bg = '#000'
+            fg = '#fff'
+            mid= 'gray'
+            [params.style.light.less]
+            [params.style.light.more]
+```
 
 ## Menambahkan Gambar Logo / Ikon LogoMark
 

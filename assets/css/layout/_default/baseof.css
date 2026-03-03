@@ -265,72 +265,78 @@ div + #unified-footer {
 
 }
 
-@media (prefers-color-scheme: light) {
+{{ $light := site.Params.style.light }}
+{{ $dark := site.Params.style.dark }}
 
+body {
+    --off: #000;
+    --ac: {{ or $light.ac "#36c" }};
+    --bg: {{ or $light.bg "#f9f9f9" }};
+    --fg: {{ or $light.fg "#111" }};
+    --mid:{{ or $light.mid "gray" }};
+}
+
+@media (prefers-contrast: more),
+(-ms-high-contrast: active) {
     body {
-        --bg: var(--bg-light);
-        --mid: var(--midtone);
-        --fg: var(--fg-light);
-        --ac: var(--ac-light);
-        --off: #000;
+        {{ with $light.more.ac }}
+            --ac: {{ . }};
+        {{ end }}
+        --bg: {{ or $light.more.bg "#fff" }};
+        --fg: {{ or $light.more.fg "#000" }};
+        {{ with $light.more.mid }}
+            --mid: {{ . }};
+        {{ end }}
     }
+}
 
-    @media (prefers-contrast: more),
-    (-ms-high-contrast: active) {
-
-        body {
-            --bg: var(--bg-light-more);
-            --mid: var(--midtone-more);
-            --fg: var(--fg-light-more);
-            --ac: var(--ac-light-more);
-        }
-
+@media (prefers-contrast: less) {
+    body {
+        {{ with $light.less.ac }}
+            --ac: {{ . }};
+        {{ end }}
+        --bg: {{ or $light.less.bg "#e7e2e2" }};
+        --fg: {{ or $light.less.fg "#13253d" }};
+        --mid:{{ or $light.less.mid "#7d8490" }}
     }
-
-    @media (prefers-contrast: less) {
-
-        body {
-            --bg: var(--bg-light-less);
-            --mid: var(--midtone-less);
-            --fg: var(--fg-light-less);
-            --ac: var(--ac-light-less);
-        }
-
-    }
-
 }
 
 @media (prefers-color-scheme: dark) {
 
     body {
-        --bg: var(--bg-dark);
-        --mid: var(--midtone);
-        --fg: var(--fg-dark);
-        --ac: var(--ac-dark);
         --off: #fff;
+        --ac: {{ or $dark.ac "#fa0" }};
+        --bg: {{ or $dark.bg "#111" }};
+        --fg: {{ or $dark.fg "#f9f9f9" }};
+        {{ with $dark.mid }}
+            --mid: {{ . }};
+        {{ end }}
     }
 
     @media (prefers-contrast: more),
     (-ms-high-contrast: active) {
-
         body {
-            --bg: var(--bg-dark-more);
-            --mid: var(--midtone-more);
-            --fg: var(--fg-dark-more);
-            --ac: var(--ac-dark-more);
+            {{ with $dark.more.ac }}
+                --ac: {{ . }};
+            {{ end }}
+            --bg: {{ or $dark.more.bg "#000" }};
+            --fg: {{ or $dark.more.fg "#fff" }};
+            {{ with $dark.more.mid }}
+                --mid: {{ . }};
+            {{ end }}
         }
-
     }
 
     @media (prefers-contrast: less) {
-
         body {
-            --bg: var(--bg-dark-less);
-            --mid: var(--midtone-less);
-            --fg: var(--fg-dark-less);
-            --ac: var(--ac-dark-less);
+            {{ with $dark.more.ac }}
+                --ac: {{ . }};
+            {{ end }}
+            --bg: {{ or $dark.more.bg "#13253d" }};
+            --fg: {{ or $dark.more.fg "#e7e2e2" }};
+            {{ with $dark.more.mid }}
+                --mid: {{ . }};
+            {{ end }}
         }
-
     }
-
 }

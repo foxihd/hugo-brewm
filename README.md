@@ -481,6 +481,24 @@ ignoreFiles = [ '\.redacted', '\.old','\.bak', '\.tmp', '\.swp', '\.DS_Store']
         limit = 15 # item limit default: 15
         content = 15 # limit item with full content
 
+    // Adjust color scheme for accent, background, foreground and midtone
+    [params.style]
+        [params.style.light]
+            ac = '#800'
+            bg = '#eee'
+            fg = '#111'
+            mid = 'gray'
+            [params.style.light.more]
+                ac = 'red'
+            [params.style.light.less]
+        [params.style.dark]
+            ac = '#f80'
+            bg = '#000'
+            fg = '#fff'
+            mid= 'gray'
+            [params.style.light.less]
+            [params.style.light.more]
+
     ## Search configuration
     [params.search]
         ## Enable search functionality, please index your site first
