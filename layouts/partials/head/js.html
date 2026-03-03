@@ -12,14 +12,19 @@
     {{- end }}
 {{- end }}
 
-{{- $hugo_brewm := $js_files | resources.Concat "js/hugo-brewm.js" | minify }}
-{{- if eq hugo.Environment "development" }}
-    <script src="{{ $hugo_brewm.Permalink }}" defer></script>
-{{- else }}
-    {{- with $hugo_brewm | fingerprint "sha384" -}}
-        <script src="{{ $hugo_brewm.Permalink }}"
-            integrity="{{ .Data.Integrity }}" crossorigin="anonymous"
-            defer></script>
+{{- $hugo_brewm := resources.Concat "hugo-brewm.js" $js_files }}
+{{- with $hugo_brewm }}
+    {{- with resources.ExecuteAsTemplate "hugo-brewm.js" $ . | minify }}
+        {{- $js := . }}
+        {{- if eq hugo.Environment "development" }}
+            <script src="{{ $js.Permalink }}" defer></script>
+        {{- else }}
+            {{- with . | fingerprint "sha256" }}
+                <script src="{{ $js.Permalink }}"
+                    integrity="{{ .Data.Integrity }}" crossorigin="anonymous"
+                    defer></script>
+            {{- end }}
+        {{- end }}
     {{- end }}
 {{- end }}
 

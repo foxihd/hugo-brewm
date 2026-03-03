@@ -122,13 +122,18 @@
 {{- $print := resources.Get "css/media/print.css" }}
 {{- $custom := resources.Get "css/custom.css" }}
 {{- $order := $baseFonts | append $baseSty | append $extrasSty | append $print $custom }}
-{{- $hugo_brewm := $order | resources.Concat "css/hugo-brewm.css" | minify }}
+{{- $hugo_brewm := resources.Concat "hugo-brewm.css" $order }}
 
-{{- if eq hugo.Environment "development" }}
-    <link rel="stylesheet" href="{{ $hugo_brewm.Permalink }}">
-{{- else }}
-    {{- with $hugo_brewm | fingerprint "sha256" }}
-        <link rel="stylesheet" href="{{ $hugo_brewm.Permalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+{{- with $hugo_brewm }}
+    {{- with resources.ExecuteAsTemplate "hugo-brewm.css" $ . | minify }}
+        {{- $css := . }}
+        {{- if eq hugo.Environment "development" }}
+            <link rel="stylesheet" href="{{ $css.Permalink }}">
+        {{- else }}
+            {{- with . | fingerprint "sha256" }}
+                <link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+            {{- end }}
+        {{- end }}
     {{- end }}
 {{- end }}
 
