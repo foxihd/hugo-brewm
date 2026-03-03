@@ -192,6 +192,18 @@ const matchMediaColor = () => {
     }
 };
 
+function scheme() {
+    return lightSwitch.checked ? 'dark' : 'light';
+}
+
+function contrast() {
+    return lessContrast.checked 
+        ? 'less' 
+        : (moreContrast.checked 
+            ? 'more' 
+            : 'default');
+}
+
 function setColor() {
     {{ $lite := site.Params.style.light }}
     {{ $dark := site.Params.style.dark }}
@@ -215,18 +227,10 @@ function setColor() {
             more: '--off: #fff; --ac: {{ or $dark.more.ac $dark.ac "#fa0" }}; --bg: {{ or $dark.more.bg "#000" }}; --fg: {{ or $dark.more.fg "#fff" }}; --mid:{{ or $dark.more.mid "gray" }};'
         }
     };
-    const scheme = lightSwitch.checked ? 'dark' : 'light';
-    const contrast = lessContrast.checked ? 'less' : (moreContrast.checked ? 'more' : 'default');
     const fbg = getElements('#background-header, #background-footer');
-    const logomark = getElement('logomark');
-    const logomarkDark = getElement('logomark--dark');
-    if (logomarkDark) {
-        logomark.style.display = lightSwitch.checked ? 'none' : 'inline-block';
-        logomarkDark.style.display = lightSwitch.checked ? 'inline-block' : 'none';
-    }
     lightSwitchIndicator.setAttribute('aria-description', (lightSwitch.checked ? i18nDark : i18nLight));
-    bodySty.setAttribute('style', styles[scheme][contrast]);
-    bodySty.dataset.contrast = contrast;
+    bodySty.setAttribute('style', styles[scheme()][contrast()]);
+    bodySty.dataset.contrast = contrast();
     fbg.forEach(element => {
         moreContrast.checked ? element.classList.add('has-border') : element.classList.remove('has-border');
     });
@@ -307,9 +311,11 @@ function hasLocalStorage() {
     } catch(e) {
         defaultContrast.checked = true;
         getElement('noLocalStorage').className = '';
-        if (getElement('noDOMGiscus')) {
-            getElement('noDOMGiscus').removeAttribute('class');
-        }
+        {{ if site.Params.giscus.repo }}
+            if (getElement('noDOMGiscus')) {
+                getElement('noDOMGiscus').removeAttribute('class');
+            }
+        {{ end }}
         return false;
     };
 };
@@ -337,11 +343,8 @@ if (hasLocalStorage()) {
     function saveA11y() {
         setTimeout(() => closeA11yConsole(), 618);
 
-        localStorage.scheme = lightSwitch.checked ? 'light' : 'dark';
-
-        if (defaultContrast.checked) localStorage.contrast = 'default';
-        if (lessContrast.checked) localStorage.contrast = 'less';
-        if (moreContrast.checked) localStorage.contrast = 'more';
+        localStorage.scheme = scheme();
+        localStorage.contrast = contrast();
 
         localStorage.colorPalette = colorPalette.value;
         localStorage.font = OpenDyslexic.checked ? 'OpenDyslexic' : '';
@@ -355,16 +358,8 @@ if (hasLocalStorage()) {
     if (!localStorage.getItem('scheme') && !localStorage.getItem('contrast')) {
         matchMediaColor();
     } else {
-        lightSwitch.checked = localStorage.scheme !== 'dark';
-
-        if (localStorage.contrast === 'more') {
-            moreContrast.checked = true;
-        } else if (localStorage.contrast === 'less') {
-            lessContrast.checked = true;
-        } else {
-            defaultContrast.checked = true;
-        }
-
+        lightSwitch.checked = localStorage.scheme == 'dark';
+        getElement(localStorage.contrast + 'Contrast').checked = true;
         setColor();
     }
 
