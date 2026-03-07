@@ -132,6 +132,9 @@
     other = "Baix"
 [light]
     other = "Clar"
+[link]
+    one = "Enllaç"
+    other = "Enllaços"
 [main]
     other = "Menú principal"
 [marginpar]
