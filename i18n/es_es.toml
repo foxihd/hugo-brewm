@@ -134,6 +134,9 @@
     other = "Bajo"
 [light]
     other = "Claro"
+[link]
+    one = "Enlace"
+    other = "Enlaces"
 [main]
     other = "Menú principal"
 [marginpar]
@@ -251,3 +254,4 @@
     other = "Inicio"
 [tritanopia]
     other = "Tritanopía"
+
