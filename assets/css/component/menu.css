@@ -330,6 +330,7 @@ a#has-i18n:active > .alt {
 #content a::after {
     --tsf: rotate(45deg);
     display: inline-block;
+    position: -webkit-sticky;
     margin-top: 0.3em;
     margin-left: auto;
     font: 0.7em 'base-ui';
