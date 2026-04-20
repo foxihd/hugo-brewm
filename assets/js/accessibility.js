@@ -280,10 +280,12 @@ function useOpenDyslexic() {
         htmlSty.setProperty('--rm', 'OpenDyslexic');
         htmlSty.setProperty('--sf', 'OpenDyslexic');
         htmlSty.setProperty('--tt', 'OpenDyslexicMono');
+        htmlSty.setProperty('letter-spacing', '-9%')
     } else {
         htmlSty.removeProperty('--rm');
         htmlSty.removeProperty('--sf');
         htmlSty.removeProperty('--tt');
+        htmlSty.removeProperty('letter-spacing')
     }
     setTimeout(() => recalcLogotypeWidth(), 1000);
 };
