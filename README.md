@@ -589,8 +589,8 @@ This project could not be made, without a lot efforts of — thank to:
 
 This theme is released under the MIT License.
 
-[^1]: Note that actual speeds may vary depending on content and configuration, user devices and policy of your hosting provider. Here are some benchmarks from the exampleSite that deployed [under a minute](https://github.com/foxihd/hugo-brewm/actions) on GitHub Pages; [Websitecarbon.com](https://www.websitecarbon.com/website/foxihd-github-io-hugo-brewm-en/) & [Lighthouse Metrics](https://lighthouse-metrics.com/lighthouse/checks/c3e50367-ec53-4027-81ad-ab95a64b1c1c).
+[^1]: Note that actual speeds may vary depending on content and configuration, user devices and policy of your hosting provider. Here are some benchmarks from the exampleSite that deployed [under a minute](https://github.com/foxihd/hugo-brewm/actions) on GitHub Pages; [Websitecarbon.com](https://www.websitecarbon.com/website/foxihd-github-io-hugo-brewm-en/).
 
-[^2]: This theme does not include a cookie consent banner or any pre-configured web analytics or advertisements. While comments from the fediverse can be viewed without cookies, Giscus, or custom web analytics & advertisements may need local storage to be enabled, which means a cookie consent banner is necessary.
+[^2]: This theme does not include a cookie consent banner or any pre-configured web analytics or advertisements. While comments from the fediverse can be viewed without cookies, the usage of Giscus, or custom web analytics & advertisements may require cookie consent banner. Please brew yourself.
 
 [^3]: This theme is intended for browsers from 2019 or later and does not support Internet Explorer and Opera Mini.
