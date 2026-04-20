@@ -66,7 +66,7 @@ if (bskyRoot) {
                     getElement('discussion-starter-content').innerHTML = `<div data-bionRead-safe>${renderRichText(data.thread.post.record)}</div>`;
                 }
 
-                if (replies > 0) {
+                if (data.thread.replies > 0) {
                     bskyRoot.setAttribute('role', 'feed');
                     const bskyDOM =
                         typeof DOMPurify !== 'undefined'
@@ -81,7 +81,9 @@ if (bskyRoot) {
                     }
                 } else {
                     if (!fedRoot) {
-                        bskyRoot.innerHTML = i18nNocomment;
+                        replies > 0
+                            ? bskyRoot.innerHTML = i18nErr
+                            : bskyRoot.innerHTML = i18nNocomment;
                     }
                 }
 
