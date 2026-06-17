@@ -92,7 +92,7 @@ if (bskyRoot) {
 
         } catch (error) {
             console.error(`Bluesky ${i18nErr}`, error);
-            bskyRoot.innerHTML = `Bluesky ${i18nErr} : ${error}`;
+            bskyRoot.innerHTML = `<div role="alert" class="er">[Bluesky] <br> ${i18nErr} : ${error}</div>`;
         }
     }
 
