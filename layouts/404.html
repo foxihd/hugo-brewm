@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-{{- $lang := or site.Language.LanguageCode site.Language.Lang }}
-{{- $dir := or site.Language.LanguageDirection "ltr" }}
+{{- $lang := or site.Language.Locale site.Language.LanguageCode site.Language.Lang }}
+{{- $dir := or site.Language.Direction site.Language.LanguageDirection "ltr" }}
 <html lang="{{ $lang }}" dir="{{ $dir }}">
 <head>
     <meta charset="UTF-8">

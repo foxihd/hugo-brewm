@@ -1,17 +1,18 @@
 {{ "<!-- i18n.html -->" | safeHTML }}
+{{- $label := or $.Language.Label $.Language.LanguageName }}
 {{- if hugo.IsMultilingual }}
     {{- $bilingual := eq (where $.Site.Home.AllTranslations ".Language.disabled" "ne" true | len ) 2 }}
     {{- if $bilingual }}
         {{- range where $.Site.Home.AllTranslations "Lang" "ne" $.Lang }}
-            {{- $act639  := substr $.Language.LanguageCode 0 2 | upper }}
-            {{- $alt639  := substr .Language.LanguageCode 0 2 | upper }}
-            {{- $name    := .Language.LanguageName }}
-            {{- $flag := partial "i18n/flag.html" (dict "iso3166" (substr .Language.LanguageCode -2)) }}
+            {{- $act639  := substr (or $.Language.Locale $.Language.LanguageCode) 0 2 | upper }}
+            {{- $alt639  := substr (or .Language.Locale .Language.LanguageCode) 0 2 | upper }}
+            {{- $name    := or .Language.Label .Language.LanguageName }}
+            {{- $flag    := partial "i18n/flag.html" (dict "iso3166" (substr .Language.LanguageCode -2)) }}
             <nav id="bi18n" aria-label="{{ i18n "selectLang" }}">
                 <a id="has-i18n" class="on-deck"
                     href="{{ .Permalink }}"
                     aria-label="{{ printf "%s %s" (i18n "switchLangTo") $name }}"
-                    aria-description="{{ printf "%s %s" (i18n "currentLang") $.Language.LanguageName }}">
+                    aria-description="{{ printf "%s %s" (i18n "currentLang") $label }}">
                     <span class="emoji">{{ $flag }}&nbsp;</span>
                     <span class="act iso639 sri" aria-hidden="true">{{ $act639 }}</span>
                     <span class="alt iso639 sri" aria-hidden="true">&rarr; {{ $alt639 }}</span>
@@ -22,13 +23,14 @@
     {{- else }}
         <details id="has-i18n" class="presentation js-details srm" name="on-deck">
             {{- with $.Language }}
-                {{- $flag := partial "i18n/flag.html" (dict "iso3166" (substr .LanguageCode -2)) }}
+                {{- $locale := or .Locale .LanguageCode }}
+                {{- $flag := partial "i18n/flag.html" (dict "iso3166" (substr $locale -2)) }}
                 <summary class="anchor on-deck"
                     aria-label="{{ i18n "selectLang" }}"
-                    aria-description="{{ printf "%s %s" (i18n "currentLang") $.Language.LanguageName }}">
+                    aria-description="{{ printf "%s %s" (i18n "currentLang") $label }}">
                     <span class="emoji">{{ $flag }}&nbsp;</span>
-                    <span class="iso639">{{ substr .LanguageCode 0 2 | upper }} </span>
-                    <span class="languangeName">{{ .LanguageName }}</span>
+                    <span class="iso639">{{ substr $locale 0 2 | upper }} </span>
+                    <span class="languangeName">{{ or .Label .LanguageName }}</span>
                 </summary>
             {{- end }}
 
@@ -36,11 +38,13 @@
             <nav id="i18n-menu" aria-label="{{ i18n "selectLang" }}">
                 <ul class="on-plank">
                     {{- range where $.Site.Home.AllTranslations "Lang" "ne" $.Lang -}}
-                        {{- $flag := partial "i18n/flag.html" (dict "iso3166" (substr .Language.LanguageCode -2)) }}
+                        {{- $label := or .Language.Label .Language.LanguageName }}
+                        {{- $locale := or .Language.Locale .Language.LanguageCode }}
+                        {{- $flag := partial "i18n/flag.html" (dict "iso3166" (substr $locale -2)) }}
                         <li>
-                            <a href="{{ .Permalink }}" aria-label="{{ printf "Change language to %s" .Language.LanguageName }}">
+                            <a href="{{ .Permalink }}" aria-label="{{ printf "Change language to %s" $label }}">
                                 <span class="emoji">{{ $flag }}&nbsp;</span>
-                                <span class="languangeName">{{ .Language.LanguageName }}</span>
+                                <span class="languangeName">{{ $label }}</span>
                             </a>
                         </li>
                     {{- end }}
@@ -56,15 +60,17 @@
     {{ "<!-- l10n.html -->" | safeHTML }}
     {{- $page := .page }}
     <details id="has-l10n" class="presentation">
-        <summary aria-label="{{ i18n "selectLang" }}" aria-description="{{ printf "%s %s" (i18n "currentLang") $page.Language.LanguageName }}">
+        <summary aria-label="{{ i18n "selectLang" }}" aria-description="{{ printf "%s %s" (i18n "currentLang") (or $page.Language.Label $page.Language.LanguageName) }}">
             <span>{{ $page.Lang | upper }}</span>
         </summary>
         <nav aria-label="{{ i18n "selectLang" }}">
             <ul class="on-plank" role="presentation">
             {{- range $page.Translations }}
-            {{- $flag := partial "i18n/flag.html" (dict "iso3166" (substr .Language.LanguageCode -2)) }}
+            {{- $label := or .Language.Label .Language.LanguageName }}
+            {{- $locale := or .Language.Locale .Language.LanguageCode }}
+            {{- $flag := partial "i18n/flag.html" (dict "iso3166" (substr $locale -2)) }}
                 <li>
-                    <a href="{{ .RelPermalink }}" aria-label="{{ printf "%s %s" (i18n "switchLangTo") .Language.LanguageName }}" aria-description="{{ .LinkTitle }}">
+                    <a href="{{ .RelPermalink }}" aria-label="{{ printf "%s %s" (i18n "switchLangTo") $label }}" aria-description="{{ .LinkTitle }}">
                         <span class="emoji">{{ $flag }}&nbsp;</span>
                         <span>{{ .LinkTitle }}</span>
                     </a>

@@ -16,7 +16,7 @@
     data-emit-metadata="{{ default "0" site.Params.giscus.emitMetadata }}"
     data-input-position="{{ default "top" site.Params.giscus.inputPosition }}"
     data-theme="{{ default "preferred_color_scheme" site.Params.giscus.theme }}"
-    data-lang="{{ default "en" (index (split $.Language.LanguageCode "-") 0) }}"
+    data-lang="{{ default "en" (index (split (or $.Language.Locale $.Language.LanguageCode) "-") 0) }}"
     data-loading="{{ default "lazy" site.Params.giscus.loading }}"
     crossorigin="anonymous"
     async>

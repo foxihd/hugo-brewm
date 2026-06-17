@@ -46,7 +46,7 @@
 <link rel="canonical" href="{{ .Permalink }}">
 {{ with .Translations -}}
     {{- range . -}}
-        <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ .Language.LanguageName }}">
+        <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ or .Language.Label .Language.LanguageName }}">
     {{- end }}
 {{- end }}
 {{ partialCached "head/meta/favicon.html" . }}

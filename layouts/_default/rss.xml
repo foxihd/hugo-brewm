@@ -50,7 +50,7 @@
     <link>{{ .Permalink }}</link>
     <description>{{ i18n "recent"}} {{ if ne .Title site.Title }}{{ with .Title }}{{ i18n "in" | lower}} {{ . }} {{ end }}{{ end }}{{ i18n "on" | lower }} {{ site.Title }}</description>
     <generator>Hugo {{ hugo.Version }}</generator>
-    <language>{{ site.Language.LanguageCode }}</language>{{ with $authorEmail }}
+    <language>{{ or site.Language.Locale site.Language.LanguageCode }}</language>{{ with $authorEmail }}
     <managingEditor>{{.}}{{ with $authorName }} ({{ . }}){{ end }}</managingEditor>{{ end }}{{ with $authorEmail }}
     <webMaster>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</webMaster>{{ end }}{{ with site.Copyright }}
     <copyright>{{ . }}</copyright>{{ end }}
