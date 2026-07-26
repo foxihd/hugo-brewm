@@ -1,4 +1,6 @@
-# please configure action permission on `Settings -> Action -> General -> Workflow permissions and choose read and write permissions`
+# This action offer marginally faster deployment than the official method on `hugo.yml` 
+# You might need to setup extra steps to configure action permission on `Settings -> Action -> General -> Workflow permissions and choose read and write permissions`
+# Read more at https://github.com/marketplace/actions/hugo-setup
 
 name: Deploy Hugo to Pages with peaceiris/actions-hugo
 
@@ -20,14 +22,12 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
-      - name: setup Node
-        uses: actions/setup-node@v7
-        with:
-          node-version: '26'
+
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
@@ -37,12 +37,18 @@ jobs:
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
-      - name: Index pagefind
-        run: npx pagefind --site "./public"
+
+      # uncomment to use PageFind
+      # - name: setup Node
+      #   uses: actions/setup-node@v7
+      #   with:
+      #     node-version: '26'
+      # - name: Index pagefind
+      #   run: npx pagefind --site "./public"
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          publish_branch: gh-pages
