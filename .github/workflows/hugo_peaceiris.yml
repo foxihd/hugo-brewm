@@ -1,0 +1,51 @@
+# please configure action permission on `Settings -> Action -> General -> Workflow permissions and choose read and write permissions`
+
+name: Deploy Hugo to Pages with peaceiris/actions-hugo
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:  
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.3
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+      - name: setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '26'
+      - name: Build with Hugo
+        env:
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - name: Index pagefind
+        run: npx pagefind --site "./public"
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
