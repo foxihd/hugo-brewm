@@ -78,7 +78,7 @@ a.section-title::after {
 @media (max-width: 960px) {
 
     #home #top {
-        padding: var(--vfoot) 1rem 0;
+        margin-top: var(--vfoot);
     }
 
     body > aside.has-crsl {
