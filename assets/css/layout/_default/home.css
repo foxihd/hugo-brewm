@@ -3,7 +3,6 @@
 body {
     margin: auto !important;
     max-width: 2560px !important;
-    overscroll-behavior: contain;
 }
 
 body::-webkit-scrollbar {
@@ -16,21 +15,18 @@ body > header.pagewidth {
 }
 
 body > aside.has-crsl {
-    position: sticky;
-    position: -webkit-sticky;
+    display: flex;
+    position: fixed;
     left: 0;
     float: left;
-    /* border: var(--border);
-    border-radius: 1ex; */
-    padding: 1rem;
+    flex-direction: column-reverse;
     width: 38vw;
     height: var(--vbody);
 }
 
 body > main#home {
-    height: var(--vbody);
-    min-height: unset;
-    overflow-y: auto;
+    width: 62vw;
+    margin-left: auto;
 }
 
 body > main#home > aside#list-tags {
@@ -80,15 +76,16 @@ a.section-title::after {
 }
 
 @media (max-width: 960px) {
+
     body > aside.has-crsl {
+        position: unset;
         float: unset;
         padding: 0;
         width: unset;
     }
 
     body > main#home {
-        height: unset;
-        overflow-y: unset;
+        width: unset;
     }
 
     aside + main#home {
