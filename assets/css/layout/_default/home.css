@@ -25,7 +25,7 @@ body > aside.has-crsl {
 }
 
 body > main#home {
-    width: 62vw;
+    width: 60vw;
     margin-left: auto;
 }
 
@@ -46,7 +46,7 @@ body > main#home > aside#list-tags {
 }
 
 div[role="feed"] {
-    padding: 0 1ex;
+    padding: 0 2ex 0 0;
 }
 
 .has-crsl .feed-item,
