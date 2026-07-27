@@ -77,6 +77,10 @@ a.section-title::after {
 
 @media (max-width: 960px) {
 
+    #home #top {
+        padding: var(--vfoot) 1rem 0;
+    }
+
     body > aside.has-crsl {
         position: unset;
         float: unset;
