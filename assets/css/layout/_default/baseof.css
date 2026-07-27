@@ -69,6 +69,11 @@
     widows: 2;
 }
 
+@view-transition {
+    navigation: auto;
+}
+
+
 html {
     scroll-behavior: smooth;
     scroll-padding-block-start: var(--vhead);
