@@ -8,6 +8,6 @@
 			</feSpecularLighting>
 		</filter>
 	</defs>
-	<rect width='98' height='98' fill='#000000' id='blackbody' x='-1' y='-1' opacity='0.03' />
-	<rect width='98' height='98' fill='#ffffff' filter='url(#grain)' x='-1' y='-1' opacity='0.03' />
+	<rect width='98' height='98' fill='#000000' id='blackbody' x='-1' y='-1' opacity='0.02' />
+	<rect width='98' height='98' fill='#ffffff' filter='url(#grain)' x='-1' y='-1' opacity='0.02' />
 </svg>
