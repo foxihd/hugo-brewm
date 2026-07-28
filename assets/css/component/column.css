@@ -47,11 +47,11 @@
 
 .has-quote {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     color: var(--fg);
 }
 
-.has-quote::after {
+.has-quote::before {
     margin: unset;
 }
 

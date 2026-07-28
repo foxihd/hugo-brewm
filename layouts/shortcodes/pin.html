@@ -7,10 +7,10 @@
 {{- if .IsNamedParams }}
     {{- if .Get "quote" }}
         <div>
-        <a href="{{ $url }}" class="has-img has-aria-label has-quote"
+        <a href="{{ $url }}" class="has-img has-aria-label-top has-quote"
             {{ with $label }} aria-label="{{ . }}"{{ end }}>
-            {{ with .Get "quote" }}<div>{{ safeHTML . }}</div>{{ end }}
             {{ with $img }} <img src="{{ . }}" alt="{{ default $alt $label }}" loading="lazy">{{ end }}
+            {{ with .Get "quote" }}<div>{{ safeHTML . }}</div>{{ end }}
         </a>
         </div>
     {{- else }}
