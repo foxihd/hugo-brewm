@@ -30,8 +30,12 @@
     width: 100%;
     height: auto;
     max-height: 68.8vw;
-    aspect-ratio: 10/8;
+    aspect-ratio: 120/63;
     object-fit: cover;
+}
+
+.no-dar {
+    aspect-ratio: unset !important;
 }
 
 .feed-item .par {
@@ -77,7 +81,6 @@
 .feed-item > section.has-cover {
     display: grid;
     grid-template-columns: 6fr 4fr;
-    aspect-ratio: 10/3;
 }
 
 .feed-item > footer,
@@ -170,7 +173,7 @@ ul.pagination {
 
     .feed-item img.flowlines {
         max-height: 68.8vw;
-        aspect-ratio: 10/8;
+        aspect-ratio: 120/63;
     }
 
 }
