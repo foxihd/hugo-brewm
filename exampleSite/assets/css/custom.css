@@ -59,10 +59,11 @@ body[data-contrast="less"] #background-footer,
 body[data-contrast="less"] #a11y,
 body[data-contrast="less"] #top-nav-screen,
 body[data-contrast="less"] .on-plank {
-    border: 1px solid #fff1;
-    box-shadow: 0 -1px 1pc #0002;
+    border: 1.2ex solid #fff2;
+    box-shadow: inset 0 0 1ex #8882;
     background: #fff1;
     backdrop-filter: blur(9px);
+    clip-path: inset(1ex round 1em);
 }
 
 body[data-contrast="less"] #background-body {
