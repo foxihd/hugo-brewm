@@ -2,12 +2,12 @@
 	xmlns='http://www.w3.org/2000/svg' version='1.1' width='96' height='96'>
 	<defs>
 		<filter id='grain' x='0' y='0' width='1' height='1'>
-			<feTurbulence type='turbulence' baseFrequency='0.6' numOctaves='3' seed='9' stitchTiles='stitch' x='-1%' y='-1%' width='102%' height='102%' result='turbulence'/>
-			<feSpecularLighting surfaceScale='7' specularConstant='3' specularExponent='9' lighting-color='#ffffff' x='-1%' y='-1%' width='102%' height='102%' in='turbulence' result='specularLighting'>
-				<feDistantLight azimuth='3' elevation='98'/>
+			<feTurbulence type='turbulence' baseFrequency='0.9' numOctaves='9' seed='98' stitchTiles='stitch' x='-1%' y='-1%' width='102%' height='102%' result='turbulence'/>
+			<feSpecularLighting surfaceScale='9' specularConstant='9' specularExponent='9' lighting-color='#ffffff' x='-1%' y='-1%' width='102%' height='102%' in='turbulence' result='specularLighting'>
+				<feDistantLight azimuth='9' elevation='98'/>
 			</feSpecularLighting>
 		</filter>
 	</defs>
-	<rect width='98' height='98' fill='#000000' id='blackbody' x='-1' y='-1' opacity='0.02' />
-	<rect width='98' height='98' fill='#ffffff' filter='url(#grain)' x='-1' y='-1' opacity='0.02' />
+	<rect width='98' height='98' fill='#000000' id='blackbody' x='-1' y='-1' opacity='0.03' />
+	<rect width='98' height='98' fill='#ffffff' filter='url(#grain)' x='-1' y='-1' opacity='0.03' />
 </svg>
