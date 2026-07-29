@@ -30,7 +30,7 @@ body > main#home {
 }
 
 body > main#home > aside#list-tags {
-    top: 0;
+    top: var(--vhead);
     right: 0;
     margin: 1rem auto;
     width: calc(100% - var(--golden-ratio));
@@ -94,10 +94,6 @@ a.section-title::after {
 
     aside + main#home {
         margin-top: var(--vhead);
-    }
-
-    body > main#home > aside#list-tags {
-        top: var(--vhead);
     }
 
 }
