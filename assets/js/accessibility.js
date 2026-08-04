@@ -220,7 +220,7 @@ function setColor() {
             more: '--off: #000; --ac: {{ or $lite.more.ac $lite.ac "#36c" }}; --bg: {{ or $lite.more.bg "#fff" }}; --fg: {{ or $lite.more.fg "#000" }}; --mid:{{ or $lite.more.mid "gray" }};'
         },
         dark: {
-            default: '--off: #111; --ac: {{ or $dark.ac "#fa0" }}; --bg: {{ or $dark.bg "#111" }}; --fg: {{ or $dark.fg "#f9f9f9" }}; --mid:{{ or $dark.mid "gray" }};',
+            default: '--off: #fff; --ac: {{ or $dark.ac "#fa0" }}; --bg: {{ or $dark.bg "#111" }}; --fg: {{ or $dark.fg "#f9f9f9" }}; --mid:{{ or $dark.mid "gray" }};',
             less: '--off: #fff; --ac: {{ or $dark.less.ac $dark.ac "#fa0" }}; --bg: {{ or $dark.less.bg "#13253d" }}; --fg: {{ or $dark.less.fg "#e7e2e2" }}; --mid:{{ or $dark.less.mid "#7d8490" }};',
             more: '--off: #fff; --ac: {{ or $dark.more.ac $dark.ac "#fa0" }}; --bg: {{ or $dark.more.bg "#000" }}; --fg: {{ or $dark.more.fg "#fff" }}; --mid:{{ or $dark.more.mid "gray" }};'
         }
