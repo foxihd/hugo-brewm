@@ -66,7 +66,6 @@ details[open] > summary > .menu-icon::before,
 #top-nav[open] > nav {
     -webkit-animation: var(--anm);
        -moz-animation: var(--anm);
-         -o-animation: var(--anm);
             animation: var(--anm);
 }
 
@@ -93,8 +92,6 @@ ul.crsl > li,
 .t {
     -webkit-transform: var(--tsf);
        -moz-transform: var(--tsf);
-        -ms-transform: var(--tsf);
-         -o-transform: var(--tsf);
             transform: var(--tsf);
 }
 
@@ -105,7 +102,6 @@ input.toggle + label::after,
 #has-share i {
     -webkit-transition: var(--tst);
        -moz-transition: var(--tst);
-         -o-transition: var(--tst);
             transition: var(--tst);
 }
 
@@ -116,8 +112,6 @@ details[open] .on-plank,
 #top-nav[open] > nav {
     -webkit-transform-origin: var(--tso);
        -moz-transform-origin: var(--tso);
-        -ms-transform-origin: var(--tso);
-         -o-transform-origin: var(--tso);
             transform-origin: var(--tso);
 }
 

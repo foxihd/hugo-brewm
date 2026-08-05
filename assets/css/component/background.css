@@ -24,7 +24,6 @@ ul.crsl > li > a > span,
 .letterine > i {
     -webkit-transition: var(--flashGuard);
        -moz-transition: var(--flashGuard);
-         -o-transition: var(--flashGuard);
             transition: var(--flashGuard);
 }
 

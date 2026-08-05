@@ -99,7 +99,6 @@
 .feed-item > hgroup > div > span {
     display: block;
     overflow-x: auto;
-    -ms-overflow-style: none;
     scrollbar-width: none;
 }
 

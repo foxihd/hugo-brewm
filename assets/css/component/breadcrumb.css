@@ -98,15 +98,12 @@ ul.breadcrumb {
     overflow: auto;
     text-overflow: ellipsis;
     white-space: nowrap;
-    -ms-overflow-style: none;
     scrollbar-width: none;
 }
 
 ul.breadcrumb > li:last-child a {
     -webkit-user-select: none;
-     -khtml-user-select: none;
        -moz-user-select: none;
-        -ms-user-select: none;
             user-select: none;
     -webkit-touch-callout: none;
 }

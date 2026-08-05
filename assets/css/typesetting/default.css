@@ -69,7 +69,6 @@ kbd {
     /* border: 1pt solid var(--mid); */
     -webkit-transition: 0.2s;
        -moz-transition: 0.2s;
-         -o-transition: 0.2s;
             transition: 0.2s;
     margin: 0 2pt;
     border-radius: 0.7ex;

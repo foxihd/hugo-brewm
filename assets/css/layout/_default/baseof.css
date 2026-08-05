@@ -281,8 +281,7 @@ body {
     --mid:{{ or $light.mid "gray" }};
 }
 
-@media (prefers-contrast: more),
-(-ms-high-contrast: active) {
+@media (prefers-contrast: more) {
     body {
         {{ with $light.more.ac }}
             --ac: {{ . }};
@@ -318,8 +317,7 @@ body {
         {{ end }}
     }
 
-    @media (prefers-contrast: more),
-    (-ms-high-contrast: active) {
+    @media (prefers-contrast: more) {
         body {
             {{ with $dark.more.ac }}
                 --ac: {{ . }};

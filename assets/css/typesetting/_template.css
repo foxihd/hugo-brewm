@@ -34,8 +34,6 @@
         --tsf: skew(-7deg, 0deg);
         -webkit-transform: var(--tsf);
            -moz-transform: var(--tsf);
-            -ms-transform: var(--tsf);
-             -o-transform: var(--tsf);
                 transform: var(--tsf);
                 font-style: oblique;
     }
@@ -44,9 +42,9 @@
     .textsw,
     .swshape {
         font-variant-alternates: swash(swsh);
-        font-feature-settings: 'swsh' 1;
-        -moz-font-feature-settings: 'swsh' 1;
         -webkit-font-feature-settings: 'swsh' 1;
+           -moz-font-feature-settings: 'swsh' 1;
+                font-feature-settings: 'swsh' 1;
     }
 
     .sc,
@@ -54,17 +52,17 @@
     .textsc,
     .scshape {
         font-variant: small-caps;
-        font-feature-settings: 'smcp' 1;
-        -moz-font-feature-settings: 'smcp' 1;
         -webkit-font-feature-settings: 'smcp' 1;
+           -moz-font-feature-settings: 'smcp' 1;
+                font-feature-settings: 'smcp' 1;
     }
 
     .allsmallcaps,
     .ssc {
         font-variant-caps: all-small-caps;
-        font-feature-settings: 'c2sc' 1;
-        -moz-font-feature-settings: 'c2sc' 1;
         -webkit-font-feature-settings: 'c2sc' 1;
+           -moz-font-feature-settings: 'c2sc' 1;
+                font-feature-settings: 'c2sc' 1;
         letter-spacing: 0.16em;
         word-spacing: 16%;
     }
@@ -97,9 +95,9 @@
     .textpl,
     .textpo {
         font-variant-numeric: proportional-nums;
-        font-feature-settings: 'pnum' 1;
-        -moz-font-feature-settings: 'pnum' 1;
         -webkit-font-feature-settings: 'pnum' 1;
+           -moz-font-feature-settings: 'pnum' 1;
+                font-feature-settings: 'pnum' 1;
     }
 
     .onum,
@@ -108,9 +106,9 @@
     .textpo,
     .textto {
         font-variant-numeric: oldstyle-nums;
-        font-feature-settings:'onum' 1;
-        -moz-font-feature-settings:'onum' 1;
         -webkit-font-feature-settings:'onum' 1;
+           -moz-font-feature-settings:'onum' 1;
+                font-feature-settings:'onum' 1;
     }
 
     .lnum,
@@ -119,9 +117,9 @@
     .texttl,
     .textpl {
         font-variant-numeric: lining-nums;
-        font-feature-settings: 'lnum' 1;
-        -moz-font-feature-settings: 'lnum' 1;
         -webkit-font-feature-settings: 'lnum' 1;
+           -moz-font-feature-settings: 'lnum' 1;
+                font-feature-settings: 'lnum' 1;
     }
 
     .tnum,
@@ -130,16 +128,16 @@
     .textto,
     .textpo {
         font-variant-numeric: tabular-nums;
-        font-feature-settings: 'tnum' 1, 'kern' 0;
-        -moz-font-feature-settings: 'tnum' 1, 'kern' 0;
         -webkit-font-feature-settings: 'tnum' 1, 'kern' 0;
+           -moz-font-feature-settings: 'tnum' 1, 'kern' 0;
+                font-feature-settings: 'tnum' 1, 'kern' 0;
     }
 
     .sz0 {
         font-variant-numeric: slashed-zero;
-        font-feature-settings: 'zero' 1;
-        -moz-font-feature-settings: 'zero' 1;
         -webkit-font-feature-settings: 'zero' 1;
+           -moz-font-feature-settings: 'zero' 1;
+                font-feature-settings: 'zero' 1;
     }
 
     .sub,
