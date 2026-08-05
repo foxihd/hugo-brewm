@@ -103,3 +103,15 @@
         disableListing = true
     [id.sitemap]
         changeFreq = 'always' ## Change posts listings layout
+
+[pt-br]
+    contentDir = 'content/pt-br'
+    disabled = false
+    # hugo < 0.158.0
+    # languageCode = 'pt-BR'
+    # languageDirection = 'ltr'
+    # languageName = 'Português (Brasil)'
+    locale = 'pt-BR'
+    direction = 'ltr'
+    label = 'Português (Brasil)'
+        
