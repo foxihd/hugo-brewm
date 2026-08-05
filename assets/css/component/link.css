@@ -12,20 +12,6 @@
     }
 }
 
-@-moz-keyframes underline {
-    from {
-        border-image: linear-gradient(to right, transparent, transparent) 1;
-    }
-
-    50% {
-        border-image: linear-gradient(to right, var(--ac), transparent) 1;
-    }
-
-    to {
-        border-image: linear-gradient(to right, var(--ac), var(--ac)) 1;
-    }
-}
-
 @keyframes underline {
     from {
         border-image: linear-gradient(to right, transparent, transparent) 1;

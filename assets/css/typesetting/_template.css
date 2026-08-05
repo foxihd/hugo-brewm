@@ -33,7 +33,6 @@
     .slshape {
         --tsf: skew(-7deg, 0deg);
         -webkit-transform: var(--tsf);
-           -moz-transform: var(--tsf);
                 transform: var(--tsf);
                 font-style: oblique;
     }
@@ -43,7 +42,6 @@
     .swshape {
         font-variant-alternates: swash(swsh);
         -webkit-font-feature-settings: 'swsh' 1;
-           -moz-font-feature-settings: 'swsh' 1;
                 font-feature-settings: 'swsh' 1;
     }
 
@@ -53,7 +51,6 @@
     .scshape {
         font-variant: small-caps;
         -webkit-font-feature-settings: 'smcp' 1;
-           -moz-font-feature-settings: 'smcp' 1;
                 font-feature-settings: 'smcp' 1;
     }
 
@@ -61,7 +58,6 @@
     .ssc {
         font-variant-caps: all-small-caps;
         -webkit-font-feature-settings: 'c2sc' 1;
-           -moz-font-feature-settings: 'c2sc' 1;
                 font-feature-settings: 'c2sc' 1;
         letter-spacing: 0.16em;
         word-spacing: 16%;
@@ -96,7 +92,6 @@
     .textpo {
         font-variant-numeric: proportional-nums;
         -webkit-font-feature-settings: 'pnum' 1;
-           -moz-font-feature-settings: 'pnum' 1;
                 font-feature-settings: 'pnum' 1;
     }
 
@@ -107,7 +102,6 @@
     .textto {
         font-variant-numeric: oldstyle-nums;
         -webkit-font-feature-settings:'onum' 1;
-           -moz-font-feature-settings:'onum' 1;
                 font-feature-settings:'onum' 1;
     }
 
@@ -118,7 +112,6 @@
     .textpl {
         font-variant-numeric: lining-nums;
         -webkit-font-feature-settings: 'lnum' 1;
-           -moz-font-feature-settings: 'lnum' 1;
                 font-feature-settings: 'lnum' 1;
     }
 
@@ -129,14 +122,12 @@
     .textpo {
         font-variant-numeric: tabular-nums;
         -webkit-font-feature-settings: 'tnum' 1, 'kern' 0;
-           -moz-font-feature-settings: 'tnum' 1, 'kern' 0;
                 font-feature-settings: 'tnum' 1, 'kern' 0;
     }
 
     .sz0 {
         font-variant-numeric: slashed-zero;
         -webkit-font-feature-settings: 'zero' 1;
-           -moz-font-feature-settings: 'zero' 1;
                 font-feature-settings: 'zero' 1;
     }
 

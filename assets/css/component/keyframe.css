@@ -31,15 +31,6 @@
     }
 }
 
-@-moz-keyframes expand {
-    from {
-        -moz-transform: scale(1 , 0);
-    }
-    to {
-        -moz-transform: scale(1 , 1);
-    }
-}
-
 @-webkit-keyframes expand {
     from {
         -webkit-transform: scale(1 , 0);
@@ -54,18 +45,6 @@
     @keyframes expand {
         from {
             transform: unset;
-        }
-    }
-
-    @keyframes expand {
-        from {
-            transform: unset;
-        }
-    }
-
-    @-moz-keyframes expand {
-        from {
-            -moz-transform: unset;
         }
     }
 

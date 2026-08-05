@@ -68,7 +68,6 @@ hr {
 kbd {
     /* border: 1pt solid var(--mid); */
     -webkit-transition: 0.2s;
-       -moz-transition: 0.2s;
             transition: 0.2s;
     margin: 0 2pt;
     border-radius: 0.7ex;
@@ -156,7 +155,6 @@ pre > code {
     font-kerning: none;
     font-size: 0.8em;
     -webkit-font-feature-settings: 'kern' 0;
-       -moz-font-feature-settings: 'kern' 0;
             font-feature-settings: 'kern' 0;
 }
 
@@ -189,7 +187,6 @@ ul {
 .swshape {
     font-variant-alternates: swash(swsh);
     -webkit-font-feature-settings: 'swsh' 1;
-       -moz-font-feature-settings: 'swsh' 1;
             font-feature-settings: 'swsh' 1;
 }
 
@@ -386,7 +383,6 @@ blockquote cite {
     letter-spacing: 0.1em;
     font-variant: small-caps;
     -webkit-font-feature-settings: 'smcp' 1;
-       -moz-font-feature-settings: 'smcp' 1;
             font-feature-settings: 'smcp' 1;
 }
 

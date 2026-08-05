@@ -45,10 +45,7 @@
     text-transform: none;
     line-height: 1;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     -webkit-font-feature-settings: 'liga';
-       -moz-font-feature-settings: 'liga=1';
-       -moz-font-feature-settings: 'liga';
             font-feature-settings: 'liga';
     -webkit-font-variant-ligatures: discretionary-ligatures;
             font-variant-ligatures: discretionary-ligatures;

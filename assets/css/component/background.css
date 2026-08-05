@@ -23,7 +23,6 @@ ul.crsl > li > a > span,
 #list-categories a:hover::after,
 .letterine > i {
     -webkit-transition: var(--flashGuard);
-       -moz-transition: var(--flashGuard);
             transition: var(--flashGuard);
 }
 

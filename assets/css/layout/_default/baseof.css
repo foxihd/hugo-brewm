@@ -54,10 +54,8 @@
     kerning: auto;
     font-kerning: auto;
     -webkit-font-feature-settings: 'kern' 1;
-       -moz-font-feature-settings: 'kern' 1;
             font-feature-settings: 'kern' 1;
     -webkit-hyphens: auto;
-       -moz-hyphens: auto;
             hyphens: auto;
     -webkit-hyphenate-after: 3;
             hyphenate-after: 3;

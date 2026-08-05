@@ -44,7 +44,6 @@
     outline: none !important;
     border-color: var(--ac);
     -webkit-animation: var(--anm);
-       -moz-animation: var(--anm);
             animation: var(--anm);
 }
 

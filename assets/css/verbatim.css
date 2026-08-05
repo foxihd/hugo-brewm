@@ -81,7 +81,6 @@ pre > code {
     vertical-align: top;
     color: var(--n8e);
     -webkit-user-select: none;
-       -moz-user-select: none;
             user-select: none;
     -webkit-touch-callout: none;
 }

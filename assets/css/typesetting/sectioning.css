@@ -43,7 +43,6 @@ h6 {
     letter-spacing: 0.16em;
     font: var(--normalsize) var(--sf), sans-serif;
     -webkit-font-feature-settings: 'c2sc' 1;
-       -moz-font-feature-settings: 'c2sc' 1;
             font-feature-settings: 'c2sc' 1;
     font-variant-caps: all-small-caps;
 }
