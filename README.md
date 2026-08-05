@@ -52,6 +52,7 @@ _**Figure 2.** Side-by-side windows demonstrating multiple platform supports; Ly
 ### Translation
 
 We currently support:
+- 🇮🇩 Bahasa Indonesia
 - 🇪🇸 Català — Translated by [duub qnnp @duub](https://github.com/duub)
 - 🇩🇪 Deutsch  — Translated by [Hegik @Hegik](https://github.com/Hegik)
 - 🇬🇧 English
@@ -59,7 +60,7 @@ We currently support:
 - 🇲🇽 Español (México) — Translated by [Jerson Cortes (@Jerson-Cortes)](https://github.com/Jerson-Cortes)
 - 🇫🇷 French — Translated by [N. Piatte (@Ennpeh)](https://github.com/Ennpeh)
 - 🇮🇳 Hindi (हिन्दी) — Translated by [@Akshay-365](https://github.com/Akshay-365)
-- 🇮🇩 Bahasa Indonesia
+- 🇧🇷 Português (Brasil) — Translated by [Luiz Felipe (@lfvicent3)](https://github.com/lfvicent3)
 
 Please feel free to contribute to additional [translation](https://github.com/foxihd/hugo-brewm/blob/main/i18n/).
 
@@ -78,18 +79,18 @@ _**Table 2.** All 3rd party assets web assets that may be fetched when required.
 
 ### Web Fonts
 
-| Web Fonts (woff2)  | Styles |   Size | Note                                            |
-| ------------------ | :----: | -----: | :---------------------------------------------- |
-| Inconsolata        |    2   |  ~77KB | Load on verbatim, disable on websafe fonts mode |
-| OpenDyslexic       |    4   | ~427KB | Mandatory, load on OpenDyslexic mode            |
-| OpenDyslexic Mono  |    1   |  ~24KB | Load on OpenDyslexic mode for verbatim          |
-| LexicaUltralegible |    4   | ~103KB | default sans-serif, disable on websafe mode     |
-| Inter              |    4   | ~454KB | set on`site.Params.typeface.sans` = `Inter`     |
-| Monserrat          |    4   | ~514KB | set on`site.Params.typeface.sans` = `Monserrat` |
-| Rosario            |    4   | ~150KB | set on`site.Params.typeface.sans` = `Rosario`   |
-| EBGaramond         |    4   | ~864KB | default roman/serif, disable on websafe         |
-| Cormorant          |    4   | ~516KB | set on`site.Params.typeface.roman` = `Cormorant`|
-| Crimson            |    4   | ~104KB | set on`site.Params.typeface.roman` = `Crimson`  |
+| Web Fonts (woff2)  |   Size | Note                                            |
+| ------------------ | -----: | :---------------------------------------------- |
+| Inconsolata        |  ~77KB | Load on verbatim, disable on websafe fonts mode |
+| OpenDyslexic       | ~427KB | Mandatory, load on OpenDyslexic mode            |
+| OpenDyslexic Mono  |  ~24KB | Load on OpenDyslexic mode for verbatim          |
+| LexicaUltralegible | ~103KB | default sans-serif, disable on websafe mode     |
+| Inter              | ~454KB | set on`site.Params.typeface.sans` = `Inter`     |
+| Monserrat          | ~514KB | set on`site.Params.typeface.sans` = `Monserrat` |
+| Rosario            | ~150KB | set on`site.Params.typeface.sans` = `Rosario`   |
+| EBGaramond         | ~864KB | default roman/serif, disable on websafe         |
+| Cormorant          | ~516KB | set on`site.Params.typeface.roman` = `Cormorant`|
+| Crimson            | ~104KB | set on`site.Params.typeface.roman` = `Crimson`  |
 
 _**Table 3.** Hugo-brewm's available fonts that can be selected, unless `site.Params.typeface.webSafe` or `site.Params.posts.sfdefault` is configured._
 
