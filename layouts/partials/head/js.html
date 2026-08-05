@@ -32,25 +32,20 @@
 
 {{- define "partials/head/js/hljs.html" -}}
     {{ "<!-- hljs.html -->" | safeHTML }}
-    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js"
-        integrity="sha384-4l+9bhb7rakZ18megzl0/DWczL8ojbDl1jIEzBVffeMho9A6xB/lkqt1K0PC8Jin" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"
-        integrity="sha384-+ch8x/dgaV//v6Sa8m4v5+7KScnpCuxHqilN8njQ013CEKg3Fbd8Q3oN9tfpouLh" crossorigin="anonymous"
-        onload="hljs.highlightAll(); hljs.initLineNumbersOnLoad();"></script>
-    {{- if .Params.Hljslang }}
-        <script src="https://cdn.jsdelivr.net/npm/highlightjs-lang.js@1.1.0/dist/highlightjs-lang.min.js"
-            integrity="sha384-75WGRpKMq3Y83/0jMJ4YeuDd3z48ZvyiFJCYsGoGuE3s8D1P3AiXa6CLxc1wO//W" crossorigin="anonymous"
-            onload="hljs.initLangOnLoad();"></script>
-    {{- end }}
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        hljs.initLineNumbersOnLoad();
+    </script>
 {{- end }}
 
 {{- define "partials/head/js/katex.html" -}}
     {{ "<!-- katex.html -->" | safeHTML }}
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.js"
-        integrity="sha384-J+9dG2KMoiR9hqcFao0IBLwxt6zpcyN68IgwzsCSkbreXUjmNVRhPFTssqdSGjwQ" crossorigin="anonymous"
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.18.1/dist/katex.min.js"
+        integrity="sha384-ycJ6GAwiS15LoUPipwJOrWTvkUHl/YqELValBwI5I4awP1EeEQJYarj+w85ntcz7" crossorigin="anonymous"
         defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/contrib/auto-render.min.js"
-        integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.18.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-bjyGPfbij8/NDKJhSGZNP/khQVgtHUE5exjm4Ydllo42FwIgYsdLO2lXGmRBf5Mz" crossorigin="anonymous"
         onload="renderMathInElement(document.body);"
         defer></script>
     <script>
@@ -82,7 +77,7 @@
             }
         };
     </script>
-    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
 {{- end }}
 
 {{- define "partials/head/js/network-graph.html" -}}
