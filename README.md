@@ -30,11 +30,11 @@ _**Figure 2.** Side-by-side windows demonstrating multiple platform supports; Ly
 - **Scalable**: Start small and grow into a thriving digital garden; with multi-author support, multilingual capabilities and content organization through taxonomy, optional Pagefind search integration, subscribable section and terms-specific or site-wide over RSS, external feed embed over RSS, and comments via Giscus or Fediverse (Mastodon & Bluesky).
 - **Frameworkless**: Lower maintenance & carbon footprint by lesser resource usage. Hugo-brewm's combined JavaScript and stylesheet assets (excluding optional external libraries like MathJax, Katex or PageFind) totaling under 140KB and compressed to less than 55KB when Gzipped!
 
-    | Assets Filename    |    Size | Gzipped | Note                                          |
+    | Assets Filename    |  Brotli |    Gzip | Note                                          |
     | ------------------ | ------: | ------: | :-------------------------------------------- |
-    | hugo-brewm.min.css | ~92.4KB | ~38.4KB | Compiled site-wide stylesheet and basic icon font, could be less  |
-    | hugo-brewm.min.js  | ~35.0KB | ~11.8KB | Compiled site-wide javascript, could be less  |
-    | fediscuss.min.js   | ~12.2KB |  ~4.2KB | Discuss over Mastodon & Bluesky, load if required |
+    | hugo-brewm.min.css | ~35.4KB | ~38.2KB | Compiled site-wide stylesheet and basic icon font, could be less  |
+    | hugo-brewm.min.js  | ~10.4KB | ~11.8KB | Compiled site-wide javascript, could be less  |
+    | fediscuss.min.js   |  ~3.8KB |  ~4.3KB | Discuss over Mastodon & Bluesky, load if required |
   
     _**Table 1.** All hugo-brewm's web assets that may be fetched once and reusable for thousands of pages until the cache is purged or expired._
 
@@ -65,15 +65,14 @@ Please feel free to contribute to additional [translation](https://github.com/fo
 
 ### 3rd Party Assets
 
-| 3rd Party Assets   |    Size |  Gzipped | Note                                         |
-| ------------------ | ------: | ------: | :-------------------------------------------- |
-| pagefind-ui.js     | ~76.5KB | ~21.0KB | Search function`site.Params.search.pagefind`  |
-| purify.min         | ~21.7KB |  ~8.2KB | DOM sanitizer`site.Params.disableDOMPurify`   |
-| katex.min.js       |  ~270KB | ~71.8KB | KaTeX math engine`.Params.math`               |
-| katex.min.css      | ~22.8KB |  ~3.4KB | KaTeX math style`.Params.math`                |
-| d3.v7.min.js       |  ~273KB | ~87.9KB | Render network graph`{{< network-graph >}}`   |
-| tex-mml-chtml.js   | ~1.11MB |  ~249KB | MathJax math engine`.Params.mathJax`          |
-| highlight.min.js   |  ~117KB | ~38.5KB | Code Highlighting`.Params.hljs`               |
+| 3rd Party Assets   | Note                                          |
+| ------------------ | :-------------------------------------------- |
+| pagefind-ui.js     | Search function`site.Params.search.pagefind`  |
+| purify.min         | DOM sanitizer`site.Params.disableDOMPurify`   |
+| katex.min.js       | KaTeX math engine`.Params.math`               |
+| d3.v7.min.js       | Render network graph`{{< network-graph >}}`   |
+| tex-mml-chtml.js   | MathJax math engine`.Params.mathJax`          |
+| highlight.min.js   | Code Highlighting`.Params.hljs`               |
 
 _**Table 2.** All 3rd party assets web assets that may be fetched when required._
 
