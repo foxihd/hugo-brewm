@@ -14,5 +14,6 @@
     --box-shadow: 0 1px 0.5px var(--g18);
     --box-shadow-inset: inset 0 1px 5px #0001, 0 1px 0 #fff5, 0 -1px 0 #0005;
     --fontScale: 1;
+    --baselineStretch: 1;
     font-size: calc(var(--fontScale) * 10.5pt);
 }
