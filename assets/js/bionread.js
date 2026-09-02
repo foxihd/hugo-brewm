@@ -17,8 +17,8 @@ function bionRead() {
         const length = word.length;
         const midPoint = Math.ceil(length / 2);
         return length < 2 
-            ? `<b class=k>${word}</b>`
-            : `<span><b class=k>${word.slice(0, midPoint)}</b>${word.slice(midPoint)}</span>`;
+            ? `<b>${word}</b>`
+            : `<span><b>${word.slice(0, midPoint)}</b>${word.slice(midPoint)}</span>`;
     }
 
     if (!bionReadMainContent || !bionReadSnapshot) {
@@ -35,8 +35,28 @@ function bionRead() {
         safeElements.forEach(element => {
             const targetElements = element.querySelectorAll('h1, h2, h3, h4, h5, p, a, li, blockquote');
             targetElements.forEach(el => {
-                const words = el.textContent.split(' ');
-                el.innerHTML = words.map(word => renderWord(word)).join(' ');
+                // treeWalker API
+                const textWalker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+                let indexNode;
+                const textNodes = [];
+                // add to textNodes array
+                while (indexNode = textWalker.nextNode()) {
+                    textNodes.push(indexNode);
+                }
+                // process textNodes
+                textNodes.forEach(textNode => {
+                    // temp container
+                    const fragment = document.createDocumentFragment();
+                    const scratch = document.createElement('span');
+                    // process Words
+                    const words = textNode.textContent.split(' ');
+                    scratch.innerHTML = words.map(renderWord).join(' ');
+                    // swap textNode with rendered fragment
+                    while (scratch.firstChild) {
+                        fragment.appendChild(scratch.firstChild);
+                    }
+                    textNode.parentNode.replaceChild(fragment, textNode);
+                });
             });
         });
 
