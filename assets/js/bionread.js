@@ -14,6 +14,7 @@ function bionRead() {
     const bionReadSnapshot = getElement('bionReadSnapshot');
     const safeElements = getElements('[data-bionRead-safe]');
     const renderWord = (word) => {
+        if (!word.trim()) return;
         const length = word.length;
         const midPoint = Math.ceil(length / 2);
         return length < 2 
