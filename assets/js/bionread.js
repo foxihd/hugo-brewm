@@ -13,6 +13,13 @@ function bionRead() {
     const bionReadMainContent = getElement('content');
     const bionReadSnapshot = getElement('bionReadSnapshot');
     const safeElements = getElements('[data-bionRead-safe]');
+    const renderWord = (word) => {
+        const length = word.length;
+        const midPoint = Math.ceil(length / 2);
+        return length < 2 
+            ? `<b class=k>${word}</b>`
+            : `<span><b class=k>${word.slice(0, midPoint)}</b>${word.slice(midPoint)}</span>`;
+    }
 
     if (!bionReadMainContent || !bionReadSnapshot) {
         console.error('Required elements not found');
@@ -28,17 +35,8 @@ function bionRead() {
         safeElements.forEach(element => {
             const targetElements = element.querySelectorAll('h1, h2, h3, h4, h5, p, a, li, blockquote');
             targetElements.forEach(el => {
-                const words = el.innerText.split(' ');
-                const processedWords = words.map(word => {
-                    const length = word.length;
-                    if (length === 1) return `<b class=k>${word}</b>`;
-                    const midPoint = Math.ceil(length / 2);
-                    return word
-                        .split('')
-                        .map((char, index) => index < midPoint ? `<b class=k>${char}</b>` : char)
-                        .join('');
-                });
-                el.innerHTML = processedWords.join(' ');
+                const words = el.textContent.split(' ');
+                el.innerHTML = words.map(word => renderWord(word)).join(' ');
             });
         });
 
