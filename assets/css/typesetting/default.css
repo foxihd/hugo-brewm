@@ -383,6 +383,7 @@ blockquote cite {
 
 #TableOfContents,
 .letterine {
+    --offset: 4.5rem;
     text-transform: lowercase;
     letter-spacing: 0.1em;
     font-variant: small-caps;
@@ -390,10 +391,14 @@ blockquote cite {
             font-feature-settings: 'smcp' 1;
 }
 
+
 .letterine::before {
+    --mask: linear-gradient(to right, transparent var(--offset), black var(--offset), black 100%);
     display: block;
     border-bottom: 3pt solid var(--ac);
     content: '';
+    -webkit-mask-image: var(--mask);
+            mask-image: var(--mask);
 }
 
 .letterine > i {
@@ -403,7 +408,6 @@ blockquote cite {
     position: relative;
     top: -3pt;
     float: left;
-    background: var(--bg);
     padding-right: .1em;
     line-height: 0.5;
     color: var(--ac);

@@ -13,7 +13,7 @@ comments: false
 secnum: true
 ---
 
-<span class="letterine"><i>T</i>his is example of span with letterine class.</span>
+<span class="letterine" style="--offset: 4.5rem;"><i>T</i>his is example of span with letterine class.</span>
 You need set the `markup.goldmark.unsafe` and `markup.goldmark.renderer.unsafe` parameter in `config.toml` to write html directly, but this is not recommended.
 {{< marginpar >}}
 And this is marginpar.
