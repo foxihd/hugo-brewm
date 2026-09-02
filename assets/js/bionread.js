@@ -61,11 +61,11 @@ function bionRead() {
             });
         });
 
-        // make 'floated' text slices less contrast
-        rootSty.setProperty('--fg', lightSwitch.checked ? '#333' : '#ccc');
+        // // make 'floated' text slices less contrast
+        // rootSty.setProperty('--fg', lightSwitch.checked ? '#333' : '#ccc');
 
-        // make 'anchored' text slices a bit weighted
-        rootSty.setProperty('--bion', '0.028em');
+        // // make 'anchored' text slices a bit weighted
+        // rootSty.setProperty('--bion', '0.028em');
     } else {
         // restore snapshot
         bionReadMainContent.innerHTML = bionReadSnapshot.innerHTML;
@@ -73,11 +73,11 @@ function bionRead() {
         // purge snapshot
         bionReadSnapshot.innerHTML = '';
 
-        // restore style
-        rootSty.removeProperty('--fg');
-        rootSty.removeProperty('--bion');
+        // // restore style
+        // rootSty.removeProperty('--fg');
+        // rootSty.removeProperty('--bion');
 
         // reset color settings
-        setColor();
+        // setColor();
     }
 }

@@ -347,14 +347,6 @@ input.toggle:checked + label::before {
 }
 
 /* bionRead */
-b.k {
-    vertical-align: baseline;
-    letter-spacing: var(--bion);
-    color: var(--off);
-    font-weight: 400 !important;
-    -webkit-text-stroke: var(--bion) var(--off);
-    font-synthesis: weight;
-}
 
 #useBionRead {
     display: none;
