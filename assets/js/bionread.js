@@ -9,9 +9,6 @@ getElement('useBionRead').innerHTML = `
 bionReadSwitch.checked = false;
 // define the function
 function bionRead() {
-    // define capture and restore environment variable
-    const bionReadMainContent = getElement('content');
-    const bionReadSnapshot = getElement('bionReadSnapshot');
     const safeElements = getElements('[data-bionRead-safe]');
     const renderWord = (word) => {
         if (!word.trim())
@@ -23,15 +20,19 @@ function bionRead() {
         return `<span><b>${word.slice(0, mid)}</b>${word.slice(mid)}</span>`;
     }
 
-    if (!bionReadMainContent || !bionReadSnapshot) {
-        console.error('Required elements not found');
-        return;
+    // define capture and restore environment variable
+    const mainContent = getElement('content');
+    if (mainContent) {
+        document.body.insertAdjacentHTML(
+            'beforeend',
+            '<div id="snapshot" class="hide" hidden></div>');
     }
+    const snapshot = getElement('snapshot');
 
     // switch conditioning
     if (bionReadSwitch.checked) {
         // capture snapshot
-        bionReadSnapshot.innerHTML = bionReadMainContent.innerHTML;
+        snapshot.innerHTML = mainContent.innerHTML;
 
         // split words into 'anchored' and 'floated' part
         safeElements.forEach(element => {
@@ -69,10 +70,10 @@ function bionRead() {
         // rootSty.setProperty('--bion', '0.028em');
     } else {
         // restore snapshot
-        bionReadMainContent.innerHTML = bionReadSnapshot.innerHTML;
+        mainContent.innerHTML = snapshot.innerHTML;
 
         // purge snapshot
-        bionReadSnapshot.innerHTML = '';
+        snapshot.innerHTML = '';
 
         // // restore style
         // rootSty.removeProperty('--fg');
