@@ -14,12 +14,13 @@ function bionRead() {
     const bionReadSnapshot = getElement('bionReadSnapshot');
     const safeElements = getElements('[data-bionRead-safe]');
     const renderWord = (word) => {
-        if (!word.trim()) return;
-        const length = word.length;
-        const midPoint = Math.ceil(length / 2);
-        return length < 2 
-            ? `<b>${word}</b>`
-            : `<span><b>${word.slice(0, midPoint)}</b>${word.slice(midPoint)}</span>`;
+        if (!word.trim())
+            return;
+        const len = word.length;
+        if (len < 2)
+            return `<b>${word}</b>`;
+        const mid = Math.ceil(len / 2);
+        return `<span><b>${word.slice(0, mid)}</b>${word.slice(mid)}</span>`;
     }
 
     if (!bionReadMainContent || !bionReadSnapshot) {
@@ -52,7 +53,7 @@ function bionRead() {
                     // process Words
                     const words = textNode.textContent.split(' ');
                     scratch.innerHTML = words.map(renderWord).join(' ');
-                    // swap textNode with rendered fragment
+                    // swap textNode with assembled fragment
                     while (scratch.firstChild) {
                         fragment.appendChild(scratch.firstChild);
                     }
@@ -77,7 +78,7 @@ function bionRead() {
         // rootSty.removeProperty('--fg');
         // rootSty.removeProperty('--bion');
 
-        // reset color settings
+        // // reset color settings
         // setColor();
     }
 }
