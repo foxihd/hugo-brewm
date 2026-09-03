@@ -142,7 +142,6 @@ if (mstdRoot) {
         if (attachmentTypes) {
             return (attachmentTypes[attachment.type] || attachmentTypes.default)();
         }
-
     }
 
     const renderMstdStat = (toot) => `
@@ -179,10 +178,9 @@ if (mstdRoot) {
             return result;
         }
 
-        const node = document.createElement('li');
-        node.id = `mstd${toot.id}`;
-        node.dataset.date = toISOString(toot.created_at);
-        node.innerHTML = `
+        const node = Object.assign(document.createElement('li'), {
+            id: `mstd${toot.id}`,
+            innerHTML: `
 <article class='fed-comments mstd'>
   <header class='author'>
     <img src='${escapeHtml(toot.account.avatar_static)}' height=48 width=48 alt='${user_account(toot.account)}' loading='lazy'/>
@@ -197,9 +195,9 @@ if (mstdRoot) {
       <time datetime='${toISOString(toot.created_at)}'>${toot.edited_at ? '*' : ''}${formatDate(toot.created_at)}</time>
     </a>
   </footer>
-</article>
-            `;
-
+</article>`
+        });
+        node.dataset.date = toISOString(toot.created_at);
         return node;
     }
 
