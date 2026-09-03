@@ -10,7 +10,8 @@ toc = true
 categories = ["latex"]
 +++
 
-This is a quick demonstration post.  It serves as an example of the features
+<span class="letterine" style="--offset: 4.4rem;"><i>T</i>his is a quick demonstration post.</span>
+It serves as an example of the features
 of this theme.  One of them is $ \LaTeX $ via [Katex](https://katex.org/).
 {{< section "begin" >}}
 ## A Bit About Mathematics

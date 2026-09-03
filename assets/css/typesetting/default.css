@@ -382,7 +382,7 @@ blockquote cite {
 
 #TableOfContents,
 .letterine {
-    --offset: 4.5rem;
+    --offset: 4rem;
     text-transform: lowercase;
     letter-spacing: 0.1em;
     font-variant: small-caps;

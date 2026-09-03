@@ -8,7 +8,7 @@ translationKey: markdown
 coffee: 1
 ---
 
-<span class="letterine"><i>I</i>ni adalah contoh span dengan kelas letterine.</span>
+<span class="letterine" style="--offset: 3rem;"><i>I</i>ni adalah contoh span dengan kelas letterine.</span>
 Anda perlu mengatur parameter `markup.goldmark.unsafe` dan `markup.goldmark.renderer.unsafe` di `config.toml` untuk menulis html secara langsung, tetapi ini tidak direkomendasikan.
 {{< marginpar >}}
 Dan ini adalah marginpar.
