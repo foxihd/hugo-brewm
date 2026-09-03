@@ -10,16 +10,6 @@ bionReadSwitch.checked = false;
 // define the function
 function bionRead() {
     const safeElements = getElements('[data-bionRead-safe]');
-    const renderWord = (word) => {
-        if (!word.trim())
-            return;
-        const len = word.length;
-        if (len < 2)
-            return `<b>${word}</b>`;
-        const mid = Math.ceil(len / 2);
-        return `<span><b>${word.slice(0, mid)}</b>${word.slice(mid)}</span>`;
-    }
-
     // define capture and restore environment variable
     const mainContent = getElement('content');
     if (mainContent) {
@@ -53,7 +43,15 @@ function bionRead() {
                     const scratch = document.createElement('span');
                     // process Words
                     const words = textNode.textContent.split(' ');
-                    scratch.innerHTML = words.map(renderWord).join(' ');
+                    scratch.innerHTML = words.map(word => {
+                        if (!word.trim())
+                            return;
+                        const len = word.length;
+                        if (len < 2)
+                            return `<b>${word}</b>`;
+                        const mid = Math.ceil(len / 2);
+                        return `<span><b>${word.slice(0, mid)}</b>${word.slice(mid)}</span>`;
+                    }).join(' ');
                     // swap textNode with assembled fragment
                     while (scratch.firstChild) {
                         fragment.appendChild(scratch.firstChild);
