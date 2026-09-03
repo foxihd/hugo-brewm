@@ -58,10 +58,10 @@ ul.crsl > li {
 
 ul.crsl > li > a {
     position: absolute;
-    top: -1px;
-    right: 0;
+    top: 0;
+    right: 1rem;
     bottom: 0;
-    left: -1px;
+    left: 0;
     border-radius: 0.82ex;
     overflow: clip;
     color: var(--fg);
@@ -78,10 +78,11 @@ ul.crsl > li:focus-within {
 
 ul.crsl > li > a > span {
     position: relative;
-    border-radius: 0 1ex 1ex 0;
+    border-radius: 0 0 9pt 0;
     background-color: var(--bg);
     padding: 0.7ex 1ex;
     max-width: 12.8rem;
+    word-wrap: break-word;
     -webkit-box-decoration-break: clone;
             box-decoration-break: clone;
 }
