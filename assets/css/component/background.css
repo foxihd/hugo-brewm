@@ -20,8 +20,7 @@
 ul.crsl > li > a > span::before,
 ul.crsl > li > a > span::after,
 ul.crsl > li > a > span,
-#list-categories a:hover::after,
-.letterine > i {
+#list-categories a:hover::after {
     -webkit-transition: var(--flashGuard);
             transition: var(--flashGuard);
 }
