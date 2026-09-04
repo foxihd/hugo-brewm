@@ -49,10 +49,12 @@
     widows: 2;
 }
 
-@view-transition {
-    navigation: auto;
+/* disable @view-transition due to webkit browser bug */
+@supports (scrollbar-width: auto) {
+    @view-transition {
+        navigation: auto;
+    }
 }
-
 
 html {
     scroll-behavior: smooth;
