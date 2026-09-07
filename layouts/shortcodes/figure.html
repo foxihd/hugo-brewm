@@ -33,7 +33,7 @@
     <figcaption id="{{ $figID }}">
 {{- else }}
     <input id="{{ $figID }}" class="marginpar-ctrl" type="checkbox" aria-controls="the-{{ $figID }}" hidden>
-    <label for="{{ $figID }}"></label>
+    <label for="{{ $figID }}" aria-label="{{ i18n "marginpar" }}"></label>
     {{- if eq $type "margin" }}
         <span id="the-{{ $figID }}" class="marginpar">
         {{- with .Get "link" }}<a href="{{ . }}" class="has-img">
