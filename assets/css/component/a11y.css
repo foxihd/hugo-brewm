@@ -95,18 +95,18 @@ button {
     cursor: pointer;
 }
 
-/* range */
-label.range {
+/* form */
+form {
     display: flex;
     flex-direction: row-reverse;
 }
 
-label.range > input {
+form > input {
     flex: 1;
     accent-color: var(--ac);
 }
 
-label.range > output {
+form > output {
     width: 4rem;
     text-align: center;
     color: var(--ac);
@@ -192,7 +192,7 @@ label.range > output {
     top: 0.2em;
 }
 
-#setContrast > div {
+#setContrast > form {
     display: flex;
     justify-content: space-around;
     padding: 2pt;

@@ -26,46 +26,37 @@ const bskyRoot = getElement('bsky-comments');
 
 if (bskyRoot) {
     var bskyCommentsLoaded = false;
-    var skeetURL = bskyRoot.dataset.url;
+    const skeetURL = bskyRoot.dataset.url;
     const toBskyURL = (uri) => {
         const splitUri = uri.split('/');
-        if (splitUri[0] === 'at:') {
-            return 'https://bsky.app/profile/' + splitUri[2] + '/post/' + splitUri[4];
-        } else {
-            return uri;
-        }
+        return splitUri[0] === 'at:'
+            ? 'https://bsky.app/profile/' + splitUri[2] + '/post/' + splitUri[4]
+            : uri;
     }
     const toAtProtoURI = (splitUrl) => `at://${splitUrl[4]}/app.bsky.feed.post/${splitUrl[6]}`;
     const ToBskyImgURL = (did, blobLink, thumb) => `https://cdn.bsky.app/img/${thumb ? 'feed_thumbnail' : 'feed_fullsize'}/plain/${did}/${blobLink}`;
     const bskyAPI = getURI(skeetURL, toAtProtoURI);
 
     if (bskyAPI !== skeetURL) {
-
         const loadbskyAPI = async () => {
-        if (bskyCommentsLoaded) return;
-
-        if (!fedRoot) {
-            bskyRoot.innerHTML = `<span id=bskyIsLoading class=loading>${i18nLoading}</span>`;
-        }
-
-        try {
+            if (bskyCommentsLoaded) return;
+            if (!fedRoot) {
+                bskyRoot.innerHTML = `<span id=bskyIsLoading class=loading>${i18nLoading}</span>`;
+            }
+            try {
                 const skeetResponse = await fetch(
                     `https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread?uri=${bskyAPI}`
                 );
                 const data = await skeetResponse.json();
                 checkResponseStatus(skeetResponse);
-
                 addToCounter(data.thread.post.replyCount, data.thread.post.repostCount, data.thread.post.likeCount);
-
                 if (!fedRoot) {
                     getElement('stats').innerHTML = renderBskyStat(data.thread.post);
                     getElement('bskyIsLoading').remove();
                 }
-
                 if (!mstdRoot) {
                     getElement('discussion-starter-content').innerHTML = `<div data-bionRead-safe>${renderRichText(data.thread.post.record)}</div>`;
                 }
-
                 if (data.thread.replies > 0) {
                     bskyRoot.setAttribute('role', 'feed');
                     const bskyDOM =
@@ -86,38 +77,29 @@ if (bskyRoot) {
                             : bskyRoot.innerHTML = i18nNocomment;
                     }
                 }
-
-            bskyCommentsLoaded = true;
-            bskyRoot.setAttribute('aria-busy', 'false');
-
-        } catch (error) {
-            console.error(`Bluesky ${i18nErr}`, error);
-            bskyRoot.innerHTML = `<div role="alert" class="er">[Bluesky] <br> ${i18nErr} : ${error}</div>`;
+                bskyCommentsLoaded = true;
+                bskyRoot.setAttribute('aria-busy', 'false');
+            } catch (error) {
+                console.error(`Bluesky ${i18nErr}`, error);
+                bskyRoot.innerHTML = `<div role="alert" class="er">[Bluesky] <br> ${i18nErr} : ${error}</div>`;
+            }
         }
-    }
-
         respondToVisibility(bskyRoot, loadbskyAPI);
     }
 
-    const renderBskyContent = (post) => `
-        <div data-bionRead-safe>${renderRichText(post.record)}</div>
-        ${renderBskyAttachment(post)}
-    `;
+    const renderBskyContent = (post) => `<div data-bionRead-safe>${renderRichText(post.record)}</div>${renderBskyAttachment(post)}`;
 
     const renderRichText = (record) => {
         let richText = ``
-
         const textEncoder = new TextEncoder();
         const utf8Decoder = new TextDecoder();
         const utf8Text = new Uint8Array(record.text.length * 3);
         textEncoder.encodeInto(record.text, utf8Text);
         var charIdx = 0;
-
         for (const facetIdx in record.facets) {
             const facet = record.facets[facetIdx];
             const facetFeature = facet.features[0];
             const facetType = facetFeature.$type;
-
             var facetLink = '#';
             if (facetType == 'app.bsky.richtext.facet#tag') {
                 facetLink = `https://bsky.app/hashtag/${facetFeature.tag}`;
@@ -126,15 +108,12 @@ if (bskyRoot) {
             } else if (facetType == 'app.bsky.richtext.facet#mention') {
                 facetLink = `https://bsky.app/profile/${facetFeature.did}`;
             }
-
             if (charIdx < facet.index.byteStart) {
                 const preFacetText = utf8Text.slice(charIdx, facet.index.byteStart);
                 richText += utf8Decoder.decode(preFacetText)
             }
-
             const facetText = utf8Text.slice(facet.index.byteStart, facet.index.byteEnd);
             richText += `<a href='${facetLink}' target='_blank' rel='external noreferrer nofollow'>` + utf8Decoder.decode(facetText) + `</a>`;
-
             charIdx = facet.index.byteEnd;
         }
 
@@ -175,28 +154,26 @@ if (bskyRoot) {
     }
 
     const renderBskyStat = (post) => `
-        ${renderStat(post.replyCount, toBskyURL(post.uri), i18nReplies, 'replies')}
-        ${renderStat(post.repostCount, `${toBskyURL(post.uri)}/reposted-by`, i18nReblogs, 'reblogs')}
-        ${renderStat(post.likeCount, `${toBskyURL(post.uri)}/liked-by`, i18nFavourites, 'favourites')}
+${renderStat(post.replyCount, toBskyURL(post.uri), i18nReplies, 'replies')}
+${renderStat(post.repostCount, `${toBskyURL(post.uri)}/reposted-by`, i18nReblogs, 'reblogs')}
+${renderStat(post.likeCount, `${toBskyURL(post.uri)}/liked-by`, i18nFavourites, 'favourites')}
     `;
 
     const renderSkeet = (comment) => {
         const replyDate = new Date(comment.post.record.createdAt);
         return `
 <li data-date='${toISOString(replyDate)}' id='${comment.post.cid}'>
-    <article class='fed-comments bsky'>
+  <article class='fed-comments bsky'>
     <header class='author'>
-        <img src='${comment.post.author.avatar}' width=48 height=48 alt='${comment.post.author.handle}' loading='lazy' />
-        <a class='has-aria-label' href='https://bsky.app/profile/${comment.post.author.handle}' rel='external noreferrer nofollow' aria-label='@${comment.post.author.handle}' aria-description='${comment.post.author.displayName}'>
-            <span>${comment.post.author.displayName}</span>
-        </a>
+      <img src='${comment.post.author.avatar}' width=48 height=48 alt='${comment.post.author.handle}' loading='lazy' />
+      <a class='has-aria-label' href='https://bsky.app/profile/${comment.post.author.handle}' rel='external noreferrer nofollow' aria-label='@${comment.post.author.handle}' aria-description='${comment.post.author.displayName}'><span>${comment.post.author.displayName}</span></a>
     </header>
     <div class='content'>${renderBskyContent(comment.post)}</div>
     <footer>
-        <div class='stat'>${renderBskyStat(comment.post)}</div>
-        <a class='date' href='${toBskyURL(comment.post.uri)}' rel='ugc external noreferrer nofollow'><time datetime='${toISOString(replyDate)}'>${formatDate(replyDate)}</time></a>
+      <div class='stat'>${renderBskyStat(comment.post)}</div>
+      <a class='date' href='${toBskyURL(comment.post.uri)}' rel='ugc external noreferrer nofollow'><time datetime='${toISOString(replyDate)}'>${formatDate(replyDate)}</time></a>
     </footer>
-    </article>
+  </article>
 </li>
         `;
     }
@@ -225,15 +202,16 @@ if (bskyRoot) {
 const sortComment = (rootItem) => {
     const items = Array.from(rootItem);
     const index = new Set();
-    items.sort(({ dataset: { date: a } }, { dataset: { date: b } }) => a.localeCompare(b))
-    .forEach((item) => {
-        if (!index.has(item.id)) {
-            index.add(item.id);
-            item.parentNode.appendChild(item);
-        } else {
-            item.remove();
-        }
-    });
+    items
+        .sort(({ dataset: { date: a } }, { dataset: { date: b } }) => a.localeCompare(b))
+        .forEach((item) => {
+            if (!index.has(item.id)) {
+                index.add(item.id);
+                item.parentNode.appendChild(item);
+            } else {
+                item.remove();
+            }
+        });
 }
 
 const aggregateComment = () => {
@@ -246,9 +224,9 @@ const aggregateComment = () => {
             fedRoot.innerHTML = i18nNocomment;
         }
         getElement('stats').innerHTML = `
-            ${renderStat(replies, skeetURL, i18nReplies, 'replies')}
-            ${renderStat(reblogs, `${skeetURL}/reposted-by`, i18nReblogs, 'reblogs')}
-            ${renderStat(favourites, `${skeetURL}/liked-by`, i18nFavourites, 'favourites')}
+${renderStat(replies, skeetURL, i18nReplies, 'replies')}
+${renderStat(reblogs, `${skeetURL}/reposted-by`, i18nReblogs, 'reblogs')}
+${renderStat(favourites, `${skeetURL}/liked-by`, i18nFavourites, 'favourites')}
         `;
         bskyRoot.remove();
         mstdRoot.remove();

@@ -6,11 +6,26 @@ const getElements = selector => document.querySelectorAll(selector);
 const collapseParentNode = getElements('.js-cpn');
 const collapseGrandParentNode = getElements('.js-cgpn');
 const detailsElements = getElements('details.js-details');
-    // register date
+// Date handling
 const date = new Date();
 
-// Event listener helper function
-function addEvent(element, event, handler) {
+const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleString('en-US', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+        formatMatcher: 'basic'
+    }).replace(',', '').replace(/(\d+)\/(\d+)\/(\d+)/, '$3-$1-$2')
+}
+
+const toISOString = (dateString) => {
+    return new Date(dateString).toISOString()
+}
+// Event listener helper const
+const addEvent = (element, event, handler) => {
     if (element) {
         if (element.attachEvent) {
             return element.attachEvent('on' + event, handler);
@@ -20,7 +35,7 @@ function addEvent(element, event, handler) {
 }
 
 // Logotype width calculation
-function recalcLogotypeWidth() {
+const recalcLogotypeWidth = () => {
     const logotype = getElement('logotype');
     const logotypeText = getElement('logotype__text');
     if (logotype) {
@@ -29,7 +44,7 @@ function recalcLogotypeWidth() {
 }
 
 // Viewport adaptation
-function adaptViewport() {
+const adaptViewport = () => {
     // fix logotype when font loading delayed
     document.fonts.ready.then(() => {
         recalcLogotypeWidth();
@@ -45,7 +60,7 @@ function adaptViewport() {
         // rotate to content top icon if homepage has slide
         let hasSlide = getElement('slide-1');
         if (hasSlide) {
-            function adjustToTopButon() {
+            const adjustToTopButon = () => {
                 let toTop = getElement('to-top');
                 if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
                     toTop.classList.remove('to-content-top')
@@ -93,21 +108,4 @@ if (window.innerWidth > 640) {
         };
         addEvent(detail, 'click', handler);
     });
-}
-
-// Date handling
-function formatDate(dateString) {
-    return new Date(dateString).toLocaleString('en-US', {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: false,
-        formatMatcher: 'basic'
-    }).replace(',', '').replace(/(\d+)\/(\d+)\/(\d+)/, '$3-$1-$2')
-}
-
-function toISOString(dateString) {
-    return new Date(dateString).toISOString()
 }

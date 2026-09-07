@@ -1,3 +1,7 @@
+let replies = 0;
+let reblogs = 0;
+let favourites = 0;
+
 const cmt = getElement('comments');
 const cmtSty = document.createElement('style');
 const fedRoot = getElement('fed-comments');
@@ -16,22 +20,13 @@ const {
     i18nNocomment
 } = cmt.dataset;
 
-
-let replies = 0;
-let reblogs = 0;
-let favourites = 0;
-
 const addToCounter = (reply, reblog, favorite) => {
     replies = replies + reply;
     reblogs = reblogs + reblog;
     favourites = favourites + favorite;
 }
 
-const renderStat = (count, url, label, interaction) => `
-<a class='${interaction} ${count > 0 ? 'active' : ''}' href='${url}' rel='external noreferrer nofollow' aria-label='${label}'>
-  <span>${count > 0 ? count : ''}</span>
-</a>
-`;
+const renderStat = (count, url, label, interaction) => `<a class='${interaction} ${count > 0 ? 'active' : ''}' href='${url}' rel='external noreferrer nofollow' aria-label='${label}'><span>${count > 0 ? count : ''}</span></a>`;
 
 const respondToVisibility = (element, callback) => {
     const observer = new IntersectionObserver((entries) => {
@@ -123,11 +118,7 @@ if (mstdRoot) {
             toot.media_attachments.length > 0 
             ? `<div class='attachments'>${toot.media_attachments.map(renderMstdAttachment).join('')}</div>` 
             : '';
-
-        return `
-            <div data-bionRead-safe>${toot.content}</div>
-            ${attachments}
-        `;
+        return `<div data-bionRead-safe>${toot.content}</div>${attachments}`;
     }
 
     const renderMstdAttachment = (attachment) => {
@@ -145,9 +136,9 @@ if (mstdRoot) {
     }
 
     const renderMstdStat = (toot) => `
-        ${renderStat(toot.replies_count, toot.url, i18nReplies, 'replies')}
-        ${renderStat(toot.reblogs_count, `${toot.url}/reblogs`, i18nReblogs, 'reblogs')}
-        ${renderStat(toot.favourites_count, `${toot.url}/favourites`, i18nFavourites, 'favourites')}
+${renderStat(toot.replies_count, toot.url, i18nReplies, 'replies')}
+${renderStat(toot.reblogs_count, `${toot.url}/reblogs`, i18nReblogs, 'reblogs')}
+${renderStat(toot.favourites_count, `${toot.url}/favourites`, i18nFavourites, 'favourites')}
     `;
 
     const renderToot = (toot) => {
@@ -184,16 +175,12 @@ if (mstdRoot) {
 <article class='fed-comments mstd'>
   <header class='author'>
     <img src='${escapeHtml(toot.account.avatar_static)}' height=48 width=48 alt='${user_account(toot.account)}' loading='lazy'/>
-    <a class='has-aria-label' href='${toot.account.url}' rel='external noreferrer nofollow' aria-label='${user_account(toot.account)}' aria-description='${display_name}'>
-      <span>${toot.account.display_name}</span>
-    </a>
+    <a class='has-aria-label' href='${toot.account.url}' rel='external noreferrer nofollow' aria-label='${user_account(toot.account)}' aria-description='${display_name}'><span>${toot.account.display_name}</span></a>
   </header>
   <div class='content' data-bionRead-safe>${renderMstdContent(toot)}</div>
   <footer>
     <div class='stat'>${renderMstdStat(toot)}</div>
-    <a class='date' href='${toot.url}' rel='ugc external noreferrer nofollow'>
-      <time datetime='${toISOString(toot.created_at)}'>${toot.edited_at ? '*' : ''}${formatDate(toot.created_at)}</time>
-    </a>
+    <a class='date' href='${toot.url}' rel='ugc external noreferrer nofollow'><time datetime='${toISOString(toot.created_at)}'>${toot.edited_at ? '*' : ''}${formatDate(toot.created_at)}</time></a>
   </footer>
 </article>`
         });
@@ -206,11 +193,9 @@ if (mstdRoot) {
             .filter(toot => toot.in_reply_to_id === in_reply_to);
         node.forEach(toot => {
             if (toot.in_reply_to_id === mstdRootID) {
-                if (fedRoot) {
-                    fedRoot.appendChild(renderToot(toot));
-                } else {
-                    mstdRoot.appendChild(renderToot(toot));
-                }
+                fedRoot
+                    ? fedRoot.appendChild(renderToot(toot))
+                    : mstdRoot.appendChild(renderToot(toot));
             } else {
                 const hasChildren = toots.find(t => t.id === toot.in_reply_to_id);
                 if (hasChildren) {
