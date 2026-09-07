@@ -3,7 +3,6 @@ author = "AUTHOR NAME"
 date = "2026-02-06T13:56:01-08:00"
 type = "post"
 meta = true
-math = true
 title = "Hugo-Tufte Features compatibility"
 subtitle = "Fancy Subtitle"
 toc = true
@@ -48,7 +47,6 @@ the markdown processor does not override Katex.  Currently, display
 environments should be enclosed in `<p>` tags and blank lines.
 For instance:
 
-<p>
 $$
 \begin{aligned}
   \mu(A) &= \iint_{I^2} \chi_A (x,y) \ d(x,y)
@@ -59,8 +57,6 @@ $$
   =\int_I dx = 1,
 \end{aligned}
 $$
-</p>
-<!-- See https://github.com/jgm/pandoc/issues/3953#issuecomment-334670625 -->
 
 is produced from
 
