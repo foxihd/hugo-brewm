@@ -57,7 +57,7 @@ a11y.innerHTML = `
     <input id="lightSwitch" type="checkbox" onclick="setColor()"><label id="lightSwitchIndicator" class="has-desc" for="lightSwitch" aria-label="${i18nDarkmode}" aria-description="${i18nLight}"></label>
     <fieldset id="setContrast">
       <legend>${i18nContrast}</legend>
-      <form onclick="setColor()">
+      <form onclick="setColor()" style="flex-direction:row">
         <input id="lessContrast" type="radio" name="setContrast" value="less"><label for="lessContrast"><span>${i18nLesscontrast}</span></label>
         <input id="defaultContrast" type="radio" name="setContrast" value="default"><label for="defaultContrast"><span>${i18nDefaultcontrast}</span></label>
         <input id="moreContrast" type="radio" name="setContrast" value="more"><label for="moreContrast"><span>${i18nMorecontrast}</span></label>
