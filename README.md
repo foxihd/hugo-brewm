@@ -32,9 +32,9 @@ _**Figure 2.** Side-by-side windows demonstrating multiple platform supports; Ly
 
     | Assets Filename    |  Brotli |    Gzip | Note                                          |
     | ------------------ | ------: | ------: | :-------------------------------------------- |
-    | hugo-brewm.min.css | ~35.4KB | ~38.2KB | Compiled site-wide stylesheet and basic icon font, could be less  |
-    | hugo-brewm.min.js  | ~10.4KB | ~11.8KB | Compiled site-wide javascript, could be less  |
-    | fediscuss.min.js   |  ~3.8KB |  ~4.3KB | Discuss over Mastodon & Bluesky, load if required |
+    | hugo-brewm.min.css | ~36.8KB | ~40.8KB | Compiled site-wide stylesheet and basic icon font, could be less  |
+    | hugo-brewm.min.js  | ~10.5KB | ~11.9KB | Compiled site-wide javascript, could be less  |
+    | fediscuss.min.js   |  ~3.7KB |  ~4.3KB | Discuss over Mastodon & Bluesky, load if required |
   
     _**Table 1.** All hugo-brewm's web assets that may be fetched once and reusable for thousands of pages until the cache is purged or expired._
 
