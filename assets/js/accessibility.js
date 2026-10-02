@@ -276,7 +276,7 @@ if (hasLocalStorage()) {
 <button id="closeButton" class="has-aria-label" onclick="closeA11yConsole()" aria-label="${ i18nClose}"></button>
     `;
     // Reset functions
-    const resetA11y = () => {
+    function resetA11y() {
         localStorage.clear();
         matchMediaColor();
         colorPalette.reset;
@@ -288,7 +288,7 @@ if (hasLocalStorage()) {
     };
 
     // Save functions
-    const saveA11y = () => {
+    function saveA11y() {
         setTimeout(() => closeA11yConsole(), 618);
 
         localStorage.scheme = scheme();
