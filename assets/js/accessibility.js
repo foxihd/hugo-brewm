@@ -251,6 +251,42 @@ const setStretch = () => {
     rootSty.setProperty('--baselineStretch', baselineStretch.value);
 };
 
+// Read settings from localStorage
+
+if (!localStorage.getItem('scheme') && !localStorage.getItem('contrast')) {
+    matchMediaColor();
+} else {
+    bodySty.setAttribute('style', styles[localStorage.scheme][localStorage.contrast]);
+    lightSwitch.checked = localStorage.scheme == 'dark';
+    getElement(localStorage.contrast + 'Contrast').checked = true;
+    setColor();
+}
+
+if (localStorage.getItem('colorPalette')) {
+    colorPalette.value = localStorage.colorPalette;
+    setColorPalette();
+}
+
+if (localStorage.font === 'OpenDyslexic') {
+    OpenDyslexic.setAttribute('checked', 'checked');
+    useOpenDyslexic();
+}
+
+if (localStorage.useSR === 'true') {
+    useSR.setAttribute('checked', 'checked');
+    useSreenReader();
+}
+
+if (localStorage.getItem('fontSize')) {
+    fontSize.value = localStorage.fontSize;
+    setFontSize();
+}
+
+if (localStorage.getItem('stretchSize')) {
+    baselineStretch.value = localStorage.stretchSize;
+    setStretch();
+}
+
 // Initialize localStorage
 const hasLocalStorage = () => {
     try {
@@ -301,43 +337,6 @@ if (hasLocalStorage()) {
         localStorage.fontSize = fontSize.value;
         localStorage.stretchSize = baselineStretch.value;
     };
-
-    // Read settings from localStorage
-
-    if (!localStorage.getItem('scheme') && !localStorage.getItem('contrast')) {
-        matchMediaColor();
-    } else {
-        bodySty.setAttribute('style', styles[localStorage.scheme][localStorage.contrast]);
-        lightSwitch.checked = localStorage.scheme == 'dark';
-        getElement(localStorage.contrast + 'Contrast').checked = true;
-        setColor();
-    }
-
-    if (localStorage.getItem('colorPalette')) {
-        colorPalette.value = localStorage.colorPalette;
-        setColorPalette();
-    }
-
-    if (localStorage.font === 'OpenDyslexic') {
-        OpenDyslexic.setAttribute('checked', 'checked');
-        useOpenDyslexic();
-    }
-
-    if (localStorage.useSR === 'true') {
-        useSR.setAttribute('checked', 'checked');
-        useSreenReader();
-    }
-
-    if (localStorage.getItem('fontSize')) {
-        fontSize.value = localStorage.fontSize;
-        setFontSize();
-    }
-
-    if (localStorage.getItem('stretchSize')) {
-        baselineStretch.value = localStorage.stretchSize;
-        setStretch();
-    }
-
 }
 
 // Flash guard
