@@ -183,9 +183,23 @@ const contrast = () => {
             : 'default');
 }
 
-const setColor = () => {
+const styles = {
     {{ $lite := site.Params.style.light }}
     {{ $dark := site.Params.style.dark }}
+    light: {
+        default: '--off: #000; --ac: {{ or $lite.ac "#03b" }}; --bg: {{ or $lite.bg "#f9f9f9" }}; --fg: {{ or $lite.fg "#111" }}; --mid:{{ or $lite.mid "#545454" }};',
+        less: '--off: #000; --ac: {{ or $lite.less.ac $lite.ac "#03b" }}; --bg: {{ or $lite.less.bg "#e7e2e2" }}; --fg: {{ or $lite.less.fg "#13253d" }}; --mid:{{ or $lite.less.mid "#444850" }};',
+        more: '--off: #000; --ac: {{ or $lite.more.ac $lite.ac "#03b" }}; --bg: {{ or $lite.more.bg "#fff" }}; --fg: {{ or $lite.more.fg "#000" }}; --mid:{{ or $lite.more.mid "#595959" }};--border: 1pt solid var(--fg);'
+    },
+    dark: {
+        default: '--off: #fff; --ac: {{ or $dark.ac "#fa0" }}; --bg: {{ or $dark.bg "#111" }}; --fg: {{ or $dark.fg "#f9f9f9" }}; --mid:{{ or $dark.mid "#9e9e9e" }};',
+        less: '--off: #fff; --ac: {{ or $dark.less.ac $dark.ac "#fa0" }}; --bg: {{ or $dark.less.bg "#13253d" }}; --fg: {{ or $dark.less.fg "#e7e2e2" }}; --mid:{{ or $dark.less.mid "#acafb9" }};',
+        more: '--off: #fff; --ac: {{ or $dark.more.ac $dark.ac "#fa0" }}; --bg: {{ or $dark.more.bg "#000" }}; --fg: {{ or $dark.more.fg "#fff" }}; --mid:{{ or $dark.more.mid "#969696" }};--border: 1pt solid var(--fg);'
+    }
+};
+
+const setColor = () => {
+    bodySty.setAttribute('style', styles[scheme()][contrast()]);
     {{ if site.Params.logo.logomark }}
         const logomark = getElement('logomark');
         const logomarkDark = getElement('logomark--dark');
@@ -194,22 +208,9 @@ const setColor = () => {
             logomarkDark.style.display = lightSwitch.checked ? 'inline-block' : 'none';
         }
     {{ end }}
-    const styles = {
-        light: {
-            default: '--off: #000; --ac: {{ or $lite.ac "#03b" }}; --bg: {{ or $lite.bg "#f9f9f9" }}; --fg: {{ or $lite.fg "#111" }}; --mid:{{ or $lite.mid "#545454" }};',
-            less: '--off: #000; --ac: {{ or $lite.less.ac $lite.ac "#03b" }}; --bg: {{ or $lite.less.bg "#e7e2e2" }}; --fg: {{ or $lite.less.fg "#13253d" }}; --mid:{{ or $lite.less.mid "#444850" }};',
-            more: '--off: #000; --ac: {{ or $lite.more.ac $lite.ac "#03b" }}; --bg: {{ or $lite.more.bg "#fff" }}; --fg: {{ or $lite.more.fg "#000" }}; --mid:{{ or $lite.more.mid "#595959" }};--border: 1pt solid var(--fg);'
-        },
-        dark: {
-            default: '--off: #fff; --ac: {{ or $dark.ac "#fa0" }}; --bg: {{ or $dark.bg "#111" }}; --fg: {{ or $dark.fg "#f9f9f9" }}; --mid:{{ or $dark.mid "#9e9e9e" }};',
-            less: '--off: #fff; --ac: {{ or $dark.less.ac $dark.ac "#fa0" }}; --bg: {{ or $dark.less.bg "#13253d" }}; --fg: {{ or $dark.less.fg "#e7e2e2" }}; --mid:{{ or $dark.less.mid "#acafb9" }};',
-            more: '--off: #fff; --ac: {{ or $dark.more.ac $dark.ac "#fa0" }}; --bg: {{ or $dark.more.bg "#000" }}; --fg: {{ or $dark.more.fg "#fff" }}; --mid:{{ or $dark.more.mid "#969696" }};--border: 1pt solid var(--fg);'
-        }
-    };
     const fbg = getElements('#background-header, #background-footer');
     lightSwitchIndicator.setAttribute('aria-description', (lightSwitch.checked ? i18nDark : i18nLight));
     bodySty.dataset.scheme = scheme();
-    bodySty.setAttribute('style', styles[scheme()][contrast()]);
     bodySty.dataset.contrast = contrast();
     fbg.forEach(element => {
         moreContrast.checked ? element.classList.add('has-border') : element.classList.remove('has-border');
@@ -306,6 +307,7 @@ if (hasLocalStorage()) {
     if (!localStorage.getItem('scheme') && !localStorage.getItem('contrast')) {
         matchMediaColor();
     } else {
+        bodySty.setAttribute('style', styles[localStorage.scheme][localStorage.contrast]);
         lightSwitch.checked = localStorage.scheme == 'dark';
         getElement(localStorage.contrast + 'Contrast').checked = true;
         setColor();
