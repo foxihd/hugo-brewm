@@ -27,6 +27,7 @@ ul.invert a:hover,
     opacity: 1;
 }
 
+.marginpar-ctrl + label,
 #has-breadcrumb summary,
 #has-pagination summary,
 #page #back,
