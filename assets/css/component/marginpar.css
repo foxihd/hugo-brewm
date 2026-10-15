@@ -58,7 +58,7 @@
 @media screen and (max-width: 640px) {
 
     .marginpar-ctrl + label {
-        display: inline-flex;
+        display: inline-flex !important;
         padding: 2pt;
         color: var(--ac);
     }
