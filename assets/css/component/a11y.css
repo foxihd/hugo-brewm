@@ -501,3 +501,10 @@ img[data-src],
     }
 
 }
+
+body[data-font=OpenDyslexic] {
+    --rm: OpenDyslexic;
+    --sf: OpenDyslexic;
+    --tt: OpenDyslexicMono;
+    letter-spacing: 7%;
+}
