@@ -1,6 +1,8 @@
 a,
 a.replies.active,
 a.reblogs.active,
+#top-nav > summary:hover,
+#top-nav > summary:focus,
 #has-author-name-menu a:hover,
 #has-author-name-menu a:focus,
 #contentinfo a:hover,
