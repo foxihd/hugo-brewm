@@ -2,8 +2,8 @@
 {{- $abs := eq $var "abs" }}
 {{- $force := eq $var "safeHTML" }}
 {{- $marginnoteID := print "marginnote-" .Ordinal }}
-<input id="{{ $marginnoteID }}" class="marginpar-ctrl" type="checkbox" aria-label="{{ i18n "marginpar" }}" aria-controls="the-{{ $marginnoteID }}" hidden>
-<label for="{{ $marginnoteID }}" class="has-counter" tabindex="0" aria-label="{{ i18n "marginpar" }}" aria-controls="the-{{ $marginnoteID }}"></label>
+<input id="{{ $marginnoteID }}" class="marginpar-ctrl" type="checkbox" aria-label="{{ i18n "marginpar" }}" aria-controls="the-{{ $marginnoteID }}">
+<label for="{{ $marginnoteID }}" class="has-counter" aria-label="{{ i18n "marginpar" }}" aria-controls="the-{{ $marginnoteID }}"></label>
 {{- if $abs }}
 <div id="the-{{ $marginnoteID }}" class="marginpar abs" role="note">{{ if $force }}{{ safeHTML .Inner }}{{ else }}{{ markdownify .Inner }}{{ end }}</div>
 {{- else }}

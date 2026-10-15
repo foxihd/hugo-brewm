@@ -12,10 +12,9 @@
     padding-left: var(--indent);
 }
 
-.marginpar-ctrl,
-.marginpar-ctrl + label::before {
+.marginpar-ctrl {
     position: absolute;
-    top: -100vh;
+    clip-path: circle(0);
 }
 
 .marginpar-ctrl + .has-counter::before {
@@ -43,7 +42,10 @@
 
 .marginpar-ctrl + label.has-counter {
     display: unset;
-    padding: 0;
+}
+
+.marginpar-ctrl:focus + label {
+    outline: 1pt solid var(--ac);
 }
 
 @media screen and (max-width: 1024px) {
@@ -58,9 +60,11 @@
     .marginpar-ctrl + label {
         display: inline-flex;
         padding: 2pt;
+        color: var(--ac);
     }
 
     .marginpar-ctrl + label::before {
+        --mid: var(--ac);
         position: unset;
         display: block !important;
         left: 0;

@@ -232,7 +232,7 @@ summary.anchor .has-aria-label::after {
     left: 0.43em;
     align-self: center;
     margin-left: auto;
-    background: linear-gradient(to top, transparent 49%, var(--g18) 51%);
+    background: linear-gradient(to top, transparent 49%, var(--mid) 51%);
     -webkit-background-clip: text;
             background-clip: text;
     color: transparent;
