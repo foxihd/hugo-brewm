@@ -17,5 +17,5 @@ This theme maximizes the possibilities of a static site.
 The comment system relies on the Fediverse (Mastodon and Bluesky), which makes it easier to reach readers.
 While the subscription system utilizes RSS, available across individual taxonomy and section or site-wide.
 
-Hugo Brewm is the gold standard website themes to offer broad compatibility, including support for terminal-based browsers and browsers without JavaScript.
+Hugo Brewm is a gold standard static site theme to offer broad compatibility, including support for terminal-based browsers and browsers without JavaScript.
 For what it’s worth, articles on this theme are also printer-friendly.
