@@ -57,7 +57,7 @@ if (bskyRoot) {
                 if (!mstdRoot) {
                     getElement('discussion-starter-content').innerHTML = `<div data-bionRead-safe>${renderRichText(data.thread.post.record)}</div>`;
                 }
-                if (data.thread.replies > 0) {
+                if (replies > 0) {
                     bskyRoot.setAttribute('role', 'feed');
                     const bskyDOM =
                         typeof DOMPurify !== 'undefined'
@@ -72,9 +72,7 @@ if (bskyRoot) {
                     }
                 } else {
                     if (!fedRoot) {
-                        replies > 0
-                            ? bskyRoot.innerHTML = i18nErr
-                            : bskyRoot.innerHTML = i18nNocomment;
+                        bskyRoot.innerHTML = i18nNocomment;
                     }
                 }
                 bskyCommentsLoaded = true;
