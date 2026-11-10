@@ -178,17 +178,17 @@ ${renderStat(post.likeCount, `${toBskyURL(post.uri)}/liked-by`, i18nFavourites, 
 
     const renderSkeets = (thread) => {
         const node = document.createDocumentFragment();
-        const createElementFromHTML = (htmlString) => {
-            const li = document.createElement('li');
-            li.innerHTML = htmlString.trim();
+        const list = (htmlString) => {
+            const  li = document.createElement('li');
+                   li.innerHTML = htmlString.trim();
             return li.firstChild;
         }
         for (const comment of thread.replies) {
-            const skeet = createElementFromHTML(renderSkeet(comment));
-            if (comment.replies.length > 0 ) {
-                const reply = document.createElement('ul');
+            const skeet = list(renderSkeet(comment));
+            if (comment.replies) {
+                const ul = document.createElement('ul');
                 skeet
-                    .appendChild(reply)
+                    .appendChild(ul)
                     .appendChild(renderSkeets(comment));
             }
             node.appendChild(skeet);
